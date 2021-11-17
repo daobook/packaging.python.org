@@ -20,21 +20,22 @@ msgstr ""
 
 #: ../../source/contribute.rst:5
 msgid "Contribute to this guide"
-msgstr ""
+msgstr "为本指南做贡献"
 
 #: ../../source/contribute.rst:7
 msgid ""
 "The |PyPUG| welcomes contributors! There are lots of ways to help out, "
 "including:"
 msgstr ""
+"|PyPUG| 欢迎贡献者! 有很多方法可以帮助我们，包括："
 
 #: ../../source/contribute.rst:10
 msgid "Reading the guide and giving feedback"
-msgstr ""
+msgstr "阅读指南并提供反馈"
 
 #: ../../source/contribute.rst:11
 msgid "Reviewing new contributions"
-msgstr ""
+msgstr "审查新贡献"
 
 #: ../../source/contribute.rst:12
 msgid "Revising existing content"
