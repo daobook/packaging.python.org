@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-17 22:25+0800\n"
+"POT-Creation-Date: 2021-11-17 22:48+0800\n"
 "PO-Revision-Date: 2021-10-02 03:36+0000\n"
 "Last-Translator: Eric <spice2wolf@gmail.com>\n"
 "Language: zh_Hans\n"
@@ -1087,21 +1087,21 @@ msgstr ""
 
 #: ../../source/glossary.rst:3
 msgid "Glossary"
-msgstr "词汇表"
+msgstr "术语表"
 
 #: ../../source/glossary.rst:8
 msgid "Binary Distribution"
-msgstr "二进制分布 （Binary Distribution）"
+msgstr "二进制分发"
 
 #: ../../source/glossary.rst:11
 msgid ""
 "A specific kind of :term:`Built Distribution` that contains compiled "
 "extensions."
-msgstr "一种特定的术语：`Build Distribution'，包含编译的扩展。"
+msgstr "一种特定的 :term:`构建分发`，它包含编译的扩展。"
 
 #: ../../source/glossary.rst:14
 msgid "Built Distribution"
-msgstr "构建分布（Built Distribution）"
+msgstr "构建分发"
 
 #: ../../source/glossary.rst:17
 msgid ""
@@ -1114,15 +1114,14 @@ msgid ""
 "precompiled (:term:`Wheel` intentionally does not include compiled Python"
 " files)."
 msgstr ""
-"一个term:`Distribution < Distribution Package >` "
-"格式包含只需要移动到目标系统上正确位置的文件和元数据，即可安装。:term:` Wheel ` 是这样一种格式，而 distutil 的 "
-":term:` Source Distribution < Source Distribution (or \"sdist\")>` "
-"不是，因为它需要一个构建步骤才能安装。  这种格式并不意味着必须预编译 Python 文件（:term:` Wheel ` 故意不包括编译的 "
-"Python 文件）。"
+"一个 :term:`分发 <分发包>` 格式包含只需要移动到目标系统上正确位置的文件和元数据，"
+"即可安装。:term:`Wheel` 是这样一种格式，而 distutil 的 "
+":term:`源分发 <源分发（或 \"sdist\")>` 不是，因为它需要一个构建步骤才能安装。"
+"这种格式并不意味着必须预编译 Python 文件（:term:`Wheel` 故意不包括编译的 Python 文件）。"
 
 #: ../../source/glossary.rst:26
 msgid "Distribution Package"
-msgstr "分发软件包"
+msgstr "分发包"
 
 #: ../../source/glossary.rst:29
 msgid ""
@@ -1131,9 +1130,9 @@ msgid ""
 "used to distribute a :term:`Release`. The archive file is what an end-"
 "user will download from the internet and install."
 msgstr ""
-"一个版本化的存档文件包含 Python :term:`packages <Import Package>`、:term:`modules "
-"<Module>` 和其他用于分发:term:`Release` 的资源文件的版本化存档文件。存档文件是最终用户将从 Internet "
-"下载并安装的文件。"
+"一个版本化的存档文件包含 Python :term:`包 <导入包>`、:term:`模块` 和其他用于分发 "
+":term:`发行版` 的资源文件的版本化存档文件。"
+"存档文件是最终用户将从 Internet 下载并安装的文件。"
 
 #: ../../source/glossary.rst:34
 msgid ""
@@ -1145,25 +1144,24 @@ msgid ""
 "language distribution), which are often referred to with the single term "
 "\"distribution\"."
 msgstr ""
-"分发包更常被称为“包”或“分发”，但是当需要更清楚地防止与 :term:`Import Package` "
+"分发包更常被称为“包”或“分发”，但是当需要更清楚地防止与 :term:`导入包` "
 "混淆时，本指南可能会使用扩展术语（通常也称为“包”）或另一种发行版（例如 Linux 发行版或 Python "
-"语言发行版），通常用单个术语“发行版”来指代。"
+"语言发行版），通常用单个术语 \"发行版\" 来指代。"
 
 #: ../../source/glossary.rst:41
 msgid "Egg"
-msgstr "Egg"
+msgstr ""
 
 #: ../../source/glossary.rst:44
-#, fuzzy
 msgid ""
 "A :term:`Built Distribution` format introduced by :ref:`setuptools`, "
 "which is being replaced by :term:`Wheel`.  For details, see ` :doc:`The "
 "Internal Structure of Python Eggs <setuptools:deprecated/python_eggs>` "
 "and `Python Eggs <http://peak.telecommunity.com/DevCenter/PythonEggs>`_"
 msgstr ""
-":term:`Built Distribution`格式由 :ref:`setuptools`引入，并正在被 :term:`Wheel`取代。 "
-"详见`Python Eggs "
-"的内部结构<https://setuptools.readthedocs.io/en/latest/deprecated/python_eggs.html>`_"
+":term:`构建分发` 格式由 :ref:`setuptools` 引入，并正在被 :term:`Wheel` 取代。 "
+"详见 `Python Eggs 的内部结构 "
+"<https://setuptools.readthedocs.io/en/latest/deprecated/python_eggs.html>`_"
 " 和 `Python Eggs <http://peak.telecommunity.com/DevCenter/PythonEggs>`_"
 
 #: ../../source/glossary.rst:48
@@ -1179,13 +1177,13 @@ msgid ""
 "extension) for Python extensions on Windows, or a Java class file for "
 "Jython extensions."
 msgstr ""
-"用 Python 实现的低级语言编写的 :term:`Module` ：C/C++ for Python，Java for "
+"用 Python 实现的低级语言编写的 :term:`模块` ：C/C++ for Python，Java for "
 "Jython。通常包含在单个可动态加载的预编译文件中，例如 Unix 上 Python 扩展的共享对象 (.so) 文件、Windows 上 "
 "Python 扩展的 DLL（给定 .pyd 扩展）或 Jython 扩展的 Java 类文件。"
 
 #: ../../source/glossary.rst:58
 msgid "Known Good Set (KGS)"
-msgstr "已知良好集 (KGS)"
+msgstr "已知良好集（KGS）"
 
 #: ../../source/glossary.rst:61
 msgid ""
@@ -1195,7 +1193,8 @@ msgid ""
 " is commonly used by frameworks and toolkits which are comprised of "
 "multiple individual distributions."
 msgstr ""
-"一组相互兼容的指定版本的发行版。 通常，将运行一个测试套件，该套件在一组特定的包被声明为已知良好集之前通过所有测试。 "
+"一组相互兼容的指定版本的发行版。"
+"通常，将运行一个测试套件，该套件在一组特定的包被声明为已知良好集之前通过所有测试。 "
 "该术语通常用于由多个单独发行版组成的框架和工具包。"
 
 #: ../../source/glossary.rst:67
@@ -1214,7 +1213,8 @@ msgid ""
 "\"package\", but this guide will use the expanded term when more clarity "
 "is needed to prevent confusion with a :term:`Distribution Package` which "
 "is also commonly called a \"package\"."
-msgstr "导入包通常用单个词“包”来指代，但本指南将在需要更清楚地说明时使用扩展术语，以防止与通常也称为“包”的 :term:`分发包` 混淆."
+msgstr "导入包通常用单个词“包”来指代，但本指南将在需要更清楚地说明时使用扩展术语，"
+"以防止与通常也称为“包”的 :term:`分发包` 混淆."
 
 #: ../../source/glossary.rst:77
 msgid "Module"
@@ -1225,22 +1225,22 @@ msgid ""
 "The basic unit of code reusability in Python, existing in one of two "
 "types: :term:`Pure Module`, or :term:`Extension Module`."
 msgstr ""
-"Python 中代码可重用性的基本单元，存在于以下两种类型之一：:term:`Pure Module` 或 :term:`Extension "
-"Module`。"
+"Python 中代码可重用性的基本单元，存在于以下两种类型之一：:term:`纯模块` 或 :term:`扩展模块`。"
 
 #: ../../source/glossary.rst:83
 msgid "Package Index"
-msgstr "包索引 (Package Index)"
+msgstr "包索引"
 
 #: ../../source/glossary.rst:86
 msgid ""
 "A repository of distributions with a web interface to automate "
 ":term:`package <Distribution Package>` discovery and consumption."
-msgstr "一个带有 Web 界面的发行版存储库，用于自动化 :term:`package <Distribution Package>` 发现和消费。"
+msgstr "一个带有 Web 界面的发行版存储库，用于自动化 "
+":term:`包 <Distribution Package>` 发现和消费。"
 
 #: ../../source/glossary.rst:89
 msgid "Per Project Index"
-msgstr "每个项目索引（Per Project Index）"
+msgstr "每个项目索引"
 
 #: ../../source/glossary.rst:92
 msgid ""
@@ -1251,7 +1251,7 @@ msgstr ""
 
 #: ../../source/glossary.rst:96
 msgid "Project"
-msgstr "项目 (Project)"
+msgstr "项目"
 
 #: ../../source/glossary.rst:99
 msgid ""
@@ -1290,22 +1290,21 @@ msgstr ""
 
 #: ../../source/glossary.rst:120
 msgid "Pure Module"
-msgstr "纯模块 (Pure Module)"
+msgstr "纯模块"
 
 #: ../../source/glossary.rst:123
 msgid ""
 "A :term:`Module` written in Python and contained in a single ``.py`` file"
 " (and possibly associated ``.pyc`` and/or ``.pyo`` files)."
 msgstr ""
-"一个用Python编写的 :term:`模块 <Module>`，包含在一个\".py \"文件中（可能还有相关的 ``.pyc`` 和/或者 "
-"``.pyo`` 文件）。"
+"一个用 Python 编写的 :term:`模块`，包含在一个  ``.py``  文件中"
+"（可能还有相关的 ``.pyc`` 和/或者 ``.pyo`` 文件）。"
 
 #: ../../source/glossary.rst:126
 msgid "Python Packaging Authority (PyPA)"
 msgstr "Python 包装管理局 （PyPA）"
 
 #: ../../source/glossary.rst:129
-#, fuzzy
 msgid ""
 "PyPA is a working group that maintains many of the relevant projects in "
 "Python packaging. They maintain a site at :doc:`pypa.io <pypa:index>`, "
@@ -1323,7 +1322,7 @@ msgstr ""
 
 #: ../../source/glossary.rst:138
 msgid "Python Package Index (PyPI)"
-msgstr "Python 包索引 (PyPI)"
+msgstr "Python 包索引（PyPI）"
 
 #: ../../source/glossary.rst:141
 msgid ""
@@ -1359,7 +1358,7 @@ msgstr ""
 
 #: ../../source/glossary.rst:156
 msgid "Release"
-msgstr "发行版 （Release）"
+msgstr "发行版"
 
 #: ../../source/glossary.rst:159
 msgid ""
@@ -1377,7 +1376,7 @@ msgstr ""
 
 #: ../../source/glossary.rst:167
 msgid "Requirement"
-msgstr "要求 (Requirement)"
+msgstr "需求"
 
 #: ../../source/glossary.rst:170
 msgid ""
@@ -1443,7 +1442,7 @@ msgstr ""
 
 #: ../../source/glossary.rst:207
 msgid "Source Distribution (or \"sdist\")"
-msgstr "源代码分发（或“sdist”）"
+msgstr "源分发（或 \"sdist\"）"
 
 #: ../../source/glossary.rst:210
 msgid ""
@@ -1455,7 +1454,7 @@ msgstr ""
 
 #: ../../source/glossary.rst:215
 msgid "System Package"
-msgstr "系统包 (System Package)"
+msgstr "系统包"
 
 #: ../../source/glossary.rst:218
 msgid ""
@@ -1465,7 +1464,7 @@ msgstr "以操作系统本地格式提供的软件包，例如 rpm 或 dpkg 文�
 
 #: ../../source/glossary.rst:221
 msgid "Version Specifier"
-msgstr "版本说明符 (Version Specifier)"
+msgstr "版本说明符"
 
 #: ../../source/glossary.rst:224
 msgid ""
@@ -1478,7 +1477,7 @@ msgstr ""
 
 #: ../../source/glossary.rst:230
 msgid "Virtual Environment"
-msgstr "虚拟环境 (Virtual Environment)"
+msgstr "虚拟环境"
 
 #: ../../source/glossary.rst:233
 msgid ""
@@ -1488,7 +1487,7 @@ msgid ""
 "Virtual Environments`."
 msgstr ""
 "一个隔离的 Python 环境，允许安装软件包以供特定的应用程序使用，而不是在系统中安装。更多信息，请参见 "
-":ref:`创建和使用虚拟环境<Creating and using Virtual Environments>`一节。"
+":ref:`创建和使用虚拟环境 <Creating and using Virtual Environments>` 一节。"
 
 #: ../../source/glossary.rst:237
 msgid "Wheel"
@@ -1500,12 +1499,12 @@ msgid ""
 "intended to replace the :term:`Egg` format.  Wheel is currently supported"
 " by :ref:`pip`."
 msgstr ""
-":term:`Built Distribution`格式由 :pep:`427`引入，旨在取代 :term:`Egg`格式。  Wheel 目前由"
-" :ref:`pip`支持。"
+":term:`Built Distribution` 格式由 :pep:`427` 引入，旨在取代 :term:`Egg` 格式。 "
+"Wheel 目前由 :ref:`pip`支持。"
 
 #: ../../source/glossary.rst:243
 msgid "Working Set"
-msgstr "工作集 (Working Set)"
+msgstr "工作集"
 
 #: ../../source/glossary.rst:246
 msgid ""
@@ -4373,8 +4372,8 @@ msgid ""
 ":term:`version specifiers <Version Specifier>`. For example, to install a"
 " specific version of ``requests``:"
 msgstr ""
-"pip 允许您使用 :term:`版本指定器 <Version Specifier>`来指定安装哪个版本的软件包。例如，要安装一个特定版本的 "
-"``requests``："
+"pip 允许您使用 :term:`版本说明符 <Version Specifier>` 来指定安装哪个版本的软件包。"
+"例如，要安装一个特定版本的 ``requests``："
 
 #: ../../source/guides/installing-using-pip-and-virtual-environments.rst:256
 msgid "To install the latest ``2.x`` release of requests:"
@@ -4463,7 +4462,8 @@ msgid ""
 "If you want to download packages from a different index than the "
 ":term:`Python Package Index (PyPI)`, you can use the ``--index-url`` "
 "flag:"
-msgstr "如果您想从不同的索引下载软件包，而不是 :term:`Python 软件包索引（PyPI）` ，您可以使用 ``--index-url`` 标志："
+msgstr "如果您想从不同的索引下载软件包，而不是 :term:`Python 包索引（PyPI）` ，"
+"您可以使用 ``--index-url`` 标志："
 
 #: ../../source/guides/installing-using-pip-and-virtual-environments.rst:415
 msgid ""
@@ -6977,8 +6977,7 @@ msgid ""
 "Welcome to the *Python Packaging User Guide*, a collection of tutorials "
 "and references to help you distribute and install Python packages with "
 "modern tools."
-msgstr ""
-"欢迎来到 *Python 打包用户指南*，这是一个教程和参考资料的集合，帮助你用现代工具分发和安装 Python 包。"
+msgstr "欢迎来到 *Python 打包用户指南*，这是一个教程和参考资料的集合，帮助你用现代工具分发和安装 Python 包。"
 
 #: ../../source/index.rst:28
 msgid ""
@@ -6986,8 +6985,8 @@ msgid ""
 "Authority <pypa:index>`. We happily accept any :doc:`contributions and "
 "feedback <contribute>`. 😊"
 msgstr ""
-"本指南由 `Python Packaging Authority`_ 在 `GitHub`_ 上维护。我们很乐意接受任何 :doc:`贡献和反馈 "
-"<contribute>`。 😊"
+"本指南由 :doc:`Python Packaging Authority <pypa:index>` 在 `GitHub`_ "
+"上维护。我们很乐意接受任何 :doc:`贡献和反馈 <contribute>`。 😊"
 
 #: ../../source/index.rst:35
 msgid "Get started"
@@ -7011,6 +7010,8 @@ msgid ""
 "the :doc:`tutorial on managing application dependencies <tutorials"
 "/managing-dependencies>`"
 msgstr ""
+"要学习如何在版本控制项目中管理依赖关系，请参见 "
+":doc:`管理应用程序依赖关系的教程 <tutorials/managing-dependencies>`"
 
 #: ../../source/index.rst:44
 msgid ""
@@ -7039,8 +7040,8 @@ msgid ""
 "/installing-using-linux-tools` or :doc:`guides/packaging-binary-"
 "extensions`."
 msgstr ""
-":doc:`guides/index` 部分用于排练，例如 :doc:`guides/installing-using-linux-tools` "
-" 或 :doc:`guides/packaging-binary-extensions`。"
+":doc:`guides/index` 部分用于排练，例如 :doc:`guides/installing-using-linux-tools`"
+"  或 :doc:`guides/packaging-binary-extensions`。"
 
 #: ../../source/index.rst:57
 msgid ""
@@ -7048,16 +7049,14 @@ msgid ""
 "such as :doc:`discussions/deploying-python-applications` or "
 ":doc:`discussions/pip-vs-easy-install`."
 msgstr ""
-":doc:`discussions/index` 部分，用于深入参考诸如 "
-":doc:`discussions/deploying-python-applications` 或 "
-":doc:`discussions/pip-vs-easy-install` 等主题。"
+":doc:`discussions/index` 部分，用于深入参考诸如 :doc:`discussions/deploying-python-"
+"applications` 或 :doc:`discussions/pip-vs-easy-install` 等主题。"
 
 #: ../../source/index.rst:59
 msgid ""
 "The :doc:`specifications/index` section for packaging interoperability "
 "specifications."
-msgstr ""
-":doc:`specifications/index` 部分，用于包装互操作性规范。"
+msgstr ":doc:`specifications/index` 部分，用于包装互操作性规范。"
 
 #: ../../source/index.rst:61
 msgid ""
@@ -8965,7 +8964,7 @@ msgstr ""
 "projects` 的教程就可以了。"
 
 #: ../../source/overview.rst:148
-msgid "对 Python 的工具和库的打包能力的总结。"
+msgid "A summary of Python's packaging capabilities for tools and libraries."
 msgstr ""
 
 #: ../../source/overview.rst:148
@@ -9441,8 +9440,9 @@ msgstr ""
 "的硬件上，然后将其运送到数据中心或你的用户家中。他们即插即用，你就可以收工了。"
 
 #: ../../source/overview.rst:386
-msgid "用于打包 Python 应用程序的技术总结。"
-msgstr ""
+#, fuzzy
+msgid "A summary of technologies used to package Python applications."
+msgstr "用于打包 Python 应用程序的简化技术范围。"
 
 #: ../../source/overview.rst:386
 msgid "The simplified gamut of technologies used to package Python applications."
@@ -12906,7 +12906,7 @@ msgstr ""
 
 #: ../../source/specifications/version-specifiers.rst:6
 msgid "Version specifiers"
-msgstr ""
+msgstr "版本说明符"
 
 #: ../../source/specifications/version-specifiers.rst:8
 msgid ""
@@ -14139,7 +14139,7 @@ msgstr "确保您安装了最新版本的 PyPA 的 :ref:`build`："
 msgid ""
 "If you have trouble installing these, see the :doc:`installing-packages` "
 "tutorial."
-msgstr "如果您在安装这些东西时遇到困难，请查看 :doc:`installing-packages`教程。"
+msgstr "如果您在安装这些东西时遇到困难，请查看 :doc:`installing-packages` 教程。"
 
 #: ../../source/tutorials/packaging-projects.rst:425
 msgid ""
@@ -14202,7 +14202,7 @@ msgstr "现在您已经注册了，您可以使用 :ref:`twine` 来上传发行�
 msgid ""
 "Once installed, run Twine to upload all of the archives under "
 ":file:`dist`:"
-msgstr "安装完毕后，运行 Twine 以上传 :file:`dist`下的所有档案："
+msgstr "安装完毕后，运行 Twine 以上传 :file:`dist` 下的所有档案："
 
 #: ../../source/tutorials/packaging-projects.rst:506
 msgid ""
@@ -15684,4 +15684,10 @@ msgstr "考虑 :ref:`setuptools` 的替代方案，如 :ref:`flit`, :ref:`hatch`
 
 #~ msgid "A summary of technologies used to package Python applications."
 #~ msgstr "用于打包 Python 应用程序的技术总结。"
+
+#~ msgid "对 Python 的工具和库的打包能力的总结。"
+#~ msgstr ""
+
+#~ msgid "用于打包 Python 应用程序的技术总结。"
+#~ msgstr ""
 
