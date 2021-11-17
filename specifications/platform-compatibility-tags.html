@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Platform compatibility tags &#8212; Python Packaging User Guide</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pypa.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/overrides.css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/tabs.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    
+    <script src="../_static/sidebar.js"></script>
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Recording installed projects" href="recording-installed-packages.html" />
+    <link rel="prev" title="Declaring project metadata" href="declaring-project-metadata.html" /><link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://pypa.io" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="快速搜索"/>
+            <input type="submit" value="转向"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+<h3><a href="../index.html">目录</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 的打包概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../discussions/index.html">讨论</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">PyPA specifications</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#package-distribution-metadata">Package Distribution Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#package-distribution-file-formats">Package Distribution File Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#package-index-interfaces">Package Index Interfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../key_projects.html">项目摘要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">词汇表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">如何获得支持</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">为本指南做出贡献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
+</ul>
+
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="declaring-project-metadata.html"
+                        title="上一章">Declaring project metadata</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="recording-installed-packages.html"
+                        title="下一章">Recording installed projects</a></p>
+        </nav>
+    </div>
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="recording-installed-packages.html" title="Recording installed projects"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="declaring-project-metadata.html" title="Declaring project metadata"
+             accesskey="P">上一页</a> |</li>
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="../index.html">Python Packaging User Guide</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">PyPA specifications</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Platform compatibility tags</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" aria-label="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="platform-compatibility-tags">
+<span id="id1"></span><h1>Platform compatibility tags<a class="headerlink" href="#platform-compatibility-tags" title="永久链接至标题">¶</a></h1>
+<p>Platform compatibility tags allow build tools to mark distributions as being
+compatible with specific platforms, and allows installers to understand which
+distributions are compatible with the system they are running on.</p>
+<p>The platform compatibility tagging model used for the <code class="docutils literal notranslate"><span class="pre">wheel</span></code> distribution
+format is defined in <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0425"><strong>PEP 425</strong></a>.</p>
+<section id="platform-tags-for-windows">
+<h2>Platform tags for Windows<a class="headerlink" href="#platform-tags-for-windows" title="永久链接至标题">¶</a></h2>
+<p>The scheme defined in <span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0425"><strong>PEP 425</strong></a> covers public distribution of wheel files to
+systems running Windows.</p>
+</section>
+<section id="platform-tags-for-macos-mac-os-x">
+<h2>Platform tags for macOS (Mac OS X)<a class="headerlink" href="#platform-tags-for-macos-mac-os-x" title="永久链接至标题">¶</a></h2>
+<p>The scheme defined in <span class="target" id="index-2"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0425"><strong>PEP 425</strong></a> covers public distribution of wheel files to
+systems running macOS (previously known as Mac OS X).</p>
+</section>
+<section id="platform-tags-for-common-linux-distributions">
+<h2>Platform tags for common Linux distributions<a class="headerlink" href="#platform-tags-for-common-linux-distributions" title="永久链接至标题">¶</a></h2>
+<p id="manylinux">The scheme defined in <span class="target" id="index-3"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0425"><strong>PEP 425</strong></a> is insufficient for public distribution of
+wheel files (and *nix wheel files in general) to Linux platforms, due to the
+large ecosystem of Linux platforms and subtle differences between them.</p>
+<p>Instead, <span class="target" id="index-4"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0600"><strong>PEP 600</strong></a> defines the <code class="docutils literal notranslate"><span class="pre">manylinux</span></code> standard, which represents a
+common subset of Linux platforms, and allows building wheels tagged with the
+<code class="docutils literal notranslate"><span class="pre">manylinux</span></code> platform tag which can be used across most common Linux
+distributions.</p>
+<p>There were multiple iterations of the <code class="docutils literal notranslate"><span class="pre">manylinux</span></code> specification, each
+representing the common subset of Linux platforms at a given point in time:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">manylinux1</span></code> (<span class="target" id="index-5"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0513"><strong>PEP 513</strong></a>) supports <code class="docutils literal notranslate"><span class="pre">x86_64</span></code> and <code class="docutils literal notranslate"><span class="pre">i686</span></code>
+architectures, and is based on a compatible Linux platform from 2007.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">manylinux2010</span></code> (<span class="target" id="index-6"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0571"><strong>PEP 571</strong></a>) supports <code class="docutils literal notranslate"><span class="pre">x86_64</span></code> and <code class="docutils literal notranslate"><span class="pre">i686</span></code>
+architectures. and updates the previous specification to be based on a
+compatible Linux platform from 2010 instead.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">manylinux2014</span></code> (<span class="target" id="index-7"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0599"><strong>PEP 599</strong></a>) adds support for a number of
+additional architectures (<code class="docutils literal notranslate"><span class="pre">aarch64</span></code>, <code class="docutils literal notranslate"><span class="pre">armv7l</span></code>, <code class="docutils literal notranslate"><span class="pre">ppc64</span></code>, <code class="docutils literal notranslate"><span class="pre">ppc64le</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">s390x</span></code>) and updates the base platform to a compatible Linux platform
+from 2014.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">manylinux_x_y</span></code> (<span class="target" id="index-8"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0600"><strong>PEP 600</strong></a>) supersedes all previous PEPs to define a
+future-proof standard. It defines <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> as glibc major an minor
+versions supported (e.g. <code class="docutils literal notranslate"><span class="pre">manylinux_2_24</span></code> should work on any distro using
+glibc 2.24+). Previous tags are still supported for backward compatibility.</p>
+<p>In general, distributions built for older versions of the specification are
+forwards-compatible (meaning that <code class="docutils literal notranslate"><span class="pre">manylinux1</span></code> distributions should continue
+to work on modern systems) but not backwards-compatible (meaning that
+<code class="docutils literal notranslate"><span class="pre">manylinux2010</span></code> distributions are not expected to work on platforms that
+existed before 2010).</p>
+<p>Package maintainers should attempt to target the most compatible specification
+possible, with the caveat that the provided build environment for
+<code class="docutils literal notranslate"><span class="pre">manylinux1</span></code> and <code class="docutils literal notranslate"><span class="pre">manylinux2010</span></code> have reached end-of-life meaning that
+these images will no longer receive security updates.</p>
+<section id="manylinux-compatibility-support">
+<h3>Manylinux compatibility support<a class="headerlink" href="#manylinux-compatibility-support" title="永久链接至标题">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">manylinux2014</span></code> specification is relatively new and is not yet widely
+recognised by install tools.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">manylinux_x_y</span></code> specification is relatively new and is not yet widely
+recognised by install tools.</p></li>
+</ul>
+</div>
+<p>The following table shows the minimum versions of relevant projects to support
+the various <code class="docutils literal notranslate"><span class="pre">manylinux</span></code> standards:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 19%" />
+<col style="width: 23%" />
+<col style="width: 23%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tool</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">manylinux1</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">manylinux2010</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">manylinux2014</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">manylinux_x_y</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pip</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&gt;=8.1.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&gt;=19.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&gt;=19.3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&gt;=20.3</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>auditwheel</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&gt;=1.0.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&gt;=2.0.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&gt;=3.0.0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&gt;=3.3.0</span></code> <a class="footnote-reference brackets" href="#id3" id="id2">1</a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="platform-tags-for-other-nix-platforms">
+<h2>Platform tags for other *nix platforms<a class="headerlink" href="#platform-tags-for-other-nix-platforms" title="永久链接至标题">¶</a></h2>
+<p>The scheme defined in <span class="target" id="index-9"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0425"><strong>PEP 425</strong></a> is not generally sufficient for public
+distribution of wheel files to other *nix platforms. Efforts are currently
+(albeit intermittently) under way to define improved compatibility tagging
+schemes for AIX and for Alpine Linux.</p>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p>Only support for <code class="docutils literal notranslate"><span class="pre">manylinux_2_24</span></code> has been added in auditwheel 3.3.0</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">目录</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 的打包概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../discussions/index.html">讨论</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">PyPA specifications</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#package-distribution-metadata">Package Distribution Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#package-distribution-file-formats">Package Distribution File Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#package-index-interfaces">Package Index Interfaces</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../key_projects.html">项目摘要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">词汇表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">如何获得支持</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">为本指南做出贡献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
+</ul>
+
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="declaring-project-metadata.html"
+                        title="上一章">Declaring project metadata</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="recording-installed-packages.html"
+                        title="下一章">Recording installed projects</a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="recording-installed-packages.html" title="Recording installed projects"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="declaring-project-metadata.html" title="Declaring project metadata"
+             >上一页</a> |</li>
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="../index.html">Python Packaging User Guide</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="index.html" >PyPA specifications</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Platform compatibility tags</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" aria-label="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版权所有</a> 2013–2020, PyPA.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最后更新于 2021 年 11 月 17 日.
+    <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.3.
+    </div>
+
+  </body>
+</html>

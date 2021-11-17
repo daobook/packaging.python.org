@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<meta content="Python 打包用户指南 (PyPUG) 是一个打包 Python 软件的教程和指南的集合。" name="description" />
+<meta content="python, 包装, 指南, 教程" name="keywords" />
+
+    <title>Python 包装用户指南 &#8212; Python Packaging User Guide</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pypa.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/overrides.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/tabs.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/translations.js"></script>
+    
+    <script src="_static/sidebar.js"></script>
+    
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="Python 的打包概述" href="overview.html" /><link rel="shortcut icon" type="image/png" href="_static/py.svg" />
+            <script type="text/javascript" src="_static/copybutton.js"></script>
+            <script type="text/javascript" src="_static/menu.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://pypa.io" class="nav-logo">
+             <img src="_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form id="searchbox" role="search" class="search" action="search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="快速搜索"/>
+            <input type="submit" value="转向"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+<h3><a href="#">目录</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Python 的打包概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/index.html">指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="discussions/index.html">讨论</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications/index.html">PyPA specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key_projects.html">项目摘要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">词汇表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">如何获得支持</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">为本指南做出贡献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">新闻</a></li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="overview.html" title="Python 的打包概述"
+             accesskey="N">下一页</a> |</li>
+          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="#">Python Packaging User Guide</a> &#187;
+              
+          </li>
+        <li class="nav-item nav-item-this"><a href="">Python 包装用户指南</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="快速搜索" aria-label="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="python-packaging-user-guide">
+<h1>Python 包装用户指南<a class="headerlink" href="#python-packaging-user-guide" title="永久链接至标题">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>欢迎来到 <em>Python 打包用户指南</em>，这是一个教程和参考资料的集合，帮助你用现代工具分发和安装 Python 包。</p>
+<p>本指南由 <a href="#id1"><span class="problematic" id="id2">`Python Packaging Authority`_</span></a> 在 <a class="reference external" href="https://github.com/pypa/packaging.python.org">GitHub</a> 上维护。我们很乐意接受任何 <a class="reference internal" href="contribute.html"><span class="doc">贡献和反馈</span></a>。 😊</p>
+<section id="get-started">
+<h2>开始<a class="headerlink" href="#get-started" title="永久链接至标题">¶</a></h2>
+<p>我们的 <a class="reference internal" href="tutorials/index.html"><span class="doc">教程</span></a> 部分介绍了在 Python 开发生态系统中工作的基本工具和概念：</p>
+<ul class="simple">
+<li><p>要学习如何安装软件包，请参阅 <a class="reference internal" href="tutorials/installing-packages.html"><span class="doc">安装软件包的教程</span></a></p></li>
+<li><p>To learn how to manage dependencies in a version controlled project, see the
+<a class="reference internal" href="tutorials/managing-dependencies.html"><span class="doc">tutorial on managing application dependencies</span></a></p></li>
+<li><p>要学习如何打包和发布您的项目，请参阅 <a class="reference internal" href="tutorials/packaging-projects.html"><span class="doc">关于打包和发布的教程</span></a></p></li>
+<li><p>要获得对 Python 库和应用程序打包选项的概述，请参阅 <a class="reference internal" href="overview.html"><span class="doc">Python 打包概述</span></a></p></li>
+</ul>
+</section>
+<section id="learn-more">
+<h2>了解更多<a class="headerlink" href="#learn-more" title="永久链接至标题">¶</a></h2>
+<p>除了我们的 <a class="reference internal" href="tutorials/index.html"><span class="doc">教程</span></a> ，本指南还有其他一些资源：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="guides/index.html"><span class="doc">指南</span></a> 部分用于排练，例如 <a class="reference internal" href="guides/installing-using-linux-tools.html"><span class="doc">用 Linux 软件包管理器安装 pip/setuptools/wheel</span></a>  或 <a class="reference internal" href="guides/packaging-binary-extensions.html"><span class="doc">Packaging binary extensions</span></a>。</p></li>
+<li><p><a class="reference internal" href="discussions/index.html"><span class="doc">讨论</span></a> 部分，用于深入参考诸如 <a class="reference internal" href="discussions/deploying-python-applications.html"><span class="doc">部署 Python 应用程序</span></a> 或 <a class="reference internal" href="discussions/pip-vs-easy-install.html"><span class="doc">pip 与 easy_install</span></a> 等主题。</p></li>
+<li><p><a class="reference internal" href="specifications/index.html"><span class="doc">PyPA specifications</span></a> 部分，用于包装互操作性规范。</p></li>
+</ul>
+<p>此外，还有一个 <a class="reference internal" href="key_projects.html"><span class="doc">其他项目</span></a> 的列表，由 Python Packaging Authority 的成员维护。</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="#">目录</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Python 的打包概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/index.html">指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="discussions/index.html">讨论</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications/index.html">PyPA specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key_projects.html">项目摘要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">词汇表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">如何获得支持</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">为本指南做出贡献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">新闻</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="overview.html" title="Python 的打包概述"
+             >下一页</a> |</li>
+          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="#">Python Packaging User Guide</a> &#187;
+              
+          </li>
+        <li class="nav-item nav-item-this"><a href="">Python 包装用户指南</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="快速搜索" aria-label="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="copyright.html">版权所有</a> 2013–2020, PyPA.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最后更新于 2021 年 11 月 17 日.
+    <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.3.
+    </div>
+
+  </body>
+</html>

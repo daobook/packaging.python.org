@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Wheel 与 Egg &#8212; Python Packaging User Guide</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pypa.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/overrides.css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/tabs.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    
+    <script src="../_static/sidebar.js"></script>
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="PyPA specifications" href="../specifications/index.html" />
+    <link rel="prev" title="install_requires 与 requirements files" href="install-requires-vs-requirements.html" /><link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://pypa.io" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="快速搜索"/>
+            <input type="submit" value="转向"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+<h3><a href="../index.html">目录</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 的打包概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">讨论</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="deploying-python-applications.html">部署 Python 应用程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pip-vs-easy-install.html">pip 与 easy_install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-requires-vs-requirements.html">install_requires 与 requirements files</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Wheel 与 Egg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../specifications/index.html">PyPA specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../key_projects.html">项目摘要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">词汇表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">如何获得支持</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">为本指南做出贡献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
+</ul>
+
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="install-requires-vs-requirements.html"
+                        title="上一章">install_requires 与 requirements files</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="../specifications/index.html"
+                        title="下一章">PyPA specifications</a></p>
+        </nav>
+    </div>
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../specifications/index.html" title="PyPA specifications"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="install-requires-vs-requirements.html" title="install_requires 与 requirements files"
+             accesskey="P">上一页</a> |</li>
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="../index.html">Python Packaging User Guide</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">讨论</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Wheel 与 Egg</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" aria-label="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="wheel-vs-egg">
+<span id="id1"></span><h1>Wheel 与 Egg<a class="headerlink" href="#wheel-vs-egg" title="永久链接至标题">¶</a></h1>
+<p><a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">Wheel</span></a> 和 <a class="reference internal" href="../glossary.html#term-Egg"><span class="xref std std-term">Egg</span></a> 都是打包格式，旨在支持不需要构建或编译的安装工件的使用情况，这在测试和生产工作流程中可能是昂贵的。</p>
+<p><a class="reference internal" href="../glossary.html#term-Egg"><span class="xref std std-term">Egg</span></a> 格式是由 <a class="reference internal" href="../key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a> 在2004年引入的，而 <a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">Wheel</span></a> 格式是由 <span class="target" id="index-8"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0427"><strong>PEP 427</strong></a> 在2012年引入。</p>
+<p>:term:<a href="#id1"><span class="problematic" id="id2">`</span></a>Wheel`目前被认为是 :term:<a href="#id3"><span class="problematic" id="id4">`</span></a>built &lt;Built Distribution&gt;`和 :term:<a href="#id5"><span class="problematic" id="id6">`</span></a>binary &lt;Binary Distribution&gt;`打包 Python 的标准。</p>
+<p>下面是关于 <a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">Wheel</span></a> 和 <a class="reference internal" href="../glossary.html#term-Egg"><span class="xref std std-term">Egg</span></a> 之间的重要区别。</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">Wheel</span></a> 有一个 <span class="target" id="index-9"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0427"><strong>official PEP</strong></a> 。 <a class="reference internal" href="../glossary.html#term-Egg"><span class="xref std std-term">Egg</span></a> 没有。</p></li>
+<li><p>:term:<a href="#id1"><span class="problematic" id="id2">`</span></a>Wheel`是一种 :term:<a href="#id3"><span class="problematic" id="id4">`</span></a>distribution &lt;Distribution Package&gt;`格式，也就是一种打包格式。<a class="footnote-reference brackets" href="#id3" id="id2">1</a> :term:<a href="#id6"><span class="problematic" id="id7">`</span></a>Egg`既是一种发行格式，也是一种运行时的安装格式（如果留下压缩包），并被设计为可导入。</p></li>
+<li><p><a class="reference internal" href="../glossary.html#term-Source-Distribution-or-sdist"><span class="xref std std-term">Wheel`档案不包括 .pyc 文件。因此，当发行版只包含 Python 文件（即没有编译的扩展），并且与 Python 2 和 3 兼容时，wheel 有可能是 「通用」的，类似于 :term:`sdist</span></a>。</p></li>
+<li><p><a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">Wheel</span></a> 使用 <a href="#id1"><span class="problematic" id="id2">:pep:`PEP376-compliant &lt;376&gt;```</span></a>.dist-info`` 目录。 Egg 使用 <code class="docutils literal notranslate"><span class="pre">.egg-info</span></code> 。</p></li>
+<li><p><span class="xref std std-term">Wheel`有一个 :pep:`更丰富的文件命名约定</span>。一个单一的 wheel 档案可以表明它与许多 Python 语言版本和工具、ABI 以及系统架构的兼容性。</p></li>
+<li><p>:term:<a href="#id1"><span class="problematic" id="id2">`</span></a>Wheel`是有版本的。每个 wheel 文件都包含 wheel 规范的版本和包装它的工具。</p></li>
+<li><p><a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">Wheel</span></a> is internally organized by <a class="reference external" href="https://docs.python.org/2/library/sysconfig.html#installation-paths">sysconfig path type</a>,
+therefore making it easier to convert to other formats.</p></li>
+</ul>
+<hr class="docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p>在某些情况下，控制盘可以用作可导入的运行时格式，尽管：pep:<code class="xref any docutils literal notranslate"><span class="pre">目前还没有正式支持这一格式</span></code>。</p>
+</dd>
+</dl>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">目录</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 的打包概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">讨论</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="deploying-python-applications.html">部署 Python 应用程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pip-vs-easy-install.html">pip 与 easy_install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-requires-vs-requirements.html">install_requires 与 requirements files</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Wheel 与 Egg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../specifications/index.html">PyPA specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../key_projects.html">项目摘要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">词汇表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">如何获得支持</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">为本指南做出贡献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
+</ul>
+
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="install-requires-vs-requirements.html"
+                        title="上一章">install_requires 与 requirements files</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="../specifications/index.html"
+                        title="下一章">PyPA specifications</a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../specifications/index.html" title="PyPA specifications"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="install-requires-vs-requirements.html" title="install_requires 与 requirements files"
+             >上一页</a> |</li>
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="../index.html">Python Packaging User Guide</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="index.html" >讨论</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Wheel 与 Egg</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" aria-label="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版权所有</a> 2013–2020, PyPA.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最后更新于 2021 年 11 月 17 日.
+    <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.3.
+    </div>
+
+  </body>
+</html>

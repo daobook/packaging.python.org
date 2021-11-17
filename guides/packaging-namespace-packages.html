@@ -1,0 +1,477 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Packaging namespace packages &#8212; Python Packaging User Guide</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pypa.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/overrides.css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/tabs.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    
+    <script src="../_static/sidebar.js"></script>
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="创建和发现插件" href="creating-and-discovering-plugins.html" />
+    <link rel="prev" title="Supporting Windows using Appveyor" href="supporting-windows-using-appveyor.html" /><link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://pypa.io" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="快速搜索"/>
+            <input type="submit" value="转向"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+<h3><a href="../index.html">目录</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 的打包概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installing-using-pip-and-virtual-environments.html">Installing packages using pip and virtual environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing-stand-alone-command-line-tools.html">安装独立命令行工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing-using-linux-tools.html">用 Linux 软件包管理器安装 pip/setuptools/wheel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing-scientific-packages.html">Installing scientific packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-version-installs.html">多版本安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index-mirrors-and-caches.html">Package index mirrors and caches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hosting-your-own-index.html">Hosting your own simple repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributing-packages-using-setuptools.html">Packaging and distributing projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-manifest-in.html">Including files in source distributions with <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-sourcing-package-version.html">Single-sourcing the package version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supporting-multiple-python-versions.html">支持多个 Python 版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dropping-older-python-versions.html">放弃对旧版 Python 的支持</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging-binary-extensions.html">Packaging binary extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supporting-windows-using-appveyor.html">Supporting Windows using Appveyor</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Packaging namespace packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating-and-discovering-plugins.html">创建和发现插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrating-to-pypi-org.html">迁移到 PyPI.org</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-testpypi.html">使用 TestPyPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="making-a-pypi-friendly-readme.html">Making a PyPI-friendly README</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.html">Publishing package distribution releases using GitHub Actions CI/CD workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-recommendations.html">Tool recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyzing-pypi-package-downloads.html">分析 PyPI 软件包的下载情况</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../discussions/index.html">讨论</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../specifications/index.html">PyPA specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../key_projects.html">项目摘要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">词汇表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">如何获得支持</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">为本指南做出贡献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
+</ul>
+
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="supporting-windows-using-appveyor.html"
+                        title="上一章">Supporting Windows using Appveyor</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="creating-and-discovering-plugins.html"
+                        title="下一章">创建和发现插件</a></p>
+        </nav>
+    </div>
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="creating-and-discovering-plugins.html" title="创建和发现插件"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="supporting-windows-using-appveyor.html" title="Supporting Windows using Appveyor"
+             accesskey="P">上一页</a> |</li>
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="../index.html">Python Packaging User Guide</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">指南</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Packaging namespace packages</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" aria-label="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="packaging-namespace-packages">
+<h1>Packaging namespace packages<a class="headerlink" href="#packaging-namespace-packages" title="永久链接至标题">¶</a></h1>
+<p>Namespace packages allow you to split the sub-packages and modules within a
+single <a class="reference internal" href="../glossary.html#term-Import-Package"><span class="xref std std-term">package</span></a> across multiple, separate
+<a class="reference internal" href="../glossary.html#term-Distribution-Package"><span class="xref std std-term">distribution packages</span></a> (referred to as
+<strong>distributions</strong> in this document to avoid ambiguity). For example, if you
+have the following package structure:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mynamespace/
+    __init__.py
+    subpackage_a/
+        __init__.py
+        ...
+    subpackage_b/
+        __init__.py
+        ...
+    module_b.py
+setup.py
+</pre></div>
+</div>
+<p>And you use this package in your code like so:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mynamespace</span> <span class="kn">import</span> <span class="n">subpackage_a</span>
+<span class="kn">from</span> <span class="nn">mynamespace</span> <span class="kn">import</span> <span class="n">subpackage_b</span>
+</pre></div>
+</div>
+<p>Then you can break these sub-packages into two separate distributions:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>mynamespace-subpackage-a/
+    setup.py
+    mynamespace/
+        subpackage_a/
+            __init__.py
+
+mynamespace-subpackage-b/
+    setup.py
+    mynamespace/
+        subpackage_b/
+            __init__.py
+        module_b.py
+</pre></div>
+</div>
+<p>Each sub-package can now be separately installed, used, and versioned.</p>
+<p>Namespace packages can be useful for a large collection of loosely-related
+packages (such as a large corpus of client libraries for multiple products from
+a single company). However, namespace packages come with several caveats and
+are not appropriate in all cases. A simple alternative is to use a prefix on
+all of your distributions such as <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">mynamespace_subpackage_a</span></code> (you
+could even use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">mynamespace_subpackage_a</span> <span class="pre">as</span> <span class="pre">subpackage_a</span></code> to keep the
+import object short).</p>
+<section id="creating-a-namespace-package">
+<h2>Creating a namespace package<a class="headerlink" href="#creating-a-namespace-package" title="永久链接至标题">¶</a></h2>
+<p>There are currently three different approaches to creating namespace packages:</p>
+<ol class="arabic simple">
+<li><p>Use <a class="reference internal" href="#native-namespace-packages">native namespace packages</a>. This type of namespace package is defined
+in <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0420"><strong>PEP 420</strong></a> and is available in Python 3.3 and later. This is recommended if
+packages in your namespace only ever need to support Python 3 and
+installation via <code class="docutils literal notranslate"><span class="pre">pip</span></code>.</p></li>
+<li><p>Use <a class="reference internal" href="#pkgutil-style-namespace-packages">pkgutil-style namespace packages</a>. This is recommended for new
+packages that need to support Python 2 and 3 and installation via both
+<code class="docutils literal notranslate"><span class="pre">pip</span></code> and <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code>.</p></li>
+<li><p>Use <a class="reference internal" href="#pkg-resources-style-namespace-packages">pkg_resources-style namespace packages</a>. This method is recommended if
+you need compatibility with packages already using this method or if your
+package needs to be zip-safe.</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>While native namespace packages and pkgutil-style namespace
+packages are largely compatible, pkg_resources-style namespace packages
+are not compatible with the other methods. It’s inadvisable to use
+different methods in different distributions that provide packages to the
+same namespace.</p>
+</div>
+<section id="native-namespace-packages">
+<h3>Native namespace packages<a class="headerlink" href="#native-namespace-packages" title="永久链接至标题">¶</a></h3>
+<p>Python 3.3 added <strong>implicit</strong> namespace packages from <span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0420"><strong>PEP 420</strong></a>. All that is
+required to create a native namespace package is that you just omit
+<code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code> from the namespace package directory. An example file
+structure:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>setup.py
+mynamespace/
+    # No __init__.py here.
+    subpackage_a/
+        # Sub-packages have __init__.py.
+        __init__.py
+        module.py
+</pre></div>
+</div>
+<p>It is extremely important that every distribution that uses the namespace
+package omits the <code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code> or uses a pkgutil-style
+<code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code>. If any distribution does not, it will cause the namespace
+logic to fail and the other sub-packages will not be importable.</p>
+<p>Because <code class="docutils literal notranslate"><span class="pre">mynamespace</span></code> doesn’t contain an <code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code>,
+<code class="xref py py-func docutils literal notranslate"><span class="pre">setuptools.find_packages()</span></code> won’t find the sub-package. You must
+use <code class="xref py py-func docutils literal notranslate"><span class="pre">setuptools.find_namespace_packages()</span></code> instead or explicitly
+list all packages in your <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code>. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span><span class="p">,</span> <span class="n">find_namespace_packages</span>
+
+<span class="n">setup</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;mynamespace-subpackage-a&#39;</span><span class="p">,</span>
+    <span class="o">...</span>
+    <span class="n">packages</span><span class="o">=</span><span class="n">find_namespace_packages</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mynamespace.*&#39;</span><span class="p">])</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>A complete working example of two native namespace packages can be found in
+the <a class="reference external" href="https://github.com/pypa/sample-namespace-packages/tree/master/native">native namespace package example project</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>Because native and pkgutil-style namespace packages are largely
+compatible, you can use native namespace packages in the distributions that
+only support Python 3 and pkgutil-style namespace packages in the
+distributions that need to support Python 2 and 3.</p>
+</div>
+</section>
+<section id="pkgutil-style-namespace-packages">
+<h3>pkgutil-style namespace packages<a class="headerlink" href="#pkgutil-style-namespace-packages" title="永久链接至标题">¶</a></h3>
+<p>Python 2.3 introduced the <a class="reference external" href="https://docs.python.org/3/library/pkgutil.html" title="(在 Python v3.10)"><span class="xref std std-doc">pkgutil</span></a> module and the
+<a class="reference external" href="https://docs.python.org/3/library/pkgutil.html#pkgutil.extend_path" title="(在 Python v3.10)"><code class="docutils literal notranslate"><span class="pre">pkgutil.extend_path()</span></code></a> function. This can be used to declare namespace
+packages that need to be compatible with both Python 2.3+ and Python 3. This
+is the recommended approach for the highest level of compatibility.</p>
+<p>To create a pkgutil-style namespace package, you need to provide an
+<code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code> file for the namespace package:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>setup.py
+mynamespace/
+    __init__.py  # Namespace package __init__.py
+    subpackage_a/
+        __init__.py  # Sub-package __init__.py
+        module.py
+</pre></div>
+</div>
+<p>The <code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code> file for the namespace package needs to contain
+<strong>only</strong> the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">__path__</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="s1">&#39;pkgutil&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extend_path</span><span class="p">(</span><span class="n">__path__</span><span class="p">,</span> <span class="vm">__name__</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Every</strong> distribution that uses the namespace package must include an
+identical <code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code>. If any distribution does not, it will cause the
+namespace logic to fail and the other sub-packages will not be importable.  Any
+additional code in <code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code> will be inaccessible.</p>
+<p>A complete working example of two pkgutil-style namespace packages can be found
+in the <a class="reference external" href="https://github.com/pypa/sample-namespace-packages/tree/master/pkgutil">pkgutil namespace example project</a>.</p>
+</section>
+<section id="pkg-resources-style-namespace-packages">
+<h3>pkg_resources-style namespace packages<a class="headerlink" href="#pkg-resources-style-namespace-packages" title="永久链接至标题">¶</a></h3>
+<p><a class="reference external" href="https://setuptools.pypa.io/en/latest/index.html" title="(在 setuptools v59.1.1)"><span class="xref std std-doc">Setuptools</span></a> provides the <a class="reference external" href="https://setuptools.readthedocs.io/en/latest/pkg_resources.html#namespace-package-support">pkg_resources.declare_namespace</a> function and
+the <code class="docutils literal notranslate"><span class="pre">namespace_packages</span></code> argument to <code class="xref py py-func docutils literal notranslate"><span class="pre">setup()</span></code>. Together
+these can be used to declare namespace packages. While this approach is no
+longer recommended, it is widely present in most existing namespace packages.
+If you are creating a new distribution within an existing namespace package that
+uses this method then it’s recommended to continue using this as the different
+methods are not cross-compatible and it’s not advisable to try to migrate an
+existing package.</p>
+<p>To create a pkg_resources-style namespace package, you need to provide an
+<code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code> file for the namespace package:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>setup.py
+mynamespace/
+    __init__.py  # Namespace package __init__.py
+    subpackage_a/
+        __init__.py  # Sub-package __init__.py
+        module.py
+</pre></div>
+</div>
+<p>The <code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code> file for the namespace package needs to contain
+<strong>only</strong> the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">__import__</span><span class="p">(</span><span class="s1">&#39;pkg_resources&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">declare_namespace</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Every</strong> distribution that uses the namespace package must include an
+identical <code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code>. If any distribution does not, it will cause the
+namespace logic to fail and the other sub-packages will not be importable.  Any
+additional code in <code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code> will be inaccessible.</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>Some older recommendations advise the following in the namespace
+package <code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="nb">__import__</span><span class="p">(</span><span class="s1">&#39;pkg_resources&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">declare_namespace</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">__path__</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="s1">&#39;pkgutil&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extend_path</span><span class="p">(</span><span class="n">__path__</span><span class="p">,</span> <span class="vm">__name__</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The idea behind this was that in the rare case that setuptools isn’t
+available packages would fall-back to the pkgutil-style packages. This
+isn’t advisable because pkgutil and pkg_resources-style namespace packages
+are not cross-compatible. If the presence of setuptools is a concern
+then the package should just explicitly depend on setuptools via
+<code class="docutils literal notranslate"><span class="pre">install_requires</span></code>.</p>
+</div>
+<p>Finally, every distribution must provide the <code class="docutils literal notranslate"><span class="pre">namespace_packages</span></code> argument
+to <code class="xref py py-func docutils literal notranslate"><span class="pre">setup()</span></code> in <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code>. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">find_packages</span><span class="p">,</span> <span class="n">setup</span>
+
+<span class="n">setup</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;mynamespace-subpackage-a&#39;</span><span class="p">,</span>
+    <span class="o">...</span>
+    <span class="n">packages</span><span class="o">=</span><span class="n">find_packages</span><span class="p">()</span>
+    <span class="n">namespace_packages</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mynamespace&#39;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>A complete working example of two pkg_resources-style namespace packages can be found
+in the <a class="reference external" href="https://github.com/pypa/sample-namespace-packages/tree/master/pkg_resources">pkg_resources namespace example project</a>.</p>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">目录</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 的打包概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installing-using-pip-and-virtual-environments.html">Installing packages using pip and virtual environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing-stand-alone-command-line-tools.html">安装独立命令行工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing-using-linux-tools.html">用 Linux 软件包管理器安装 pip/setuptools/wheel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing-scientific-packages.html">Installing scientific packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-version-installs.html">多版本安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index-mirrors-and-caches.html">Package index mirrors and caches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hosting-your-own-index.html">Hosting your own simple repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributing-packages-using-setuptools.html">Packaging and distributing projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-manifest-in.html">Including files in source distributions with <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-sourcing-package-version.html">Single-sourcing the package version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supporting-multiple-python-versions.html">支持多个 Python 版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dropping-older-python-versions.html">放弃对旧版 Python 的支持</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging-binary-extensions.html">Packaging binary extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supporting-windows-using-appveyor.html">Supporting Windows using Appveyor</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Packaging namespace packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating-and-discovering-plugins.html">创建和发现插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrating-to-pypi-org.html">迁移到 PyPI.org</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-testpypi.html">使用 TestPyPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="making-a-pypi-friendly-readme.html">Making a PyPI-friendly README</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.html">Publishing package distribution releases using GitHub Actions CI/CD workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-recommendations.html">Tool recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyzing-pypi-package-downloads.html">分析 PyPI 软件包的下载情况</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../discussions/index.html">讨论</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../specifications/index.html">PyPA specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../key_projects.html">项目摘要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">词汇表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">如何获得支持</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">为本指南做出贡献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
+</ul>
+
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="supporting-windows-using-appveyor.html"
+                        title="上一章">Supporting Windows using Appveyor</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="creating-and-discovering-plugins.html"
+                        title="下一章">创建和发现插件</a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="creating-and-discovering-plugins.html" title="创建和发现插件"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="supporting-windows-using-appveyor.html" title="Supporting Windows using Appveyor"
+             >上一页</a> |</li>
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="../index.html">Python Packaging User Guide</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="index.html" >指南</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Packaging namespace packages</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" aria-label="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版权所有</a> 2013–2020, PyPA.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最后更新于 2021 年 11 月 17 日.
+    <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.3.
+    </div>
+
+  </body>
+</html>

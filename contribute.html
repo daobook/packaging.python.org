@@ -1,0 +1,406 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>为本指南做出贡献 &#8212; Python Packaging User Guide</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pypa.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/overrides.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/tabs.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/translations.js"></script>
+    
+    <script src="_static/sidebar.js"></script>
+    
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="新闻" href="news.html" />
+    <link rel="prev" title="如何获得支持" href="support.html" /><link rel="shortcut icon" type="image/png" href="_static/py.svg" />
+            <script type="text/javascript" src="_static/copybutton.js"></script>
+            <script type="text/javascript" src="_static/menu.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://pypa.io" class="nav-logo">
+             <img src="_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form id="searchbox" role="search" class="search" action="search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="快速搜索"/>
+            <input type="submit" value="转向"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+<h3><a href="index.html">目录</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Python 的打包概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/index.html">指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="discussions/index.html">讨论</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications/index.html">PyPA specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key_projects.html">项目摘要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">词汇表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">如何获得支持</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">为本指南做出贡献</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#documentation-types">文档类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#translations">Translations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-the-guide-locally">在本地构建指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#where-the-guide-is-deployed">指南的部署地点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#style-guide">风格指南</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">新闻</a></li>
+</ul>
+
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="support.html"
+                        title="上一章">如何获得支持</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="news.html"
+                        title="下一章">新闻</a></p>
+        </nav>
+    </div>
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="news.html" title="新闻"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="support.html" title="如何获得支持"
+             accesskey="P">上一页</a> |</li>
+          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">Python Packaging User Guide</a> &#187;
+              
+          </li>
+        <li class="nav-item nav-item-this"><a href="">为本指南做出贡献</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="快速搜索" aria-label="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="contribute-to-this-guide">
+<h1>为本指南做出贡献<a class="headerlink" href="#contribute-to-this-guide" title="永久链接至标题">¶</a></h1>
+<p>Python Packaging User Guide 欢迎贡献者！有很多方法可以帮助我们，包括：</p>
+<ul class="simple">
+<li><p>阅读指南并提供反馈</p></li>
+<li><p>审查新的贡献</p></li>
+<li><p>修改现有内容</p></li>
+<li><p>撰写新内容</p></li>
+<li><p>Translate the guide</p></li>
+</ul>
+<p>大部分关于 Python Packaging User Guide 的工作都是在 <a class="reference external" href="project'sGitHubrepository">项目的GitHub存储库</a> 进行的。要开始工作，请查看 <a href="#id5"><span class="problematic" id="id6">`open issues`__</span></a> 和 <a href="#id5"><span class="problematic" id="id7">`pull requests`__</span></a> 的列表。如果你打算编写或编辑指南，请阅读 <a class="reference internal" href="#contributing-style-guide"><span class="std std-ref">style guide</span></a>。</p>
+<p>如果您想为 Python Packaging User Guide 作出贡献，您应该遵守 PSF 的 <a class="reference external" href="CodeofConduct">行为准则</a> 。</p>
+<section id="documentation-types">
+<h2>文档类型<a class="headerlink" href="#documentation-types" title="永久链接至标题">¶</a></h2>
+<p>本项目由具有特定目的的四种不同的文档类型组成。当提议对项目进行新的补充时，请选择适当的文档类型。</p>
+<section id="tutorials">
+<h3>教程<a class="headerlink" href="#tutorials" title="永久链接至标题">¶</a></h3>
+<p>教程的重点是通过完成一个目标来教导读者新的概念。它们是有观点的分步指南。它们不包括不相干的警告或信息。<a class="reference external" href="exampletutorial-styledocument">示例教程式文件</a> 。</p>
+</section>
+<section id="guides">
+<h3>指南<a class="headerlink" href="#guides" title="永久链接至标题">¶</a></h3>
+<p>指南的重点是完成一项具体的任务，并可以假定有一定程度的前提知识。这类似于教程，但有一个狭窄和明确的重点，并可以根据需要提供大量的注意事项和附加信息。他们还可以讨论完成任务的多种方法。 <a class="reference internal" href="guides/packaging-namespace-packages.html"><span class="doc">示例指南式文档</span></a>。</p>
+</section>
+<section id="discussions">
+<h3>讨论<a class="headerlink" href="#discussions" title="永久链接至标题">¶</a></h3>
+<p>讨论 (Discussions) 的重点是理解和信息。这些探索一个特定的主题，没有具体的目标。 <a class="reference internal" href="discussions/install-requires-vs-requirements.html"><span class="doc">示例讨论式文件</span></a>。</p>
+</section>
+<section id="specifications">
+<h3>规格<a class="headerlink" href="#specifications" title="永久链接至标题">¶</a></h3>
+<p>规范 (Specifications) 是一种参考文件，侧重于全面记录包装工具之间互操作性的一致接口。 <a class="reference internal" href="specifications/core-metadata.html"><span class="doc">范例规范式文件</span></a>。</p>
+</section>
+</section>
+<section id="translations">
+<h2>Translations<a class="headerlink" href="#translations" title="永久链接至标题">¶</a></h2>
+<p>We use <a class="reference external" href="https://weblate.org/">Weblate</a> to manage translations of this project.
+Please visit the <a class="reference external" href="https://hosted.weblate.org/projects/pypa/packaging-python-org/">packaging.python.org</a> project on Weblate to contribute.</p>
+<p>If you are experiencing issues while you are working on translations,
+please open an issue on <a class="reference external" href="https://github.com/pypa/packaging.python.org/issues">Github</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">小技巧</p>
+<p>Any translations of this project should follow <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">reStructuredText syntax</a>.</p>
+</div>
+<section id="adding-a-language">
+<h3>Adding a language<a class="headerlink" href="#adding-a-language" title="永久链接至标题">¶</a></h3>
+<p>If your language is not listed on <a class="reference external" href="https://hosted.weblate.org/projects/pypa/packaging-python-org/">packaging.python.org</a>, click the button
+<span class="guilabel">Start new translation</span> at the bottom of the language list and add
+the language you want to translate.</p>
+</section>
+<section id="following-restructuredtext-syntax">
+<h3>Following reStructuredText syntax<a class="headerlink" href="#following-restructuredtext-syntax" title="永久链接至标题">¶</a></h3>
+<p>If you are not familiar with reStructuredText (RST) syntax, please read <a class="reference external" href="https://docutils.sourceforge.io/docs/user/rst/quickref.html">this guide</a>
+before translating on Weblate.</p>
+<p><strong>Do not translate the text in reference directly</strong></p>
+<blockquote>
+<div><p>When translating the text in reference, please do not translate them directly.</p>
+<div class="line-block">
+<div class="line">Wrong: Translate the following text directly:</div>
+</div>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="s">`some ref`_</span> -&gt; <span class="s">`TRANSLATED TEXT HERE`_</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">Right: Translate the following text with your own language and add the original reference:</div>
+</div>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="s">`some ref`_ -&gt; `TRANSLATED TEXT HERE </span><span class="si">&lt;some ref&gt;</span><span class="s">`_</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+</section>
+<section id="building-the-guide-locally">
+<h2>在本地构建指南<a class="headerlink" href="#building-the-guide-locally" title="永久链接至标题">¶</a></h2>
+<p>虽然这不需要做出贡献，但为了测试您的改动，在本地建立本指南可能是有用的。为了在本地构建本指南，你需要：</p>
+<ol class="arabic">
+<li><p><a class="reference external" href="https://nox.thea.codes/en/latest/index.html" title="(在 Nox v2020.12.31)"><span class="xref std std-doc">Nox</span></a>. You can install or upgrade
+nox using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m pip install --user nox
+</pre></div>
+</div>
+</li>
+<li><p>Python 3.6. Our build scripts are designed to work with Python 3.6 only.
+See the <a class="reference external" href="https://docs.python-guide.org/starting/installation/" title="(在 pythonguide v0.0.1)"><span class="xref std std-doc">Hitchhiker’s Guide to Python installation instructions</span></a>
+to install Python 3.6 on your operating system.</p></li>
+</ol>
+<p>To build the guide, run the following bash command in the source folder:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nox -s build
+</pre></div>
+</div>
+<p>在该过程完成后，您可以在 <code class="docutils literal notranslate"><span class="pre">./build/html</span></code> 目录中找到 HTML 输出。您可以打开 <code class="docutils literal notranslate"><span class="pre">index.html</span></code> 文件，并在浏览器中查看指南，但我们建议使用 HTTP 服务器为指南服务。</p>
+<p>You can build the guide and serve it via an HTTP server using the following
+command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nox -s preview
+</pre></div>
+</div>
+<p>该指南将可通过 <a class="reference external" href="http://localhost:8000">http://localhost:8000</a> 进行浏览。</p>
+</section>
+<section id="where-the-guide-is-deployed">
+<h2>指南的部署地点<a class="headerlink" href="#where-the-guide-is-deployed" title="永久链接至标题">¶</a></h2>
+<p>该指南是通过ReadTheDocs部署的，配置位于 <a class="reference external" href="https://readthedocs.org/projects/python-packaging-user-guide/">https://readthedocs.org/projects/python-packaging-user-guide/</a> 。它由一个自定义域名提供服务，并由 Fast.ly 提供支持。</p>
+</section>
+<section id="style-guide">
+<span id="contributing-style-guide"></span><h2>风格指南<a class="headerlink" href="#style-guide" title="永久链接至标题">¶</a></h2>
+<p>本风格指南提供了关于如何编写 Python Packaging User Guide 的建议。在开始写作之前，请先查看它。通过遵循样式指南，您的贡献将有助于增加一个有凝聚力的整体，并使您的贡献更容易被项目接受。</p>
+<section id="purpose">
+<h3>目的<a class="headerlink" href="#purpose" title="永久链接至标题">¶</a></h3>
+<p>Python Packaging User Guide 的目的是成为关于如何使用当前工具打包、发布和安装 Python 项目的权威性资源。</p>
+</section>
+<section id="scope">
+<h3>范围<a class="headerlink" href="#scope" title="永久链接至标题">¶</a></h3>
+<p>该指南旨在通过准确和有针对性的建议来回答问题和解决问题。</p>
+<p>本指南并不意味着是全面的，也不意味着可以取代单个项目的文档。例如，pip 有几十个命令、选项和设置。pip 文档详细描述了它们中的每一个，而本指南只描述了完成本指南中描述的特定任务所需的 pip 部分。</p>
+</section>
+<section id="audience">
+<h3>读者<a class="headerlink" href="#audience" title="永久链接至标题">¶</a></h3>
+<p>本指南的受众是任何使用 Python 包的人。</p>
+<p>不要忘记，Python 社区是很大，而且很受欢迎的。读者可能与您的年龄、性别、教育、文化等不尽相同，但他们和您一样值得学习包装知识。</p>
+<p>特别是要记住，不是所有使用 Python 的人都把自己看作是程序员。本指南的受众包括天文学家，画家或学生以及专业的软件开发人员。</p>
+</section>
+<section id="voice-and-tone">
+<h3>声音和语气<a class="headerlink" href="#voice-and-tone" title="永久链接至标题">¶</a></h3>
+<p>在撰写本指南时，即使您已经掌握了所有答案，也要努力以平易近人且谦逊的语气写作。</p>
+<p>想象一下，您正在和一个您知道是聪明和熟练的人一起做 Python 项目。您喜欢和他们一起工作，他们也喜欢和您一起工作。那个人问了您一个问题，你知道答案。你怎么回答？<em>这</em> 就是你应该如何写这个指南的方式。</p>
+<p>这里有一个快速检查：试着大声朗读以了解您写作的声音和语气。它听起来像您会说的话，还是听起来像您在演戏或发表演讲？随意使用缩略语，不要担心拘泥于繁琐的语法规则。您在此允许用介词来结束一个句子，如果这是您想结束它的话。</p>
+<p>在写指南时，根据主题的严肃性和难度调整你的语气。如果你写的是一个介绍性的教程，开个玩笑是可以的，但如果你涉及的是一个敏感的安全建议，你可能要完全避免玩笑。</p>
+</section>
+<section id="conventions-and-mechanics">
+<h3>公约和机制<a class="headerlink" href="#conventions-and-mechanics" title="永久链接至标题">¶</a></h3>
+<dl>
+<dt><strong>写给读者</strong></dt><dd><p>在提出建议或采取的步骤时，您应称呼读者为 <em>你</em> 或使用命令语气。</p>
+<div class="line-block">
+<div class="line">错误：要安装它，用户运行…</div>
+<div class="line">正确：您可以通过运行…来安装它</div>
+<div class="line">正确：要安装它，请运行…</div>
+</div>
+</dd>
+<dt><strong>陈述假设</strong></dt><dd><p>避免做出未说明的假设。在网上阅读意味着指南的任何一页都可能是读者所看到的指南的第一页。如果您要做假设，那就要说明您要做什么假设。</p>
+</dd>
+<dt><strong>慷慨地交叉参考</strong></dt><dd><p>当你第一次提到一个工具或做法时，请链接到指南中涉及它的部分，或链接到其他地方的相关文件。这样可以为读者省去搜索的麻烦。</p>
+</dd>
+<dt><strong>尊重命名的做法</strong></dt><dd><p>当给工具、网站、人和其他专有名词命名时，请使用它们的首选大写字母。</p>
+<div class="line-block">
+<div class="line">错误：Pip 使用…</div>
+<div class="line">正确：pip 使用…</div>
+<div class="line"><br /></div>
+<div class="line">错误：…托管在 github 上。</div>
+<div class="line">正确：……托管在 GitHub 上。</div>
+</div>
+</dd>
+<dt><strong>使用中性风格</strong></dt><dd><p>通常，您会用 <em>you</em>、<em>your</em> 和 <em>yours</em> 来直接称呼读者。否则，请使用性别中立的代词 <em>they</em>、<em>their</em> 和 <em>theirs</em> ，或者完全避免使用代词。</p>
+<div class="line-block">
+<div class="line">错误：一个维护人员上传了文件。然后他…</div>
+<div class="line">正确：一个维护人员上传了文件。然后他们…</div>
+<div class="line">正确：A maintainer uploads the file. Then the maintainer…</div>
+</div>
+</dd>
+<dt><strong>标题</strong></dt><dd><p>写标题时要使用读者正在搜索的词。一个好方法是让你的标题完成一个隐含的问题。例如，读者可能想知道 <em>How do I install MyLibrary?</em>，所以一个好的标题可能是 <em>Install MyLibrary</em> 。</p>
+<p>在章节标题中，使用句子大小写。换句话说，要像写一个典型的句子那样写标题。</p>
+<div class="line-block">
+<div class="line">错误：Things You Should Know About Python</div>
+<div class="line">正确：Things you should know about Python</div>
+</div>
+</dd>
+<dt><strong>数字</strong></dt><dd><p>在正文中，将数字1到9写成单词。对于其他数字或表格中的数字，使用数字。</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">目录</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Python 的打包概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/index.html">指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="discussions/index.html">讨论</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications/index.html">PyPA specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key_projects.html">项目摘要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">词汇表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">如何获得支持</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">为本指南做出贡献</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#documentation-types">文档类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#translations">Translations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-the-guide-locally">在本地构建指南</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#where-the-guide-is-deployed">指南的部署地点</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#style-guide">风格指南</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">新闻</a></li>
+</ul>
+
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="support.html"
+                        title="上一章">如何获得支持</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="news.html"
+                        title="下一章">新闻</a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="news.html" title="新闻"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="support.html" title="如何获得支持"
+             >上一页</a> |</li>
+          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">Python Packaging User Guide</a> &#187;
+              
+          </li>
+        <li class="nav-item nav-item-this"><a href="">为本指南做出贡献</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="快速搜索" aria-label="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="copyright.html">版权所有</a> 2013–2020, PyPA.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最后更新于 2021 年 11 月 17 日.
+    <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.3.
+    </div>
+
+  </body>
+</html>

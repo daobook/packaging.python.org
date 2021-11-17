@@ -1,0 +1,392 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Making a PyPI-friendly README &#8212; Python Packaging User Guide</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pypa.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/overrides.css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/tabs.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    
+    <script src="../_static/sidebar.js"></script>
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Publishing package distribution releases using GitHub Actions CI/CD workflows" href="publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.html" />
+    <link rel="prev" title="使用 TestPyPI" href="using-testpypi.html" /><link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://pypa.io" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="快速搜索"/>
+            <input type="submit" value="转向"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+<h3><a href="../index.html">目录</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 的打包概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installing-using-pip-and-virtual-environments.html">Installing packages using pip and virtual environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing-stand-alone-command-line-tools.html">安装独立命令行工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing-using-linux-tools.html">用 Linux 软件包管理器安装 pip/setuptools/wheel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing-scientific-packages.html">Installing scientific packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-version-installs.html">多版本安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index-mirrors-and-caches.html">Package index mirrors and caches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hosting-your-own-index.html">Hosting your own simple repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributing-packages-using-setuptools.html">Packaging and distributing projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-manifest-in.html">Including files in source distributions with <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-sourcing-package-version.html">Single-sourcing the package version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supporting-multiple-python-versions.html">支持多个 Python 版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dropping-older-python-versions.html">放弃对旧版 Python 的支持</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging-binary-extensions.html">Packaging binary extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supporting-windows-using-appveyor.html">Supporting Windows using Appveyor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging-namespace-packages.html">Packaging namespace packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating-and-discovering-plugins.html">创建和发现插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrating-to-pypi-org.html">迁移到 PyPI.org</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-testpypi.html">使用 TestPyPI</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Making a PyPI-friendly README</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.html">Publishing package distribution releases using GitHub Actions CI/CD workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-recommendations.html">Tool recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyzing-pypi-package-downloads.html">分析 PyPI 软件包的下载情况</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../discussions/index.html">讨论</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../specifications/index.html">PyPA specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../key_projects.html">项目摘要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">词汇表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">如何获得支持</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">为本指南做出贡献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
+</ul>
+
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="using-testpypi.html"
+                        title="上一章">使用 TestPyPI</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.html"
+                        title="下一章">Publishing package distribution releases using GitHub Actions CI/CD workflows</a></p>
+        </nav>
+    </div>
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.html" title="Publishing package distribution releases using GitHub Actions CI/CD workflows"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="using-testpypi.html" title="使用 TestPyPI"
+             accesskey="P">上一页</a> |</li>
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="../index.html">Python Packaging User Guide</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">指南</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Making a PyPI-friendly README</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" aria-label="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="making-a-pypi-friendly-readme">
+<h1>Making a PyPI-friendly README<a class="headerlink" href="#making-a-pypi-friendly-readme" title="永久链接至标题">¶</a></h1>
+<p>README files can help your users understand your project and can be used to set your project’s description on PyPI.
+This guide helps you create a README in a PyPI-friendly format and include your README in your package so it appears on PyPI.</p>
+<section id="creating-a-readme-file">
+<h2>Creating a README file<a class="headerlink" href="#creating-a-readme-file" title="永久链接至标题">¶</a></h2>
+<p>README files for Python projects are often named <code class="docutils literal notranslate"><span class="pre">README</span></code>, <code class="docutils literal notranslate"><span class="pre">README.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">README.rst</span></code>, or <code class="docutils literal notranslate"><span class="pre">README.md</span></code>.</p>
+<p>For your README to display properly on PyPI, choose a markup language supported by PyPI.
+Formats supported by <a class="reference external" href="https://github.com/pypa/readme_renderer">PyPI’s README renderer</a> are:</p>
+<ul class="simple">
+<li><p>plain text</p></li>
+<li><p><a class="reference external" href="https://docutils.sourceforge.io/rst.html">reStructuredText</a> (without Sphinx extensions)</p></li>
+<li><p>Markdown (<a class="reference external" href="https://github.github.com/gfm/">GitHub Flavored Markdown</a> by default,
+or <a class="reference external" href="https://commonmark.org/">CommonMark</a>)</p></li>
+</ul>
+<p>通常将 README 文件保存在项目的根目录中，与 <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> 文件位于同一目录中。</p>
+</section>
+<section id="including-your-readme-in-your-package-s-metadata">
+<h2>在软件包的元数据中包含您的 README<a class="headerlink" href="#including-your-readme-in-your-package-s-metadata" title="永久链接至标题">¶</a></h2>
+<p>To include your README’s contents as your package description,
+set your project’s <code class="docutils literal notranslate"><span class="pre">Description</span></code> and <code class="docutils literal notranslate"><span class="pre">Description-Content-Type</span></code> metadata,
+typically in your project’s <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> file.</p>
+<div class="admonition seealso">
+<p class="admonition-title">参见</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../specifications/core-metadata.html#description-optional"><span class="std std-ref">描述</span></a></p></li>
+<li><p><a class="reference internal" href="../specifications/core-metadata.html#description-content-type-optional"><span class="std std-ref">Description-Content-Type</span></a></p></li>
+</ul>
+</div>
+<p>For example, to set these values in a package’s <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> file,
+use <code class="docutils literal notranslate"><span class="pre">setup()</span></code>’s <code class="docutils literal notranslate"><span class="pre">long_description</span></code> and <code class="docutils literal notranslate"><span class="pre">long_description_content_type</span></code>.</p>
+<p>Set the value of <code class="docutils literal notranslate"><span class="pre">long_description</span></code> to the contents (not the path) of the README file itself.
+Set the <code class="docutils literal notranslate"><span class="pre">long_description_content_type</span></code> to an accepted <code class="docutils literal notranslate"><span class="pre">Content-Type</span></code>-style value for your README file’s markup,
+such as <code class="docutils literal notranslate"><span class="pre">text/plain</span></code>, <code class="docutils literal notranslate"><span class="pre">text/x-rst</span></code> (for reStructuredText), or <code class="docutils literal notranslate"><span class="pre">text/markdown</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>如果您使用 GitHub 风格的 Markdown 来写项目的描述，请确保您升级了以下工具：</p>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Unix/macOS</label><div class="tab-content docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --user --upgrade setuptools wheel twine
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--0-input--2" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--2">Windows</label><div class="tab-content docutils container">
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>py -m pip install --user --upgrade setuptools wheel twine
+</pre></div>
+</div>
+</div>
+</div>
+<p>The minimum required versions of the respective tools are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">setuptools</span> <span class="pre">&gt;=</span> <span class="pre">38.6.0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wheel</span> <span class="pre">&gt;=</span> <span class="pre">0.31.0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">twine</span> <span class="pre">&gt;=</span> <span class="pre">1.11.0</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>It’s recommended that you use <code class="docutils literal notranslate"><span class="pre">twine</span></code> to upload the project’s distribution packages:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>twine upload dist/*
+</pre></div>
+</div>
+</div>
+<p>For example, see this <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> file,
+which reads the contents of <code class="file docutils literal notranslate"><span class="pre">README.md</span></code> as <code class="docutils literal notranslate"><span class="pre">long_description</span></code>
+and identifies the markup as GitHub-flavored Markdown:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+
+<span class="c1"># read the contents of your README file</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="n">this_directory</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span>
+<span class="n">long_description</span> <span class="o">=</span> <span class="p">(</span><span class="n">this_directory</span> <span class="o">/</span> <span class="s2">&quot;README.md&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>
+
+<span class="n">setup</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;an_example_package&#39;</span><span class="p">,</span>
+    <span class="c1"># other arguments omitted</span>
+    <span class="n">long_description</span><span class="o">=</span><span class="n">long_description</span><span class="p">,</span>
+    <span class="n">long_description_content_type</span><span class="o">=</span><span class="s1">&#39;text/markdown&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="validating-restructuredtext-markup">
+<h2>Validating reStructuredText markup<a class="headerlink" href="#validating-restructuredtext-markup" title="永久链接至标题">¶</a></h2>
+<p>If your README is written in reStructuredText, any invalid markup will prevent
+it from rendering, causing PyPI to instead just show the README’s raw source.</p>
+<p>Note that Sphinx extensions used in docstrings, such as
+<a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html" title="(在 Sphinx v5.0.0+)"><span class="xref std std-doc">directives and roles</span></a>
+(e.g., “<code class="docutils literal notranslate"><span class="pre">:py:func:`getattr`</span></code>” or “<code class="docutils literal notranslate"><span class="pre">:ref:`my-reference-label`</span></code>”), are not allowed here and will result in error
+messages like “<code class="docutils literal notranslate"><span class="pre">Error:</span> <span class="pre">Unknown</span> <span class="pre">interpreted</span> <span class="pre">text</span> <span class="pre">role</span> <span class="pre">&quot;py:func&quot;.</span></code>”.</p>
+<p>You can check your README for markup errors before uploading as follows:</p>
+<ol class="arabic">
+<li><p>安装最新版本的 <a class="reference external" href="https://github.com/pypa/twine">twine</a> ；需要1.12.0版或更高版本：</p>
+<div class="tab-set docutils container">
+<input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--1">Unix/macOS</label><div class="tab-content docutils container">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --upgrade twine
+</pre></div>
+</div>
+</div>
+<input class="tab-input" id="tab-set--1-input--2" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--2">Windows</label><div class="tab-content docutils container">
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>py -m pip install --upgrade twine
+</pre></div>
+</div>
+</div>
+</div>
+</li>
+<li><p>Build the sdist and wheel for your project as described under
+<a class="reference internal" href="distributing-packages-using-setuptools.html#packaging-your-project"><span class="std std-ref">Packaging your project</span></a>.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">twine</span> <span class="pre">check</span></code> on the sdist and wheel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>twine check dist/*
+</pre></div>
+</div>
+<p>This command will report any problems rendering your README.  If your markup
+renders fine, the command will output <code class="docutils literal notranslate"><span class="pre">Checking</span> <span class="pre">distribution</span> <span class="pre">FILENAME:</span>
+<span class="pre">Passed</span></code>.</p>
+</li>
+</ol>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">目录</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 的打包概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installing-using-pip-and-virtual-environments.html">Installing packages using pip and virtual environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing-stand-alone-command-line-tools.html">安装独立命令行工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing-using-linux-tools.html">用 Linux 软件包管理器安装 pip/setuptools/wheel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing-scientific-packages.html">Installing scientific packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi-version-installs.html">多版本安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index-mirrors-and-caches.html">Package index mirrors and caches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hosting-your-own-index.html">Hosting your own simple repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributing-packages-using-setuptools.html">Packaging and distributing projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-manifest-in.html">Including files in source distributions with <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="single-sourcing-package-version.html">Single-sourcing the package version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supporting-multiple-python-versions.html">支持多个 Python 版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dropping-older-python-versions.html">放弃对旧版 Python 的支持</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging-binary-extensions.html">Packaging binary extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="supporting-windows-using-appveyor.html">Supporting Windows using Appveyor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging-namespace-packages.html">Packaging namespace packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating-and-discovering-plugins.html">创建和发现插件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrating-to-pypi-org.html">迁移到 PyPI.org</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-testpypi.html">使用 TestPyPI</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Making a PyPI-friendly README</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.html">Publishing package distribution releases using GitHub Actions CI/CD workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tool-recommendations.html">Tool recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyzing-pypi-package-downloads.html">分析 PyPI 软件包的下载情况</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../discussions/index.html">讨论</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../specifications/index.html">PyPA specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../key_projects.html">项目摘要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">词汇表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">如何获得支持</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">为本指南做出贡献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
+</ul>
+
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="using-testpypi.html"
+                        title="上一章">使用 TestPyPI</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.html"
+                        title="下一章">Publishing package distribution releases using GitHub Actions CI/CD workflows</a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.html" title="Publishing package distribution releases using GitHub Actions CI/CD workflows"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="using-testpypi.html" title="使用 TestPyPI"
+             >上一页</a> |</li>
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="../index.html">Python Packaging User Guide</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="index.html" >指南</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Making a PyPI-friendly README</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" aria-label="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版权所有</a> 2013–2020, PyPA.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最后更新于 2021 年 11 月 17 日.
+    <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.3.
+    </div>
+
+  </body>
+</html>

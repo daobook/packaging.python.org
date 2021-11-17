@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>部署 Python 应用程序 &#8212; Python Packaging User Guide</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pypa.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/overrides.css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/tabs.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    
+    <script src="../_static/sidebar.js"></script>
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="pip 与 easy_install" href="pip-vs-easy-install.html" />
+    <link rel="prev" title="讨论" href="index.html" /><link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://pypa.io" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="快速搜索"/>
+            <input type="submit" value="转向"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+<h3><a href="../index.html">目录</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 的打包概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">讨论</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">部署 Python 应用程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pip-vs-easy-install.html">pip 与 easy_install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-requires-vs-requirements.html">install_requires 与 requirements files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wheel-vs-egg.html">Wheel 与 Egg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../specifications/index.html">PyPA specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../key_projects.html">项目摘要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">词汇表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">如何获得支持</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">为本指南做出贡献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
+</ul>
+
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="index.html"
+                        title="上一章">讨论</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="pip-vs-easy-install.html"
+                        title="下一章">pip 与 easy_install</a></p>
+        </nav>
+    </div>
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="pip-vs-easy-install.html" title="pip 与 easy_install"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="讨论"
+             accesskey="P">上一页</a> |</li>
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="../index.html">Python Packaging User Guide</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">讨论</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">部署 Python 应用程序</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" aria-label="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="deploying-python-applications">
+<h1>部署 Python 应用程序<a class="headerlink" href="#deploying-python-applications" title="永久链接至标题">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">页面状态</dt>
+<dd class="field-odd"><p>不完全的</p>
+</dd>
+<dt class="field-even">最后审查</dt>
+<dd class="field-even"><p>2021-8-24</p>
+</dd>
+</dl>
+<div class="contents local topic" id="contents">
+<p class="topic-title">内容</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#overview" id="id3">总览</a></p>
+<ul>
+<li><p><a class="reference internal" href="#supporting-multiple-hardware-platforms" id="id4">支持多种硬件平台</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#os-packaging-installers" id="id5">操作系统包装和安装程序</a></p>
+<ul>
+<li><p><a class="reference internal" href="#windows" id="id6">Windows 系统</a></p>
+<ul>
+<li><p><a class="reference internal" href="#pynsist" id="id7">Pynsist</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#application-bundles" id="id8">应用捆绑</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id1" id="id9">Windows 系统</a></p>
+<ul>
+<li><p><a class="reference internal" href="#py2exe" id="id10">py2exe</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#macos" id="id11">macOS</a></p>
+<ul>
+<li><p><a class="reference internal" href="#py2app" id="id12">py2app</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#unix-including-linux-and-macos" id="id13">Unix (including Linux and macOS)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#pex" id="id14">pex</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#configuration-management" id="id15">配置管理</a></p></li>
+</ul>
+</div>
+<section id="overview">
+<h2><a class="toc-backref" href="#id3">总览</a><a class="headerlink" href="#overview" title="永久链接至标题">¶</a></h2>
+<section id="supporting-multiple-hardware-platforms">
+<h3><a class="toc-backref" href="#id4">支持多种硬件平台</a><a class="headerlink" href="#supporting-multiple-hardware-platforms" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>FIXME
+
+Meaning: x86, x64, ARM, others?
+
+For Python-only distributions, it *should* be straightforward to deploy on all
+platforms where Python can run.
+
+For distributions with binary extensions, deployment is major headache.  Not only
+must the extensions be built on all the combinations of operating system and
+hardware platform, but they must also be tested, preferably on continuous
+integration platforms.  The issues are similar to the &quot;multiple Python
+versions&quot; section above, not sure whether this should be a separate section.
+Even on Windows x64, both the 32 bit and 64 bit versions of Python enjoy
+significant usage.
+</pre></div>
+</div>
+</section>
+</section>
+<section id="os-packaging-installers">
+<h2><a class="toc-backref" href="#id5">操作系统包装和安装程序</a><a class="headerlink" href="#os-packaging-installers" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FIXME</span>
+
+<span class="o">-</span> <span class="n">Building</span> <span class="n">rpm</span><span class="o">/</span><span class="n">debs</span> <span class="k">for</span> <span class="n">projects</span>
+<span class="o">-</span> <span class="n">Building</span> <span class="n">rpms</span><span class="o">/</span><span class="n">debs</span> <span class="k">for</span> <span class="n">whole</span> <span class="n">virtualenvs</span>
+<span class="o">-</span> <span class="n">Building</span> <span class="n">macOS</span> <span class="n">installers</span> <span class="k">for</span> <span class="n">Python</span> <span class="n">projects</span>
+<span class="o">-</span> <span class="n">Building</span> <span class="n">Android</span> <span class="n">APKs</span> <span class="k">with</span> <span class="n">Kivy</span><span class="o">+</span><span class="n">P4A</span> <span class="ow">or</span> <span class="n">P4A</span> <span class="o">&amp;</span> <span class="n">Buildozer</span>
+</pre></div>
+</div>
+<section id="windows">
+<h3><a class="toc-backref" href="#id6">Windows 系统</a><a class="headerlink" href="#windows" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FIXME</span>
+
+<span class="o">-</span> <span class="n">Building</span> <span class="n">Windows</span> <span class="n">installers</span> <span class="k">for</span> <span class="n">Python</span> <span class="n">projects</span>
+</pre></div>
+</div>
+<section id="pynsist">
+<h4><a class="toc-backref" href="#id7">Pynsist</a><a class="headerlink" href="#pynsist" title="永久链接至标题">¶</a></h4>
+<p><a class="reference external" href="https://pypi.org/project/pynsist">Pynsist</a> 是一个基于NSIS的单一安装程序，并将 Python 程序与 Python 解释器捆绑在一起的工具。在大多数情况下，打包 (packaging) 只需要用户选择 Python 解释器的版本并声明程序的依赖性 (dependencies) 。该工具会下载用于 Windows 的 Python 解释器，并将其与所有依赖项打包成一个可在 Windows 执行的安装程序。</p>
+<p>安装的程序可以从安装程序添加到开始菜单的快捷方式启动。它使用一个安装在其应用程序目录中的Python解释器，与计算机上的任何其他 Python 安装无关。</p>
+<p>A big advantage of Pynsist is that the Windows packages can be built on Linux.
+There are several examples for different kinds of programs (console, GUI) in
+the <a class="reference external" href="https://pynsist.readthedocs.io/en/latest/index.html" title="(在 pynsist v2.7)"><code class="xref any docutils literal notranslate"><span class="pre">documentation</span></code></a>. The tool is released
+under the MIT-licence.</p>
+</section>
+</section>
+</section>
+<section id="application-bundles">
+<h2><a class="toc-backref" href="#id8">应用捆绑</a><a class="headerlink" href="#application-bundles" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FIXME</span>
+
+<span class="o">-</span> <span class="n">wheels</span> <span class="n">kinda</span><span class="o">/</span><span class="n">sorta</span>
+</pre></div>
+</div>
+<section id="id1">
+<h3><a class="toc-backref" href="#id9">Windows 系统</a><a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h3>
+<section id="py2exe">
+<h4><a class="toc-backref" href="#id10">py2exe</a><a class="headerlink" href="#py2exe" title="永久链接至标题">¶</a></h4>
+<p><a class="reference external" href="https://pypi.org/project/py2exe/">py2exe</a> is a distutils extension which
+allows to build standalone Windows executable programs (32-bit and 64-bit)
+from Python scripts. Python versions included in the official development
+cycle are supported (refers to <a class="reference external" href="https://devguide.python.org/#status-of-python-branches">Status of Python branches</a>). py2exe can
+build console executables and windows (GUI) executables. Building windows
+services, and DLL/EXE COM servers might work but it is not actively supported.
+The distutils extension is released under the MIT-licence and Mozilla
+Public License 2.0.</p>
+</section>
+</section>
+<section id="macos">
+<h3><a class="toc-backref" href="#id11">macOS</a><a class="headerlink" href="#macos" title="永久链接至标题">¶</a></h3>
+<section id="py2app">
+<h4><a class="toc-backref" href="#id12">py2app</a><a class="headerlink" href="#py2app" title="永久链接至标题">¶</a></h4>
+<p><a class="reference external" href="https://pypi.org/project/py2app/">py2app</a> is a Python setuptools
+command which will allow you to make standalone macOS application
+bundles and plugins from Python scripts. Note that py2app MUST be used
+on macOS to build applications, it cannot create Mac applications on other
+platforms. py2app is released under the MIT-license.</p>
+</section>
+</section>
+<section id="unix-including-linux-and-macos">
+<h3><a class="toc-backref" href="#id13">Unix (including Linux and macOS)</a><a class="headerlink" href="#unix-including-linux-and-macos" title="永久链接至标题">¶</a></h3>
+<section id="pex">
+<h4><a class="toc-backref" href="#id14">pex</a><a class="headerlink" href="#pex" title="永久链接至标题">¶</a></h4>
+<p><a class="reference external" href="https://pypi.org/project/pex/">pex</a> is  a library for generating .pex
+(Python EXecutable) files which are executable Python environments in the
+spirit of virtualenvs. pex is an expansion upon the ideas outlined in <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0441"><strong>PEP 441</strong></a>
+and makes the deployment of Python applications as simple as cp. pex files may
+even include multiple platform-specific Python distributions, meaning that a
+single pex file can be portable across Linux and macOS. pex is released under the
+Apache License 2.0.</p>
+</section>
+</section>
+</section>
+<section id="configuration-management">
+<h2><a class="toc-backref" href="#id15">配置管理</a><a class="headerlink" href="#configuration-management" title="永久链接至标题">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FIXME</span>
+
+<span class="n">puppet</span>
+<span class="n">salt</span>
+<span class="n">chef</span>
+<span class="n">ansible</span>
+<span class="n">fabric</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">目录</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 的打包概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">讨论</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">部署 Python 应用程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pip-vs-easy-install.html">pip 与 easy_install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-requires-vs-requirements.html">install_requires 与 requirements files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wheel-vs-egg.html">Wheel 与 Egg</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../specifications/index.html">PyPA specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../key_projects.html">项目摘要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">词汇表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">如何获得支持</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">为本指南做出贡献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
+</ul>
+
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="index.html"
+                        title="上一章">讨论</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="pip-vs-easy-install.html"
+                        title="下一章">pip 与 easy_install</a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="pip-vs-easy-install.html" title="pip 与 easy_install"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="讨论"
+             >上一页</a> |</li>
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="../index.html">Python Packaging User Guide</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="index.html" >讨论</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">部署 Python 应用程序</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" aria-label="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版权所有</a> 2013–2020, PyPA.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最后更新于 2021 年 11 月 17 日.
+    <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.3.
+    </div>
+
+  </body>
+</html>
