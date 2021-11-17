@@ -63,15 +63,15 @@ msgid ""
 "`pull requests`__. If you're planning to write or edit the guide, please "
 "read the :ref:`style guide <contributing_style_guide>`."
 msgstr ""
-"大部分关于 |PyPUG| 的工作都是在 `项目的GitHub存储库 <project's GitHub repository>`__ "
-"进行的。要开始工作，请查看 `open issues`__ 和 `pull requests`__ 的列表。如果你打算编写或编辑指南，请阅读 "
-":ref:`style guide <contributing_style_guide>`。"
+"大部分关于 |PyPUG| 的工作都是在 `项目的 GitHub 存储库`__ "
+"进行的。要开始工作，请查看 `open issues`__ 和 `pull requests`__ 的列表。"
+"如果你打算编写或编辑指南，请阅读 :ref:`style guide <contributing_style_guide>`。"
 
 #: ../../source/contribute.rst:25
 msgid ""
 "By contributing to the |PyPUG|, you're expected to follow the PSF's `Code"
 " of Conduct`__."
-msgstr "如果您想为 |PyPUG| 作出贡献，您应该遵守 PSF 的 `行为准则 <Code of Conduct>`__ 。"
+msgstr "如果您想为 |PyPUG| 作出贡献，您应该遵守 PSF 的 `行为准则`__ 。"
 
 #: ../../source/contribute.rst:32
 msgid "Documentation types"
@@ -95,8 +95,7 @@ msgid ""
 "not include extraneous warnings or information. `example tutorial-style "
 "document`_."
 msgstr ""
-"教程的重点是通过完成一个目标来教导读者新的概念。它们是有观点的分步指南。它们不包括不相干的警告或信息。`示例教程式文件 <example "
-"tutorial-style document>`_ 。"
+"教程的重点是通过完成一个目标来教导读者新的概念。它们是有观点的分步指南。它们不包括不相干的警告或信息。`示例教程式文档`_ 。"
 
 #: ../../source/contribute.rst:48 ../../source/guides/index.rst:2
 msgid "Guides"
@@ -125,7 +124,7 @@ msgid ""
 "discussion-style document <discussions/install-requires-vs-"
 "requirements>`."
 msgstr ""
-"讨论 (Discussions) 的重点是理解和信息。这些探索一个特定的主题，没有具体的目标。 :doc:`示例讨论式文件 "
+"讨论的重点是理解和信息。这些探索一个特定的主题，没有具体的目标。 :doc:`示例讨论式文档 "
 "<discussions/install-requires-vs-requirements>`。"
 
 #: ../../source/contribute.rst:64
@@ -831,9 +830,9 @@ msgid ""
 "<Python Package Index (PyPI)>` using requirement specifiers, and "
 "automatically installing dependencies."
 msgstr ""
-":ref:`easy_install <easy_install>`，现在已被弃用`_，作为 :ref:`setuptools` 的一部分于 "
-"2004 年发布。当时值得注意的是，使用需求说明符从 :term:`PyPI <Python Package Index (PyPI)>` 安装 "
-":term:`packages <Distribution Package>`，并自动安装依赖项。"
+":ref:`easy_install <easy_install>`，现在已被 `弃用`_，作为 :ref:`setuptools` 的一部分于 "
+"2004 年发布。当时值得注意的是，使用需求说明符从 :term:`PyPI <Python 包索引（PyPI）>` 安装 "
+":term:`包 <分发包>`，并自动安装依赖项。"
 
 #: ../../source/discussions/pip-vs-easy-install.rst:14
 msgid ""
@@ -847,10 +846,9 @@ msgid ""
 " environments."
 msgstr ""
 ":ref:`pip` 于 2008 年晚些时候出现，作为 :ref:`easy_install <easy_install>` "
-"的替代品，尽管仍然主要构建在 :ref:`setuptools` 组件之上。当时值得注意的是*不*将软件包安装为 :term:`Eggs "
-"<Egg>` 或来自 :term:`Eggs <Egg>`（而是简单地作为来自 :term:`sdists <Source "
-"Distribution (or \"sdist\")>`），并引入 :ref:`Requirements Files "
-"<pip:Requirements Files>` 的想法，它使用户能够轻松复制环境。"
+"的替代品，尽管仍然主要构建在 :ref:`setuptools` 组件之上。当时值得注意的是不将软件包安装为 :term:`Eggs "
+"<Egg>` 或来自 :term:`Eggs <Egg>` （而是简单地作为来自 :term:`sdists <源分发（或 \"sdist\"）>`），"
+"并引入 :ref:`需求文件 <pip:Requirements Files>` 的想法，它使用户能够轻松复制环境。"
 
 #: ../../source/discussions/pip-vs-easy-install.rst:22
 msgid ""
@@ -942,15 +940,15 @@ msgstr "从 :term:`Eggs <Egg>` 安装"
 
 #: ../../source/discussions/pip-vs-easy-install.rst:51
 msgid "`pylauncher support`_"
-msgstr "`pylauncher 支持 <pylauncher support>`_"
+msgstr "`pylauncher 支持`_"
 
 #: ../../source/discussions/pip-vs-easy-install.rst:51
 msgid "Yes [1]_"
-msgstr "有[1]_"
+msgstr "有 [1]_"
 
 #: ../../source/discussions/pip-vs-easy-install.rst:54
 msgid ":ref:`Multi-version Installs`"
-msgstr ":ref:`Multi-version Installs`"
+msgstr ""
 
 #: ../../source/discussions/pip-vs-easy-install.rst:57
 msgid "Exclude scripts during install"
@@ -988,8 +986,8 @@ msgid ""
 "building or compilation, which can be costly in testing and production "
 "workflows."
 msgstr ""
-":term:`Wheel` 和 :term:`Egg` "
-"都是打包格式，旨在支持不需要构建或编译的安装工件的使用情况，这在测试和生产工作流程中可能是昂贵的。"
+":term:`Wheel` 和 :term:`Egg` 都是打包格式，"
+"旨在支持不需要构建或编译的安装工件的使用情况，这在测试和生产工作流程中可能是昂贵的。"
 
 #: ../../source/discussions/wheel-vs-egg.rst:11
 msgid ""
@@ -997,7 +995,7 @@ msgid ""
 "whereas the :term:`Wheel` format was introduced by :pep:`427` in 2012."
 msgstr ""
 ":term:`Egg` 格式是由 :ref:`setuptools` 在2004年引入的，而 :term:`Wheel` 格式是由 "
-":pep:`427` 在2012年引入。"
+":pep:`427` 在 2012 年引入。"
 
 #: ../../source/discussions/wheel-vs-egg.rst:14
 msgid ""
@@ -1005,8 +1003,8 @@ msgid ""
 "<Built Distribution>` and :term:`binary <Binary Distribution>` packaging "
 "for Python."
 msgstr ""
-":term:`Wheel`目前被认为是 :term:`built <Built Distribution>`和 :term:`binary "
-"<Binary Distribution>`打包 Python 的标准。"
+":term:`Wheel` 目前被认为是 :term:`构建 <构建分发>` 和 :term:`二进制 "
+"<二进制分发>` 打包 Python 的标准。"
 
 #: ../../source/discussions/wheel-vs-egg.rst:17
 msgid ""
@@ -1025,9 +1023,8 @@ msgid ""
 "and a runtime installation format (if left zipped), and was designed to "
 "be importable."
 msgstr ""
-":term:`Wheel`是一种 :term:`distribution <Distribution "
-"Package>`格式，也就是一种打包格式。[1]_ "
-":term:`Egg`既是一种发行格式，也是一种运行时的安装格式（如果留下压缩包），并被设计为可导入。"
+":term:`Wheel` 是一种 :term:`分发 <分发包>` 格式，也就是一种打包格式。[1]_  "
+":term:`Egg` 既是一种发行格式，也是一种运行时的安装格式（如果留下压缩包），并被设计为可导入。"
 
 #: ../../source/discussions/wheel-vs-egg.rst:26
 msgid ""
@@ -1037,17 +1034,16 @@ msgid ""
 "\"universal\", similar to an :term:`sdist <Source Distribution (or "
 "\"sdist\")>`."
 msgstr ""
-":term:`Wheel`档案不包括 .pyc 文件。因此，当发行版只包含 Python 文件（即没有编译的扩展），并且与 Python 2 和 "
-"3 兼容时，wheel 有可能是 「通用」的，类似于 :term:`sdist <Source Distribution (or "
-"\"sdist\")>`。"
+":term:`Wheel` 档案不包括 .pyc 文件。因此，当发行版只包含 Python 文件（即没有编译的扩展），并且与 Python 2 和 "
+"3 兼容时，wheel 有可能是 \"通用\" 的，类似于 :term:`sdist <源分发（或 \"sdist\"）>`。"
 
 #: ../../source/discussions/wheel-vs-egg.rst:31
 msgid ""
 ":term:`Wheel` uses :pep:`PEP376-compliant <376>` ``.dist-info`` "
 "directories. Egg used ``.egg-info``."
 msgstr ""
-":term:`Wheel` 使用 :pep:`PEP376-compliant <376>```.dist-info`` 目录。 Egg 使用 "
-"``.egg-info`` 。"
+":term:`Wheel` 使用 :pep:`PEP376-compliant <376>` ``.dist-info`` 目录。"
+"Egg 使用 ``.egg-info`` 。"
 
 #: ../../source/discussions/wheel-vs-egg.rst:34
 msgid ""
@@ -1055,14 +1051,15 @@ msgid ""
 "wheel archive can indicate its compatibility with a number of Python "
 "language versions and implementations, ABIs, and system architectures."
 msgstr ""
-":term:`Wheel`有一个 :pep:`更丰富的文件命名约定 <425>`。一个单一的 wheel 档案可以表明它与许多 Python "
-"语言版本和工具、ABI 以及系统架构的兼容性。"
+":term:`Wheel` 有一个 :pep:`更丰富的文件命名约定 <425>`。"
+"一个单一的 wheel 档案可以表明它与许多 Python 语言版本和工具、ABI 以及系统架构的兼容性。"
 
 #: ../../source/discussions/wheel-vs-egg.rst:38
 msgid ""
 ":term:`Wheel` is versioned. Every wheel file contains the version of the "
 "wheel specification and the implementation that packaged it."
-msgstr ":term:`Wheel`是有版本的。每个 wheel 文件都包含 wheel 规范的版本和包装它的工具。"
+msgstr ""
+":term:`Wheel` 是有版本的。每个 wheel 文件都包含 wheel 规范的版本和包装它的工具。"
 
 #: ../../source/discussions/wheel-vs-egg.rst:41
 #, fuzzy
@@ -1082,7 +1079,7 @@ msgid ""
 "time <427#is-it-possible-to-import-python-code-directly-from-a-wheel-"
 "file>`."
 msgstr ""
-"在某些情况下，控制盘可以用作可导入的运行时格式，尽管：pep:`目前还没有正式支持这一格式 <427#is-it-mable-to-import-"
+"在某些情况下，控制盘可以用作可导入的运行时格式，尽管 :pep:`目前还没有正式支持这一格式 <427#is-it-mable-to-import-"
 "python-code-directly-from-a-wheel-file>`。"
 
 #: ../../source/glossary.rst:3
@@ -1116,7 +1113,7 @@ msgid ""
 msgstr ""
 "一个 :term:`分发 <分发包>` 格式包含只需要移动到目标系统上正确位置的文件和元数据，"
 "即可安装。:term:`Wheel` 是这样一种格式，而 distutil 的 "
-":term:`源分发 <源分发（或 \"sdist\")>` 不是，因为它需要一个构建步骤才能安装。"
+":term:`源分发 <源分发（或 \"sdist\"）>` 不是，因为它需要一个构建步骤才能安装。"
 "这种格式并不意味着必须预编译 Python 文件（:term:`Wheel` 故意不包括编译的 Python 文件）。"
 
 #: ../../source/glossary.rst:26
@@ -1160,8 +1157,7 @@ msgid ""
 "and `Python Eggs <http://peak.telecommunity.com/DevCenter/PythonEggs>`_"
 msgstr ""
 ":term:`构建分发` 格式由 :ref:`setuptools` 引入，并正在被 :term:`Wheel` 取代。 "
-"详见 `Python Eggs 的内部结构 "
-"<https://setuptools.readthedocs.io/en/latest/deprecated/python_eggs.html>`_"
+"详见 ` :doc:`Python Eggs 的内部结构 <setuptools:deprecated/python_eggs>`_"
 " 和 `Python Eggs <http://peak.telecommunity.com/DevCenter/PythonEggs>`_"
 
 #: ../../source/glossary.rst:48
@@ -1276,7 +1272,7 @@ msgid ""
 "contain one or more :term:`Releases <Release>`, and each release may "
 "comprise one or more :term:`distributions <Distribution Package>`."
 msgstr ""
-"Python 项目必须具有独特且唯一的名称，这些名字可以在 :term:`PyPI <Python Package Index (PyPI)>` "
+"Python 项目必须具有独特且唯一的名称，这些名字可以在 :term:`PyPI <Python 包索引（PyPI）>` "
 "上注册。然后每个项目将包含一个或多个 :term:`发布 <Release>` ，每个版本可能包括一个或多个 :term:`套件 "
 "<Distribution Package>` 。"
 
@@ -1314,9 +1310,10 @@ msgid ""
 "sig.python.org/>`_ and `the Python Discourse forum "
 "<https://discuss.python.org/c/packaging>`__."
 msgstr ""
-"PyPA 是一个工作小组，负责维护 Python 包装中的许多相关项目。他们在 https://www.pypa.io，`GitHub "
-"<https://github.com/pypa>`_ 和`Bitbucket <https://bitbucket.org/pypa>`_ "
-"上托管项目，并在 `distutils-sig 邮件列表 <https://mail.python.org/mailman3/lists"
+"PyPA 是一个工作小组，负责维护 Python 包装中的许多相关项目。"
+"他们在 :doc:`pypa.io <pypa:index>`， `GitHub <https://github.com/pypa>`_ "
+"和 `Bitbucket <https://bitbucket.org/pypa>`_ 上托管项目，"
+"并在 `distutils-sig 邮件列表 <https://mail.python.org/mailman3/lists"
 "/distutils-sig.python.org/>`_ 和 `Python Discourse 论坛 "
 "<https://discuss.python.org/c/packaging>`__ 上讨论问题。"
 
@@ -1330,8 +1327,8 @@ msgid ""
 "Python community. It is open to all Python developers to consume and "
 "distribute their distributions."
 msgstr ""
-"`PyPI <https://pypi.org>`_ 是 Python 社区的默认 :term:`包索引 (Package Index) "
-"<Package Index>` 。所有 Python 开发人员都可以使用和分发他们的发行版。"
+"`PyPI <https://pypi.org>`_ 是 Python 社区的默认 :term:`包索引` 。"
+"所有 Python 开发人员都可以使用和分发他们的发行版。"
 
 #: ../../source/glossary.rst:144
 msgid "pypi.org"
@@ -1499,8 +1496,8 @@ msgid ""
 "intended to replace the :term:`Egg` format.  Wheel is currently supported"
 " by :ref:`pip`."
 msgstr ""
-":term:`Built Distribution` 格式由 :pep:`427` 引入，旨在取代 :term:`Egg` 格式。 "
-"Wheel 目前由 :ref:`pip`支持。"
+":term:`构建分发` 格式由 :pep:`427` 引入，旨在取代 :term:`Egg` 格式。 "
+"Wheel 目前由 :ref:`pip` 支持。"
 
 #: ../../source/glossary.rst:243
 msgid "Working Set"
@@ -1597,7 +1594,7 @@ msgid ""
 "<https://github.com/pypa/linehaul>`__ streams download logs from PyPI to "
 "`Google BigQuery`_ [#]_, where they are stored as a public dataset."
 msgstr ""
-"作为替代方案，`Linehaul 项目<https://github.com/pypa/linehaul>`_ 将下载日志从 PyPI 流向 "
+"作为替代方案，`Linehaul 项目 <https://github.com/pypa/linehaul>`_ 将下载日志从 PyPI 流向 "
 "`Google BigQuery`_ [#]_ ，在那里它们被存储为一个公共数据集。"
 
 #: ../../source/guides/analyzing-pypi-package-downloads.rst:50
@@ -2013,7 +2010,7 @@ msgstr ""
 
 #: ../../source/guides/creating-and-discovering-plugins.rst:12
 msgid "`Using naming convention`_."
-msgstr "`使用命名惯例 <Using naming convention>`_ 。"
+msgstr "`使用命名惯例`_ 。"
 
 #: ../../source/guides/creating-and-discovering-plugins.rst:13
 msgid "`Using namespace packages`_."
@@ -2438,7 +2435,7 @@ msgstr ""
 msgid ""
 "Versions are displayed on :term:`PyPI <Python Package Index (PyPI)>` for "
 "each release if you publish your project."
-msgstr "如果您发布了您的项目，每个版本都会显示在 :term:`PyPI <Python Package Index (PyPI)>`上。"
+msgstr "如果您发布了您的项目，每个版本都会显示在 :term:`PyPI <Python 包索引（PyPI）>` 上。"
 
 #: ../../source/guides/distributing-packages-using-setuptools.rst:203
 msgid ""
@@ -3253,7 +3250,7 @@ msgstr "**在复制和保存令牌之前不要关闭页面──您不会再看�
 msgid ""
 "To avoid having to copy and paste the token every time you upload, you "
 "can create a :file:`$HOME/.pypirc` file:"
-msgstr "为了避免每次上传时都要复制和粘贴令牌，您可以创建一个 :file:`$HOME/.pypirc`文件："
+msgstr "为了避免每次上传时都要复制和粘贴令牌，您可以创建一个 :file:`$HOME/.pypirc` 文件："
 
 #: ../../source/guides/distributing-packages-using-setuptools.rst:921
 msgid "**Be aware that this stores your token in plaintext.**"
@@ -3277,15 +3274,15 @@ msgid ""
 "Once you have an account you can upload your distributions to :term:`PyPI"
 " <Python Package Index (PyPI)>` using :ref:`twine`."
 msgstr ""
-"一旦您有了账户，您就可以使用 :ref:`twine`将你的发行版上传到 :term:`PyPI <Python Package Index "
-"(PyPI)>`。"
+"一旦您有了账户，您就可以使用 :ref:`twine` 将你的发行版上传到 :term:`PyPI <Python 包索引（PyPI）>`。"
 
 #: ../../source/guides/distributing-packages-using-setuptools.rst:934
 msgid ""
 "The process for uploading a release is the same regardless of whether or "
 "not the project already exists on PyPI - if it doesn't exist yet, it will"
 " be automatically created when the first release is uploaded."
-msgstr "无论项目是否已经存在于 PyPI 上，上传发布版的过程都是一样的——如果它还不存在，那么在上传第一个发布版时，它将被自动创建。"
+msgstr ""
+"无论项目是否已经存在于 PyPI 上，上传发布版的过程都是一样的——如果它还不存在，那么在上传第一个发布版时，它将被自动创建。"
 
 #: ../../source/guides/distributing-packages-using-setuptools.rst:938
 msgid ""
@@ -3301,7 +3298,8 @@ msgid ""
 "take a minute or two for your project to appear on the site."
 msgstr ""
 "您可以通过浏览 URL ``https://pypi.org/project/<sampleproject>`` "
-"来了解您的软件包是否已经成功上传，其中 ``sampleproject`` 是您上传项目的名称。您的项目可能需要一两分钟才能出现在网站上。"
+"来了解您的软件包是否已经成功上传，其中 ``sampleproject`` 是您上传项目的名称。"
+"您的项目可能需要一两分钟才能出现在网站上。"
 
 #: ../../source/guides/distributing-packages-using-setuptools.rst:952
 #: ../../source/tutorials/installing-packages.rst:671
@@ -3311,8 +3309,9 @@ msgid ""
 " installs the default behavior "
 "<https://github.com/pypa/pip/issues/1668>`_."
 msgstr ""
-"根据你的平台，这可能需要 root 或管理员权限。 :ref:`pip`目前正在考虑通过`使用户安装（user "
-"installs）成为默认行为<https://github.com/pypa/pip/issues/1668>`_ 来改变这一点。"
+"根据你的平台，这可能需要 root 或管理员权限。 "
+":ref:`pip` 目前正在考虑通过 `使用户安装成为默认行为 "
+"<https://github.com/pypa/pip/issues/1668>`_ 来改变这一点。"
 
 #: ../../source/guides/distributing-packages-using-setuptools.rst:958
 msgid ""
@@ -3370,7 +3369,7 @@ msgstr ""
 
 #: ../../source/guides/dropping-older-python-versions.rst:22
 msgid "The latest version of :ref:`twine` is used to upload the package,"
-msgstr ":ref:`twine`的最新版本被用来上传软件包，"
+msgstr ":ref:`twine` 的最新版本被用来上传软件包，"
 
 #: ../../source/guides/dropping-older-python-versions.rst:23
 msgid ""
@@ -4391,7 +4390,9 @@ msgstr "安装附加功能"
 msgid ""
 "Some packages have optional `extras`_. You can tell pip to install these "
 "by specifying the extra in brackets:"
-msgstr "有些软件包有可选的 `额外功能 <extras>`_ 。你可以通过在括号中指定额外的东西来告诉 pip 安装这些东西："
+msgstr ""
+"有些软件包有可选的 `额外功能`_ 。"
+"你可以通过在括号中指定额外的东西来告诉 pip 安装这些东西："
 
 #: ../../source/guides/installing-using-pip-and-virtual-environments.rst:308
 msgid "Installing from source"
@@ -7088,9 +7089,6 @@ msgid ""
 "<https://github.com/pypa/bandersnatch>`__ | `PyPI "
 "<https://pypi.org/project/bandersnatch>`__"
 msgstr ""
-"`Issues <https://github.com/pypa/bandersnatch/issues>`__ | `GitHub "
-"<https://github.com/pypa/bandersnatch>`__ | `PyPI "
-"<https://pypi.org/project/bandersnatch>`__"
 
 #: ../../source/key_projects.rst:25
 msgid ""
@@ -7112,10 +7110,6 @@ msgid ""
 "| `GitHub <https://github.com/pypa/build>`__ | `PyPI "
 "<https://pypi.org/project/build>`__"
 msgstr ""
-"`文档 <https://pypa-build.readthedocs.io/>`__ | `Issues "
-"<https://github.com/pypa/build/issues>`__ | `GitHub "
-"<https://github.com/pypa/build>`__ | `PyPI "
-"<https://pypi.org/project/build>`__"
 
 #: ../../source/key_projects.rst:42
 msgid ""
@@ -7125,7 +7119,7 @@ msgstr ""
 
 #: ../../source/key_projects.rst:49
 msgid "cibuildwheel"
-msgstr "cibuildwheel"
+msgstr ""
 
 #: ../../source/key_projects.rst:51
 msgid ""
@@ -7136,12 +7130,7 @@ msgid ""
 "<https://github.com/pypa/cibuildwheel/discussions>`__ | `Discord "
 "#cibuildwheel <https://discord.com/invite/pypa>`__"
 msgstr ""
-"`文档 <https://cibuildwheel.readthedocs.io/>`__ | `Issues "
-"<https://github.com/pypa/cibuildwheel/issues>`__ | `GitHub "
-"<https://github.com/pypa/cibuildwheel>`__ | `PyPI "
-"<https://pypi.org/project/cibuildwheel>`__ | `Discussions "
-"<https://github.com/pypa/cibuildwheel/discussions>`__ | `Discord "
-"#cibuildwheel <https://discord.com/invite/pypa>`__"
+
 
 #: ../../source/key_projects.rst:58
 msgid ""
@@ -7152,7 +7141,7 @@ msgstr ""
 
 #: ../../source/key_projects.rst:64
 msgid "distlib"
-msgstr "distlib"
+msgstr ""
 
 #: ../../source/key_projects.rst:66
 msgid ""
@@ -7195,10 +7184,6 @@ msgid ""
 "<https://github.com/pypa/packaging>`__ | `PyPI "
 "<https://pypi.org/project/packaging>`__"
 msgstr ""
-"`文档 <https://pip.pypa.io/en/stable/>`__ | `Issues "
-"<https://github.com/pypa/pip/issues>`__ | `GitHub "
-"<https://github.com/pypa/pip>`__ | `PyPI "
-"<https://pypi.org/project/pip/>`__"
 
 #: ../../source/key_projects.rst:97
 msgid ""
@@ -7234,17 +7219,13 @@ msgid "pip"
 msgstr ""
 
 #: ../../source/key_projects.rst:121
-#, fuzzy
 msgid ""
 "`Docs <https://pip.pypa.io/>`__ | `Issues "
 "<https://github.com/pypa/pip/issues>`__ | `GitHub "
 "<https://github.com/pypa/pip>`__ | `PyPI "
 "<https://pypi.org/project/pip/>`__"
 msgstr ""
-"`文档 <https://pip.pypa.io/en/stable/>`__ | `Issues "
-"<https://github.com/pypa/pip/issues>`__ | `GitHub "
-"<https://github.com/pypa/pip>`__ | `PyPI "
-"<https://pypi.org/project/pip/>`__"
+
 
 #: ../../source/key_projects.rst:126
 msgid ""
@@ -7264,7 +7245,7 @@ msgstr ""
 
 #: ../../source/key_projects.rst:137
 msgid "Pipenv"
-msgstr "Pipenv"
+msgstr ""
 
 #: ../../source/key_projects.rst:139
 #, fuzzy
@@ -7274,10 +7255,6 @@ msgid ""
 "<https://github.com/pypa/pipenv/issues>`__ | `PyPI "
 "<https://pypi.org/project/pipenv>`__"
 msgstr ""
-"`文档 <https://pipenv.pypa.io/>`__ | `源码 "
-"<https://github.com/pypa/pipenv>`__ | `Issues "
-"<https://github.com/pypa/pipenv/issues>`__ | `PyPI "
-"<https://pypi.org/project/pipenv>`__"
 
 #: ../../source/key_projects.rst:144
 msgid ""
@@ -7299,7 +7276,7 @@ msgstr ""
 
 #: ../../source/key_projects.rst:159
 msgid "Pipfile"
-msgstr "Pipfile"
+msgstr ""
 
 #: ../../source/key_projects.rst:161
 msgid "`Source <https://github.com/pypa/pipfile>`__"
@@ -7322,9 +7299,6 @@ msgid ""
 "<https://github.com/pypa/pipx>`__ | `PyPI "
 "<https://pypi.org/project/pipx/>`__"
 msgstr ""
-"`文档< <https://pypa.github.io/pipx/>`__ | `GitHub "
-"<https://github.com/pypa/pipx>`__ | `PyPI "
-"<https://pypi.org/project/pipx/>`__"
 
 #: ../../source/key_projects.rst:176
 msgid ""
@@ -7340,9 +7314,6 @@ msgid ""
 "<https://github.com/pypa/packaging.python.org/issues>`__ | `GitHub "
 "<https://github.com/pypa/packaging.python.org>`__"
 msgstr ""
-"`文档 <https://packaging.python.org/en/latest/>`__ | `Issues "
-"<https://github.com/pypa/python-packaging-user-guide/issues>`__ | `GitHub"
-" <https://github.com/pypa/python-packaging-user-guide>`__"
 
 #: ../../source/key_projects.rst:187
 msgid "This guide!"
@@ -7350,7 +7321,7 @@ msgstr "本指南！"
 
 #: ../../source/key_projects.rst:192
 msgid "readme_renderer"
-msgstr "readme_renderer"
+msgstr ""
 
 #: ../../source/key_projects.rst:194
 #, fuzzy
@@ -7381,10 +7352,6 @@ msgid ""
 "<https://github.com/pypa/setuptools>`__ | `PyPI "
 "<https://pypi.org/project/setuptools>`__"
 msgstr ""
-"`文档 <https://setuptools.readthedocs.io/en/latest/>`__ | `Issues "
-"<https://github.com/pypa/setuptools/issues>`__ | `GitHub "
-"<https://github.com/pypa/setuptools>`__ | `PyPI "
-"<https://pypi.org/project/setuptools>`__"
 
 #: ../../source/key_projects.rst:215
 msgid ""
@@ -7411,9 +7378,6 @@ msgid ""
 "<https://github.com/pypa/trove-classifiers>`__ | `PyPI "
 "<https://pypi.org/project/trove-classifiers/>`__"
 msgstr ""
-"`Issues <https://github.com/pypa/trove-classifiers/issues>`__ | `GitHub "
-"<https://github.com/pypa/trove-classifiers>`__ | `PyPI "
-"<https://pypi.org/project/trove-classifiers/>`__"
 
 #: ../../source/key_projects.rst:233
 msgid ""
@@ -7450,10 +7414,6 @@ msgid ""
 "<https://github.com/pypa/twine>`__ | `PyPI "
 "<https://pypi.org/project/twine>`__"
 msgstr ""
-"`文档 <https://twine.readthedocs.io/en/latest/>`__ | `Issues "
-"<https://github.com/pypa/twine/issues>`__ | `GitHub "
-"<https://github.com/pypa/twine>`__ | `PyPI "
-"<https://pypi.org/project/twine>`__"
 
 #: ../../source/key_projects.rst:260
 msgid ""
@@ -7476,10 +7436,6 @@ msgid ""
 "<https://github.com/pypa/virtualenv>`__ | `PyPI "
 "<https://pypi.org/project/virtualenv/>`__"
 msgstr ""
-"`文档 <https://virtualenv.pypa.io/en/stable/>`__ | `Issues "
-"<https://github.com/pypa/virtualenv/issues>`__ | `GitHub "
-"<https://github.com/pypa/virtualenv>`__ | `PyPI "
-"<https://pypi.org/project/virtualenv/>`__"
 
 #: ../../source/key_projects.rst:277
 msgid ""
@@ -7502,9 +7458,6 @@ msgid ""
 "<https://github.com/pypa/warehouse/issues>`__ | `GitHub "
 "<https://github.com/pypa/warehouse>`__"
 msgstr ""
-"`文档 <https://warehouse.pypa.io/>`__ | `Issues "
-"<https://github.com/pypa/warehouse/issues>`__ | `GitHub "
-"<https://github.com/pypa/warehouse>`__"
 
 #: ../../source/key_projects.rst:296
 msgid ""
@@ -7524,10 +7477,6 @@ msgid ""
 "<https://github.com/pypa/wheel>`__ | `PyPI "
 "<https://pypi.org/project/wheel>`__"
 msgstr ""
-"`文档 <https://wheel.readthedocs.io/en/latest/>`__ | `Issues "
-"<https://github.com/pypa/wheel/issues>`__ | `GitHub "
-"<https://github.com/pypa/wheel>`__ | `PyPI "
-"<https://pypi.org/project/wheel>`__"
 
 #: ../../source/key_projects.rst:311
 msgid ""
@@ -7562,10 +7511,6 @@ msgid ""
 "<https://pypi.org/project/zc.buildout>`__ | `GitHub "
 "<https://github.com/buildout/buildout/>`__"
 msgstr ""
-"`文档 <http://www.buildout.org/en/latest/>`__ | `Issues "
-"<https://bugs.launchpad.net/zc.buildout>`__ | `PyPI "
-"<https://pypi.org/project/zc.buildout>`__ | `GitHub "
-"<https://github.com/buildout/buildout/>`__"
 
 #: ../../source/key_projects.rst:336
 msgid ""
@@ -7624,9 +7569,6 @@ msgid ""
 "`Docs <http://doc.devpi.net/latest/>`__ | :gh:`Issues "
 "<devpi/devpi/issues>` | `PyPI <https://pypi.org/project/devpi>`__"
 msgstr ""
-"`文档 <http://doc.devpi.net/latest/>`__ | `Issues "
-"<https://bitbucket.org/hpk42/devpi/issues>`__ | `PyPI "
-"<https://pypi.org/project/devpi>`__"
 
 #: ../../source/key_projects.rst:377
 msgid ""
@@ -7646,9 +7588,6 @@ msgid ""
 "<https://github.com/takluyver/flit/issues>`__ | `PyPI "
 "<https://pypi.org/project/flit>`__"
 msgstr ""
-"`文档<https://flit.readthedocs.io/en/latest/>`__ | `Issues "
-"<https://github.com/takluyver/flit/issues>`__ | `PyPI "
-"<https://pypi.org/project/flit>`__"
 
 #: ../../source/key_projects.rst:392
 msgid ""
@@ -7678,9 +7617,6 @@ msgid ""
 ":gh:`Source <dholth/enscons>` | :gh:`Issues <dholth/enscons/issues>` | "
 "`PyPI <https://pypi.org/project/enscons>`__"
 msgstr ""
-"`源码 <https://bitbucket.org/dholth/enscons/src>`__ | `Issues "
-"<https://bitbucket.org/dholth/enscons/issues>`__ | `PyPI "
-"<https://pypi.org/project/enscons>`__"
 
 #: ../../source/key_projects.rst:413
 msgid ""
@@ -7703,8 +7639,6 @@ msgid ""
 "`Docs <https://hashdist.readthedocs.io/en/latest/>`__ | `GitHub "
 "<https://github.com/hashdist/hashdist/>`__"
 msgstr ""
-"`文档 <https://hashdist.readthedocs.io/en/latest/>`__ | `GitHub "
-"<https://github.com/hashdist/hashdist/>`__"
 
 #: ../../source/key_projects.rst:433
 msgid ""
@@ -7746,7 +7680,7 @@ msgstr "multibuild"
 
 #: ../../source/key_projects.rst:462
 msgid "`GitHub <https://github.com/matthew-brett/multibuild>`__"
-msgstr "`GitHub <https://github.com/matthew-brett/multibuild>`__"
+msgstr ""
 
 #: ../../source/key_projects.rst:464
 msgid ""
@@ -7765,9 +7699,6 @@ msgid ""
 "`Docs <https://pdm.fming.dev/>`__ | `GitHub <https://github.com/pdm-"
 "project/pdm/>`__ | `PyPI <https://pypi.org/project/pdm>`__"
 msgstr ""
-"`文档< <https://pypa.github.io/pipx/>`__ | `GitHub "
-"<https://github.com/pypa/pipx>`__ | `PyPI "
-"<https://pypi.org/project/pipx/>`__"
 
 #: ../../source/key_projects.rst:476
 msgid ""
@@ -7827,14 +7758,10 @@ msgid "piwheels"
 msgstr "piwheels"
 
 #: ../../source/key_projects.rst:518
-#, fuzzy
 msgid ""
 "`Website <https://www.piwheels.org/>`__ | :doc:`Docs <piwheels:index>` | "
 "`GitHub <https://github.com/piwheels/piwheels/>`__"
 msgstr ""
-"`网站 <https://www.piwheels.org/>`__ | `文档 "
-"<https://piwheels.readthedocs.io/>`__ | `GitHub "
-"<https://github.com/piwheels/piwheels/>`__"
 
 #: ../../source/key_projects.rst:522
 msgid ""
@@ -7854,8 +7781,6 @@ msgid ""
 "`Docs <https://python-poetry.org/>`__ | `GitHub <https://github.com"
 "/python-poetry/poetry>`__ | `PyPI <https://pypi.org/project/poetry/>`__"
 msgstr ""
-"`文档 <https://python-poetry.org/>`__ | `GitHub <https://github.com/python-"
-"poetry/poetry>`__ | `PyPI <https://pypi.org/project/poetry/>`__"
 
 #: ../../source/key_projects.rst:537
 msgid ""
@@ -7866,8 +7791,9 @@ msgid ""
 " attempts to speed users' experience of installation and dependency "
 "resolution by locally caching metadata about dependencies."
 msgstr ""
-"poetry是一个命令行工具，用于处理依赖性安装和隔离，以及 Python 包的构建和打包。它使用 ``pyproject.toml`` "
-"，并且不依赖 :ref:`pip`中的解析器功能，而是提供自己的依赖性解析器。它试图通过本地缓存依赖关系的元数据来加速用户的安装和依赖关系的解决。"
+"poetry 是一个命令行工具，用于处理依赖性安装和隔离，以及 Python 包的构建和打包。"
+"它使用 ``pyproject.toml``，并且不依赖 :ref:`pip` 中的解析器功能，而是提供自己的依赖性解析器。"
+"它试图通过本地缓存依赖关系的元数据来加速用户的安装和依赖关系的解决。"
 
 #: ../../source/key_projects.rst:547
 msgid "pypiserver"
@@ -7880,9 +7806,6 @@ msgid ""
 "`GitHub <https://github.com/pypiserver/pypiserver>`__ | `PyPI "
 "<https://pypi.org/project/pypiserver/>`__"
 msgstr ""
-"`文档 <https://github.com/pypiserver/pypiserver/blob/master/README.rst>`__ "
-"| `GitHub <https://github.com/pypiserver/pypiserver>`__ | `PyPI "
-"<https://pypi.org/project/pypiserver/>`__"
 
 #: ../../source/key_projects.rst:553
 msgid ""
@@ -7908,9 +7831,6 @@ msgid ""
 "<https://github.com/pyscaffold/pyscaffold>`__ | `PyPI "
 "<https://pypi.org/project/pyscaffold/>`__"
 msgstr ""
-"`文档< <https://pypa.github.io/pipx/>`__ | `GitHub "
-"<https://github.com/pypa/pipx>`__ | `PyPI "
-"<https://pypi.org/project/pipx/>`__"
 
 #: ../../source/key_projects.rst:569
 msgid ""
@@ -7932,9 +7852,6 @@ msgid ""
 "<https://github.com/scikit-build/scikit-build/>`__ | `PyPI "
 "<https://pypi.org/project/scikit-build>`__"
 msgstr ""
-"`文档 <https://scikit-build.readthedocs.io/en/latest/>`__ | `GitHub "
-"<https://github.com/scikit-build/scikit-build/>`__ | `PyPI "
-"<https://pypi.org/project/scikit-build>`__"
 
 #: ../../source/key_projects.rst:587
 msgid ""
