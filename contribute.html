@@ -58,7 +58,7 @@
             <div class="language_switcher_placeholder"></div>
 <h3><a href="index.html">目录</a></h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Python 的打包概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Python 包装的概述</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">教程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guides/index.html">指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="discussions/index.html">讨论</a></li>
@@ -68,7 +68,7 @@
 <li class="toctree-l1"><a class="reference internal" href="support.html">如何获得支持</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">为本指南做出贡献</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#documentation-types">文档类型</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#translations">Translations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#translations">翻译</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#building-the-guide-locally">在本地构建指南</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#where-the-guide-is-deployed">指南的部署地点</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#style-guide">风格指南</a></li>
@@ -141,9 +141,9 @@
 <li><p>审查新的贡献</p></li>
 <li><p>修改现有内容</p></li>
 <li><p>撰写新内容</p></li>
-<li><p>Translate the guide</p></li>
+<li><p>翻译该指南</p></li>
 </ul>
-<p>大部分关于 Python Packaging User Guide 的工作都是在 <a class="reference external" href="https://github.com/pypa/packaging.python.org/">项目的 GitHub 存储库</a> 进行的。要开始工作，请查看 <a class="reference external" href="https://github.com/pypa/packaging.python.org/issues">open issues</a> 和 <a class="reference external" href="https://github.com/pypa/packaging.python.org/pulls">pull requests</a> 的列表。如果你打算编写或编辑指南，请阅读 <a class="reference internal" href="#contributing-style-guide"><span class="std std-ref">style guide</span></a>。</p>
+<p>大部分关于 Python Packaging User Guide 的工作都是在 <a class="reference external" href="https://github.com/pypa/packaging.python.org/">项目的 GitHub 存储库</a> 进行的。要开始工作，请查看 <a class="reference external" href="https://github.com/pypa/packaging.python.org/issues">打开议题</a> 和 <a class="reference external" href="https://github.com/pypa/packaging.python.org/pulls">拉取请求</a> 的列表。如果你打算编写或编辑指南，请阅读 <a class="reference internal" href="#contributing-style-guide"><span class="std std-ref">风格指南</span></a>。</p>
 <p>如果您想为 Python Packaging User Guide 作出贡献，您应该遵守 PSF 的 <a class="reference external" href="https://github.com/pypa/.github/blob/main/CODE_OF_CONDUCT.md">行为准则</a> 。</p>
 <section id="documentation-types">
 <h2>文档类型<a class="headerlink" href="#documentation-types" title="永久链接至标题">¶</a></h2>
@@ -166,36 +166,31 @@
 </section>
 </section>
 <section id="translations">
-<h2>Translations<a class="headerlink" href="#translations" title="永久链接至标题">¶</a></h2>
-<p>We use <a class="reference external" href="https://weblate.org/">Weblate</a> to manage translations of this project.
-Please visit the <a class="reference external" href="https://hosted.weblate.org/projects/pypa/packaging-python-org/">packaging.python.org</a> project on Weblate to contribute.</p>
-<p>If you are experiencing issues while you are working on translations,
-please open an issue on <a class="reference external" href="https://github.com/pypa/packaging.python.org/issues">Github</a>.</p>
+<h2>翻译<a class="headerlink" href="#translations" title="永久链接至标题">¶</a></h2>
+<p>我们使用 <a class="reference external" href="https://weblate.org/">Weblate</a> 来管理这个项目的翻译。请访问 Weblate 上的 <a class="reference external" href="https://hosted.weblate.org/projects/pypa/packaging-python-org/">packaging.python.org</a> 项目，以做出贡献。</p>
+<p>如果你在进行翻译工作时遇到问题，请在 <a class="reference external" href="https://github.com/pypa/packaging.python.org/issues">Github</a> 上开一个议题。</p>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
-<p>Any translations of this project should follow <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">reStructuredText syntax</a>.</p>
+<p>本项目的任何翻译应遵循 <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">reStructuredText 语法</a>。</p>
 </div>
 <section id="adding-a-language">
-<h3>Adding a language<a class="headerlink" href="#adding-a-language" title="永久链接至标题">¶</a></h3>
-<p>If your language is not listed on <a class="reference external" href="https://hosted.weblate.org/projects/pypa/packaging-python-org/">packaging.python.org</a>, click the button
-<span class="guilabel">Start new translation</span> at the bottom of the language list and add
-the language you want to translate.</p>
+<h3>添加语言<a class="headerlink" href="#adding-a-language" title="永久链接至标题">¶</a></h3>
+<p>如果你的语言没有列在 <a class="reference external" href="https://hosted.weblate.org/projects/pypa/packaging-python-org/">packaging.python.org</a> 上，请点击语言列表底部的按钮 <span class="guilabel">Start new translation</span> 并添加你要翻译的语言。</p>
 </section>
 <section id="following-restructuredtext-syntax">
-<h3>Following reStructuredText syntax<a class="headerlink" href="#following-restructuredtext-syntax" title="永久链接至标题">¶</a></h3>
-<p>If you are not familiar with reStructuredText (RST) syntax, please read <a class="reference external" href="https://docutils.sourceforge.io/docs/user/rst/quickref.html">this guide</a>
-before translating on Weblate.</p>
-<p><strong>Do not translate the text in reference directly</strong></p>
+<h3>遵循 reStructuredText 语法<a class="headerlink" href="#following-restructuredtext-syntax" title="永久链接至标题">¶</a></h3>
+<p>如果你不熟悉 reStructuredText（RST）的语法，请在 Weblate 上进行翻译之前阅读 <a class="reference internal" href="#guides">指南</a>。</p>
+<p><strong>不要直接翻译参考文献中的文字</strong></p>
 <blockquote>
-<div><p>When translating the text in reference, please do not translate them directly.</p>
+<div><p>在翻译参考文献的时候，请不要直接翻译它们。</p>
 <div class="line-block">
-<div class="line">Wrong: Translate the following text directly:</div>
+<div class="line">错：直接翻译以下文字：</div>
 </div>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="s">`some ref`_</span> -&gt; <span class="s">`TRANSLATED TEXT HERE`_</span>
 </pre></div>
 </div>
 <div class="line-block">
-<div class="line">Right: Translate the following text with your own language and add the original reference:</div>
+<div class="line">对：用你自己的语言翻译以下文字，并添加原始参考资料：</div>
 </div>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="s">`some ref`_ -&gt; `TRANSLATED TEXT HERE </span><span class="si">&lt;some ref&gt;</span><span class="s">`_</span>
 </pre></div>
@@ -207,23 +202,19 @@ before translating on Weblate.</p>
 <h2>在本地构建指南<a class="headerlink" href="#building-the-guide-locally" title="永久链接至标题">¶</a></h2>
 <p>虽然这不需要做出贡献，但为了测试您的改动，在本地建立本指南可能是有用的。为了在本地构建本指南，你需要：</p>
 <ol class="arabic">
-<li><p><a class="reference external" href="https://nox.thea.codes/en/latest/index.html" title="(在 Nox v2020.12.31)"><span class="xref std std-doc">Nox</span></a>. You can install or upgrade
-nox using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<li><p><a class="reference external" href="https://nox.thea.codes/en/latest/index.html" title="(在 Nox v2020.12.31)"><span class="xref std std-doc">Nox</span></a> 。你可以用 <code class="docutils literal notranslate"><span class="pre">pip</span></code> 来安装或升级 nox</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m pip install --user nox
 </pre></div>
 </div>
 </li>
-<li><p>Python 3.6. Our build scripts are designed to work with Python 3.6 only.
-See the <a class="reference external" href="https://docs.python-guide.org/starting/installation/" title="(在 pythonguide v0.0.1)"><span class="xref std std-doc">Hitchhiker’s Guide to Python installation instructions</span></a>
-to install Python 3.6 on your operating system.</p></li>
+<li><p>Python 3.6。我们的构建脚本被设计为仅适用于 Python 3.6。参见 <a class="reference external" href="https://docs.python-guide.org/starting/installation/" title="(在 pythonguide v0.0.1)"><span class="xref std std-doc">Hitchhiker’s Guide to Python installation instructions</span></a>，在你的操作系统上安装 Python 3.6。</p></li>
 </ol>
-<p>To build the guide, run the following bash command in the source folder:</p>
+<p>要构建指南，在 source 文件夹中运行以下 bash 命令</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nox -s build
 </pre></div>
 </div>
 <p>在该过程完成后，您可以在 <code class="docutils literal notranslate"><span class="pre">./build/html</span></code> 目录中找到 HTML 输出。您可以打开 <code class="docutils literal notranslate"><span class="pre">index.html</span></code> 文件，并在浏览器中查看指南，但我们建议使用 HTTP 服务器为指南服务。</p>
-<p>You can build the guide and serve it via an HTTP server using the following
-command:</p>
+<p>您可以使用以下命令建立指南并通过 HTTP 服务器为其提供服务</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nox -s preview
 </pre></div>
 </div>
@@ -231,7 +222,7 @@ command:</p>
 </section>
 <section id="where-the-guide-is-deployed">
 <h2>指南的部署地点<a class="headerlink" href="#where-the-guide-is-deployed" title="永久链接至标题">¶</a></h2>
-<p>该指南是通过ReadTheDocs部署的，配置位于 <a class="reference external" href="https://readthedocs.org/projects/python-packaging-user-guide/">https://readthedocs.org/projects/python-packaging-user-guide/</a> 。它由一个自定义域名提供服务，并由 Fast.ly 提供支持。</p>
+<p>该指南是通过 ReadTheDocs 部署的，配置位于 <a class="reference external" href="https://readthedocs.org/projects/python-packaging-user-guide/">https://readthedocs.org/projects/python-packaging-user-guide/</a> 。它由一个自定义域名提供服务，并由 Fast.ly 提供支持。</p>
 </section>
 <section id="style-guide">
 <span id="contributing-style-guide"></span><h2>风格指南<a class="headerlink" href="#style-guide" title="永久链接至标题">¶</a></h2>
@@ -311,7 +302,7 @@ command:</p>
         <div class="sphinxsidebarwrapper">
 <h3><a href="index.html">目录</a></h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Python 的打包概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Python 包装的概述</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">教程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guides/index.html">指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="discussions/index.html">讨论</a></li>
@@ -321,7 +312,7 @@ command:</p>
 <li class="toctree-l1"><a class="reference internal" href="support.html">如何获得支持</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">为本指南做出贡献</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#documentation-types">文档类型</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#translations">Translations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#translations">翻译</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#building-the-guide-locally">在本地构建指南</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#where-the-guide-is-deployed">指南的部署地点</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#style-guide">风格指南</a></li>
@@ -395,7 +386,7 @@ command:</p>
 <br />
     <br />
 
-    最后更新于 2021 年 11 月 17 日.
+    最后更新于 2021 年 11 月 18 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 

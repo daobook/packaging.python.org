@@ -58,7 +58,7 @@
             <div class="language_switcher_placeholder"></div>
 <h3><a href="index.html">目录</a></h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Python 的打包概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Python 包装的概述</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">教程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guides/index.html">指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="discussions/index.html">讨论</a></li>
@@ -134,11 +134,11 @@
 <dt id="term-Built-Distribution">构建分发<a class="headerlink" href="#term-Built-Distribution" title="Permalink to this term">¶</a></dt><dd><p>一个 <a class="reference internal" href="#term-Distribution-Package"><span class="xref std std-term">分发</span></a> 格式包含只需要移动到目标系统上正确位置的文件和元数据，即可安装。<a class="reference internal" href="#term-Wheel"><span class="xref std std-term">Wheel</span></a> 是这样一种格式，而 distutil 的 <a class="reference internal" href="#term-Source-Distribution-or-sdist"><span class="xref std std-term">源分发</span></a> 不是，因为它需要一个构建步骤才能安装。这种格式并不意味着必须预编译 Python 文件（<a class="reference internal" href="#term-Wheel"><span class="xref std std-term">Wheel</span></a> 故意不包括编译的 Python 文件）。</p>
 </dd>
 <dt id="term-Distribution-Package">分发包<a class="headerlink" href="#term-Distribution-Package" title="Permalink to this term">¶</a></dt><dd><p>一个版本化的存档文件包含 Python <a class="reference internal" href="#term-Import-Package"><span class="xref std std-term">包</span></a>、<a class="reference internal" href="#term-Module"><span class="xref std std-term">模块</span></a> 和其他用于分发 <a class="reference internal" href="#term-Release"><span class="xref std std-term">发行版</span></a> 的资源文件的版本化存档文件。存档文件是最终用户将从 Internet 下载并安装的文件。</p>
-<p>分发包更常被称为“包”或“分发”，但是当需要更清楚地防止与 <a class="reference internal" href="#term-Import-Package"><span class="xref std std-term">导入包</span></a> 混淆时，本指南可能会使用扩展术语（通常也称为“包”）或另一种发行版（例如 Linux 发行版或 Python 语言发行版），通常用单个术语 “发行版” 来指代。</p>
+<p>分发包更常被称为“包”或“套件”，但是当需要更清楚地防止与 <a class="reference internal" href="#term-Import-Package"><span class="xref std std-term">导入包</span></a> 混淆时，本指南可能会使用扩展术语（通常也称为“包”）或另一种发行版（例如 Linux 发行版或 Python 语言发行版），通常用单个术语 “发行版” 来指代。</p>
 </dd>
-<dt id="term-Egg">Egg<a class="headerlink" href="#term-Egg" title="Permalink to this term">¶</a></dt><dd><p><a class="reference internal" href="#term-Built-Distribution"><span class="xref std std-term">构建分发</span></a> 格式由 <a class="reference internal" href="key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a> 引入，并正在被 <a class="reference internal" href="#term-Wheel"><span class="xref std std-term">Wheel</span></a> 取代。 详见 ` <a href="#id1"><span class="problematic" id="id2">:doc:`Python Eggs 的内部结构 &lt;setuptools:deprecated/python_eggs&gt;`_</span></a> 和 <a class="reference external" href="http://peak.telecommunity.com/DevCenter/PythonEggs">Python Eggs</a></p>
+<dt id="term-Egg">Egg<a class="headerlink" href="#term-Egg" title="Permalink to this term">¶</a></dt><dd><p>一个由 <a class="reference internal" href="key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a> 引入的 <a class="reference internal" href="#term-Built-Distribution"><span class="xref std std-term">构建分发</span></a> 格式，正在被 <a class="reference internal" href="#term-Wheel"><span class="xref std std-term">Wheel</span></a> 取代。详情请见 <a class="reference external" href="https://setuptools.pypa.io/en/latest/deprecated/python_eggs.html" title="(在 setuptools v59.1.1)"><span class="xref std std-doc">Python Eggs 的内部结构</span></a> 和 <a class="reference external" href="http://peak.telecommunity.com/DevCenter/PythonEggs">Python Eggs</a></p>
 </dd>
-<dt id="term-Extension-Module">扩展模块<a class="headerlink" href="#term-Extension-Module" title="Permalink to this term">¶</a></dt><dd><p>用 Python 实现的低级语言编写的 <a class="reference internal" href="#term-Module"><span class="xref std std-term">模块</span></a> ：C/C++ for Python，Java for Jython。通常包含在单个可动态加载的预编译文件中，例如 Unix 上 Python 扩展的共享对象 (.so) 文件、Windows 上 Python 扩展的 DLL（给定 .pyd 扩展）或 Jython 扩展的 Java 类文件。</p>
+<dt id="term-Extension-Module">扩展模块<a class="headerlink" href="#term-Extension-Module" title="Permalink to this term">¶</a></dt><dd><p>一个用 Python 实现的低级语言编写的 <a class="reference internal" href="#term-Module"><span class="xref std std-term">模块</span></a>。对 Python 来说是 C/C++，对 Jython 来说是 Java。通常包含在一个可动态加载的预编译文件中，例如，Unix 上的 Python 扩展是一个共享对象（.so）文件，Windows 上的 Python 扩展是一个 DLL（给出了 .pyd 扩展），或者 Jython 扩展是一个 Java 类文件。</p>
 </dd>
 <dt id="term-Known-Good-Set-KGS">已知良好集（KGS）<a class="headerlink" href="#term-Known-Good-Set-KGS" title="Permalink to this term">¶</a></dt><dd><p>一组相互兼容的指定版本的发行版。通常，将运行一个测试套件，该套件在一组特定的包被声明为已知良好集之前通过所有测试。 该术语通常用于由多个单独发行版组成的框架和工具包。</p>
 </dd>
@@ -153,15 +153,9 @@
 a specific <a class="reference internal" href="#term-Project"><span class="xref std std-term">Project</span></a> as the index preferred or required to
 resolve dependencies of that project.</p>
 </dd>
-<dt id="term-Project">项目<a class="headerlink" href="#term-Project" title="Permalink to this term">¶</a></dt><dd><p>A library, framework, script, plugin, application, or collection of data
-or other resources, or some combination thereof that is intended to be
-packaged into a <a class="reference internal" href="#term-Distribution-Package"><span class="xref std std-term">Distribution</span></a>.</p>
-<p>Since most projects create <a class="reference internal" href="#term-Distribution-Package"><span class="xref std std-term">Distributions</span></a>
-using either <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0518"><strong>PEP 518</strong></a> <code class="docutils literal notranslate"><span class="pre">build-system</span></code>, <a class="reference internal" href="key_projects.html#distutils"><span class="std std-ref">distutils</span></a> or
-<a class="reference internal" href="key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a>, another practical way to define projects currently
-is something that contains a <a class="reference internal" href="#term-pyproject.toml"><span class="xref std std-term">pyproject.toml</span></a>, <a class="reference internal" href="#term-setup.py"><span class="xref std std-term">setup.py</span></a>,
-or <a class="reference internal" href="#term-setup.cfg"><span class="xref std std-term">setup.cfg</span></a> file at the root of the project source directory.</p>
-<p>Python 项目必须具有独特且唯一的名称，这些名字可以在 <a class="reference internal" href="#term-Python-Package-Index-PyPI"><span class="xref std std-term">PyPI</span></a> 上注册。然后每个项目将包含一个或多个 <a class="reference internal" href="#term-Release"><span class="xref std std-term">发布</span></a> ，每个版本可能包括一个或多个 <a class="reference internal" href="#term-Distribution-Package"><span class="xref std std-term">套件</span></a> 。</p>
+<dt id="term-Project">项目<a class="headerlink" href="#term-Project" title="Permalink to this term">¶</a></dt><dd><p>库、框架、脚本、插件、应用程序或数据或其他资源的集合，或它们的一些组合，旨在被打包成一个 <a class="reference internal" href="#term-Distribution-Package"><span class="xref std std-term">套件</span></a></p>
+<p>由于大多数项目使用 <span class="target" id="index-7"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0518"><strong>PEP 518</strong></a> <code class="docutils literal notranslate"><span class="pre">build-system</span></code>、<a class="reference internal" href="key_projects.html#distutils"><span class="std std-ref">distutils</span></a> 或 <a class="reference internal" href="key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a> 来创建 <a class="reference internal" href="#term-Distribution-Package"><span class="xref std std-term">套件</span></a>，目前另一种实用的项目定义方式是在项目源目录的根部包含一个 <a class="reference internal" href="#term-pyproject.toml"><span class="xref std std-term">pyproject.toml</span></a>, <a class="reference internal" href="#term-setup.py"><span class="xref std std-term">setup.py</span></a>, 或 <a class="reference internal" href="#term-setup.cfg"><span class="xref std std-term">setup.cfg</span></a> 的东西。</p>
+<p>Python 项目必须具有独特且唯一的名称，这些名字可以在 <a class="reference internal" href="#term-Python-Package-Index-PyPI"><span class="xref std std-term">PyPI</span></a> 上注册。然后每个项目将包含一个或多个 <a class="reference internal" href="#term-Release"><span class="xref std std-term">发行版</span></a> ，每个版本可能包括一个或多个 <a class="reference internal" href="#term-Distribution-Package"><span class="xref std std-term">套件</span></a>。</p>
 <p>Note that there is a strong convention to name a project after the name
 of the package that is imported to run that project. However, this
 doesn’t have to hold true. It’s possible to install a distribution from
@@ -181,10 +175,7 @@ Defined in <span class="target" id="index-1"></span><a class="pep reference exte
 </dd>
 <dt id="term-Release">发行版<a class="headerlink" href="#term-Release" title="Permalink to this term">¶</a></dt><dd><p>A snapshot of a <a class="reference internal" href="#term-Project"><span class="xref std std-term">Project</span></a> at a particular point in time, denoted
 by a version identifier.</p>
-<p>Making a release may entail the publishing of multiple
-<a class="reference internal" href="#term-Distribution-Package"><span class="xref std std-term">Distributions</span></a>.  For example, if version
-1.0 of a project was released, it could be available in both a source
-distribution format and a Windows installer distribution format.</p>
+<p>发布一个版本可能需要发布多个 <a class="reference internal" href="#term-Distribution-Package"><span class="xref std std-term">套件</span></a>。例如，如果一个项目的 1.0 版本被发布，它可能同时具有源码发布格式和 Windows 安装程序发布格式。</p>
 </dd>
 <dt id="term-Requirement">需求<a class="headerlink" href="#term-Requirement" title="Permalink to this term">¶</a></dt><dd><p>A specification for a <a class="reference internal" href="#term-Distribution-Package"><span class="xref std std-term">package</span></a> to be
 installed.  <a class="reference internal" href="key_projects.html#pip"><span class="std std-ref">pip</span></a>, the <a class="reference internal" href="#term-Python-Packaging-Authority-PyPA"><span class="xref std std-term">PYPA</span></a> recommended installer, allows various forms of specification
@@ -208,10 +199,7 @@ See also <a class="reference internal" href="#term-pyproject.toml"><span class="
 <dt id="term-Source-Archive">Source Archive<a class="headerlink" href="#term-Source-Archive" title="Permalink to this term">¶</a></dt><dd><p>An archive containing the raw source code for a <a class="reference internal" href="#term-Release"><span class="xref std std-term">Release</span></a>, prior
 to creation of a <a class="reference internal" href="#term-Source-Distribution-or-sdist"><span class="xref std std-term">Source Distribution</span></a> or <a class="reference internal" href="#term-Built-Distribution"><span class="xref std std-term">Built Distribution</span></a>.</p>
 </dd>
-<dt id="term-Source-Distribution-or-sdist">源分发（或 “sdist”）<a class="headerlink" href="#term-Source-Distribution-or-sdist" title="Permalink to this term">¶</a></dt><dd><p>A <a class="reference internal" href="#term-Distribution-Package"><span class="xref std std-term">distribution</span></a> format (usually generated
-using <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">sdist</span></code>) that provides metadata and the
-essential source files needed for installing by a tool like <a class="reference internal" href="key_projects.html#pip"><span class="std std-ref">pip</span></a>,
-or for generating a <a class="reference internal" href="#term-Built-Distribution"><span class="xref std std-term">Built Distribution</span></a>.</p>
+<dt id="term-Source-Distribution-or-sdist">源分发（或 “sdist”）<a class="headerlink" href="#term-Source-Distribution-or-sdist" title="Permalink to this term">¶</a></dt><dd><p>一个 <a class="reference internal" href="#term-Distribution-Package"><span class="xref std std-term">套件</span></a> 格式（通常使用 <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">sdist</span></code> 生成），提供元数据和用 <a class="reference internal" href="key_projects.html#pip"><span class="std std-ref">pip</span></a> 等工具安装所需的基本源文件，或生成 <a class="reference internal" href="#term-Built-Distribution"><span class="xref std std-term">构建分发</span></a>。</p>
 </dd>
 <dt id="term-System-Package">系统包<a class="headerlink" href="#term-System-Package" title="Permalink to this term">¶</a></dt><dd><p>以操作系统本地格式提供的软件包，例如 rpm 或 dpkg 文件。</p>
 </dd>
@@ -223,12 +211,9 @@ was implemented in <a class="reference internal" href="key_projects.html#setupto
 </dd>
 <dt id="term-Virtual-Environment">虚拟环境<a class="headerlink" href="#term-Virtual-Environment" title="Permalink to this term">¶</a></dt><dd><p>一个隔离的 Python 环境，允许安装软件包以供特定的应用程序使用，而不是在系统中安装。更多信息，请参见 <a class="reference internal" href="tutorials/installing-packages.html#creating-and-using-virtual-environments"><span class="std std-ref">创建和使用虚拟环境</span></a> 一节。</p>
 </dd>
-<dt id="term-Wheel">Wheel<a class="headerlink" href="#term-Wheel" title="Permalink to this term">¶</a></dt><dd><p><a class="reference internal" href="#term-Built-Distribution"><span class="xref std std-term">构建分发</span></a> 格式由 <span class="target" id="index-6"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0427"><strong>PEP 427</strong></a> 引入，旨在取代 <a class="reference internal" href="#term-Egg"><span class="xref std std-term">Egg</span></a> 格式。 Wheel 目前由 <a class="reference internal" href="key_projects.html#pip"><span class="std std-ref">pip</span></a> 支持。</p>
+<dt id="term-Wheel">Wheel<a class="headerlink" href="#term-Wheel" title="Permalink to this term">¶</a></dt><dd><p><a class="reference internal" href="#term-Built-Distribution"><span class="xref std std-term">构建分发</span></a> 格式由 <span class="target" id="index-8"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0427"><strong>PEP 427</strong></a> 引入，旨在取代 <a class="reference internal" href="#term-Egg"><span class="xref std std-term">Egg</span></a> 格式。 Wheel 目前由 <a class="reference internal" href="key_projects.html#pip"><span class="std std-ref">pip</span></a> 支持。</p>
 </dd>
-<dt id="term-Working-Set">工作集<a class="headerlink" href="#term-Working-Set" title="Permalink to this term">¶</a></dt><dd><p>A collection of <a class="reference internal" href="#term-Distribution-Package"><span class="xref std std-term">distributions</span></a> available
-for importing. These are the distributions that are on the <a class="reference external" href="https://docs.python.org/2/library/sys.html#sys.path" title="(在 Python v2.7)"><code class="xref any docutils literal notranslate"><span class="pre">sys.path</span></code></a>
-variable. At most, one <a class="reference internal" href="#term-Distribution-Package"><span class="xref std std-term">Distribution</span></a> for a
-project is possible in a working set.</p>
+<dt id="term-Working-Set">工作集<a class="headerlink" href="#term-Working-Set" title="Permalink to this term">¶</a></dt><dd><p>一组 <a class="reference internal" href="#term-Distribution-Package"><span class="xref std std-term">套件</span></a> 的集合，可供导入。这些是在 <a class="reference external" href="https://docs.python.org/2/library/sys.html#sys.path" title="(在 Python v2.7)"><code class="xref any docutils literal notranslate"><span class="pre">sys.path</span></code></a> 变量上的分布。在一个工作集中，一个项目最多可以有一个 <a class="reference internal" href="#term-Distribution-Package"><span class="xref std std-term">套件</span></a>。</p>
 </dd>
 </dl>
 </section>
@@ -242,7 +227,7 @@ project is possible in a working set.</p>
         <div class="sphinxsidebarwrapper">
 <h3><a href="index.html">目录</a></h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Python 的打包概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Python 包装的概述</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">教程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guides/index.html">指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="discussions/index.html">讨论</a></li>
@@ -319,7 +304,7 @@ project is possible in a working set.</p>
 <br />
     <br />
 
-    最后更新于 2021 年 11 月 17 日.
+    最后更新于 2021 年 11 月 18 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 

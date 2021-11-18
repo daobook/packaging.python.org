@@ -58,7 +58,7 @@
             <div class="language_switcher_placeholder"></div>
 <h3><a href="index.html">目录</a></h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Python 的打包概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Python 包装的概述</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">教程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guides/index.html">指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="discussions/index.html">讨论</a></li>
@@ -174,13 +174,7 @@ platforms and Python versions on most CI systems. Also see <a class="reference i
 <a class="reference external" href="https://bitbucket.org/pypa/distlib/issues?status=new&amp;status=open">Issues</a> |
 <a class="reference external" href="https://bitbucket.org/pypa/distlib">Bitbucket</a> |
 <a class="reference external" href="https://pypi.org/project/distlib">PyPI</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">distlib</span></code> is a library which implements low-level functions that
-relate to packaging and distribution of Python software.  <code class="docutils literal notranslate"><span class="pre">distlib</span></code>
-implements several relevant PEPs (Python Enhancement Proposal
-standards) and is useful for developers of third-party packaging tools
-to make and upload binary and source <a class="reference internal" href="glossary.html#term-Distribution-Package"><span class="xref std std-term">distributions</span></a>, achieve interoperability, resolve
-dependencies, manage package resources, and do other similar
-functions.</p>
+<p><code class="docutils literal notranslate"><span class="pre">distlib</span></code> 是一个库，它实现了与 Python 软件的打包和分发有关的低级函数。<code class="docutils literal notranslate"><span class="pre">distlib</span></code> 实现了几个相关的 PEPs (Python 增强建议标准)，对于第三方打包工具的开发者来说非常有用，可以制作和上传二进制和源码 <a class="reference internal" href="glossary.html#term-Distribution-Package"><span class="xref std std-term">套件</span></a>，实现互操作性，解决依赖性，管理包资源，以及做其他类似的功能。</p>
 <p>Unlike the stricter <a class="reference internal" href="#packaging"><span class="std std-ref">packaging</span></a> project (below), which
 specifically implements modern Python packaging interoperability
 standards, <code class="docutils literal notranslate"><span class="pre">distlib</span></code> also attempts to provide reasonable fallback
@@ -190,7 +184,7 @@ of packages that are incompatible with those standards.</p>
 </section>
 <section id="packaging">
 <span id="id6"></span><h3>packaging<a class="headerlink" href="#packaging" title="永久链接至标题">¶</a></h3>
-<p><a class="reference external" href="https://packaging.pypa.io/en/latest/index.html" title="(在 Packaging v21.3.dev0)"><span class="xref std std-doc">Docs</span></a> |
+<p><a class="reference external" href="https://packaging.pypa.io/en/latest/index.html" title="(在 Packaging v21.4.dev0)"><span class="xref std std-doc">Docs</span></a> |
 <a class="reference external" href="https://github.com/pypa/packaging/issues">Issues</a> |
 <a class="reference external" href="https://github.com/pypa/packaging">GitHub</a> |
 <a class="reference external" href="https://pypi.org/project/packaging">PyPI</a></p>
@@ -275,9 +269,7 @@ display on PyPI.</p>
 <a class="reference external" href="https://github.com/pypa/setuptools/issues">Issues</a> |
 <a class="reference external" href="https://github.com/pypa/setuptools">GitHub</a> |
 <a class="reference external" href="https://pypi.org/project/setuptools">PyPI</a></p>
-<p>setuptools (which includes <code class="docutils literal notranslate"><span class="pre">easy_install</span></code>) is a collection of
-enhancements to the Python distutils that allow you to more easily
-build and distribute Python <a class="reference internal" href="glossary.html#term-Distribution-Package"><span class="xref std std-term">distributions</span></a>, especially ones that have dependencies on other packages.</p>
+<p>setuptools（包括 <code class="docutils literal notranslate"><span class="pre">easy_install</span></code> ）是对 Python distutils 的增强集合，允许你更容易地构建和发布 Python <a class="reference internal" href="glossary.html#term-Distribution-Package"><span class="xref std std-term">套件</span></a>，特别是那些依赖其他软件包的。</p>
 <p><a class="reference external" href="https://pypi.org/project/distribute">distribute</a> was a fork of setuptools that was merged back into setuptools (in
 v0.7), thereby making setuptools the primary choice for Python packaging.</p>
 </section>
@@ -320,7 +312,7 @@ variable to create isolated Python <a class="reference internal" href="glossary.
 additional functionality, compared to <a class="reference internal" href="#venv"><span class="std std-ref">venv</span></a>, by supporting Python
 2.7 and by providing convenient features for configuring, maintaining,
 duplicating, and troubleshooting the virtual environments. For more
-information, see the section on <a class="reference internal" href="tutorials/installing-packages.html#creating-and-using-virtual-environments"><span class="std std-ref">Creating Virtual Environments</span></a>.</p>
+information, see the section on <a class="reference internal" href="tutorials/installing-packages.html#creating-and-using-virtual-environments"><span class="std std-ref">创建虚拟环境</span></a>.</p>
 </section>
 <section id="warehouse">
 <span id="id16"></span><h3>Warehouse<a class="headerlink" href="#warehouse" title="永久链接至标题">¶</a></h3>
@@ -370,13 +362,7 @@ extensions is often difficult.</p>
 <p>Conda is a completely separate tool from <a class="reference internal" href="#pip"><span class="std std-ref">pip</span></a>, virtualenv and wheel, but provides
 many of their combined features in terms of package management, virtual environment
 management and deployment of binary extensions.</p>
-<p>Conda does not install packages from PyPI and can install only from
-the official Anaconda repositories, or anaconda.org (a place for
-user-contributed <em>conda</em> packages), or a local (e.g. intranet) package
-server.  However, note that <a class="reference internal" href="#pip"><span class="std std-ref">pip</span></a> can be installed into, and work
-side-by-side with conda for managing <a class="reference internal" href="glossary.html#term-Distribution-Package"><span class="xref std std-term">distributions</span></a> from PyPI. Also, <a class="reference external" href="https://docs.conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-skeleton.html">conda skeleton</a>
-is a tool to make Python packages installable by conda by first
-fetching them from PyPI and modifying their metadata.</p>
+<p>Conda 不从 PyPI 安装软件包，只能从官方的 Anaconda 仓库，或 anaconda.org（用户贡献的 <em>conda</em> 软件包的地方），或本地（如内网）的软件包服务器安装。然而，请注意 <a class="reference internal" href="#pip"><span class="std std-ref">pip</span></a> 可以被安装到，并与 conda 并肩工作，以管理 <a class="reference internal" href="glossary.html#term-Distribution-Package"><span class="xref std std-term">套件</span></a> 来自 PyPI 的软件包。另外，<a class="reference external" href="https://docs.conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-skeleton.html">conda skeleton</a> 是一个使 Python 包可以被 conda 安装的工具，首先从 PyPI 获取它们并修改其元数据。</p>
 </section>
 <section id="devpi">
 <span id="id20"></span><h3>devpi<a class="headerlink" href="#devpi" title="永久链接至标题">¶</a></h3>
@@ -594,7 +580,7 @@ supported Python versions.</p>
 <a class="reference external" href="https://bugs.python.org/">Issues</a></p>
 <p>A package in the Python Standard Library (starting with Python 3.3) for
 creating <a class="reference internal" href="glossary.html#term-Virtual-Environment"><span class="xref std std-term">Virtual Environments</span></a>.  For more
-information, see the section on <a class="reference internal" href="tutorials/installing-packages.html#creating-and-using-virtual-environments"><span class="std std-ref">Creating Virtual Environments</span></a>.</p>
+information, see the section on <a class="reference internal" href="tutorials/installing-packages.html#creating-and-using-virtual-environments"><span class="std std-ref">创建虚拟环境</span></a>.</p>
 <hr class="docutils" />
 </section>
 </section>
@@ -609,7 +595,7 @@ information, see the section on <a class="reference internal" href="tutorials/in
         <div class="sphinxsidebarwrapper">
 <h3><a href="index.html">目录</a></h3>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Python 的打包概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Python 包装的概述</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">教程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guides/index.html">指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="discussions/index.html">讨论</a></li>
@@ -691,7 +677,7 @@ information, see the section on <a class="reference internal" href="tutorials/in
 <br />
     <br />
 
-    最后更新于 2021 年 11 月 17 日.
+    最后更新于 2021 年 11 月 18 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 
