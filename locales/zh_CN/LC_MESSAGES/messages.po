@@ -52,9 +52,8 @@ msgid "Writing new content"
 msgstr "撰写新内容"
 
 #: ../../source/contribute.rst:14
-#, fuzzy
 msgid "Translate the guide"
-msgstr "为本指南做出贡献"
+msgstr "翻译该指南"
 
 #: ../../source/contribute.rst:16
 msgid ""
@@ -64,8 +63,8 @@ msgid ""
 "read the :ref:`style guide <contributing_style_guide>`."
 msgstr ""
 "大部分关于 |PyPUG| 的工作都是在 `项目的 GitHub 存储库`__ "
-"进行的。要开始工作，请查看 `open issues`__ 和 `pull requests`__ 的列表。"
-"如果你打算编写或编辑指南，请阅读 :ref:`style guide <contributing_style_guide>`。"
+"进行的。要开始工作，请查看 `打开议题`__ 和 `拉取请求`__ 的列表。"
+"如果你打算编写或编辑指南，请阅读 :ref:`风格指南 <contributing_style_guide>`。"
 
 #: ../../source/contribute.rst:25
 msgid ""
@@ -82,7 +81,9 @@ msgid ""
 "This project consists of four distinct documentation types with specific "
 "purposes. When proposing new additions to the project please pick the "
 "appropriate documentation type."
-msgstr "本项目由具有特定目的的四种不同的文档类型组成。当提议对项目进行新的补充时，请选择适当的文档类型。"
+msgstr ""
+"本项目由具有特定目的的四种不同的文档类型组成。"
+"当提议对项目进行新的补充时，请选择适当的文档类型。"
 
 #: ../../source/contribute.rst:39 ../../source/tutorials/index.rst:2
 msgid "Tutorials"
@@ -143,27 +144,30 @@ msgstr ""
 
 #: ../../source/contribute.rst:72
 msgid "Translations"
-msgstr ""
+msgstr "翻译"
 
 #: ../../source/contribute.rst:74
 msgid ""
 "We use `Weblate`_ to manage translations of this project. Please visit "
 "the `packaging.python.org`_ project on Weblate to contribute."
 msgstr ""
+"我们使用 `Weblate`_ 来管理这个项目的翻译。"
+"请访问 Weblate 上的 `packaging.python.org`_ 项目，以做出贡献。"
 
 #: ../../source/contribute.rst:77
 msgid ""
 "If you are experiencing issues while you are working on translations, "
 "please open an issue on `Github`_."
 msgstr ""
+"如果你在进行翻译工作时遇到问题，请在 `Github`_ 上开一个议题。"
 
 #: ../../source/contribute.rst:82
 msgid "Any translations of this project should follow `reStructuredText syntax`_."
-msgstr ""
+msgstr "本项目的任何翻译应遵循 `reStructuredText 语法`_。"
 
 #: ../../source/contribute.rst:90
 msgid "Adding a language"
-msgstr ""
+msgstr "添加语言"
 
 #: ../../source/contribute.rst:92
 msgid ""
@@ -171,36 +175,41 @@ msgid ""
 "button :guilabel:`Start new translation` at the bottom of the language "
 "list and add the language you want to translate."
 msgstr ""
+"如果你的语言没有列在 `packaging.python.org`_ 上，"
+"请点击语言列表底部的按钮 :guilabel:`Start new translation` 并添加你要翻译的语言。"
 
 #: ../../source/contribute.rst:97
 msgid "Following reStructuredText syntax"
-msgstr ""
+msgstr "遵循 reStructuredText 语法"
 
 #: ../../source/contribute.rst:99
 msgid ""
 "If you are not familiar with reStructuredText (RST) syntax, please read "
 "`this guide`_ before translating on Weblate."
 msgstr ""
+"如果你不熟悉 reStructuredText（RST）的语法，请在 Weblate 上进行翻译之前阅读 `指南`_。"
 
 #: ../../source/contribute.rst:102
 msgid "**Do not translate the text in reference directly**"
-msgstr ""
+msgstr "**不要直接翻译参考文献中的文字**"
 
 #: ../../source/contribute.rst:104
 msgid ""
 "When translating the text in reference, please do not translate them "
 "directly."
 msgstr ""
+"在翻译参考文献的时候，请不要直接翻译它们。"
 
 #: ../../source/contribute.rst
 msgid "Wrong: Translate the following text directly:"
-msgstr ""
+msgstr "错：直接翻译以下文字："
 
 #: ../../source/contribute.rst
 msgid ""
 "Right: Translate the following text with your own language and add the "
 "original reference:"
 msgstr ""
+"对：用你自己的语言翻译以下文字，并添加原始参考资料："
 
 #: ../../source/contribute.rst:121
 msgid "Building the guide locally"
@@ -211,12 +220,13 @@ msgid ""
 "Though not required to contribute, it may be useful to build this guide "
 "locally in order to test your changes. In order to build this guide "
 "locally, you'll need:"
-msgstr "虽然这不需要做出贡献，但为了测试您的改动，在本地建立本指南可能是有用的。为了在本地构建本指南，你需要："
+msgstr ""
+"虽然这不需要做出贡献，但为了测试您的改动，在本地建立本指南可能是有用的。"
+"为了在本地构建本指南，你需要："
 
 #: ../../source/contribute.rst:127
-#, fuzzy
 msgid ":doc:`Nox <nox:index>`. You can install or upgrade nox using ``pip``:"
-msgstr "`Nox <https://nox.readthedocs.io/en/latest/>`_ 。你可以用 ``pip`` 来安装或升级nox::"
+msgstr ":doc:`Nox <nox:index>` 。你可以用 ``pip`` 来安装或升级 nox ::"
 
 #: ../../source/contribute.rst:134
 msgid ""
@@ -225,11 +235,13 @@ msgid ""
 "<python-guide:starting/installation>` to install Python 3.6 on your "
 "operating system."
 msgstr ""
+"Python 3.6。我们的构建脚本被设计为仅适用于 Python 3.6。"
+"参见 :doc:`Hitchhiker's Guide to Python installation instructions "
+"<python-guide:starting/installation>`，在你的操作系统上安装 Python 3.6。"
 
 #: ../../source/contribute.rst:138
-#, fuzzy
 msgid "To build the guide, run the following bash command in the source folder:"
-msgstr "要构建指南，在 source 文件夹中运行以下 bash 命令::"
+msgstr "要构建指南，在 source 文件夹中运行以下 bash 命令 ::"
 
 #: ../../source/contribute.rst:144
 msgid ""
@@ -242,11 +254,10 @@ msgstr ""
 "文件，并在浏览器中查看指南，但我们建议使用 HTTP 服务器为指南服务。"
 
 #: ../../source/contribute.rst:149
-#, fuzzy
 msgid ""
 "You can build the guide and serve it via an HTTP server using the "
 "following command:"
-msgstr "您可以使用以下命令建立指南并通过 HTTP 服务器为其提供服务::"
+msgstr "您可以使用以下命令建立指南并通过 HTTP 服务器为其提供服务 ::"
 
 #: ../../source/contribute.rst:156
 msgid "The guide will be browsable via http://localhost:8000."
@@ -262,8 +273,9 @@ msgid ""
 "https://readthedocs.org/projects/python-packaging-user-guide/. It's "
 "served from a custom domain and fronted by Fast.ly."
 msgstr ""
-"该指南是通过ReadTheDocs部署的，配置位于 https://readthedocs.org/projects/python-"
-"packaging-user-guide/ 。它由一个自定义域名提供服务，并由 Fast.ly 提供支持。"
+"该指南是通过 ReadTheDocs 部署的，配置位于 "
+"https://readthedocs.org/projects/python-packaging-user-guide/ 。"
+"它由一个自定义域名提供服务，并由 Fast.ly 提供支持。"
 
 #: ../../source/contribute.rst:168
 msgid "Style guide"
@@ -560,7 +572,7 @@ msgstr "2014-12-24"
 #: ../../source/specifications/direct-url.rst:14
 #: ../../source/tutorials/installing-packages.rst:23
 msgid "Contents"
-msgstr "内容"
+msgstr "导航"
 
 #: ../../source/discussions/deploying-python-applications.rst:14
 msgid "Overview"
@@ -760,7 +772,7 @@ msgstr ""
 #: ../../source/discussions/install-requires-vs-requirements.rst:64
 #: ../../source/tutorials/installing-packages.rst:468
 msgid "Requirements files"
-msgstr "Requirements files"
+msgstr "需求文件"
 
 #: ../../source/discussions/install-requires-vs-requirements.rst:66
 msgid ""
@@ -1141,7 +1153,7 @@ msgid ""
 "language distribution), which are often referred to with the single term "
 "\"distribution\"."
 msgstr ""
-"分发包更常被称为“包”或“分发”，但是当需要更清楚地防止与 :term:`导入包` "
+"分发包更常被称为“包”或“套件”，但是当需要更清楚地防止与 :term:`导入包` "
 "混淆时，本指南可能会使用扩展术语（通常也称为“包”）或另一种发行版（例如 Linux 发行版或 Python "
 "语言发行版），通常用单个术语 \"发行版\" 来指代。"
 
@@ -1156,9 +1168,9 @@ msgid ""
 "Internal Structure of Python Eggs <setuptools:deprecated/python_eggs>` "
 "and `Python Eggs <http://peak.telecommunity.com/DevCenter/PythonEggs>`_"
 msgstr ""
-":term:`构建分发` 格式由 :ref:`setuptools` 引入，并正在被 :term:`Wheel` 取代。 "
-"详见 ` :doc:`Python Eggs 的内部结构 <setuptools:deprecated/python_eggs>`_"
-" 和 `Python Eggs <http://peak.telecommunity.com/DevCenter/PythonEggs>`_"
+"一个由 :ref:`setuptools` 引入的 :term:`构建分发` 格式，正在被 :term:`Wheel` 取代。"
+"详情请见 :doc:`Python Eggs 的内部结构 <setuptools:deprecated/python_eggs>` "
+"和 `Python Eggs <http://peak.telecommunity.com/DevCenter/PythonEggs>`_"
 
 #: ../../source/glossary.rst:48
 msgid "Extension Module"
@@ -1173,9 +1185,12 @@ msgid ""
 "extension) for Python extensions on Windows, or a Java class file for "
 "Jython extensions."
 msgstr ""
-"用 Python 实现的低级语言编写的 :term:`模块` ：C/C++ for Python，Java for "
-"Jython。通常包含在单个可动态加载的预编译文件中，例如 Unix 上 Python 扩展的共享对象 (.so) 文件、Windows 上 "
-"Python 扩展的 DLL（给定 .pyd 扩展）或 Jython 扩展的 Java 类文件。"
+"一个用 Python 实现的低级语言编写的 :term:`模块`。"
+"对 Python 来说是 C/C++，对 Jython 来说是 Java。"
+"通常包含在一个可动态加载的预编译文件中，"
+"例如，Unix 上的 Python 扩展是一个共享对象（.so）文件，"
+"Windows 上的 Python 扩展是一个 DLL（给出了 .pyd 扩展），"
+"或者 Jython 扩展是一个 Java 类文件。"
 
 #: ../../source/glossary.rst:58
 msgid "Known Good Set (KGS)"
@@ -1255,6 +1270,8 @@ msgid ""
 "or other resources, or some combination thereof that is intended to be "
 "packaged into a :term:`Distribution <Distribution Package>`."
 msgstr ""
+"库、框架、脚本、插件、应用程序或数据或其他资源的集合，或它们的一些组合，"
+"旨在被打包成一个 :term:`套件 <分发包>`。
 
 #: ../../source/glossary.rst:103
 msgid ""
@@ -1264,6 +1281,10 @@ msgid ""
 "something that contains a :term:`pyproject.toml`, :term:`setup.py`, or "
 ":term:`setup.cfg` file at the root of the project source directory."
 msgstr ""
+"由于大多数项目使用 :pep:`518` ``build-system``、:ref:`distutils` "
+"或 :ref:`setuptools` 来创建 :term:`套件 <分发包>`，"
+"目前另一种实用的项目定义方式是在项目源目录的根部包含一个 "
+":term:`pyproject.toml`, :term:`setup.py`, 或 :term:`setup.cfg` 的东西。"
 
 #: ../../source/glossary.rst:109
 msgid ""
@@ -1272,9 +1293,9 @@ msgid ""
 "contain one or more :term:`Releases <Release>`, and each release may "
 "comprise one or more :term:`distributions <Distribution Package>`."
 msgstr ""
-"Python 项目必须具有独特且唯一的名称，这些名字可以在 :term:`PyPI <Python 包索引（PyPI）>` "
-"上注册。然后每个项目将包含一个或多个 :term:`发布 <Release>` ，每个版本可能包括一个或多个 :term:`套件 "
-"<Distribution Package>` 。"
+"Python 项目必须具有独特且唯一的名称，这些名字可以在 :term:`PyPI <Python 包索引（PyPI）>` 上注册。"
+"然后每个项目将包含一个或多个 :term:`发行版 <Release>` ，"
+"每个版本可能包括一个或多个 :term:`套件 <Distribution Package>`。"
 
 #: ../../source/glossary.rst:114
 msgid ""
@@ -1370,6 +1391,8 @@ msgid ""
 "1.0 of a project was released, it could be available in both a source "
 "distribution format and a Windows installer distribution format."
 msgstr ""
+"发布一个版本可能需要发布多个 :term:`套件 <分发包>`。"
+"例如，如果一个项目的 1.0 版本被发布，它可能同时具有源码发布格式和 Windows 安装程序发布格式。"
 
 #: ../../source/glossary.rst:167
 msgid "Requirement"
@@ -1448,6 +1471,8 @@ msgid ""
 " source files needed for installing by a tool like :ref:`pip`, or for "
 "generating a :term:`Built Distribution`."
 msgstr ""
+"一个 :term:`套件 <分发包>` 格式（通常使用 ``python setup.py sdist`` 生成），"
+"提供元数据和用 :ref:`pip` 等工具安装所需的基本源文件，或生成 :term:`构建分发`。"
 
 #: ../../source/glossary.rst:215
 msgid "System Package"
@@ -1510,6 +1535,9 @@ msgid ""
 "variable. At most, one :term:`Distribution <Distribution Package>` for a "
 "project is possible in a working set."
 msgstr ""
+"一组 :term:`套件 <分发包>` 的集合，可供导入。"
+"这些是在 `sys.path` 变量上的分布。"
+"在一个工作集中，一个项目最多可以有一个 :term:`套件 <分发包>`。"
 
 #: ../../source/guides/analyzing-pypi-package-downloads.rst:3
 msgid "Analyzing PyPI package downloads"
@@ -2772,6 +2800,10 @@ msgid ""
 "actual scripts [2]_.  The scripts will be generated during the install of"
 " your :term:`distribution <Distribution Package>`."
 msgstr ""
+"使用 ``console_script`` :ref:`entry points "
+"<setuptools:dynamic discovery of services and plugins>` 来注册你的脚本接口。"
+"然后你可以让工具链处理将这些接口变成实际脚本的工作 [2]_。"
+"脚本将在安装你的 :term:`套件 <分发包>` 时生成。"
 
 #: ../../source/guides/distributing-packages-using-setuptools.rst:538
 msgid ""
@@ -3039,7 +3071,7 @@ msgstr ""
 
 #: ../../source/guides/distributing-packages-using-setuptools.rst:719
 msgid "Packaging your project"
-msgstr ""
+msgstr "包装你的项目"
 
 #: ../../source/guides/distributing-packages-using-setuptools.rst:721
 msgid ""
@@ -3048,6 +3080,9 @@ msgid ""
 ":term:`Distribution <Distribution Package>` (aka \":term:`Package "
 "<Distribution Package>`\") for your project."
 msgstr ""
+"为了让你的项目可以从 :term:`包索引` 中安装，"
+"比如 :term:`PyPI <Python 包索引（PyPI）>`，"
+"你需要为你的项目创建一个 :term:`套件 <分发包>` （又称 \" :term:`包 <分发包>` \"）。"
 
 #: ../../source/guides/distributing-packages-using-setuptools.rst:726
 msgid ""
@@ -4432,7 +4467,7 @@ msgstr "关于支持的版本控制系统和语法的更多信息，请参见 pi
 #: ../../source/guides/installing-using-pip-and-virtual-environments.rst:359
 #: ../../source/tutorials/installing-packages.rst:577
 msgid "Installing from local archives"
-msgstr ""
+msgstr "从本地档案库安装"
 
 #: ../../source/guides/installing-using-pip-and-virtual-environments.rst:361
 msgid ""
@@ -4476,7 +4511,7 @@ msgstr ""
 #: ../../source/guides/installing-using-pip-and-virtual-environments.rst:432
 #: ../../source/tutorials/installing-packages.rst:397
 msgid "Upgrading packages"
-msgstr ""
+msgstr "升级包"
 
 #: ../../source/guides/installing-using-pip-and-virtual-environments.rst:434
 msgid ""
@@ -6967,18 +7002,20 @@ msgstr "Python 包装用户指南"
 msgid ""
 "The Python Packaging User Guide (PyPUG) is a collection of tutorials and "
 "guides for packaging Python software."
-msgstr "Python 打包用户指南 (PyPUG) 是一个打包 Python 软件的教程和指南的集合。"
+msgstr ""
+"Python 包装用户指南（PyPUG）是一个包装 Python 软件的教程和指南的集合。"
 
 #: ../../source/index.rst:5
 msgid "python, packaging, guide, tutorial"
-msgstr "python, 包装, 指南, 教程"
+msgstr "python、包装、指南、教程"
 
 #: ../../source/index.rst:24
 msgid ""
 "Welcome to the *Python Packaging User Guide*, a collection of tutorials "
 "and references to help you distribute and install Python packages with "
 "modern tools."
-msgstr "欢迎来到 *Python 打包用户指南*，这是一个教程和参考资料的集合，帮助你用现代工具分发和安装 Python 包。"
+msgstr ""
+"欢迎来到 *Python 包装用户指南*，这是一个教程和参考资料的集合，帮助你用现代工具分发和安装 Python 包。"
 
 #: ../../source/index.rst:28
 msgid ""
@@ -7161,6 +7198,10 @@ msgid ""
 "achieve interoperability, resolve dependencies, manage package resources,"
 " and do other similar functions."
 msgstr ""
+"``distlib`` 是一个库，它实现了与 Python 软件的打包和分发有关的低级函数。"
+"``distlib`` 实现了几个相关的 PEPs (Python 增强建议标准)，"
+"对于第三方打包工具的开发者来说非常有用，可以制作和上传二进制和源码 :term:`套件 <分发包>`，"
+"实现互操作性，解决依赖性，管理包资源，以及做其他类似的功能。"
 
 #: ../../source/key_projects.rst:80
 msgid ""
@@ -7360,6 +7401,8 @@ msgid ""
 "and distribute Python :term:`distributions <Distribution Package>`, "
 "especially ones that have dependencies on other packages."
 msgstr ""
+"setuptools（包括 ``easy_install`` ）是对 Python distutils 的增强集合，"
+"允许你更容易地构建和发布 Python :term:`套件 <分发包>`，特别是那些依赖其他软件包的。"
 
 #: ../../source/key_projects.rst:220
 msgid ""
@@ -7558,6 +7601,13 @@ msgid ""
 "tool to make Python packages installable by conda by first fetching them "
 "from PyPI and modifying their metadata."
 msgstr ""
+"Conda 不从 PyPI 安装软件包，只能从官方的 Anaconda 仓库，"
+"或 anaconda.org（用户贡献的 *conda* 软件包的地方），或本地（如内网）的软件包服务器安装。"
+"然而，请注意 :ref:`pip` 可以被安装到，并与 conda 并肩工作，"
+"以管理 :term:`套件 <分发包>` 来自 PyPI 的软件包。"
+"另外，`conda skeleton "
+"<https://docs.conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-skeleton.html>`__ "
+"是一个使 Python 包可以被 conda 安装的工具，首先从 PyPI 获取它们并修改其元数据。"
 
 #: ../../source/key_projects.rst:371
 msgid "devpi"
@@ -8633,7 +8683,7 @@ msgstr ""
 
 #: ../../source/overview.rst:3
 msgid "An Overview of Packaging for Python"
-msgstr "Python 的打包概述"
+msgstr "Python 包装的概述"
 
 #: ../../source/overview.rst:7
 msgid ""
@@ -12932,16 +12982,19 @@ msgid ""
 "familiar with packaging concepts. For more detailed information on "
 "specific packaging topics, see :doc:`/guides/index`."
 msgstr ""
+"**教程** 有主见的分步指南，帮助你熟悉包装概念。"
+"有关特定包装主题的更多详细信息，请参阅 :doc:`/guides/index`。"
 
 #: ../../source/tutorials/installing-packages.rst:5
 msgid "Installing Packages"
-msgstr ""
+msgstr "安装包"
 
 #: ../../source/tutorials/installing-packages.rst:7
 msgid ""
 "This section covers the basics of how to install Python :term:`packages "
 "<Distribution Package>`."
 msgstr ""
+"这一节涵盖了如何安装 Python :term:`包 <分发包>` 的基本知识 。"
 
 #: ../../source/tutorials/installing-packages.rst:10
 msgid ""
@@ -12955,20 +13008,27 @@ msgid ""
 " often not preferred, because it can easily be confused with a Linux "
 "distribution, or another larger software distribution like Python itself."
 msgstr ""
+"需要注意的是，在这种情况下，术语 \"包\" 被用来描述要安装的一组软件"
+"（即作为一个 :term:`套件 <分发包>` 的同义词）。"
+"它并不是指你在 Python 源代码中导入的那种 :term:`包 <导入包>`  （即一个模块的容器）。"
+"在 Python 社区中，通常使用术语 \"包\" 来指代 :term:`套件 <分发包>`。"
+"使用术语 \"分发\" 通常不是首选，"
+"因为它很容易与 Linux 发行版或另一个更大的软件发行版（如 Python 本身）相混淆。"
 
 #: ../../source/tutorials/installing-packages.rst:28
 msgid "Requirements for Installing Packages"
-msgstr ""
+msgstr "安装软件包的需求"
 
 #: ../../source/tutorials/installing-packages.rst:30
 msgid ""
 "This section describes the steps to follow before installing other Python"
 " packages."
 msgstr ""
+"这一节描述了在安装其他 Python 软件包之前需要遵循的步骤。"
 
 #: ../../source/tutorials/installing-packages.rst:35
 msgid "Ensure you can run Python from the command line"
-msgstr ""
+msgstr "确保你能从命令行运行 Python"
 
 #: ../../source/tutorials/installing-packages.rst:37
 msgid ""
@@ -12976,6 +13036,8 @@ msgid ""
 "expected version is available from your command line. You can check this "
 "by running:"
 msgstr ""
+"在你进一步行动之前，确保你有 Python，并且预期的版本在你的命令行中可用。"
+"你可以通过运行以下命令来检查："
 
 #: ../../source/tutorials/installing-packages.rst:53
 msgid ""
@@ -12984,10 +13046,13 @@ msgid ""
 " to the :ref:`Installing Python <python-guide:installation>` section of "
 "the Hitchhiker's Guide to Python."
 msgstr ""
+"你应该得到一些输出，如 ``Python 3.6.3``。"
+"如果你没有 Python，请从 `python.org`_ 安装最新的 3.x 版本，或者参考 "
+"Hitchhiker's Guide to Python 中的章节 :ref:`安装 Python <python-guide:installation>`。"
 
 #: ../../source/tutorials/installing-packages.rst:57
 msgid "If you're a newcomer and you get an error like this:"
-msgstr ""
+msgstr "如果你是一个新人，而你遇到这样的错误："
 
 #: ../../source/tutorials/installing-packages.rst:66
 msgid ""
@@ -12997,6 +13062,8 @@ msgid ""
 "an introduction to using your operating system's shell and interacting "
 "with Python."
 msgstr ""
+"这是因为这个命令和本教程中建议的其他命令是要在 *shell* （也叫 *终端* 或 *控制台*）。"
+"请参阅 Python for Beginners `getting started tutorial`_ 了解使用操作系统的 shell 和与 Python 交互的介绍。"
 
 #: ../../source/tutorials/installing-packages.rst:72
 msgid ""
@@ -13004,6 +13071,8 @@ msgid ""
 "you can run system commands like those in this tutorial by prefacing them"
 " with a ``!`` character:"
 msgstr ""
+"如果你使用的是 IPython 或 Jupyter 笔记本等增强型 shell，"
+"你可以在运行本教程中的那些系统命令时，在它们前面加上 ``!`` 字符来表示："
 
 #: ../../source/tutorials/installing-packages.rst:82
 msgid ""
@@ -13012,6 +13081,9 @@ msgid ""
 "installation matching the currently running notebook (which may not be "
 "the same Python installation that the ``python`` command refers to)."
 msgstr ""
+"建议编写 ``{sys.executable}`` 而不是普通的 ``python``，"
+"以确保命令在与当前运行的笔记本相匹配的 Python 安装中运行"
+"（可能不是 ``python`` 命令所指的那个 Python 安装）。"
 
 #: ../../source/tutorials/installing-packages.rst:87
 msgid ""
@@ -13024,16 +13096,22 @@ msgid ""
 "creating virtual environments, set one up, and then continue with the "
 "tutorial as written."
 msgstr ""
+"由于大多数 Linux 发行版处理 Python 3 迁移的方式，"
+"使用系统 Python 而不先创建虚拟环境的 Linux 用户应将本教程中的 ``python`` "
+"命令改为 ``python3``，``python -m pip`` 命令改为 ``python3 -m pip --user``。"
+"不要用 ``sudo`` 运行本教程中的任何命令："
+"如果你得到一个权限错误，请回到创建虚拟环境的部分，设置一个虚拟环境，然后继续学习本教程。"
 
 #: ../../source/tutorials/installing-packages.rst:99
 msgid "Ensure you can run pip from the command line"
-msgstr ""
+msgstr "确保你能从命令行运行 pip"
 
 #: ../../source/tutorials/installing-packages.rst:101
 msgid ""
 "Additionally, you'll need to make sure you have :ref:`pip` available. You"
 " can check this by running:"
 msgstr ""
+"此外，你需要确保你有 :ref:`pip` 可用。你可以通过运行以下程序来检查："
 
 #: ../../source/tutorials/installing-packages.rst:116
 msgid ""
@@ -13042,22 +13120,27 @@ msgid ""
 "on Linux and installed using your OS package manager, you may have to "
 "install pip separately, see :doc:`/guides/installing-using-linux-tools`."
 msgstr ""
+"如果你从源代码，通过 `python.org`_ 的安装程序，或通过 `Homebrew`_ 安装了 Python，"
+"你应该已经有了 pip。如果你是在 Linux 上，并且使用你的操作系统包管理器安装，"
+"你可能需要单独安装 pip，参见 :doc:`/guides/installing-using-linux-tools`。"
 
 #: ../../source/tutorials/installing-packages.rst:123
 msgid ""
 "If ``pip`` isn't already installed, then first try to bootstrap it from "
 "the standard library:"
 msgstr ""
+"如果 ``pip`` 还没有安装，那么首先尝试从标准库启动它："
 
 #: ../../source/tutorials/installing-packages.rst:138
 msgid "If that still doesn't allow you to run ``python -m pip``:"
-msgstr ""
+msgstr "如果这仍然不允许你运行 ``python -m pip`` ："
 
 #: ../../source/tutorials/installing-packages.rst:140
 msgid ""
 "Securely Download `get-pip.py <https://bootstrap.pypa.io/get-pip.py>`_ "
 "[1]_"
 msgstr ""
+"安全下载 `get-pip.py <https://bootstrap.pypa.io/get-pip.py>`_ [1]_"
 
 #: ../../source/tutorials/installing-packages.rst:143
 msgid ""
@@ -13065,6 +13148,8 @@ msgid ""
 "Additionally, it will install :ref:`setuptools` and :ref:`wheel` if "
 "they're not installed already."
 msgstr ""
+"运行 ``python get-pip.py``。[2]_ 这将安装或升级 pip。"
+"此外，它将安装 :ref:`setuptools` 和 :ref:`wheel`，如果它们还没有安装。"
 
 #: ../../source/tutorials/installing-packages.rst:149
 msgid ""
@@ -13074,10 +13159,14 @@ msgid ""
 " state. You can use ``python get-pip.py --prefix=/usr/local/`` to install"
 " in ``/usr/local`` which is designed for locally-installed software."
 msgstr ""
+"如果你使用的 Python 安装是由你的操作系统或其他软件包管理器管理的，那就要小心了。"
+"get-pip.py 不与这些工具协调，可能会让你的系统处于不一致的状态。"
+"你可以使用 ``python get-pip.py --prefix=/usr/local/`` 来安装在 ``/usr/local`` 中，"
+"这是为本地安装的软件设计的。"
 
 #: ../../source/tutorials/installing-packages.rst:158
 msgid "Ensure pip, setuptools, and wheel are up to date"
-msgstr ""
+msgstr "确保 pip、setuptools 和 wheel 是最新的。"
 
 #: ../../source/tutorials/installing-packages.rst:160
 msgid ""
@@ -13085,10 +13174,12 @@ msgid ""
 "archives, up to date copies of the ``setuptools`` and ``wheel`` projects "
 "are useful to ensure you can also install from source archives:"
 msgstr ""
+"虽然单靠 ``pip`` 就足以从预先建立的二进制档案中进行安装，"
+"但 ``setuptools`` 和 ``wheel`` 项目的最新副本对于确保你也能从源代码档案中进行安装非常有用："
 
 #: ../../source/tutorials/installing-packages.rst:177
 msgid "Optionally, create a virtual environment"
-msgstr ""
+msgstr "可选地，创建一个虚拟环境"
 
 #: ../../source/tutorials/installing-packages.rst:179
 msgid ""
@@ -13096,6 +13187,8 @@ msgid ""
 "details, but here's the basic :doc:`venv <python:library/venv>` [3]_ "
 "command to use on a typical Linux system:"
 msgstr ""
+"详见 :ref:`下面的 <Creating and using Virtual Environments>` 部分，"
+"但以下是在典型的 Linux 系统上使用的基本 :doc:`venv <python:library/venv>` [3]_ 命令："
 
 #: ../../source/tutorials/installing-packages.rst:196
 msgid ""
@@ -13103,10 +13196,12 @@ msgid ""
 "subdirectory, and configure the current shell to use it as the default "
 "``python`` environment."
 msgstr ""
+"这将在 ``tutorial_env`` 子目录下创建一个新的虚拟环境，"
+"并将当前的 shell 配置为使用它作为默认的 ``python`` 环境。"
 
 #: ../../source/tutorials/installing-packages.rst:203
 msgid "Creating Virtual Environments"
-msgstr ""
+msgstr "创建虚拟环境"
 
 #: ../../source/tutorials/installing-packages.rst:205
 msgid ""
@@ -13116,6 +13211,8 @@ msgid ""
 "looking to safely install global command line tools, see :doc:`/guides"
 "/installing-stand-alone-command-line-tools`."
 msgstr ""
+"Python \"虚拟环境\" 允许 Python :term:`包 <分发包>` 为特定的应用程序安装在一个孤立的位置，而不是全局安装。"
+"如果你想安全地安装全局命令行工具，请参阅 :doc:`/guides/installing-stand-alone-command-line-tools`。"
 
 #: ../../source/tutorials/installing-packages.rst:211
 msgid ""
@@ -13126,6 +13223,10 @@ msgid ""
 " end up in a situation where you unintentionally upgrade an application "
 "that shouldn’t be upgraded."
 msgstr ""
+"想象一下，你有一个需要 LibFoo 版本 1 的应用程序，但另一个应用程序需要版本 2。"
+"你怎么能同时使用这些应用程序呢？"
+"如果你把所有东西都安装到 /usr/lib/python3.6/Site-packages （或者你的平台的标准位置），"
+"很容易出现无意中升级一个不应该升级的应用程序的情况。"
 
 #: ../../source/tutorials/installing-packages.rst:217
 msgid ""
@@ -13133,12 +13234,16 @@ msgid ""
 "it be? If an application works, any change in its libraries or the "
 "versions of those libraries can break the application."
 msgstr ""
+"或者更广泛地说，如果你想安装一个应用程序并让它保持原样，怎么办？"
+"如果一个应用程序可以工作，其库或这些库的版本的任何变化都会破坏该应用程序。"
 
 #: ../../source/tutorials/installing-packages.rst:221
 msgid ""
 "Also, what if you can’t install :term:`packages <Distribution Package>` "
 "into the global site-packages directory? For instance, on a shared host."
 msgstr ""
+"另外，如果你不能把 :term:`包 <分发包>` 安装到全局站点的 packages 目录中，怎么办？"
+"例如，在一个共享主机上。"
 
 #: ../../source/tutorials/installing-packages.rst:224
 msgid ""
@@ -13146,12 +13251,15 @@ msgid ""
 "own installation directories and they don’t share libraries with other "
 "virtual environments."
 msgstr ""
+"在所有这些情况下，虚拟环境可以帮助你。"
+"它们有自己的安装目录，而且它们不与其他虚拟环境共享库"。
 
 #: ../../source/tutorials/installing-packages.rst:228
 msgid ""
 "Currently, there are two common tools for creating Python virtual "
 "environments:"
 msgstr ""
+"目前，有两种创建 Python 虚拟环境的常用工具："
 
 #: ../../source/tutorials/installing-packages.rst:230
 msgid ""
@@ -13159,6 +13267,8 @@ msgid ""
 "and later, and installs :ref:`pip` and :ref:`setuptools` into created "
 "virtual environments in Python 3.4 and later."
 msgstr ""
+":doc:`venv <python:library/venv>` 在 Python 3.3 及以后的版本中默认可用，"
+"并在 Python 3.4 及以后的版本中把 :ref:`pip` 和 :ref:`setuptools` 安装到创建的虚拟环境中。"
 
 #: ../../source/tutorials/installing-packages.rst:233
 msgid ""
@@ -13167,24 +13277,29 @@ msgid ""
 "are always installed into created virtual environments by default "
 "(regardless of Python version)."
 msgstr ""
+":ref:`virtualenv` 需要单独安装，但支持 Python 2.7+ 和 Python 3.3+，"
+"并且 :ref:`pip`、:ref:`setuptools` 和 :ref:`wheel` "
+"总是默认安装到创建的虚拟环境中（无论 Python 版本如何）。"
 
 #: ../../source/tutorials/installing-packages.rst:238
 msgid "The basic usage is like so:"
-msgstr ""
+msgstr "基本的用法是这样的："
 
 #: ../../source/tutorials/installing-packages.rst:240
 msgid "Using :doc:`venv <python:library/venv>`:"
-msgstr ""
+msgstr "使用 :doc:`venv <python:library/venv>`："
 
 #: ../../source/tutorials/installing-packages.rst:256
 msgid "Using :ref:`virtualenv`:"
-msgstr ""
+msgstr "使用 :ref:`virtualenv`："
 
 #: ../../source/tutorials/installing-packages.rst:272
 msgid ""
 "For more information, see the :doc:`venv <python:library/venv>` docs or "
 "the :doc:`virtualenv <virtualenv:index>` docs."
 msgstr ""
+"更多信息，请参阅 :doc:`venv <python:library/venv>` 文档或 "
+":doc:`virtualenv <virtualenv:index>` 文档。"
 
 #: ../../source/tutorials/installing-packages.rst:275
 msgid ""
@@ -13192,6 +13307,8 @@ msgid ""
 "environment's variables are set within the current shell, and not in a "
 "subprocess (which then disappears, having no useful effect)."
 msgstr ""
+"在 Unix 外壳下使用 :command:`source` 可以确保虚拟环境的变量是在当前的外壳中设置的，"
+"而不是在子进程中设置的（子进程随后消失，没有任何作用）。"
 
 #: ../../source/tutorials/installing-packages.rst:280
 msgid ""
@@ -13199,6 +13316,8 @@ msgid ""
 ":command:`source` command, but should rather run the :command:`activate` "
 "script directly from the command shell like so:"
 msgstr ""
+"在上述两种情况下，Windows 用户不应该使用 :command:`source` 命令，"
+"而应该像这样直接从命令外壳运行 :command:`activate` 脚本："
 
 #: ../../source/tutorials/installing-packages.rst:290
 msgid ""
@@ -13208,10 +13327,13 @@ msgid ""
 " a separate virtual environment for each project and application that you"
 " work on."
 msgstr ""
+"直接管理多个虚拟环境会变得很乏味，"
+"所以 :ref:`依赖管理教程 <managing-dependencies>` 介绍了一个更高层次的工具，"
+":ref:`Pipenv`，它为你工作的每个项目和应用程序自动管理一个单独的虚拟环境。"
 
 #: ../../source/tutorials/installing-packages.rst:297
 msgid "Use pip for Installing"
-msgstr ""
+msgstr "使用 pip 进行安装"
 
 #: ../../source/tutorials/installing-packages.rst:299
 msgid ""
@@ -13220,10 +13342,14 @@ msgid ""
 "<pip:index>`, which includes a complete :doc:`Reference Guide "
 "<pip:cli/index>`."
 msgstr ""
+":ref:`pip` 是推荐的安装程序。"
+"下面，我们将介绍最常见的使用场景。"
+"更多细节，请参阅 :doc:`pip docs <pip:index>`，"
+"其中包括一个完整的 :doc:`参考指南 <pip:cli/index>`。"
 
 #: ../../source/tutorials/installing-packages.rst:305
 msgid "Installing from PyPI"
-msgstr ""
+msgstr "从 PyPI 进行安装"
 
 #: ../../source/tutorials/installing-packages.rst:307
 msgid ""
@@ -13235,34 +13361,41 @@ msgid ""
 ":pep:`full specification <440#version-specifiers>` of the currently "
 "supported specifiers. Below are some examples."
 msgstr ""
+":ref:`pip` 最常见的用法是使用 :term:`Python 包索引 <Python 包索引（PyPI）>` 来安装，"
+"使用 :term:`requirement specifier <Requirement Specifier>`。"
+"一般来说，需求说明由项目名称和可选的 :term:`version specifier <Version Specifier>` 组成。"
+":pep:`440` 包含一个 :pep:`full specification <440#version-specifiers>` 的当前支持的说明。"
+"下面是一些例子。"
 
 #: ../../source/tutorials/installing-packages.rst:315
 msgid "To install the latest version of \"SomeProject\":"
-msgstr ""
+msgstr "要安装最新版本的 \"SomeProject\"："
 
 #: ../../source/tutorials/installing-packages.rst:329
 msgid "To install a specific version:"
-msgstr ""
+msgstr "要安装一个特定的版本："
 
 #: ../../source/tutorials/installing-packages.rst:343
 msgid "To install greater than or equal to one version and less than another:"
-msgstr ""
+msgstr "要安装大于或等于一个版本而小于另一个版本的产品："
 
 #: ../../source/tutorials/installing-packages.rst:358
 msgid ""
 "To install a version that's :pep:`\"compatible\" <440#compatible-"
 "release>` with a certain version: [4]_"
 msgstr ""
+"要安装一个与 :pep:`\"compatible\" <440#compatible-release>` 兼容某一版本：[4]_"
 
 #: ../../source/tutorials/installing-packages.rst:373
 msgid ""
 "In this case, this means to install any version \"==1.4.*\" version "
 "that's also \">=1.4.2\"."
 msgstr ""
+"在这种情况下，这意味着要安装任何版本 \"==1.4.*\" 的版本，同时也是 \">=1.4.2\"。"
 
 #: ../../source/tutorials/installing-packages.rst:378
 msgid "Source Distributions vs Wheels"
-msgstr ""
+msgstr "源分发与轮子"
 
 #: ../../source/tutorials/installing-packages.rst:380
 msgid ""
@@ -13272,6 +13405,9 @@ msgid ""
 "<Wheel>`. You can override pip`s default behavior by e.g. using its :ref"
 ":`--no-binary <pip:install_--no-binary>` option."
 msgstr ""
+":ref:`pip` 可以从 :term:`源分发（sdist）  <源分发（或 \"sdist\"）>` "
+"或 :term:`轮子 <Wheel>` 安装，但如果两者都存在于 PyPI 上，pip 会优先选择兼容的 :term:`轮子 <Wheel>`。"
+"你可以通过使用 :ref:`-no-binary <pip:install_--no-binary>` 选项来覆盖 pip 的默认行为。"
 
 #: ../../source/tutorials/installing-packages.rst:386
 msgid ""
@@ -13280,6 +13416,8 @@ msgid ""
 ":term:`Source Distributions (sdist) <Source Distribution (or "
 "\"sdist\")>`, especially when a project contains compiled extensions."
 msgstr ""
+":term:`轮子 <Wheel>` 是一种预先建立的 :term:`distribution <分发包>` 格式，"
+"与 :term:`源分发（sdist）  <源分发（或 \"sdist\"）>` 相比，它提供更快的安装，特别是当一个项目包含编译的扩展。"
 
 #: ../../source/tutorials/installing-packages.rst:391
 msgid ""
@@ -13287,20 +13425,22 @@ msgid ""
 "wheel and cache it for future installs, instead of rebuilding the source "
 "distribution in the future."
 msgstr ""
+"如果 :ref:`pip` 没有找到要安装的轮子，它将在本地建立一个轮子，并为将来的安装进行缓存，而不是在将来重建源码分布。"
 
 #: ../../source/tutorials/installing-packages.rst:399
 msgid "Upgrade an already installed ``SomeProject`` to the latest from PyPI."
-msgstr ""
+msgstr "将已经安装的 ``SomeProject`` 升级到 PyPI 的最新版本。"
 
 #: ../../source/tutorials/installing-packages.rst:416
 msgid "Installing to the User Site"
-msgstr ""
+msgstr "安装到用户站点"
 
 #: ../../source/tutorials/installing-packages.rst:418
 msgid ""
 "To install :term:`packages <Distribution Package>` that are isolated to "
 "the current user, use the ``--user`` flag:"
 msgstr ""
+"要安装 :term:`包 <分发包>` 隔离于当前用户，请使用 ``--user`` 标志："
 
 #: ../../source/tutorials/installing-packages.rst:433
 msgid ""
@@ -13308,6 +13448,8 @@ msgid ""
 "<https://pip.pypa.io/en/latest/user_guide/#user-installs>`_ section from "
 "the pip docs."
 msgstr ""
+"更多信息请参见 pip docs 中的 `用户安装 "
+"<https://pip.pypa.io/en/latest/user_guide/#user-installs>`_ 部分。"
 
 #: ../../source/tutorials/installing-packages.rst:437
 msgid ""
@@ -13315,6 +13457,7 @@ msgid ""
 "environment - all installation commands will affect the virtual "
 "environment."
 msgstr ""
+"注意，``--user`` 标志在虚拟环境内没有作用 -- 所有的安装命令都会影响虚拟环境。"
 
 #: ../../source/tutorials/installing-packages.rst:440
 msgid ""
@@ -13326,6 +13469,11 @@ msgid ""
 ":envvar:`PATH`.)  If the scripts are not available in your shell after "
 "installation, you'll need to add the directory to your :envvar:`PATH`:"
 msgstr ""
+"如果 ``SomeProject`` 定义了任何命令行脚本或控制台入口点，``--user`` "
+"将导致它们被安装在 `user base`_ 的二进制目录中，"
+"该目录可能已经存在于你的 shell 的 :envvar:`PATH` 中，也可能不存在。"
+"(从版本 10 开始，当安装任何脚本到 :envvar:`PATH` 以外的目录时，pip 会显示一个警告。）"
+"如果安装后脚本在你的 shell 中不可用，你需要将该目录添加到你的 :envvar:`PATH` 中："
 
 #: ../../source/tutorials/installing-packages.rst:448
 msgid ""
@@ -13336,6 +13484,10 @@ msgid ""
 "``~/.local/bin`` to your ``PATH``.  You can set your ``PATH`` permanently"
 " by `modifying ~/.profile`_."
 msgstr ""
+"在 Linux 和 macOS 上，你可以通过运行 ``python -m site --user-base`` 并在后面添加 ``bin`` 来找到用户基础二进制目录。"
+"例如，这通常会打印出 ``~/.local`` （ ``~`` 扩展为你的主目录的绝对路径），"
+"所以你需要将 ``~/.local/bin`` 加入你的 ``PATH``。"
+"你可以通过 `修改 ~/.profile`_ 来永久设置你的 ``PATH``。"
 
 #: ../../source/tutorials/installing-packages.rst:454
 msgid ""
@@ -13348,40 +13500,50 @@ msgid ""
 " your user ``PATH`` permanently in the `Control Panel`_. You may need to "
 "log out for the ``PATH`` changes to take effect."
 msgstr ""
+"在 Windows 上，你可以通过运行 ``py -m site --user-site`` 并将 ``site-packages`` "
+"替换为 ``Scripts`` 来找到用户基础二进制目录。"
+"例如，这可能会返回 ``C:\Users\Username\AppData\Roaming\Python36/site-packages``，"
+"所以你需要设置你的 ``PATH`` 以包括 ``C:\Users\Username\AppData\Roaming\Python36/Scripts``。"
+"你可以在 `控制面板`_ 中永久设置你的用户 ``PATH``。"
+"你可能需要注销才能使 ``PATH`` 的改变生效。"
 
 #: ../../source/tutorials/installing-packages.rst:470
 msgid ""
 "Install a list of requirements specified in a :ref:`Requirements File "
 "<pip:Requirements Files>`."
 msgstr ""
+"安装一个在  :ref:`需求文件 <pip:Requirements Files>` 中指定的需求列表。"
 
 #: ../../source/tutorials/installing-packages.rst:486
 msgid "Installing from VCS"
-msgstr ""
+msgstr "从 VCS 安装"
 
 #: ../../source/tutorials/installing-packages.rst:488
 msgid ""
 "Install a project from VCS in \"editable\" mode.  For a full breakdown of"
 " the syntax, see pip's section on :ref:`VCS Support <pip:VCS Support>`."
 msgstr ""
+"以 \"editable\" 模式从 VCS 安装一个项目。"
+"关于语法的详细介绍，请参见 pip 的 :ref:`VCS 支持 <pip:VCS Support>` 部分。"
 
 #: ../../source/tutorials/installing-packages.rst:510
 msgid "Installing from other Indexes"
-msgstr ""
+msgstr "从其他索引中安装"
 
 #: ../../source/tutorials/installing-packages.rst:512
 msgid "Install from an alternate index"
-msgstr ""
+msgstr "从另一个索引安装"
 
 #: ../../source/tutorials/installing-packages.rst:526
 msgid ""
 "Search an additional index during install, in addition to :term:`PyPI "
 "<Python Package Index (PyPI)>`"
 msgstr ""
+"在安装过程中，除了 :term:`PyPI <Python Package Index (PyPI)>` 之外，还要搜索一个额外的索引"
 
 #: ../../source/tutorials/installing-packages.rst:542
 msgid "Installing from a local src tree"
-msgstr ""
+msgstr "从本地 src 树上安装"
 
 #: ../../source/tutorials/installing-packages.rst:545
 msgid ""
@@ -13390,20 +13552,23 @@ msgid ""
 "project appears to be installed, but yet is still editable from the src "
 "tree."
 msgstr ""
+"在 :doc:`Development Mode <setuptools:userguide/development_mode>` "
+"中从本地 src 安装，即以这样一种方式，项目看似已经安装，但仍可从 src 树上编辑。"
 
 #: ../../source/tutorials/installing-packages.rst:562
 msgid "You can also install normally from src"
-msgstr ""
+msgstr "你也可以从 src 中正常安装"
 
 #: ../../source/tutorials/installing-packages.rst:579
 msgid "Install a particular source archive file."
-msgstr ""
+msgstr "安装一个特定的源存档文件。"
 
 #: ../../source/tutorials/installing-packages.rst:593
 msgid ""
 "Install from a local directory containing archives (and don't check "
 ":term:`PyPI <Python Package Index (PyPI)>`)"
 msgstr ""
+"从包含档案的本地目录中安装（并且不要检查 :term:`PyPI <Python Package Index (PyPI)>` ）"
 
 #: ../../source/tutorials/installing-packages.rst:613
 msgid "Installing from other sources"
@@ -13416,24 +13581,27 @@ msgid ""
 "compliant index format, and use the ``--extra-index-url`` flag to direct "
 "pip to use that index."
 msgstr ""
+"要从其他数据源（例如 Amazon S3 存储）安装，你可以创建一个辅助应用程序，"
+"以 :pep:`503` 兼容的索引格式展示数据，并使用 ``--extra-index-url`` 标志来指导 pip 使用该索引。"
 
 #: ../../source/tutorials/installing-packages.rst:627
 msgid "Installing Prereleases"
-msgstr ""
+msgstr "安装预发行版"
 
 #: ../../source/tutorials/installing-packages.rst:629
 msgid ""
 "Find pre-release and development versions, in addition to stable "
 "versions.  By default, pip only finds stable versions."
 msgstr ""
+"除了稳定版本之外，还可以找到预发布版本和开发版本。默认情况下，pip 只查找稳定版本。"
 
 #: ../../source/tutorials/installing-packages.rst:645
 msgid "Installing Setuptools \"Extras\""
-msgstr ""
+msgstr "安装 Setuptools （\"附加功能\"）"
 
 #: ../../source/tutorials/installing-packages.rst:647
 msgid "Install `setuptools extras`_."
-msgstr ""
+msgstr "安装 `setuptools 附加功能`_"
 
 #: ../../source/tutorials/installing-packages.rst:667
 msgid ""
@@ -13441,6 +13609,8 @@ msgid ""
 ":command:`curl` that verifies SSL certificates when downloading from "
 "https URLs."
 msgstr ""
+"\"Secure\" 在这里意味着使用现代浏览器或像 :command:`curl` 这样的工具，"
+"在从 https 网址下载时验证 SSL 证书。"
 
 #: ../../source/tutorials/installing-packages.rst:676
 msgid ""
@@ -13448,12 +13618,16 @@ msgid ""
 ":ref:`virtualenv`) will create virtualenv environments with ``pip`` pre-"
 "installed, thereby making it an equal alternative to :ref:`virtualenv`."
 msgstr ""
+"从 Python 3.4 开始，``venv`` （ :ref:`virtualenv` 的 stdlib 替代品）"
+"将创建预装了 ``pip`` 的 virtualenv 环境，从而使其成为 :ref:`virtualenv` 的同等替代品。"
 
 #: ../../source/tutorials/installing-packages.rst:681
 msgid ""
 "The compatible release specifier was accepted in :pep:`440` and support "
 "was released in :ref:`setuptools` v8.0 and :ref:`pip` v6.0"
 msgstr ""
+"在 :pep:`440` 中接受了兼容的发行规格，"
+"并在 :ref:`setuptools` v8.0 和 :ref:`pip` v6.0 中发布了支持"
 
 #: ../../source/tutorials/managing-dependencies.rst:4
 msgid "Managing Application Dependencies"
