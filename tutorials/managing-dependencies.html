@@ -135,29 +135,15 @@
             
   <section id="managing-application-dependencies">
 <span id="managing-dependencies"></span><h1>管理应用程序的依赖性<a class="headerlink" href="#managing-application-dependencies" title="永久链接至标题">¶</a></h1>
-<p>The <a class="reference internal" href="installing-packages.html#installing-packages"><span class="std std-ref">package installation tutorial</span></a>
-covered the basics of getting set up to install and update Python packages.</p>
-<p>However, running these commands interactively can get tedious even for your
-own personal projects, and things get even more difficult when trying to set up
-development environments automatically for projects with multiple contributors.</p>
-<p>This tutorial walks you through the use of <a class="reference internal" href="../key_projects.html#pipenv"><span class="std std-ref">Pipenv</span></a> to manage dependencies
-for an application. It will show you how to install and use the necessary tools
-and make strong recommendations on best practices.</p>
-<p>Keep in mind that Python is used for a great many different purposes, and
-precisely how you want to manage your dependencies may change based on how you
-decide to publish your software. The guidance presented here is most directly
-applicable to the development and deployment of network services (including
-web applications), but is also very well suited to managing development and
-testing environments for any kind of project.</p>
+<p><a class="reference internal" href="installing-packages.html#installing-packages"><span class="std std-ref">软件包安装教程</span></a> 涵盖了安装和更新 Python 软件包的基本设置。</p>
+<p>然而，即使对你自己的个人项目来说，交互式地运行这些命令也会变得很乏味，而当试图为有多个贡献者的项目自动设置开发环境时，事情就变得更加困难了。</p>
+<p>本教程指导你使用 <a class="reference internal" href="../key_projects.html#pipenv"><span class="std std-ref">Pipenv</span></a> 来管理应用程序的依赖性。它将向你展示如何安装和使用必要的工具，并对最佳实践提出有力的建议。</p>
+<p>请记住，Python 被用于许多不同的目的，而且准确地说，你想如何管理你的依赖关系可能会根据你决定如何发布你的软件而改变。这里提出的指导意见最直接地适用于网络服务的开发和部署（包括网络应用），但也非常适用于管理任何种类项目的开发和测试环境。</p>
 <p>For alternatives, see <a class="reference internal" href="#other-tools-for-application-dependency-management">Other Tools for Application Dependency Management</a>.</p>
 <section id="installing-pipenv">
-<h2>Installing Pipenv<a class="headerlink" href="#installing-pipenv" title="永久链接至标题">¶</a></h2>
-<p><a class="reference internal" href="../key_projects.html#pipenv"><span class="std std-ref">Pipenv</span></a> is a dependency manager for Python projects. If you’re familiar
-with Node.js’ <a class="reference external" href="https://www.npmjs.com/">npm</a> or Ruby’s <a class="reference external" href="https://bundler.io/">bundler</a>, it is similar in spirit to those
-tools. While <a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> alone is often sufficient for personal use, Pipenv is
-recommended for collaborative projects as it’s a higher-level tool that
-simplifies dependency management for common use cases.</p>
-<p>Use <code class="docutils literal notranslate"><span class="pre">pip</span></code> to install Pipenv:</p>
+<h2>安装 Pipenv<a class="headerlink" href="#installing-pipenv" title="永久链接至标题">¶</a></h2>
+<p><a class="reference internal" href="../key_projects.html#pipenv"><span class="std std-ref">Pipenv</span></a> 是一个 Python 项目的依赖管理器。如果你熟悉 Node.js 的 <a class="reference external" href="https://www.npmjs.com/">npm</a> 或 Ruby 的 <a class="reference external" href="https://bundler.io/">bundler</a>，它与这些工具的精神相似。虽然 <a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> 单独使用通常就足够了，但 Pipenv 被推荐用于合作项目，因为它是一个更高级别的工具，为常见的使用情况简化了依赖管理。</p>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">pip</span></code> 来安装Pipenv：</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Unix/macOS</label><div class="tab-content docutils container">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --user pipenv
@@ -172,27 +158,17 @@ simplifies dependency management for common use cases.</p>
 </div>
 <div class="admonition note" id="pipenv-user-base">
 <p class="admonition-title">注解</p>
-<p>This does a <a class="reference external" href="https://pip.pypa.io/en/stable/user_guide/#user-installs">user installation</a> to prevent breaking any system-wide
-packages. If <code class="docutils literal notranslate"><span class="pre">pipenv</span></code> isn’t available in your shell after installation,
-you’ll need to add the <a class="reference external" href="https://docs.python.org/3/library/site.html#site.USER_BASE" title="(在 Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">user</span> <span class="pre">base</span></code></a>’s
-binary directory to your <code class="docutils literal notranslate"><span class="pre">PATH</span></code>.
-See <a class="reference internal" href="installing-packages.html#installing-to-the-user-site"><span class="std std-ref">安装到用户站点</span></a> for more information.</p>
+<p>这将做一个 <a class="reference external" href="https://pip.pypa.io/en/stable/user_guide/#user-installs">user installation</a>，以防止破坏任何系统范围的软件包。如果 <code class="docutils literal notranslate"><span class="pre">pipenv</span></code> 在安装后在你的 shell 中不可用，你需要将 <a class="reference external" href="https://docs.python.org/3/library/site.html#site.USER_BASE" title="(在 Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">user</span> <span class="pre">base</span></code></a> 的二进制目录加入你的 <code class="docutils literal notranslate"><span class="pre">PATH</span></code>。参见 <a class="reference internal" href="installing-packages.html#installing-to-the-user-site"><span class="std std-ref">安装到用户站点</span></a> 获取更多信息。</p>
 </div>
 </section>
 <section id="installing-packages-for-your-project">
-<h2>Installing packages for your project<a class="headerlink" href="#installing-packages-for-your-project" title="永久链接至标题">¶</a></h2>
-<p>Pipenv manages dependencies on a per-project basis. To install packages,
-change into your project’s directory (or just an empty directory for this
-tutorial) and run:</p>
+<h2>为你的项目安装软件包<a class="headerlink" href="#installing-packages-for-your-project" title="永久链接至标题">¶</a></h2>
+<p>Pipenv 在每个项目的基础上管理依赖性。要安装软件包，请进入你的项目目录（或者在本教程中只是一个空目录）并运行：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> myproject
 pipenv install requests
 </pre></div>
 </div>
-<p>Pipenv will install the <a class="reference external" href="https://pypi.org/project/requests/">Requests</a> library and create a <code class="docutils literal notranslate"><span class="pre">Pipfile</span></code>
-for you in your project’s directory. The <a class="reference internal" href="../key_projects.html#pipfile"><span class="std std-ref">Pipfile</span></a> is used to track which
-dependencies your project needs in case you need to re-install them, such as
-when you share your project with others. You should get output similar to this
-(although the exact paths shown will vary):</p>
+<p>Pipenv 将安装 <a class="reference external" href="https://pypi.org/project/requests/">Requests</a> 库并在你的项目目录中为你创建一个 <code class="docutils literal notranslate"><span class="pre">Pipfile</span></code>。<a class="reference internal" href="../key_projects.html#pipfile"><span class="std std-ref">Pipfile</span></a> 用于跟踪你的项目需要哪些依赖，以备你需要重新安装它们，例如当你与他人分享你的项目时。你应该得到类似这样的输出（尽管显示的确切路径会有所不同）：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Creating a Pipfile for this project...
 Creating a virtualenv for this project...
 Using base prefix &#39;/usr/local/Cellar/python3/3.6.2/Frameworks/Python.framework/Versions/3.6&#39;
@@ -220,7 +196,7 @@ Adding requests to Pipfile&#39;s [packages]...
 </div>
 </section>
 <section id="using-installed-packages">
-<h2>Using installed packages<a class="headerlink" href="#using-installed-packages" title="永久链接至标题">¶</a></h2>
+<h2>使用已安装的软件包<a class="headerlink" href="#using-installed-packages" title="永久链接至标题">¶</a></h2>
 <p>Now that Requests is installed you can create a simple <code class="file docutils literal notranslate"><span class="pre">main.py</span></code> file
 to use it:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
