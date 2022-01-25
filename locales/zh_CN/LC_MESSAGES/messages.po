@@ -7623,6 +7623,9 @@ msgid ""
 "simple project, build source distributions and wheels, and upload them to"
 " PyPI."
 msgstr ""
+"Flit 提供了一个简单的方法来上传纯 Python 软件包和模块到 PyPI。"
+"它专注于 `让简单的事情变得简单 <flit-rationale_>`_ 的打包。"
+"Flit 可以生成一个配置文件，快速建立一个简单的项目，构建源码分布和轮子，并将它们上传到 PyPI。"
 
 #: ../../source/key_projects.rst:397
 msgid ""
@@ -7632,6 +7635,9 @@ msgid ""
 "use it to distribute modules for Python 2, so long as they can be "
 "imported on Python 3."
 msgstr ""
+"Flit 使用 ``pyproject.toml`` 来配置一个项目。"
+"Flit 不依赖诸如 :ref:`setuptools` 之类的工具来构建发行版，或者 :ref:`twine` 来上传至 PyPI。"
+"Flit 需要 Python 3，但你可以用它来发布 Python 2 的模块，只要它们能在 Python 3 上被导入。"
 
 #: ../../source/key_projects.rst:407
 msgid "enscons"
@@ -7699,6 +7705,9 @@ msgid ""
 "to upload packages to PyPI, and :ref:`pip` to download and install "
 "packages."
 msgstr ""
+"Hatch 是一个统一的命令行工具，旨在为 Python 开发者方便地管理依赖性和环境隔离。"
+"Python 软件包开发者使用 Hatch 来配置、发布、指定依赖关系，并向 PyPI 发布软件包。"
+"在引擎盖下，它使用 :ref:`twine` 来上传包到 PyPI，使用 :ref:`pip` 来下载和安装包。"
 
 #: ../../source/key_projects.rst:460
 msgid "multibuild"
@@ -7714,6 +7723,8 @@ msgid ""
 ":term:`wheels <Wheel>` for Linux, macOS, and (less flexibly) Windows. "
 "Also see :ref:`cibuildwheel`."
 msgstr ""
+"Multibuild 是一套 CI 脚本，用于构建和测试 Linux、macOS 和（不太灵活的）Windows 的 Python :term:`wheels <Wheel>`。"
+"也见 :ref:`cibuildwheel`。"
 
 #: ../../source/key_projects.rst:470
 msgid "pdm"
@@ -7734,6 +7745,9 @@ msgid ""
 ":term:`pyproject.toml` to store project metadata as defined in "
 ":pep:`621`."
 msgstr ""
+"PDM 是一个现代的 Python 软件包管理器，支持 :pep:`582`。"
+"它以类似于 ``npm`` 的方式安装和管理软件包，完全不需要创建一个 :term:`virtual environment`。"
+"它还使用 :term:`pyproject.toml` 来存储项目元数据，如 :pep:`621` 所定义。"
 
 #: ../../source/key_projects.rst:486
 msgid ""
@@ -7754,6 +7768,8 @@ msgid ""
 "and are designed to make deployment of Python applications as simple as "
 "``cp``."
 msgstr ""
+"pex 既是一个库，也是生成 :file:`.pex` (Python EXecutable) 文件的工具，是符合 :ref:`virtualenv` 精神的独立的 Python 环境。"
+":file:`.pex` 文件只是精心构建的压缩文件，带有 `#!/usr/bin/env python` 和特殊的 :file:`__main__.py`，旨在使 Python 应用程序的部署像 ``cp`` 一样简单。"
 
 #: ../../source/key_projects.rst:499
 msgid "pip-tools"
@@ -7778,6 +7794,9 @@ msgid ""
 "currently does not provide), and create layers of constraints for the "
 "program to obey."
 msgstr ""
+"pip-tools 是一套针对 Python 系统管理员和发布经理的工具，他们特别希望保持他们的构建是确定的，"
+"同时又能保持与新版本的依赖关系的更新。用户可以通过哈希值指定他们依赖的特定版本，"
+"方便地从他们程序的其他部分的信息中制作一个正确格式的需求列表，更新所有的依赖（这是 :ref:`pip` 目前不提供的功能），并为程序创建服从的约束层。"
 
 #: ../../source/key_projects.rst:516
 msgid "piwheels"
@@ -7912,6 +7931,8 @@ msgid ""
 "included. Its primary goal is making distributing Python applications and"
 " command line tools fast & easy."
 msgstr ""
+"shiv 是一个命令行工具，用于构建完全自包含的 Python zipapps，如 :pep:`441` 中所述，但包含了所有的依赖。"
+"它的主要目标是使分发 Python 应用程序和命令行工具变得快速和简单。"
 
 #: ../../source/key_projects.rst:615
 msgid ""
@@ -8036,6 +8057,8 @@ msgid ""
 "information, see the section on :ref:`Creating and using Virtual "
 "Environments`."
 msgstr ""
+"Python 标准库中的一个包（从 Python 3.3 开始），用于创建 :term:`Virtual Environments <Virtual Environment>`。 "
+"更多信息，请参见 :ref:`Creating and using Virtual Environments` 一节。"
 
 #: ../../source/news.rst:2
 msgid "News"
