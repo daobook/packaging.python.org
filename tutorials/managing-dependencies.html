@@ -27,7 +27,7 @@
     
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="Packaging Python Projects" href="packaging-projects.html" />
+    <link rel="next" title="包装 Python 项目" href="packaging-projects.html" />
     <link rel="prev" title="安装包" href="installing-packages.html" /><link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
             <script type="text/javascript" src="../_static/copybutton.js"></script>
             <script type="text/javascript" src="../_static/menu.js"></script> 
@@ -62,7 +62,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">教程</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installing-packages.html">安装包</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">管理应用程序的依赖性</a></li>
-<li class="toctree-l2"><a class="reference internal" href="packaging-projects.html">Packaging Python Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging-projects.html">包装 Python 项目</a></li>
 <li class="toctree-l2"><a class="reference internal" href="creating-documentation.html">创建文档</a></li>
 </ul>
 </li>
@@ -81,7 +81,7 @@
                         title="上一章">安装包</a></p>
   <h4>下一个主题</h4>
   <p class="topless"><a href="packaging-projects.html"
-                        title="下一章">Packaging Python Projects</a></p>
+                        title="下一章">包装 Python 项目</a></p>
         </nav>
     </div>
 </div>
@@ -93,7 +93,7 @@
           <a href="../genindex.html" title="总目录"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="packaging-projects.html" title="Packaging Python Projects"
+          <a href="packaging-projects.html" title="包装 Python 项目"
              accesskey="N">下一页</a> |</li>
         <li class="right" >
           <a href="installing-packages.html" title="安装包"
@@ -197,8 +197,7 @@ Adding requests to Pipfile&#39;s [packages]...
 </section>
 <section id="using-installed-packages">
 <h2>使用已安装的软件包<a class="headerlink" href="#using-installed-packages" title="永久链接至标题">¶</a></h2>
-<p>Now that Requests is installed you can create a simple <code class="file docutils literal notranslate"><span class="pre">main.py</span></code> file
-to use it:</p>
+<p>现在 Requests 已经安装完毕，你可以创建一个简单的 <code class="file docutils literal notranslate"><span class="pre">main.py</span></code> 文件来使用它：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://httpbin.org/ip&#39;</span><span class="p">)</span>
@@ -206,31 +205,24 @@ to use it:</p>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Your IP is </span><span class="si">{0}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;origin&#39;</span><span class="p">]))</span>
 </pre></div>
 </div>
-<p>Then you can run this script using <code class="docutils literal notranslate"><span class="pre">pipenv</span> <span class="pre">run</span></code>:</p>
+<p>然后你可以使用 <code class="docutils literal notranslate"><span class="pre">pipenv</span> <span class="pre">run</span></code> 来运行这个脚本。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pipenv run python main.py
 </pre></div>
 </div>
-<p>You should get output similar to this:</p>
+<p>你应该得到与此类似的输出：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Your IP is 8.8.8.8
 </pre></div>
 </div>
-<p>Using <code class="docutils literal notranslate"><span class="pre">pipenv</span> <span class="pre">run</span></code> ensures that your installed packages are available to
-your script. It’s also possible to spawn a new shell that ensures all commands
-have access to your installed packages with <code class="docutils literal notranslate"><span class="pre">pipenv</span> <span class="pre">shell</span></code>.</p>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">pipenv</span> <span class="pre">run</span></code> 可以确保你安装的软件包对你的脚本可用。也可以用 <code class="docutils literal notranslate"><span class="pre">pipenv</span> <span class="pre">shell</span></code> 催生一个新的 shell，确保所有命令都能访问你安装的软件包。</p>
 </section>
 <section id="next-steps">
-<h2>Next steps<a class="headerlink" href="#next-steps" title="永久链接至标题">¶</a></h2>
-<p>Congratulations, you now know how to effectively manage dependencies and
-development environments on a collaborative Python project! ✨ 🍰 ✨</p>
-<p>If you’re interested in creating and distributing your own Python packages, see
-the <a class="reference internal" href="../guides/distributing-packages-using-setuptools.html#distributing-packages"><span class="std std-ref">tutorial on packaging and distributing packages</span></a>.</p>
-<p>Note that when your application includes definitions of Python source packages,
-they (and their dependencies) can be added to your <code class="docutils literal notranslate"><span class="pre">pipenv</span></code> environment with
-<code class="docutils literal notranslate"><span class="pre">pipenv</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">&lt;relative-path-to-source-directory&gt;</span></code> (e.g.
-<code class="docutils literal notranslate"><span class="pre">pipenv</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> or <code class="docutils literal notranslate"><span class="pre">pipenv</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">src</span></code>).</p>
+<h2>下一步<a class="headerlink" href="#next-steps" title="永久链接至标题">¶</a></h2>
+<p>恭喜你，你现在知道如何在一个合作的 Python 项目中有效地管理依赖性和开发环境了！。✨ 🍰 ✨</p>
+<p>如果你对创建和发布你自己的 Python 软件包感兴趣，请参阅 <a class="reference internal" href="../guides/distributing-packages-using-setuptools.html#distributing-packages"><span class="std std-ref">关于打包和发布软件包的教程</span></a>。</p>
+<p>注意，当你的应用程序包括 Python 源代码包的定义时，它们（和它们的依赖关系）可以通过 <code class="docutils literal notranslate"><span class="pre">pipenv</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">&lt;relative-path-to-source-directory&gt;</span></code> 添加到你的 <code class="docutils literal notranslate"><span class="pre">pipenv</span></code> 环境中（例如 <code class="docutils literal notranslate"><span class="pre">pipenv</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> 或 <code class="docutils literal notranslate"><span class="pre">pipenv</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">src</span></code>）。</p>
 </section>
 <section id="other-tools-for-application-dependency-management">
-<span id="other-dependency-management-tools"></span><h2>Other Tools for Application Dependency Management<a class="headerlink" href="#other-tools-for-application-dependency-management" title="永久链接至标题">¶</a></h2>
+<span id="other-dependency-management-tools"></span><h2>用于应用程序依赖性管理的其他工具<a class="headerlink" href="#other-tools-for-application-dependency-management" title="永久链接至标题">¶</a></h2>
 <p>If you find this particular approach to managing application dependencies isn’t
 working well for you or your use case, you may want to explore these other tools
 and techniques, listed in alphabetical order, to see if one of them is a better fit:</p>
@@ -271,7 +263,7 @@ being worked on will support distribution as a <code class="docutils literal not
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">教程</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installing-packages.html">安装包</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">管理应用程序的依赖性</a></li>
-<li class="toctree-l2"><a class="reference internal" href="packaging-projects.html">Packaging Python Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging-projects.html">包装 Python 项目</a></li>
 <li class="toctree-l2"><a class="reference internal" href="creating-documentation.html">创建文档</a></li>
 </ul>
 </li>
@@ -290,7 +282,7 @@ being worked on will support distribution as a <code class="docutils literal not
                         title="上一章">安装包</a></p>
   <h4>下一个主题</h4>
   <p class="topless"><a href="packaging-projects.html"
-                        title="下一章">Packaging Python Projects</a></p>
+                        title="下一章">包装 Python 项目</a></p>
         </div>
       </div>
       <div class="clearer"></div>
@@ -302,7 +294,7 @@ being worked on will support distribution as a <code class="docutils literal not
           <a href="../genindex.html" title="总目录"
              >索引</a></li>
         <li class="right" >
-          <a href="packaging-projects.html" title="Packaging Python Projects"
+          <a href="packaging-projects.html" title="包装 Python 项目"
              >下一页</a> |</li>
         <li class="right" >
           <a href="installing-packages.html" title="安装包"

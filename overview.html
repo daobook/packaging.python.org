@@ -213,7 +213,7 @@
 <p>Python 的大部分实用能力来自于它与软件生态系统整合的能力，特别是用 C、C++、Fortran、Rust 和其他语言编写的库。</p>
 <p>并不是所有的开发者都有合适的工具或经验来构建这些用这些编译语言编写的组件，所以 Python 创建了 <a class="reference internal" href="glossary.html#term-Wheel"><span class="xref std std-term">Wheel</span></a>，这是一种包格式，旨在用编译的工件来运送库。事实上，Python 的包安装程序 <code class="docutils literal notranslate"><span class="pre">pip</span></code> 总是更喜欢轮子，因为安装总是更快，所以即使是纯 Python 包也能用轮子更好地工作。</p>
 <p>二进制发行版最好是与源代码发行版相匹配。即使你不为每个操作系统上传你的代码轮子，通过上传 sdist，你也可以让其他平台的用户为自己构建它。除非你为一个非常特殊的使用情况创建工件，而你知道接收者只需要其中一个，否则默认为同时发布 sdist 和轮子档案。</p>
-<p>Python 和 PyPI 让我们很容易同时上传 wheel 和 sdists。只要按照 <a class="reference internal" href="tutorials/packaging-projects.html"><span class="doc">Packaging Python Projects</span></a> 的教程就可以了。</p>
+<p>Python 和 PyPI 让我们很容易同时上传 wheel 和 sdists。只要按照 <a class="reference internal" href="tutorials/packaging-projects.html"><span class="doc">包装 Python 项目</span></a> 的教程就可以了。</p>
 <figure class="align-default" id="id2">
 <a class="reference internal image-reference" href="_images/py_pkg_tools_and_libs.png"><img alt="A summary of Python's packaging capabilities for tools and libraries." src="_images/py_pkg_tools_and_libs.png" style="width: 80%;" /></a>
 <figcaption>
