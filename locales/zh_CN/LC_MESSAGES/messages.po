@@ -14241,7 +14241,7 @@ msgstr ""
 
 #: ../../source/tutorials/packaging-projects.rst:387
 msgid "Including other files"
-msgstr ""
+msgstr "包括其他文件"
 
 #: ../../source/tutorials/packaging-projects.rst:389
 msgid ""
@@ -14250,6 +14250,8 @@ msgid ""
 "want to control what goes in this explicitly, see :ref:`Using "
 "MANIFEST.in`."
 msgstr ""
+"上面列出的文件将被自动包含在你的 :term:`source distribution <Source Distribution (or \"sdist\")>` 中。"
+"如果你想明确地控制其中的内容，请参阅 :ref:`Using MANIFEST.in`。"
 
 #: ../../source/tutorials/packaging-projects.rst:393
 msgid ""
@@ -14259,10 +14261,13 @@ msgid ""
 "Data Files <setuptools:userguide/datafiles>` from the :doc:`setuptools "
 "docs <setuptools:index>`."
 msgstr ""
+"最终的 :term:`built distribution <Built Distribution>` 将有被发现或列出的 Python 包中的 Python 文件。"
+"如果你想控制这里的内容，比如添加数据文件，请看 :doc:`Including Data Files <setuptools:userguide/datafiles>`，"
+"来自 :doc:`setuptools docs <setuptools:index>`。"
 
 #: ../../source/tutorials/packaging-projects.rst:402
 msgid "Generating distribution archives"
-msgstr ""
+msgstr "生成分发档案"
 
 #: ../../source/tutorials/packaging-projects.rst:404
 msgid ""
@@ -14270,6 +14275,7 @@ msgid ""
 "Package>` for the package. These are archives that are uploaded to the "
 "Python Package Index and can be installed by :ref:`pip`."
 msgstr ""
+"下一步是为该软件包生成 :term:`distribution packages <Distribution Package>`。这些是上传到 Python 包索引的档案，可以通过 :ref:`pip` 来安装。"
 
 #: ../../source/tutorials/packaging-projects.rst:408
 msgid "Make sure you have the latest version of PyPA's :ref:`build` installed:"
@@ -14286,12 +14292,14 @@ msgid ""
 "Now run this command from the same directory where :file:`pyproject.toml`"
 " is located:"
 msgstr ""
+"现在从 :file:`pyproject.toml` 所在的同一目录运行此命令："
 
 #: ../../source/tutorials/packaging-projects.rst:439
 msgid ""
 "This command should output a lot of text and once completed should "
 "generate two files in the :file:`dist` directory:"
 msgstr ""
+"这个命令应该输出大量的文本，一旦完成应该在 :file:`dist` 目录下产生两个文件："
 
 #: ../../source/tutorials/packaging-projects.rst:449
 msgid ""
@@ -14303,10 +14311,14 @@ msgid ""
 "is compatible with. In this case, our example package is compatible with "
 "Python on any platform so only one built distribution is needed."
 msgstr ""
+"``tar.gz`` 文件是一个 :term:`source archive <Source Archive>`，而 ``.whl`` 文件是一个 :term:`built distribution <Built Distribution>`。"
+"较新的 :ref:`pip` 版本更倾向于安装 built 发行版，但如果需要的话，会退回到源存档。"
+"你应该总是上传一个源码档案，并为你的项目所兼容的平台提供 built 档案。"
+"在这种情况下，我们的示例包与任何平台上的 Python 兼容，所以只需要一个 built 的发行版。"
 
 #: ../../source/tutorials/packaging-projects.rst:458
 msgid "Uploading the distribution archives"
-msgstr ""
+msgstr "上传分发档案"
 
 #: ../../source/tutorials/packaging-projects.rst:460
 msgid "Finally, it's time to upload your package to the Python Package Index!"
