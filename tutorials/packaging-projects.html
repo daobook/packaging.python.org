@@ -138,12 +138,9 @@
 <p>本教程将指导你如何打包一个简单的 Python 项目。它将告诉你如何添加必要的文件和结构来创建包，如何构建包，以及如何将其上传到 Python 包索引。</p>
 <div class="admonition tip">
 <p class="admonition-title">小技巧</p>
-<p>If you have trouble running the commands in this tutorial, please copy the command
-and its output, then <a class="reference external" href="https://github.com/pypa/packaging-problems/issues/new?template=packaging_tutorial.yml&amp;title=Trouble+with+the+packaging+tutorial&amp;guide=https://packaging.python.org/tutorials/packaging-projects">open an issue</a> on the <a class="reference external" href="https://github.com/pypa/packaging-problems">packaging-problems</a> repository on
-GitHub. We’ll do our best to help you!</p>
+<p>如果你在运行本教程中的命令时遇到困难，请复制命令及其输出，然后在 GitHub 上的 <a class="reference external" href="https://github.com/pypa/packaging-problems">packaging-problems</a> 仓库中 <a class="reference external" href="https://github.com/pypa/packaging-problems/issues/new?template=packaging_tutorial.yml&amp;title=Trouble+with+the+packaging+tutorial&amp;guide=https://packaging.python.org/tutorials/packaging-projects">open an issue</a>。我们会尽力帮助你！</p>
 </div>
-<p>Some of the commands require a newer version of <a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a>, so start by making
-sure you have the latest version installed:</p>
+<p>一些命令需要较新版本的 <a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a>，所以首先要确保你安装了最新的版本：</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Unix/macOS</label><div class="tab-content docutils container">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --upgrade pip
@@ -157,11 +154,9 @@ sure you have the latest version installed:</p>
 </div>
 </div>
 <section id="a-simple-project">
-<h2>A simple project<a class="headerlink" href="#a-simple-project" title="永久链接至标题">¶</a></h2>
-<p>This tutorial uses a simple project named <code class="docutils literal notranslate"><span class="pre">example_package</span></code>.  We recommend
-following this tutorial as-is using this project, before packaging your own
-project.</p>
-<p>Create the following file structure locally:</p>
+<h2>一个简单的项目<a class="headerlink" href="#a-simple-project" title="永久链接至标题">¶</a></h2>
+<p>本教程使用一个名为 <code class="docutils literal notranslate"><span class="pre">example_package</span></code> 的简单项目。我们建议在打包你自己的项目之前，按原样使用这个项目来学习本教程。</p>
+<p>在本地创建以下文件结构：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>packaging_tutorial/
 └── src/
     └── example_package/
@@ -169,25 +164,18 @@ project.</p>
         └── example.py
 </pre></div>
 </div>
-<p><code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code> is required to import the directory as a package, and
-should be empty.</p>
-<p><code class="file docutils literal notranslate"><span class="pre">example.py</span></code> is an example of a module within the package that could
-contain the logic (functions, classes, constants, etc.) of your package.
-Open that file and enter the following content:</p>
+<p><code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code> 是导入目录作为一个包所需要的，应该是空的。</p>
+<p><code class="file docutils literal notranslate"><span class="pre">example.py</span></code> 是包内模块的一个例子，可以包含你的包的逻辑（函数、类、常量等等）。打开该文件并输入以下内容：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_one</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
 </div>
-<p>If you are unfamiliar with Python’s <a class="reference internal" href="../glossary.html#term-Module"><span class="xref std std-term">modules</span></a> and
-<a class="reference internal" href="../glossary.html#term-Import-Package"><span class="xref std std-term">import packages</span></a>, take a few minutes to read over the
-<a class="reference external" href="https://docs.python.org/3/tutorial/modules.html#packages">Python documentation for packages and modules</a>.</p>
-<p>Once you create this structure, you’ll want to run all of the commands in this
-tutorial within the <code class="docutils literal notranslate"><span class="pre">packaging_tutorial</span></code> directory.</p>
+<p>如果你不熟悉 Python 的 <a class="reference internal" href="../glossary.html#term-Module"><span class="xref std std-term">modules</span></a> 和 <a class="reference internal" href="../glossary.html#term-Import-Package"><span class="xref std std-term">import packages</span></a>，请花几分钟时间阅读一下 <a class="reference external" href="https://docs.python.org/3/tutorial/modules.html#packages">Python 软件包和模块的文档</a>。</p>
+<p>一旦你创建了这个结构，你就想在 <code class="docutils literal notranslate"><span class="pre">packaging_tutorial</span></code> 目录下运行本教程中的所有命令。</p>
 </section>
 <section id="creating-the-package-files">
-<h2>Creating the package files<a class="headerlink" href="#creating-the-package-files" title="永久链接至标题">¶</a></h2>
-<p>You will now add files that are used to prepare the project for distribution.
-When you’re done, the project structure will look like this:</p>
+<h2>创建包文件<a class="headerlink" href="#creating-the-package-files" title="永久链接至标题">¶</a></h2>
+<p>你现在将添加用于准备项目发布的文件。当你完成后，项目结构将看起来像这样：</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>packaging_tutorial/
 ├── LICENSE
 ├── pyproject.toml
@@ -202,14 +190,12 @@ When you’re done, the project structure will look like this:</p>
 </div>
 </section>
 <section id="creating-a-test-directory">
-<h2>Creating a test directory<a class="headerlink" href="#creating-a-test-directory" title="永久链接至标题">¶</a></h2>
-<p><code class="file docutils literal notranslate"><span class="pre">tests/</span></code> is a placeholder for test files. Leave it empty for now.</p>
+<h2>创建测试目录<a class="headerlink" href="#creating-a-test-directory" title="永久链接至标题">¶</a></h2>
+<p><code class="file docutils literal notranslate"><span class="pre">tests/</span></code> 是一个测试文件的占位符。现在让它为空。</p>
 </section>
 <section id="creating-pyproject-toml">
-<h2>Creating pyproject.toml<a class="headerlink" href="#creating-pyproject-toml" title="永久链接至标题">¶</a></h2>
-<p><code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> tells build tools (like <a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> and <a class="reference internal" href="../key_projects.html#build"><span class="std std-ref">建造</span></a>)
-what is required to build your project. This tutorial uses <a class="reference internal" href="../key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a>,
-so open <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> and enter the following content:</p>
+<h2>创建 pyproject.toml<a class="headerlink" href="#creating-pyproject-toml" title="永久链接至标题">¶</a></h2>
+<p><code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> 告诉构建工具（如 <a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> 和 <a class="reference internal" href="../key_projects.html#build"><span class="std std-ref">建造</span></a>）构建你的项目需要什么。本教程使用 <a class="reference internal" href="../key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a>，所以打开 <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> 并输入以下内容：</p>
 <div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[build-system]</span><span class="w"></span>
 <span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
 <span class="w">    </span><span class="s">&quot;setuptools&gt;=42&quot;</span><span class="p">,</span><span class="w"></span>
@@ -218,39 +204,22 @@ so open <code class="file docutils literal notranslate"><span class="pre">pyproj
 <span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;setuptools.build_meta&quot;</span><span class="w"></span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">build-system.requires</span></code> gives a list of packages that are needed to build your
-package. Listing something here will <em>only</em> make it available during the build,
-not after it is installed.</p>
-<p><code class="docutils literal notranslate"><span class="pre">build-system.build-backend</span></code> is the name of Python object that will be used to
-perform the build. If you were to use a different build system, such as
-<a class="reference internal" href="../key_projects.html#flit"><span class="std std-ref">flit</span></a> or <a class="reference internal" href="../key_projects.html#poetry"><span class="std std-ref">poetry</span></a>, those would go here, and the configuration details
-would be completely different than the <a class="reference internal" href="../key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a> configuration described
-below.</p>
-<p>See <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0517"><strong>PEP 517</strong></a> and <span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0518"><strong>PEP 518</strong></a> for background and details.</p>
+<p><code class="docutils literal notranslate"><span class="pre">build-system.requires</span></code> 给出了一个构建你的软件包所需的软件包列表。在这里列出的东西只在构建过程中可用，而不是在安装之后。</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>build-system.build-backend``是 Python 对象的名字，将用于执行构建。如果你要使用一个不同的构建系统，比如 <a class="reference internal" href="../key_projects.html#flit"><span class="std std-ref">flit</span></a> 或 <a class="reference internal" href="../key_projects.html#poetry"><span class="std std-ref">poetry</span></a>，这些将放在这里，而且配置细节将与下面描述的 <a class="reference internal" href="../key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a> 配置完全不同。</p>
+<p>请参阅 <span class="target" id="index-7"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0517"><strong>PEP 517</strong></a> 和 <span class="target" id="index-8"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0518"><strong>PEP 518</strong></a> 了解背景和细节。</p>
 </section>
 <section id="configuring-metadata">
-<h2>Configuring metadata<a class="headerlink" href="#configuring-metadata" title="永久链接至标题">¶</a></h2>
-<p>There are two types of metadata: static and dynamic.</p>
+<h2>配置元数据<a class="headerlink" href="#configuring-metadata" title="永久链接至标题">¶</a></h2>
+<p>有两种类型的元数据：静态和动态。</p>
 <ul class="simple">
-<li><p>Static metadata (<code class="file docutils literal notranslate"><span class="pre">setup.cfg</span></code>): guaranteed to be the same every time. This is
-simpler, easier to read, and avoids many common errors, like encoding errors.</p></li>
-<li><p>Dynamic metadata (<code class="file docutils literal notranslate"><span class="pre">setup.py</span></code>): possibly non-deterministic. Any items that are
-dynamic or determined at install-time, as well as extension modules or
-extensions to setuptools, need to go into <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code>.</p></li>
+<li><p>静态元数据（<code class="file docutils literal notranslate"><span class="pre">setup.cfg</span></code>）：保证每次都是一样的。这更简单，更容易阅读，并避免了许多常见的错误，如编码错误。</p></li>
+<li><p>动态元数据（<code class="file docutils literal notranslate"><span class="pre">setup.py</span></code>）：可能是非决定性的。任何动态的或在安装时确定的项目，以及扩展模块或 setuptools 的扩展，都需要进入 <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code>。</p></li>
 </ul>
-<p>Static metadata (<code class="file docutils literal notranslate"><span class="pre">setup.cfg</span></code>) should be preferred. Dynamic metadata (<code class="file docutils literal notranslate"><span class="pre">setup.py</span></code>)
-should be used only as an escape hatch when absolutely necessary. <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> used to
-be required, but can be omitted with newer versions of setuptools and pip.</p>
+<p>静态元数据（<code class="file docutils literal notranslate"><span class="pre">setup.cfg</span></code>）应该是首选。动态元数据（<code class="file docutils literal notranslate"><span class="pre">setup.py</span></code>）应该只在绝对必要的情况下作为一种转义。<code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> 过去是必需的，但在新版本的 setuptools 和 pip 中可以省略。</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--1"><code class="file docutils literal notranslate"><span class="pre">setup.cfg</span></code> (static)</label><div class="tab-content docutils container">
-<p><code class="file docutils literal notranslate"><span class="pre">setup.cfg</span></code> is the configuration file for <a class="reference internal" href="../key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a>. It tells
-setuptools about your package (such as the name and version) as well as which
-code files to include. Eventually much of this configuration may be able to move
-to <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code>.</p>
-<p>Open <code class="file docutils literal notranslate"><span class="pre">setup.cfg</span></code> and enter the following content. Change the <code class="docutils literal notranslate"><span class="pre">name</span></code>
-to include your username; this ensures that you have a unique package name
-and that your package doesn’t conflict with packages uploaded by other
-people following this tutorial.</p>
+<p><code class="file docutils literal notranslate"><span class="pre">setup.cfg</span></code> 是 <a class="reference internal" href="../key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a> 的配置文件。它告诉 setuptools 关于你的软件包（如名称和版本），以及要包括哪些代码文件。最终，这些配置可以移到 <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code>。</p>
+<p>打开 <code class="file docutils literal notranslate"><span class="pre">setup.cfg</span></code> 并输入以下内容。把 <code class="docutils literal notranslate"><span class="pre">name</span></code> 改成包括你的用户名；这可以确保你有一个独特的软件包名称，而且你的软件包不会与其他按照本教程上传的软件包冲突。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">metadata</span><span class="p">]</span>
 <span class="n">name</span> <span class="o">=</span> <span class="n">example</span><span class="o">-</span><span class="n">package</span><span class="o">-</span><span class="n">YOUR</span><span class="o">-</span><span class="n">USERNAME</span><span class="o">-</span><span class="n">HERE</span>
 <span class="n">version</span> <span class="o">=</span> <span class="mf">0.0.1</span>
@@ -277,10 +246,7 @@ people following this tutorial.</p>
 <span class="n">where</span> <span class="o">=</span> <span class="n">src</span>
 </pre></div>
 </div>
-<p>There are a <a class="reference external" href="https://setuptools.readthedocs.io/en/latest/userguide/declarative_config.html">variety of metadata and options</a>
-supported here. This is in <a class="reference external" href="https://docs.python.org/3/library/configparser.html" title="(在 Python v3.10)"><span class="xref std std-doc">configparser</span></a>
-format; do not place quotes around values. This example package uses a
-relatively minimal set of <code class="docutils literal notranslate"><span class="pre">metadata</span></code>:</p>
+<p>这里有 <a class="reference external" href="https://setuptools.readthedocs.io/en/latest/userguide/declarative_config.html">各种元数据和选项</a> 支持。这是 <a class="reference external" href="https://docs.python.org/3/library/configparser.html" title="(在 Python v3.10)"><span class="xref std std-doc">configparser</span></a> 的格式；不要在数值周围加上引号。 这个示例包使用了一套相对最小的 <code class="docutils literal notranslate"><span class="pre">metadata</span></code>：</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> is the <em>distribution name</em> of your package. This can be any name as
 long as it only contains letters, numbers, <code class="docutils literal notranslate"><span class="pre">_</span></code> , and <code class="docutils literal notranslate"><span class="pre">-</span></code>. It also must not
