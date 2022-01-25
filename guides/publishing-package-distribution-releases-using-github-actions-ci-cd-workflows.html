@@ -191,31 +191,31 @@ as <code class="docutils literal notranslate"><span class="pre">TEST_PYPI_API_TO
 <p>GitHub CI/CD工作流程是在 YAML 文件中声明的，它们存储在您仓库的 <code class="docutils literal notranslate"><span class="pre">.github/workflows/</span></code> 目录下。</p>
 <p>让我们创建一个 <code class="docutils literal notranslate"><span class="pre">.github/workflows/publish-to-test-pypi.yml</span></code> 文件。</p>
 <p>用一个有意义的名字开始，并定义让 GitHub 运行这个工作流程的事件：</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Publish Python 🐍 distributions 📦 to PyPI and TestPyPI</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Publish Python 🐍 distributions 📦 to PyPI and TestPyPI</span><span class="w"></span>
 
-<span class="nt">on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">push</span>
+<span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">push</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
 <section id="defining-a-workflow-job-environment">
 <h2>定义一个工作流程的工作环境<a class="headerlink" href="#defining-a-workflow-job-environment" title="永久链接至标题">¶</a></h2>
 <p>现在，让我们为我们的工作添加初始设置。这是一个将执行我们以后定义的命令的过程。在本指南中，我们将使用 Ubuntu 18.04：</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">jobs</span><span class="p">:</span>
-  <span class="nt">build-n-publish</span><span class="p">:</span>
-    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build and publish Python 🐍 distributions 📦 to PyPI and TestPyPI</span>
-    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-18.04</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">jobs</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">build-n-publish</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and publish Python 🐍 distributions 📦 to PyPI and TestPyPI</span><span class="w"></span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-18.04</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
 <section id="checking-out-the-project-and-building-distributions">
 <h2>Checking out the project and building distributions<a class="headerlink" href="#checking-out-the-project-and-building-distributions" title="永久链接至标题">¶</a></h2>
 <p>然后，在 <code class="docutils literal notranslate"><span class="pre">build-n-publish</span></code> 部分添加以下内容：</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>    <span class="nt">steps</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@master</span>
-    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Set up Python 3.9</span>
-      <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v1</span>
-      <span class="nt">with</span><span class="p">:</span>
-        <span class="nt">python-version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3.9</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@master</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set up Python 3.9</span><span class="w"></span>
+<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v1</span><span class="w"></span>
+<span class="w">      </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.9</span><span class="w"></span>
 </pre></div>
 </div>
 <p>This will download your repository into the CI runner and then
@@ -231,36 +231,36 @@ it produces ready-to-upload artifacts saved into the
 <code class="docutils literal notranslate"><span class="pre">dist/</span></code> folder.</p>
 </div>
 <p>因此，将此加入到步骤列表中：</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install pypa/build</span>
-      <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">&gt;-</span>
-        <span class="no">python -m</span>
-        <span class="no">pip install</span>
-        <span class="no">build</span>
-        <span class="no">--user</span>
-    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Build a binary wheel and a source tarball</span>
-      <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">&gt;-</span>
-        <span class="no">python -m</span>
-        <span class="no">build</span>
-        <span class="no">--sdist</span>
-        <span class="no">--wheel</span>
-        <span class="no">--outdir dist/</span>
-        <span class="no">.</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install pypa/build</span><span class="w"></span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span><span class="w"></span>
+<span class="w">        </span><span class="no">python -m</span><span class="w"></span>
+<span class="w">        </span><span class="no">pip install</span><span class="w"></span>
+<span class="w">        </span><span class="no">build</span><span class="w"></span>
+<span class="w">        </span><span class="no">--user</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build a binary wheel and a source tarball</span><span class="w"></span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span><span class="w"></span>
+<span class="w">        </span><span class="no">python -m</span><span class="w"></span>
+<span class="w">        </span><span class="no">build</span><span class="w"></span>
+<span class="w">        </span><span class="no">--sdist</span><span class="w"></span>
+<span class="w">        </span><span class="no">--wheel</span><span class="w"></span>
+<span class="w">        </span><span class="no">--outdir dist/</span><span class="w"></span>
+<span class="w">        </span><span class="no">.</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
 <section id="publishing-the-distribution-to-pypi-and-testpypi">
 <h2>在 PyPI 和 TestPyPI 上发布发行版<a class="headerlink" href="#publishing-the-distribution-to-pypi-and-testpypi" title="永久链接至标题">¶</a></h2>
 <p>最后，在结尾添加以下步骤：</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span>    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Publish distribution 📦 to Test PyPI</span>
-      <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pypa/gh-action-pypi-publish@master</span>
-      <span class="nt">with</span><span class="p">:</span>
-        <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.TEST_PYPI_API_TOKEN }}</span>
-        <span class="nt">repository_url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://test.pypi.org/legacy/</span>
-    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Publish distribution 📦 to PyPI</span>
-      <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">startsWith(github.ref, &#39;refs/tags&#39;)</span>
-      <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pypa/gh-action-pypi-publish@master</span>
-      <span class="nt">with</span><span class="p">:</span>
-        <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ secrets.PYPI_API_TOKEN }}</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Publish distribution 📦 to Test PyPI</span><span class="w"></span>
+<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pypa/gh-action-pypi-publish@master</span><span class="w"></span>
+<span class="w">      </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.TEST_PYPI_API_TOKEN }}</span><span class="w"></span>
+<span class="w">        </span><span class="nt">repository_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://test.pypi.org/legacy/</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Publish distribution 📦 to PyPI</span><span class="w"></span>
+<span class="w">      </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">startsWith(github.ref, &#39;refs/tags&#39;)</span><span class="w"></span>
+<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pypa/gh-action-pypi-publish@master</span><span class="w"></span>
+<span class="w">      </span><span class="nt">with</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.PYPI_API_TOKEN }}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>These two steps use the <a class="reference external" href="https://github.com/pypa/gh-action-pypi-publish">pypa/gh-action-pypi-publish</a> GitHub
@@ -389,11 +389,11 @@ sure that your release pipeline remains healthy!</p>
 <br />
     <br />
 
-    最后更新于 2021 年 11 月 18 日.
+    最后更新于 2022 年 01 月 25 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
     </div>
 
   </body>

@@ -231,58 +231,58 @@ know where to find the 64-bit compilers. (From 3.5 onwards, the version of
 Visual Studio used includes 64-bit compilers with no additional setup).</p>
 <section id="appveyor-yml">
 <h3><a class="toc-backref" href="#id4">appveyor.yml</a><a class="headerlink" href="#appveyor-yml" title="永久链接至标题">¶</a></h3>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nt">environment</span><span class="p">:</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nt">environment</span><span class="p">:</span><span class="w"></span>
 <span class="linenos"> 2</span>
-<span class="linenos"> 3</span>  <span class="nt">matrix</span><span class="p">:</span>
+<span class="linenos"> 3</span><span class="w">  </span><span class="nt">matrix</span><span class="p">:</span><span class="w"></span>
 <span class="linenos"> 4</span>
-<span class="linenos"> 5</span>    <span class="c1"># For Python versions available on Appveyor, see</span>
-<span class="linenos"> 6</span>    <span class="c1"># https://www.appveyor.com/docs/windows-images-software/#python</span>
-<span class="linenos"> 7</span>    <span class="c1"># The list here is complete (excluding Python 2.6, which</span>
-<span class="linenos"> 8</span>    <span class="c1"># isn&#39;t covered by this document) at the time of writing.</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="c1"># For Python versions available on Appveyor, see</span><span class="w"></span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="c1"># https://www.appveyor.com/docs/windows-images-software/#python</span><span class="w"></span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="c1"># The list here is complete (excluding Python 2.6, which</span><span class="w"></span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="c1"># isn&#39;t covered by this document) at the time of writing.</span><span class="w"></span>
 <span class="linenos"> 9</span>
-<span class="linenos">10</span>    <span class="p p-Indicator">-</span> <span class="nt">PYTHON</span><span class="p">:</span> <span class="s">&quot;C:\\Python27&quot;</span>
-<span class="linenos">11</span>    <span class="p p-Indicator">-</span> <span class="nt">PYTHON</span><span class="p">:</span> <span class="s">&quot;C:\\Python33&quot;</span>
-<span class="linenos">12</span>    <span class="p p-Indicator">-</span> <span class="nt">PYTHON</span><span class="p">:</span> <span class="s">&quot;C:\\Python34&quot;</span>
-<span class="linenos">13</span>    <span class="p p-Indicator">-</span> <span class="nt">PYTHON</span><span class="p">:</span> <span class="s">&quot;C:\\Python35&quot;</span>
-<span class="linenos">14</span>    <span class="p p-Indicator">-</span> <span class="nt">PYTHON</span><span class="p">:</span> <span class="s">&quot;C:\\Python27-x64&quot;</span>
-<span class="linenos">15</span>    <span class="p p-Indicator">-</span> <span class="nt">PYTHON</span><span class="p">:</span> <span class="s">&quot;C:\\Python33-x64&quot;</span>
-<span class="linenos">16</span>      <span class="nt">DISTUTILS_USE_SDK</span><span class="p">:</span> <span class="s">&quot;1&quot;</span>
-<span class="linenos">17</span>    <span class="p p-Indicator">-</span> <span class="nt">PYTHON</span><span class="p">:</span> <span class="s">&quot;C:\\Python34-x64&quot;</span>
-<span class="linenos">18</span>      <span class="nt">DISTUTILS_USE_SDK</span><span class="p">:</span> <span class="s">&quot;1&quot;</span>
-<span class="linenos">19</span>    <span class="p p-Indicator">-</span> <span class="nt">PYTHON</span><span class="p">:</span> <span class="s">&quot;C:\\Python35-x64&quot;</span>
-<span class="linenos">20</span>    <span class="p p-Indicator">-</span> <span class="nt">PYTHON</span><span class="p">:</span> <span class="s">&quot;C:\\Python36-x64&quot;</span>
+<span class="linenos">10</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">PYTHON</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;C:\\Python27&quot;</span><span class="w"></span>
+<span class="linenos">11</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">PYTHON</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;C:\\Python33&quot;</span><span class="w"></span>
+<span class="linenos">12</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">PYTHON</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;C:\\Python34&quot;</span><span class="w"></span>
+<span class="linenos">13</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">PYTHON</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;C:\\Python35&quot;</span><span class="w"></span>
+<span class="linenos">14</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">PYTHON</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;C:\\Python27-x64&quot;</span><span class="w"></span>
+<span class="linenos">15</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">PYTHON</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;C:\\Python33-x64&quot;</span><span class="w"></span>
+<span class="linenos">16</span><span class="w">      </span><span class="nt">DISTUTILS_USE_SDK</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"></span>
+<span class="linenos">17</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">PYTHON</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;C:\\Python34-x64&quot;</span><span class="w"></span>
+<span class="linenos">18</span><span class="w">      </span><span class="nt">DISTUTILS_USE_SDK</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"></span>
+<span class="linenos">19</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">PYTHON</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;C:\\Python35-x64&quot;</span><span class="w"></span>
+<span class="linenos">20</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">PYTHON</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;C:\\Python36-x64&quot;</span><span class="w"></span>
 <span class="linenos">21</span>
-<span class="linenos">22</span><span class="nt">install</span><span class="p">:</span>
-<span class="linenos">23</span>  <span class="c1"># We need wheel installed to build wheels</span>
-<span class="linenos">24</span>  <span class="p p-Indicator">-</span> <span class="s">&quot;%PYTHON%\\python.exe</span><span class="nv"> </span><span class="s">-m</span><span class="nv"> </span><span class="s">pip</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">wheel&quot;</span>
+<span class="linenos">22</span><span class="nt">install</span><span class="p">:</span><span class="w"></span>
+<span class="linenos">23</span><span class="w">  </span><span class="c1"># We need wheel installed to build wheels</span><span class="w"></span>
+<span class="linenos">24</span><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;%PYTHON%\\python.exe</span><span class="nv"> </span><span class="s">-m</span><span class="nv"> </span><span class="s">pip</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">wheel&quot;</span><span class="w"></span>
 <span class="linenos">25</span>
-<span class="linenos">26</span><span class="nt">build</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">off</span>
+<span class="linenos">26</span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">off</span><span class="w"></span>
 <span class="linenos">27</span>
-<span class="linenos">28</span><span class="nt">test_script</span><span class="p">:</span>
-<span class="linenos">29</span>  <span class="c1"># Put your test command here.</span>
-<span class="linenos">30</span>  <span class="c1"># If you don&#39;t need to build C extensions on 64-bit Python 3.3 or 3.4,</span>
-<span class="linenos">31</span>  <span class="c1"># you can remove &quot;build.cmd&quot; from the front of the command, as it&#39;s</span>
-<span class="linenos">32</span>  <span class="c1"># only needed to support those cases.</span>
-<span class="linenos">33</span>  <span class="c1"># Note that you must use the environment variable %PYTHON% to refer to</span>
-<span class="linenos">34</span>  <span class="c1"># the interpreter you&#39;re using - Appveyor does not do anything special</span>
-<span class="linenos">35</span>  <span class="c1"># to put the Python version you want to use on PATH.</span>
-<span class="linenos">36</span>  <span class="p p-Indicator">-</span> <span class="s">&quot;build.cmd</span><span class="nv"> </span><span class="s">%PYTHON%\\python.exe</span><span class="nv"> </span><span class="s">setup.py</span><span class="nv"> </span><span class="s">test&quot;</span>
+<span class="linenos">28</span><span class="nt">test_script</span><span class="p">:</span><span class="w"></span>
+<span class="linenos">29</span><span class="w">  </span><span class="c1"># Put your test command here.</span><span class="w"></span>
+<span class="linenos">30</span><span class="w">  </span><span class="c1"># If you don&#39;t need to build C extensions on 64-bit Python 3.3 or 3.4,</span><span class="w"></span>
+<span class="linenos">31</span><span class="w">  </span><span class="c1"># you can remove &quot;build.cmd&quot; from the front of the command, as it&#39;s</span><span class="w"></span>
+<span class="linenos">32</span><span class="w">  </span><span class="c1"># only needed to support those cases.</span><span class="w"></span>
+<span class="linenos">33</span><span class="w">  </span><span class="c1"># Note that you must use the environment variable %PYTHON% to refer to</span><span class="w"></span>
+<span class="linenos">34</span><span class="w">  </span><span class="c1"># the interpreter you&#39;re using - Appveyor does not do anything special</span><span class="w"></span>
+<span class="linenos">35</span><span class="w">  </span><span class="c1"># to put the Python version you want to use on PATH.</span><span class="w"></span>
+<span class="linenos">36</span><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;build.cmd</span><span class="nv"> </span><span class="s">%PYTHON%\\python.exe</span><span class="nv"> </span><span class="s">setup.py</span><span class="nv"> </span><span class="s">test&quot;</span><span class="w"></span>
 <span class="linenos">37</span>
-<span class="linenos">38</span><span class="nt">after_test</span><span class="p">:</span>
-<span class="linenos">39</span>  <span class="c1"># This step builds your wheels.</span>
-<span class="linenos">40</span>  <span class="c1"># Again, you only need build.cmd if you&#39;re building C extensions for</span>
-<span class="linenos">41</span>  <span class="c1"># 64-bit Python 3.3/3.4. And you need to use %PYTHON% to get the correct</span>
-<span class="linenos">42</span>  <span class="c1"># interpreter</span>
-<span class="linenos">43</span>  <span class="p p-Indicator">-</span> <span class="s">&quot;build.cmd</span><span class="nv"> </span><span class="s">%PYTHON%\\python.exe</span><span class="nv"> </span><span class="s">setup.py</span><span class="nv"> </span><span class="s">bdist_wheel&quot;</span>
+<span class="linenos">38</span><span class="nt">after_test</span><span class="p">:</span><span class="w"></span>
+<span class="linenos">39</span><span class="w">  </span><span class="c1"># This step builds your wheels.</span><span class="w"></span>
+<span class="linenos">40</span><span class="w">  </span><span class="c1"># Again, you only need build.cmd if you&#39;re building C extensions for</span><span class="w"></span>
+<span class="linenos">41</span><span class="w">  </span><span class="c1"># 64-bit Python 3.3/3.4. And you need to use %PYTHON% to get the correct</span><span class="w"></span>
+<span class="linenos">42</span><span class="w">  </span><span class="c1"># interpreter</span><span class="w"></span>
+<span class="linenos">43</span><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;build.cmd</span><span class="nv"> </span><span class="s">%PYTHON%\\python.exe</span><span class="nv"> </span><span class="s">setup.py</span><span class="nv"> </span><span class="s">bdist_wheel&quot;</span><span class="w"></span>
 <span class="linenos">44</span>
-<span class="linenos">45</span><span class="nt">artifacts</span><span class="p">:</span>
-<span class="linenos">46</span>  <span class="c1"># bdist_wheel puts your built wheel in the dist directory</span>
-<span class="linenos">47</span>  <span class="p p-Indicator">-</span> <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dist\*</span>
+<span class="linenos">45</span><span class="nt">artifacts</span><span class="p">:</span><span class="w"></span>
+<span class="linenos">46</span><span class="w">  </span><span class="c1"># bdist_wheel puts your built wheel in the dist directory</span><span class="w"></span>
+<span class="linenos">47</span><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dist\*</span><span class="w"></span>
 <span class="linenos">48</span>
-<span class="linenos">49</span><span class="c1">#on_success:</span>
-<span class="linenos">50</span><span class="c1">#  You can use this step to upload your artifacts to a public website.</span>
-<span class="linenos">51</span><span class="c1">#  See Appveyor&#39;s documentation for more details. Or you can simply</span>
-<span class="linenos">52</span><span class="c1">#  access your wheels from the Appveyor &quot;artifacts&quot; tab for your build.</span>
+<span class="linenos">49</span><span class="c1">#on_success:</span><span class="w"></span>
+<span class="linenos">50</span><span class="c1">#  You can use this step to upload your artifacts to a public website.</span><span class="w"></span>
+<span class="linenos">51</span><span class="c1">#  See Appveyor&#39;s documentation for more details. Or you can simply</span><span class="w"></span>
+<span class="linenos">52</span><span class="c1">#  access your wheels from the Appveyor &quot;artifacts&quot; tab for your build.</span><span class="w"></span>
 </pre></div>
 </div>
 <p>This file can be downloaded from <a class="reference external" href="https://raw.githubusercontent.com/pypa/python-packaging-user-guide/master/source/guides/appveyor-sample/appveyor.yml">here</a>.</p>
@@ -564,11 +564,11 @@ document.</p>
 <br />
     <br />
 
-    最后更新于 2021 年 11 月 18 日.
+    最后更新于 2022 年 01 月 25 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
     </div>
 
   </body>

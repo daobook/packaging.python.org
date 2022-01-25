@@ -226,7 +226,7 @@
 <span id="packaging-applications"></span><h2><a class="toc-backref" href="#id9">包装 Python 应用程序</a><a class="headerlink" href="#packaging-python-applications" title="永久链接至标题">¶</a></h2>
 <p>到目前为止，我们只讨论了 Python 的本地发布工具。根据我们的介绍，你可以正确地推断出这些内置的方法只针对有 Python 的环境，以及知道如何安装 Python 包的受众。</p>
 <p>由于有各种各样的操作系统、配置和人，这种假设只有在针对开发者受众时才是安全的。</p>
-<p>Python 的原生包装主要是为在开发者之间分发可重用的代码而建立的，称为库。你可以把 <strong>工具</strong>，或开发人员的基本应用，放在 Python 的库包装之上，使用像 <a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/entry_point.html" title="(在 setuptools v59.1.1)"><span class="xref std std-doc">setuptools entry_points</span></a> 这样的技术。</p>
+<p>Python 的原生包装主要是为在开发者之间分发可重用的代码而建立的，称为库。你可以把 <strong>工具</strong>，或开发人员的基本应用，放在 Python 的库包装之上，使用像 <a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/entry_point.html" title="(在 setuptools v60.5.4)"><span class="xref std std-doc">setuptools entry_points</span></a> 这样的技术。</p>
 <p>库是构建模块，而不是完整的应用程序。对于分发应用程序，有一个全新的技术世界。</p>
 <p>接下来的几节将根据这些应用打包选项对目标环境的依赖性来组织它们，这样你就可以为你的项目选择合适的选项。</p>
 <section id="depending-on-a-framework">
@@ -297,7 +297,7 @@
 <p>这种被称为 <em>冻结</em> 的方法提供了广泛的兼容性和无缝的用户体验，尽管通常需要多种技术，以及相当多的努力。</p>
 <p>Python 冻结的选择：</p>
 <ul class="simple">
-<li><p><a class="reference external" href="http://www.pyinstaller.org/">pyInstaller</a> - Cross-platform</p></li>
+<li><p><a class="reference external" href="https://pyinstaller.readthedocs.io/en/stable/">pyInstaller</a> - Cross-platform</p></li>
 <li><p><a class="reference external" href="https://marcelotduarte.github.io/cx_Freeze/">cx_Freeze</a> - Cross-platform</p></li>
 <li><p><a class="reference external" href="https://github.com/conda/constructor">constructor</a> - For command-line installers</p></li>
 <li><p><a class="reference external" href="http://www.py2exe.org/">py2exe</a> - Windows only</p></li>
@@ -325,7 +325,7 @@
 <p>这些技术大多保留给数据中心的大规模部署，尽管某些复杂的应用可以从这种包装中受益。技术是与 Python 无关的，包括：</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.vagrantup.com/">Vagrant</a></p></li>
-<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/VHD_(file_format)">VHD</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Amazon_Machine_Image">AMI</a>, and <a class="reference external" href="https://docs.openstack.org/glance/latest/user/formats.html" title="(在 glance v23.1.0.dev21)"><span class="xref std std-doc">other formats</span></a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/VHD_(file_format)">VHD</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Amazon_Machine_Image">AMI</a>, and <a class="reference external" href="https://docs.openstack.org/glance/latest/user/formats.html" title="(在 glance v23.1.0.dev37)"><span class="xref std std-doc">other formats</span></a></p></li>
 <li><p><a class="reference external" href="https://www.redhat.com/en/topics/openstack">OpenStack</a> - A cloud management system in Python, with extensive VM support</p></li>
 </ul>
 </section>
@@ -347,7 +347,7 @@
 <p>上面的章节只能总结这么多，你可能想知道一些比较明显的差距。</p>
 <section id="operating-system-packages">
 <h3><a class="toc-backref" href="#id20">操作系统包</a><a class="headerlink" href="#operating-system-packages" title="永久链接至标题">¶</a></h3>
-<p>正如上面的 <a class="reference internal" href="#depending-on-a-separate-ecosystem"><span class="std std-ref">依赖于独立的软件分发生态系统</span></a> 中提到的，一些操作系统有自己的软件包管理器。如果你非常确定你的目标操作系统，你可以直接依赖像 <a class="reference external" href="https://fpm.readthedocs.io/en/latest/cli-reference.html#virtualenv">deb &lt;https://en.wikipedia.org/wiki/Deb_(file_format)&gt;`_（用于 Debian，Ubuntu 等）或 `RPM &lt;https://en.wikipedia.org/wiki/RPM_Package_Manager&gt;`_（用于 Red Hat，Fedora 等）的格式，并使用该内置软件包管理器来处理安装，甚至部署。你甚至可以使用 `FPM</a> 从同一来源生成 deb 和 RPM。</p>
+<p>正如上面的 <a class="reference internal" href="#depending-on-a-separate-ecosystem"><span class="std std-ref">依赖于独立的软件分发生态系统</span></a> 中提到的，一些操作系统有自己的软件包管理器。如果你非常确定你的目标操作系统，你可以直接依赖像 <a class="reference external" href="https://en.wikipedia.org/wiki/Deb_(file_format)">deb</a> （用于 Debian，Ubuntu 等）或 <a class="reference external" href="https://en.wikipedia.org/wiki/RPM_Package_Manager">RPM</a> （用于 Red Hat，Fedora 等）的格式，并使用该内置软件包管理器来处理安装，甚至部署。你甚至可以使用 <a class="reference external" href="https://fpm.readthedocs.io/en/latest/cli-reference.html#virtualenv">FPM</a> 从同一来源生成 deb 和 RPM。</p>
 <p>在大多数部署管道中，操作系统包管理器只是拼图中的一个部分。</p>
 </section>
 <section id="virtualenv">
@@ -460,11 +460,11 @@
 <br />
     <br />
 
-    最后更新于 2021 年 11 月 18 日.
+    最后更新于 2022 年 01 月 25 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
     </div>
 
   </body>

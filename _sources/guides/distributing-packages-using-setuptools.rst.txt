@@ -4,9 +4,11 @@
 Packaging and distributing projects
 ===================================
 
-This section covers the basics of how to configure, package and distribute your
-own Python projects.  It assumes that you are already familiar with the contents
-of the :doc:`/tutorials/installing-packages` page.
+This section covers some additional details on configuring, packaging and
+distributing Python projects with ``setuptools`` that aren't covered by the
+introductory tutorial in :doc:`/tutorials/packaging-projects`.  It still assumes
+that you are already familiar with the contents of the
+:doc:`/tutorials/installing-packages` page.
 
 The section does *not* aim to cover best practices for Python project
 development as a whole.  For example, it does not provide guidance or tool
@@ -112,9 +114,10 @@ are not automatically included in a source distribution.  For details on
 writing a :file:`MANIFEST.in` file, including a list of what's included by
 default, see ":ref:`Using MANIFEST.in`".
 
-For an example, see the `MANIFEST.in
-<https://github.com/pypa/sampleproject/blob/main/MANIFEST.in>`_ from the `PyPA
-sample project <https://github.com/pypa/sampleproject>`_.
+However, you may not have to use a :file:`MANIFEST.in`. For an example, the `PyPA
+sample project <https://github.com/pypa/sampleproject>`_ has removed its manifest
+file, since all the necessary files have been included by :ref:`setuptools` 43.0.0
+and newer.
 
 .. note:: :file:`MANIFEST.in` does not affect binary distributions such as wheels.
 

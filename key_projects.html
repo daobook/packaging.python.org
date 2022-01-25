@@ -182,8 +182,22 @@ behaviours when asked to handle legacy packages and metadata that
 predate the modern interoperability standards and fall into the subset
 of packages that are incompatible with those standards.</p>
 </section>
+<section id="flit">
+<span id="id6"></span><h3>flit<a class="headerlink" href="#flit" title="永久链接至标题">¶</a></h3>
+<p><a class="reference external" href="https://flit.readthedocs.io/en/latest/">Docs</a> |
+<a class="reference external" href="https://github.com/pypa/flit/issues">Issues</a> |
+<a class="reference external" href="https://pypi.org/project/flit">PyPI</a></p>
+<p>Flit provides a simple way to create and upload pure Python packages and
+modules to PyPI.  It focuses on <a class="reference external" href="https://flit.readthedocs.io/en/latest/rationale.html">making the easy things easy</a>
+for packaging.  Flit can generate a configuration file to quickly set up a
+simple project, build source distributions and wheels, and upload them to PyPI.</p>
+<p>Flit uses <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> to configure a project. Flit does not rely on tools
+such as <a class="reference internal" href="#setuptools"><span class="std std-ref">setuptools</span></a> to build distributions, or <a class="reference internal" href="#twine"><span class="std std-ref">twine</span></a> to upload them
+to PyPI. Flit requires Python 3, but you can use it to distribute modules for
+Python 2, so long as they can be imported on Python 3.</p>
+</section>
 <section id="packaging">
-<span id="id6"></span><h3>packaging<a class="headerlink" href="#packaging" title="永久链接至标题">¶</a></h3>
+<span id="id7"></span><h3>packaging<a class="headerlink" href="#packaging" title="永久链接至标题">¶</a></h3>
 <p><a class="reference external" href="https://packaging.pypa.io/en/latest/index.html" title="(在 Packaging v21.4.dev0)"><span class="xref std std-doc">Docs</span></a> |
 <a class="reference external" href="https://github.com/pypa/packaging/issues">Issues</a> |
 <a class="reference external" href="https://github.com/pypa/packaging">GitHub</a> |
@@ -206,7 +220,7 @@ ambiguous metadata in cases where <a class="reference internal" href="#packaging
 on error.</p>
 </section>
 <section id="pip">
-<span id="id7"></span><h3>pip<a class="headerlink" href="#pip" title="永久链接至标题">¶</a></h3>
+<span id="id8"></span><h3>pip<a class="headerlink" href="#pip" title="永久链接至标题">¶</a></h3>
 <p><a class="reference external" href="https://pip.pypa.io/">Docs</a> |
 <a class="reference external" href="https://github.com/pypa/pip/issues">Issues</a> |
 <a class="reference external" href="https://github.com/pypa/pip">GitHub</a> |
@@ -215,8 +229,8 @@ on error.</p>
 <p>它提供了从 PyPI 和其他 Python 包索引中查找、下载和安装包的基本核心功能，并且可以通过其命令行界面 (CLI) 合并到广泛的开发工作流程中。</p>
 </section>
 <section id="pipenv">
-<span id="id8"></span><h3>Pipenv<a class="headerlink" href="#pipenv" title="永久链接至标题">¶</a></h3>
-<p><a class="reference external" href="https://web.archive.org/web/https://pipenv.pypa.io/en/latest/">Docs</a> |
+<span id="id9"></span><h3>Pipenv<a class="headerlink" href="#pipenv" title="永久链接至标题">¶</a></h3>
+<p><a class="reference external" href="https://pipenv.pypa.io/en/latest/" title="(在 pipenv v2022.1.9.dev0)"><span class="xref std std-doc">Docs</span></a> |
 <a class="reference external" href="https://github.com/pypa/pipenv">Source</a> |
 <a class="reference external" href="https://github.com/pypa/pipenv/issues">Issues</a> |
 <a class="reference external" href="https://pypi.org/project/pipenv">PyPI</a></p>
@@ -232,14 +246,14 @@ users and system administrators, but has been less maintained since
 late 2018.</p>
 </section>
 <section id="pipfile">
-<span id="id9"></span><h3>Pipfile<a class="headerlink" href="#pipfile" title="永久链接至标题">¶</a></h3>
+<span id="id10"></span><h3>Pipfile<a class="headerlink" href="#pipfile" title="永久链接至标题">¶</a></h3>
 <p><a class="reference external" href="https://github.com/pypa/pipfile">源码</a></p>
 <p><code class="file docutils literal notranslate"><span class="pre">Pipfile</span></code> and its sister <code class="file docutils literal notranslate"><span class="pre">Pipfile.lock</span></code> are a higher-level
 application-centric alternative to <a class="reference internal" href="#pip"><span class="std std-ref">pip</span></a>’s lower-level
 <code class="file docutils literal notranslate"><span class="pre">requirements.txt</span></code> file.</p>
 </section>
 <section id="pipx">
-<span id="id10"></span><h3>pipx<a class="headerlink" href="#pipx" title="永久链接至标题">¶</a></h3>
+<span id="id11"></span><h3>pipx<a class="headerlink" href="#pipx" title="永久链接至标题">¶</a></h3>
 <p><a class="reference external" href="https://pypa.github.io/pipx/">Docs</a> |
 <a class="reference external" href="https://github.com/pypa/pipx">GitHub</a> |
 <a class="reference external" href="https://pypi.org/project/pipx/">PyPI</a></p>
@@ -247,13 +261,13 @@ application-centric alternative to <a class="reference internal" href="#pip"><sp
 </section>
 <section id="python-packaging-user-guide">
 <h3>Python 包装用户指南<a class="headerlink" href="#python-packaging-user-guide" title="永久链接至标题">¶</a></h3>
-<p><a class="reference external" href="https://packaging.python.org/" title="(在 Python Packaging User Guide)"><span class="xref std std-doc">Docs</span></a> |
+<p><a class="reference external" href="https://packaging.python.org/en/latest/" title="(在 Python Packaging User Guide)"><span class="xref std std-doc">Docs</span></a> |
 <a class="reference external" href="https://github.com/pypa/packaging.python.org/issues">Issues</a> |
 <a class="reference external" href="https://github.com/pypa/packaging.python.org">GitHub</a></p>
 <p>本指南！</p>
 </section>
 <section id="readme-renderer">
-<span id="id11"></span><h3>readme_renderer<a class="headerlink" href="#readme-renderer" title="永久链接至标题">¶</a></h3>
+<span id="id12"></span><h3>readme_renderer<a class="headerlink" href="#readme-renderer" title="永久链接至标题">¶</a></h3>
 <p><a class="reference external" href="https://github.com/pypa/readme_renderer/">GitHub and docs</a> |
 <a class="reference external" href="https://pypi.org/project/readme-renderer/">PyPI</a></p>
 <p><code class="docutils literal notranslate"><span class="pre">readme_renderer</span></code> is a library that package developers use to render
@@ -264,7 +278,7 @@ process, to check that their package descriptions will properly
 display on PyPI.</p>
 </section>
 <section id="easy-install">
-<span id="setuptools"></span><span id="id12"></span><h3>setuptools<a class="headerlink" href="#easy-install" title="永久链接至标题">¶</a></h3>
+<span id="setuptools"></span><span id="id13"></span><h3>setuptools<a class="headerlink" href="#easy-install" title="永久链接至标题">¶</a></h3>
 <p><a class="reference external" href="https://setuptools.readthedocs.io/en/latest/">Docs</a> |
 <a class="reference external" href="https://github.com/pypa/setuptools/issues">Issues</a> |
 <a class="reference external" href="https://github.com/pypa/setuptools">GitHub</a> |
@@ -274,7 +288,7 @@ display on PyPI.</p>
 v0.7), thereby making setuptools the primary choice for Python packaging.</p>
 </section>
 <section id="trove-classifiers">
-<span id="id13"></span><h3>trove-classifiers<a class="headerlink" href="#trove-classifiers" title="永久链接至标题">¶</a></h3>
+<span id="id14"></span><h3>trove-classifiers<a class="headerlink" href="#trove-classifiers" title="永久链接至标题">¶</a></h3>
 <p><a class="reference external" href="https://github.com/pypa/trove-classifiers/issues">Issues</a> | <a class="reference external" href="https://github.com/pypa/trove-classifiers">GitHub</a> | <a class="reference external" href="https://pypi.org/project/trove-classifiers/">PyPI</a></p>
 <p>trove-classifiers is the canonical source for <a class="reference external" href="https://pypi.org/classifiers/">classifiers on PyPI</a>, which project maintainers use to
 <a class="reference external" href="https://packaging.python.org/specifications/core-metadata/#classifier-multiple-use">systematically describe their projects</a>
@@ -290,7 +304,7 @@ project hosts discussions on proposed classifiers and requests for new
 classifiers.</p>
 </section>
 <section id="twine">
-<span id="id14"></span><h3>twine<a class="headerlink" href="#twine" title="永久链接至标题">¶</a></h3>
+<span id="id15"></span><h3>twine<a class="headerlink" href="#twine" title="永久链接至标题">¶</a></h3>
 <p><a class="reference external" href="https://twine.readthedocs.io/en/latest/">Docs</a> |
 <a class="reference external" href="https://github.com/pypa/twine/issues">Issues</a> |
 <a class="reference external" href="https://github.com/pypa/twine">GitHub</a> |
@@ -302,8 +316,8 @@ API. Developers use it because it’s the official PyPI upload tool,
 it’s fast and secure, it’s maintained, and it reliably works.</p>
 </section>
 <section id="virtualenv">
-<span id="id15"></span><h3>virtualenv<a class="headerlink" href="#virtualenv" title="永久链接至标题">¶</a></h3>
-<p><a class="reference external" href="https://virtualenv.pypa.io/en/stable/index.html" title="(在 virtualenv v20.10)"><span class="xref std std-doc">Docs</span></a> |
+<span id="id16"></span><h3>virtualenv<a class="headerlink" href="#virtualenv" title="永久链接至标题">¶</a></h3>
+<p><a class="reference external" href="https://virtualenv.pypa.io/en/stable/index.html" title="(在 virtualenv v20.12)"><span class="xref std std-doc">Docs</span></a> |
 <a class="reference external" href="https://github.com/pypa/virtualenv/issues">Issues</a> |
 <a class="reference external" href="https://github.com/pypa/virtualenv">GitHub</a> |
 <a class="reference external" href="https://pypi.org/project/virtualenv/">PyPI</a></p>
@@ -315,7 +329,7 @@ duplicating, and troubleshooting the virtual environments. For more
 information, see the section on <a class="reference internal" href="tutorials/installing-packages.html#creating-and-using-virtual-environments"><span class="std std-ref">创建虚拟环境</span></a>.</p>
 </section>
 <section id="warehouse">
-<span id="id16"></span><h3>Warehouse<a class="headerlink" href="#warehouse" title="永久链接至标题">¶</a></h3>
+<span id="id17"></span><h3>Warehouse<a class="headerlink" href="#warehouse" title="永久链接至标题">¶</a></h3>
 <p><a class="reference external" href="https://warehouse.pypa.io/">Docs</a> |
 <a class="reference external" href="https://github.com/pypa/warehouse/issues">Issues</a> |
 <a class="reference external" href="https://github.com/pypa/warehouse">GitHub</a></p>
@@ -324,7 +338,7 @@ information, see the section on <a class="reference internal" href="tutorials/in
 source for <a class="reference internal" href="#pip"><span class="std std-ref">pip</span></a> downloads.</p>
 </section>
 <section id="wheel">
-<span id="id17"></span><h3>wheel<a class="headerlink" href="#wheel" title="永久链接至标题">¶</a></h3>
+<span id="id18"></span><h3>wheel<a class="headerlink" href="#wheel" title="永久链接至标题">¶</a></h3>
 <p><a class="reference external" href="https://wheel.readthedocs.io/en/latest/">Docs</a> |
 <a class="reference external" href="https://github.com/pypa/wheel/issues">Issues</a> |
 <a class="reference external" href="https://github.com/pypa/wheel">GitHub</a> |
@@ -343,7 +357,7 @@ libraries in a package.</p>
 <section id="non-pypa-projects">
 <h2>非 PyPA 项目<a class="headerlink" href="#non-pypa-projects" title="永久链接至标题">¶</a></h2>
 <section id="buildout">
-<span id="id18"></span><h3>buildout<a class="headerlink" href="#buildout" title="永久链接至标题">¶</a></h3>
+<span id="id19"></span><h3>buildout<a class="headerlink" href="#buildout" title="永久链接至标题">¶</a></h3>
 <p><a class="reference external" href="http://www.buildout.org/en/latest/">Docs</a> |
 <a class="reference external" href="https://bugs.launchpad.net/zc.buildout">Issues</a> |
 <a class="reference external" href="https://pypi.org/project/zc.buildout">PyPI</a> |
@@ -353,7 +367,7 @@ applications from multiple parts, some of which may be non-Python-based.  It
 lets you create a buildout configuration and reproduce the same software later.</p>
 </section>
 <section id="conda">
-<span id="id19"></span><h3>conda<a class="headerlink" href="#conda" title="永久链接至标题">¶</a></h3>
+<span id="id20"></span><h3>conda<a class="headerlink" href="#conda" title="永久链接至标题">¶</a></h3>
 <p><a class="reference external" href="https://conda.io/en/latest/index.html" title="(在 Conda)"><span class="xref std std-doc">Docs</span></a></p>
 <p>conda is the package management tool for <a class="reference external" href="https://docs.anaconda.com/anaconda/">Anaconda</a> Python installations.
 Anaconda Python is a distribution from <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda, Inc</a> specifically aimed at the scientific
@@ -365,7 +379,7 @@ management and deployment of binary extensions.</p>
 <p>Conda 不从 PyPI 安装软件包，只能从官方的 Anaconda 仓库，或 anaconda.org（用户贡献的 <em>conda</em> 软件包的地方），或本地（如内网）的软件包服务器安装。然而，请注意 <a class="reference internal" href="#pip"><span class="std std-ref">pip</span></a> 可以被安装到，并与 conda 并肩工作，以管理 <a class="reference internal" href="glossary.html#term-Distribution-Package"><span class="xref std std-term">套件</span></a> 来自 PyPI 的软件包。另外，<a class="reference external" href="https://docs.conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-skeleton.html">conda skeleton</a> 是一个使 Python 包可以被 conda 安装的工具，首先从 PyPI 获取它们并修改其元数据。</p>
 </section>
 <section id="devpi">
-<span id="id20"></span><h3>devpi<a class="headerlink" href="#devpi" title="永久链接至标题">¶</a></h3>
+<span id="id21"></span><h3>devpi<a class="headerlink" href="#devpi" title="永久链接至标题">¶</a></h3>
 <p><a class="reference external" href="http://doc.devpi.net/latest/">Docs</a> |
 <a class="reference external" href="https://github.com/devpi/devpi/issues">Issues</a> |
 <a class="reference external" href="https://pypi.org/project/devpi">PyPI</a></p>
@@ -373,20 +387,6 @@ management and deployment of binary extensions.</p>
 with a complementary command line tool to drive packaging, testing and
 release activities with Python. devpi also provides a browsable and
 searchable web interface.</p>
-</section>
-<section id="flit">
-<span id="id21"></span><h3>flit<a class="headerlink" href="#flit" title="永久链接至标题">¶</a></h3>
-<p><a class="reference external" href="https://flit.readthedocs.io/en/latest/">Docs</a> |
-<a class="reference external" href="https://github.com/takluyver/flit/issues">Issues</a> |
-<a class="reference external" href="https://pypi.org/project/flit">PyPI</a></p>
-<p>Flit provides a simple way to upload pure Python packages and modules to PyPI.
-It focuses on <a class="reference external" href="https://flit.readthedocs.io/en/latest/rationale.html">making the easy things easy</a> for packaging.
-Flit can generate a configuration file to quickly set up a simple project, build
-source distributions and wheels, and upload them to PyPI.</p>
-<p>Flit uses <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> to configure a project. Flit does not rely on tools
-such as <a class="reference internal" href="#setuptools"><span class="std std-ref">setuptools</span></a> to build distributions, or <a class="reference internal" href="#twine"><span class="std std-ref">twine</span></a> to upload them
-to PyPI. Flit requires Python 3, but you can use it to distribute modules for
-Python 2, so long as they can be imported on Python 3.</p>
 </section>
 <section id="enscons">
 <span id="id22"></span><h3>enscons<a class="headerlink" href="#enscons" title="永久链接至标题">¶</a></h3>
@@ -677,11 +677,11 @@ information, see the section on <a class="reference internal" href="tutorials/in
 <br />
     <br />
 
-    最后更新于 2021 年 11 月 18 日.
+    最后更新于 2022 年 01 月 25 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
     </div>
 
   </body>

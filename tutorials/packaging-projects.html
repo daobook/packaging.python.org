@@ -212,12 +212,12 @@ When you’re done, the project structure will look like this:</p>
 <p><code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> tells build tools (like <a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> and <a class="reference internal" href="../key_projects.html#build"><span class="std std-ref">建造</span></a>)
 what is required to build your project. This tutorial uses <a class="reference internal" href="../key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a>,
 so open <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> and enter the following content:</p>
-<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[build-system]</span>
-<span class="n">requires</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s">&quot;setuptools&gt;=42&quot;</span><span class="p">,</span>
-    <span class="s">&quot;wheel&quot;</span>
-<span class="p">]</span>
-<span class="n">build-backend</span> <span class="o">=</span> <span class="s">&quot;setuptools.build_meta&quot;</span>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[build-system]</span><span class="w"></span>
+<span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;setuptools&gt;=42&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;wheel&quot;</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+<span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;setuptools.build_meta&quot;</span><span class="w"></span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">build-system.requires</span></code> gives a list of packages that are needed to build your
@@ -254,7 +254,7 @@ to include your username; this ensures that you have a unique package name
 and that your package doesn’t conflict with packages uploaded by other
 people following this tutorial.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">metadata</span><span class="p">]</span>
-<span class="n">name</span> <span class="o">=</span> <span class="n">example</span><span class="o">-</span><span class="n">pkg</span><span class="o">-</span><span class="n">YOUR</span><span class="o">-</span><span class="n">USERNAME</span><span class="o">-</span><span class="n">HERE</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">example</span><span class="o">-</span><span class="n">package</span><span class="o">-</span><span class="n">YOUR</span><span class="o">-</span><span class="n">USERNAME</span><span class="o">-</span><span class="n">HERE</span>
 <span class="n">version</span> <span class="o">=</span> <span class="mf">0.0.1</span>
 <span class="n">author</span> <span class="o">=</span> <span class="n">Example</span> <span class="n">Author</span>
 <span class="n">author_email</span> <span class="o">=</span> <span class="n">author</span><span class="nd">@example</span><span class="o">.</span><span class="n">com</span>
@@ -346,7 +346,7 @@ people following this tutorial.</p>
     <span class="n">long_description</span> <span class="o">=</span> <span class="n">fh</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
 <span class="n">setuptools</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;example-pkg-YOUR-USERNAME-HERE&quot;</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;example-package-YOUR-USERNAME-HERE&quot;</span><span class="p">,</span>
     <span class="n">version</span><span class="o">=</span><span class="s2">&quot;0.0.1&quot;</span><span class="p">,</span>
     <span class="n">author</span><span class="o">=</span><span class="s2">&quot;Example Author&quot;</span><span class="p">,</span>
     <span class="n">author_email</span><span class="o">=</span><span class="s2">&quot;author@example.com&quot;</span><span class="p">,</span>
@@ -414,6 +414,16 @@ packages until it finds one that has a matching Python version.</p></li>
 </ul>
 <p>There are many more than the ones mentioned here. See
 <a class="reference internal" href="../guides/distributing-packages-using-setuptools.html"><span class="doc">Packaging and distributing projects</span></a> for more details.</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>You may see some existing projects or other Python packaging tutorials that
+import their <code class="docutils literal notranslate"><span class="pre">setup</span></code> function from <code class="docutils literal notranslate"><span class="pre">distutils.core</span></code> rather than
+<code class="docutils literal notranslate"><span class="pre">setuptools</span></code>. This is a legacy approach that installers support
+for backwards compatibility purposes <a class="footnote-reference brackets" href="#id2" id="id1">1</a>, but using the legacy <code class="docutils literal notranslate"><span class="pre">distutils</span></code> API
+directly in new projects is strongly discouraged, since <code class="docutils literal notranslate"><span class="pre">distutils</span></code> is
+deprecated as per <span class="target" id="index-4"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0632"><strong>PEP 632</strong></a> and will be removed from the standard library
+in Python 3.12.</p>
+</div>
 </div>
 </div>
 </section>
@@ -471,8 +481,8 @@ control what goes in this explicitly, see <a class="reference internal" href="..
 <p>The final <a class="reference internal" href="../glossary.html#term-Built-Distribution"><span class="xref std std-term">built distribution</span></a> will have the Python
 files in the discovered or listed Python packages. If you want to control what
 goes here, such as to add data files, see
-<a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/datafiles.html" title="(在 setuptools v59.1.1)"><span class="xref std std-doc">Including Data Files</span></a>
-from the <a class="reference external" href="https://setuptools.pypa.io/en/latest/index.html" title="(在 setuptools v59.1.1)"><span class="xref std std-doc">setuptools docs</span></a>.</p>
+<a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/datafiles.html" title="(在 setuptools v60.5.4)"><span class="xref std std-doc">Including Data Files</span></a>
+from the <a class="reference external" href="https://setuptools.pypa.io/en/latest/index.html" title="(在 setuptools v60.5.4)"><span class="xref std std-doc">setuptools docs</span></a>.</p>
 </section>
 <section id="generating-distribution-archives">
 <span id="generating-archives"></span><h2>Generating distribution archives<a class="headerlink" href="#generating-distribution-archives" title="永久链接至标题">¶</a></h2>
@@ -511,8 +521,8 @@ Package Index and can be installed by <a class="reference internal" href="../key
 <p>This command should output a lot of text and once completed should generate two
 files in the <code class="file docutils literal notranslate"><span class="pre">dist</span></code> directory:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>dist/
-  example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
-  example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
+  example-package-YOUR-USERNAME-HERE-0.0.1-py3-none-any.whl
+  example-package-YOUR-USERNAME-HERE-0.0.1.tar.gz
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">tar.gz</span></code> file is a <a class="reference internal" href="../glossary.html#term-Source-Archive"><span class="xref std std-term">source archive</span></a> whereas the
@@ -570,13 +580,14 @@ the <code class="docutils literal notranslate"><span class="pre">pypi-</span></c
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Uploading distributions to https://test.pypi.org/legacy/
 Enter your username: <span class="o">[</span>your username<span class="o">]</span>
 Enter your password:
-Uploading example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
+Uploading example-package-YOUR-USERNAME-HERE-0.0.1-py3-none-any.whl
 <span class="m">100</span>%<span class="p">|</span>█████████████████████<span class="p">|</span> <span class="m">4</span>.65k/4.65k <span class="o">[</span><span class="m">00</span>:01&lt;<span class="m">00</span>:00, <span class="m">2</span>.88kB/s<span class="o">]</span>
-Uploading example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
+Uploading example-package-YOUR-USERNAME-HERE-0.0.1.tar.gz
 <span class="m">100</span>%<span class="p">|</span>█████████████████████<span class="p">|</span> <span class="m">4</span>.25k/4.25k <span class="o">[</span><span class="m">00</span>:01&lt;<span class="m">00</span>:00, <span class="m">3</span>.05kB/s<span class="o">]</span>
 </pre></div>
 </div>
-<p>一旦上传，您的软件包应该可以在 TestPyPI 上查看，例如，<a class="reference external" href="https://test.pypi.org/project/example-pkg-YOUR-USERNAME-HERE">https://test.pypi.org/project/example-pkg-YOUR-USERNAME-HERE</a></p>
+<p>Once uploaded your package should be viewable on TestPyPI, for example,
+<a class="reference external" href="https://test.pypi.org/project/example-package-YOUR-USERNAME-HERE">https://test.pypi.org/project/example-package-YOUR-USERNAME-HERE</a></p>
 </section>
 <section id="installing-your-newly-uploaded-package">
 <h2>安装您新上传的软件包<a class="headerlink" href="#installing-your-newly-uploaded-package" title="永久链接至标题">¶</a></h2>
@@ -585,22 +596,22 @@ Create a <a class="reference internal" href="installing-packages.html#creating-a
 and install your package from TestPyPI:</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--6-input--1" name="tab-set--6" type="radio"><label class="tab-label" for="tab-set--6-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-pkg-YOUR-USERNAME-HERE
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-package-YOUR-USERNAME-HERE
 </pre></div>
 </div>
 </div>
 <input class="tab-input" id="tab-set--6-input--2" name="tab-set--6" type="radio"><label class="tab-label" for="tab-set--6-input--2">Windows</label><div class="tab-content docutils container">
-<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>py -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-pkg-YOUR-USERNAME-HERE
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>py -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-package-YOUR-USERNAME-HERE
 </pre></div>
 </div>
 </div>
 </div>
 <p>请确保在软件包名称中指定您的用户名!</p>
 <p>pip应该会安装 TestPyPI 的软件包，输出结果应该是这样的：</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Collecting example-pkg-YOUR-USERNAME-HERE
-  Downloading https://test-files.pythonhosted.org/packages/.../example-pkg-YOUR-USERNAME-HERE-0.0.1-py3-none-any.whl
-Installing collected packages: example-pkg-YOUR-USERNAME-HERE
-Successfully installed example-pkg-YOUR-USERNAME-HERE-0.0.1
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Collecting example-package-YOUR-USERNAME-HERE
+  Downloading https://test-files.pythonhosted.org/packages/.../example-package-YOUR-USERNAME-HERE-0.0.1-py3-none-any.whl
+Installing collected packages: example-package-YOUR-USERNAME-HERE
+Successfully installed example-package-YOUR-USERNAME-HERE-0.0.1
 </pre></div>
 </div>
 <div class="admonition note">
@@ -634,7 +645,7 @@ Make sure you’re still in your virtual environment, then run Python:</p>
 </div>
 <p>Note that the <a class="reference internal" href="../glossary.html#term-Import-Package"><span class="xref std std-term">import package</span></a> is <code class="docutils literal notranslate"><span class="pre">example_package</span></code>
 regardless of what <code class="docutils literal notranslate"><span class="pre">name</span></code> you gave your <a class="reference internal" href="../glossary.html#term-Distribution-Package"><span class="xref std std-term">distribution package</span></a> in <code class="file docutils literal notranslate"><span class="pre">setup.cfg</span></code> or <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> (in this case,
-<code class="docutils literal notranslate"><span class="pre">example-pkg-YOUR-USERNAME-HERE</span></code>).</p>
+<code class="docutils literal notranslate"><span class="pre">example-package-YOUR-USERNAME-HERE</span></code>).</p>
 </section>
 <section id="next-steps">
 <h2>Next steps<a class="headerlink" href="#next-steps" title="永久链接至标题">¶</a></h2>
@@ -667,6 +678,19 @@ some things you can do:</p>
 <li><p>Read about <a class="reference internal" href="../guides/packaging-binary-extensions.html"><span class="doc">Packaging binary extensions</span></a>.</p></li>
 <li><p>考虑 <a class="reference internal" href="../key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a> 的替代方案，如 <a class="reference internal" href="../key_projects.html#flit"><span class="std std-ref">flit</span></a>, <a class="reference internal" href="../key_projects.html#hatch"><span class="std std-ref">hatch</span></a>, 和 <a class="reference internal" href="../key_projects.html#poetry"><span class="std std-ref">poetry</span></a>。</p></li>
 </ul>
+<hr class="docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Some legacy Python environments may not have <code class="docutils literal notranslate"><span class="pre">setuptools</span></code>
+pre-installed, and the operators of those environments may still be
+requiring users to install packages by running <code class="docutils literal notranslate"><span class="pre">setup.py</span> <span class="pre">install</span></code>
+commands, rather than providing an installer like <code class="docutils literal notranslate"><span class="pre">pip</span></code> that
+automatically installs required build dependendencies. These
+environments will not be able to use many published packages until the
+environment is updated to provide an up to date Python package
+installation client (e.g. by running <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">ensurepip</span></code>).</p>
+</dd>
+</dl>
 </section>
 </section>
 
@@ -763,11 +787,11 @@ some things you can do:</p>
 <br />
     <br />
 
-    最后更新于 2021 年 11 月 18 日.
+    最后更新于 2022 年 01 月 25 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
     </div>
 
   </body>
