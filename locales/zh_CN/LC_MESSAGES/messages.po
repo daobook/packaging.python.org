@@ -13955,7 +13955,7 @@ msgid ""
 "configuration details would be completely different than the "
 ":ref:`setuptools` configuration described below."
 msgstr ""
-"``build-system.build-backend``是 Python 对象的名字，将用于执行构建。"
+"``build-system.build-backend`` 是 Python 对象的名字，将用于执行构建。"
 "如果你要使用一个不同的构建系统，比如 :ref:`flit` 或 :ref:`poetry`，这些将放在这里，"
 "而且配置细节将与下面描述的 :ref:`setuptools` 配置完全不同。"
 
@@ -14139,6 +14139,7 @@ msgid ""
 "There are many more than the ones mentioned here. See :doc:`/guides"
 "/distributing-packages-using-setuptools` for more details."
 msgstr ""
+"除了这里提到的，还有很多。参见 :doc:`/guides/distributing-packages-using-setuptools` 以了解更多细节。"
 
 #: ../../source/tutorials/packaging-projects.rst:244
 msgid ""
@@ -14203,13 +14204,14 @@ msgstr ""
 
 #: ../../source/tutorials/packaging-projects.rst:333
 msgid "Creating README.md"
-msgstr ""
+msgstr "创建 README.md"
 
 #: ../../source/tutorials/packaging-projects.rst:335
 msgid ""
 "Open :file:`README.md` and enter the following content. You can customize"
 " this if you'd like."
 msgstr ""
+"打开 :file:`README.md` 并输入以下内容。如果你愿意，你可以定制这个。"
 
 #: ../../source/tutorials/packaging-projects.rst:347
 msgid ""
@@ -14219,6 +14221,9 @@ msgid ""
 "archives>`. Newer versions of :ref:`setuptools` will do this "
 "automatically."
 msgstr ""
+"因为我们的配置加载了 :file:`README.md` 来提供一个 ``long_description``，"
+"当你 :ref:`generate a source distribution <generating archives>` 时， :file:`README.md` 必须和你的代码一起包括。"
+"新版本的 :ref:`setuptools` 会自动做到这一点。"
 
 #: ../../source/tutorials/packaging-projects.rst:354
 msgid "Creating a LICENSE"
