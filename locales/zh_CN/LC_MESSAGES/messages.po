@@ -13848,16 +13848,18 @@ msgid ""
 "the command and its output, then `open an issue`_ on the `packaging-"
 "problems`_ repository on GitHub. We'll do our best to help you!"
 msgstr ""
+"如果你在运行本教程中的命令时遇到困难，请复制命令及其输出，然后在 GitHub 上的 `packaging-problems`_ 仓库中 `open an issue`_。我们会尽力帮助你！"
 
 #: ../../source/tutorials/packaging-projects.rst:18
 msgid ""
 "Some of the commands require a newer version of :ref:`pip`, so start by "
 "making sure you have the latest version installed:"
 msgstr ""
+"一些命令需要较新版本的 :ref:`pip`，所以首先要确保你安装了最新的版本："
 
 #: ../../source/tutorials/packaging-projects.rst:35
 msgid "A simple project"
-msgstr ""
+msgstr "一个简单的项目"
 
 #: ../../source/tutorials/packaging-projects.rst:37
 msgid ""
@@ -13865,16 +13867,19 @@ msgid ""
 "recommend following this tutorial as-is using this project, before "
 "packaging your own project."
 msgstr ""
+"本教程使用一个名为 ``example_package`` 的简单项目。"
+"我们建议在打包你自己的项目之前，按原样使用这个项目来学习本教程。"
 
 #: ../../source/tutorials/packaging-projects.rst:41
 msgid "Create the following file structure locally:"
-msgstr ""
+msgstr "在本地创建以下文件结构："
 
 #: ../../source/tutorials/packaging-projects.rst:51
 msgid ""
 ":file:`__init__.py` is required to import the directory as a package, and"
 " should be empty."
 msgstr ""
+":file:`__init__.py` 是导入目录作为一个包所需要的，应该是空的。"
 
 #: ../../source/tutorials/packaging-projects.rst:54
 msgid ""
@@ -13882,6 +13887,7 @@ msgid ""
 "could contain the logic (functions, classes, constants, etc.) of your "
 "package. Open that file and enter the following content:"
 msgstr ""
+":file:`example.py` 是包内模块的一个例子，可以包含你的包的逻辑（函数、类、常量等等）。打开该文件并输入以下内容："
 
 #: ../../source/tutorials/packaging-projects.rst:63
 msgid ""
@@ -13889,16 +13895,19 @@ msgid ""
 ":term:`import packages <Import Package>`, take a few minutes to read over"
 " the `Python documentation for packages and modules`_."
 msgstr ""
+"如果你不熟悉 Python 的 :term:`modules <Module>` 和 :term:`import packages <Import Package>`，"
+"请花几分钟时间阅读一下 `Python 软件包和模块的文档`_。"
 
 #: ../../source/tutorials/packaging-projects.rst:67
 msgid ""
 "Once you create this structure, you'll want to run all of the commands in"
 " this tutorial within the ``packaging_tutorial`` directory."
 msgstr ""
+"一旦你创建了这个结构，你就想在 ``packaging_tutorial`` 目录下运行本教程中的所有命令。"
 
 #: ../../source/tutorials/packaging-projects.rst:75
 msgid "Creating the package files"
-msgstr ""
+msgstr "创建包文件"
 
 #: ../../source/tutorials/packaging-projects.rst:77
 msgid ""
@@ -13906,18 +13915,19 @@ msgid ""
 "distribution. When you're done, the project structure will look like "
 "this:"
 msgstr ""
+"你现在将添加用于准备项目发布的文件。当你完成后，项目结构将看起来像这样："
 
 #: ../../source/tutorials/packaging-projects.rst:95
 msgid "Creating a test directory"
-msgstr ""
+msgstr "创建测试目录"
 
 #: ../../source/tutorials/packaging-projects.rst:97
 msgid ":file:`tests/` is a placeholder for test files. Leave it empty for now."
-msgstr ""
+msgstr ":file:`tests/` 是一个测试文件的占位符。现在让它为空。"
 
 #: ../../source/tutorials/packaging-projects.rst:101
 msgid "Creating pyproject.toml"
-msgstr ""
+msgstr "创建 pyproject.toml"
 
 #: ../../source/tutorials/packaging-projects.rst:103
 msgid ""
@@ -13926,6 +13936,8 @@ msgid ""
 ":ref:`setuptools`, so open :file:`pyproject.toml` and enter the following"
 " content:"
 msgstr ""
+":file:`pyproject.toml` 告诉构建工具（如 :ref:`pip` 和 :ref:`build`）构建你的项目需要什么。"
+"本教程使用 :ref:`setuptools`，所以打开 :file:`pyproject.toml` 并输入以下内容："
 
 #: ../../source/tutorials/packaging-projects.rst:117
 msgid ""
@@ -13933,6 +13945,7 @@ msgid ""
 "build your package. Listing something here will *only* make it available "
 "during the build, not after it is installed."
 msgstr ""
+"``build-system.requires`` 给出了一个构建你的软件包所需的软件包列表。在这里列出的东西只在构建过程中可用，而不是在安装之后。"
 
 #: ../../source/tutorials/packaging-projects.rst:121
 msgid ""
@@ -13942,18 +13955,21 @@ msgid ""
 "configuration details would be completely different than the "
 ":ref:`setuptools` configuration described below."
 msgstr ""
+"``build-system.build-backend``是 Python 对象的名字，将用于执行构建。"
+"如果你要使用一个不同的构建系统，比如 :ref:`flit` 或 :ref:`poetry`，这些将放在这里，"
+"而且配置细节将与下面描述的 :ref:`setuptools` 配置完全不同。"
 
 #: ../../source/tutorials/packaging-projects.rst:127
 msgid "See :pep:`517` and :pep:`518` for background and details."
-msgstr ""
+msgstr "请参阅 :pep:`517` 和 :pep:`518` 了解背景和细节。"
 
 #: ../../source/tutorials/packaging-projects.rst:131
 msgid "Configuring metadata"
-msgstr ""
+msgstr "配置元数据"
 
 #: ../../source/tutorials/packaging-projects.rst:133
 msgid "There are two types of metadata: static and dynamic."
-msgstr ""
+msgstr "有两种类型的元数据：静态和动态。"
 
 #: ../../source/tutorials/packaging-projects.rst:135
 msgid ""
@@ -13961,6 +13977,7 @@ msgid ""
 "time. This is simpler, easier to read, and avoids many common errors, "
 "like encoding errors."
 msgstr ""
+"静态元数据（:file:`setup.cfg`）：保证每次都是一样的。这更简单，更容易阅读，并避免了许多常见的错误，如编码错误。"
 
 #: ../../source/tutorials/packaging-projects.rst:137
 msgid ""
@@ -13969,6 +13986,8 @@ msgid ""
 "extension modules or extensions to setuptools, need to go into "
 ":file:`setup.py`."
 msgstr ""
+"动态元数据（:file:`setup.py`）：可能是非决定性的。"
+"任何动态的或在安装时确定的项目，以及扩展模块或 setuptools 的扩展，都需要进入 :file:`setup.py`。"
 
 #: ../../source/tutorials/packaging-projects.rst:141
 msgid ""
@@ -13977,6 +13996,8 @@ msgid ""
 "absolutely necessary. :file:`setup.py` used to be required, but can be "
 "omitted with newer versions of setuptools and pip."
 msgstr ""
+"静态元数据（:file:`setup.cfg`）应该是首选。动态元数据（:file:`setup.py`）应该只在绝对必要的情况下作为一种转义。"
+":file:`setup.py` 过去是必需的，但在新版本的 setuptools 和 pip 中可以省略。"
 
 #: ../../source/tutorials/packaging-projects.rst:148
 msgid ""
@@ -13985,6 +14006,9 @@ msgid ""
 "well as which code files to include. Eventually much of this "
 "configuration may be able to move to :file:`pyproject.toml`."
 msgstr ""
+":file:`setup.cfg` 是 :ref:`setuptools` 的配置文件。"
+"它告诉 setuptools 关于你的软件包（如名称和版本），以及要包括哪些代码文件。"
+"最终，这些配置可以移到 :file:`pyproject.toml`。"
 
 #: ../../source/tutorials/packaging-projects.rst:153
 msgid ""
@@ -13993,6 +14017,8 @@ msgid ""
 "package name and that your package doesn't conflict with packages "
 "uploaded by other people following this tutorial."
 msgstr ""
+"打开 :file:`setup.cfg` 并输入以下内容。"
+"把 ``name`` 改成包括你的用户名；这可以确保你有一个独特的软件包名称，而且你的软件包不会与其他按照本教程上传的软件包冲突。"
 
 #: ../../source/tutorials/packaging-projects.rst:185
 msgid ""
@@ -14002,6 +14028,9 @@ msgid ""
 "<python:library/configparser>` format; do not place quotes around values."
 " This example package uses a relatively minimal set of ``metadata``:"
 msgstr ""
+"这里有 `各种元数据和选项 <https://setuptools.readthedocs.io/en/latest/userguide/declarative_config.html>`_ 支持。"
+"这是 :doc:`configparser <python:library/configparser>` 的格式；不要在数值周围加上引号。"
+" 这个示例包使用了一套相对最小的 ``metadata``："
 
 #: ../../source/tutorials/packaging-projects.rst:191
 #: ../../source/tutorials/packaging-projects.rst:286
