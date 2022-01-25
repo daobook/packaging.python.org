@@ -13800,11 +13800,10 @@ msgstr ""
 msgid "Other Tools for Application Dependency Management"
 msgstr "用于应用程序依赖性管理的其他工具"
 
-#: ../../source/tutorials/managing-dependencies.rst:162
 msgid ""
-"If you find this particular approach to managing application dependencies"
-" isn't working well for you or your use case, you may want to explore "
-"these other tools and techniques to see if one of them is a better fit:"
+"If you find this particular approach to managing application dependencies "
+"isn’t working well for you or your use case, you may want to explore these other tools and techniques, "
+"listed in alphabetical order, to see if one of them is a better fit:"
 msgstr ""
 "如果你发现这种管理应用程序依赖关系的特定方法对你或你的用例来说效果不好，你可能想探索这些其他的工具和技术，看看它们中是否有一个更适合："
 
