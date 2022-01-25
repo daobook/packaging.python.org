@@ -636,30 +636,6 @@ msgstr ""
 msgid "Application bundles"
 msgstr "应用捆绑"
 
-#: ../../source/discussions/deploying-python-applications.rst:92
-#, fuzzy
-msgid "py2exe"
-msgstr "pex"
-
-#: ../../source/discussions/deploying-python-applications.rst:94
-msgid ""
-"`py2exe <https://pypi.org/project/py2exe/>`__ is a distutils extension "
-"which allows to build standalone Windows executable programs (32-bit and "
-"64-bit) from Python scripts. Python versions included in the official "
-"development cycle are supported (refers to `Status of Python "
-"branches`__). py2exe can build console executables and windows (GUI) "
-"executables. Building windows services, and DLL/EXE COM servers might "
-"work but it is not actively supported. The distutils extension is "
-"released under the MIT-licence and Mozilla Public License 2.0."
-msgstr ""
-
-#: ../../source/discussions/deploying-python-applications.rst:106
-msgid "macOS"
-msgstr ""
-
-#: ../../source/discussions/deploying-python-applications.rst:109
-msgid "py2app"
-msgstr ""
 
 #: ../../source/discussions/deploying-python-applications.rst:111
 msgid ""

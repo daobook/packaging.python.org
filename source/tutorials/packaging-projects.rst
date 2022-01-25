@@ -158,7 +158,7 @@ be required, but can be omitted with newer versions of setuptools and pip.
     .. code-block:: python
 
         [metadata]
-        name = example-pkg-YOUR-USERNAME-HERE
+        name = example-package-YOUR-USERNAME-HERE
         version = 0.0.1
         author = Example Author
         author_email = author@example.com
@@ -258,7 +258,7 @@ be required, but can be omitted with newer versions of setuptools and pip.
             long_description = fh.read()
 
         setuptools.setup(
-            name="example-pkg-YOUR-USERNAME-HERE",
+            name="example-package-YOUR-USERNAME-HERE",
             version="0.0.1",
             author="Example Author",
             author_email="author@example.com",
@@ -328,6 +328,16 @@ be required, but can be omitted with newer versions of setuptools and pip.
 
     There are many more than the ones mentioned here. See
     :doc:`/guides/distributing-packages-using-setuptools` for more details.
+
+    .. warning::
+
+      You may see some existing projects or other Python packaging tutorials that
+      import their ``setup`` function from ``distutils.core`` rather than
+      ``setuptools``. This is a legacy approach that installers support
+      for backwards compatibility purposes [1]_, but using the legacy ``distutils`` API
+      directly in new projects is strongly discouraged, since ``distutils`` is
+      deprecated as per :pep:`632` and will be removed from the standard library
+      in Python 3.12.
 
 Creating README.md
 ------------------
@@ -442,8 +452,8 @@ files in the :file:`dist` directory:
 .. code-block:: text
 
     dist/
-      example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
-      example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
+      example-package-YOUR-USERNAME-HERE-0.0.1-py3-none-any.whl
+      example-package-YOUR-USERNAME-HERE-0.0.1.tar.gz
 
 
 The ``tar.gz`` file is a :term:`source archive <Source Archive>` whereas the
@@ -514,14 +524,14 @@ After the command completes, you should see output similar to this:
     Uploading distributions to https://test.pypi.org/legacy/
     Enter your username: [your username]
     Enter your password:
-    Uploading example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
+    Uploading example-package-YOUR-USERNAME-HERE-0.0.1-py3-none-any.whl
     100%|█████████████████████| 4.65k/4.65k [00:01<00:00, 2.88kB/s]
-    Uploading example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
+    Uploading example-package-YOUR-USERNAME-HERE-0.0.1.tar.gz
     100%|█████████████████████| 4.25k/4.25k [00:01<00:00, 3.05kB/s]
 
 
 Once uploaded your package should be viewable on TestPyPI, for example,
-https://test.pypi.org/project/example-pkg-YOUR-USERNAME-HERE
+https://test.pypi.org/project/example-package-YOUR-USERNAME-HERE
 
 
 Installing your newly uploaded package
@@ -535,13 +545,13 @@ and install your package from TestPyPI:
 
     .. code-block:: bash
 
-        python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-pkg-YOUR-USERNAME-HERE
+        python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-package-YOUR-USERNAME-HERE
 
 .. tab:: Windows
 
     .. code-block:: bat
 
-        py -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-pkg-YOUR-USERNAME-HERE
+        py -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-package-YOUR-USERNAME-HERE
 
 Make sure to specify your username in the package name!
 
@@ -550,10 +560,10 @@ something like this:
 
 .. code-block:: text
 
-    Collecting example-pkg-YOUR-USERNAME-HERE
-      Downloading https://test-files.pythonhosted.org/packages/.../example-pkg-YOUR-USERNAME-HERE-0.0.1-py3-none-any.whl
-    Installing collected packages: example-pkg-YOUR-USERNAME-HERE
-    Successfully installed example-pkg-YOUR-USERNAME-HERE-0.0.1
+    Collecting example-package-YOUR-USERNAME-HERE
+      Downloading https://test-files.pythonhosted.org/packages/.../example-package-YOUR-USERNAME-HERE-0.0.1-py3-none-any.whl
+    Installing collected packages: example-package-YOUR-USERNAME-HERE
+    Successfully installed example-package-YOUR-USERNAME-HERE-0.0.1
 
 .. note:: This example uses ``--index-url`` flag to specify TestPyPI instead of
    live PyPI. Additionally, it specifies ``--no-deps``. Since TestPyPI doesn't
@@ -588,7 +598,7 @@ and import the package:
 Note that the :term:`import package <Import Package>` is ``example_package``
 regardless of what ``name`` you gave your :term:`distribution package <Distribution
 Package>` in :file:`setup.cfg` or :file:`setup.py` (in this case,
-``example-pkg-YOUR-USERNAME-HERE``).
+``example-package-YOUR-USERNAME-HERE``).
 
 Next steps
 ----------
@@ -624,3 +634,14 @@ some things you can do:
 * Read about :doc:`/guides/packaging-binary-extensions`.
 * Consider alternatives to :ref:`setuptools` such as :ref:`flit`, :ref:`hatch`,
   and :ref:`poetry`.
+
+----
+
+.. [1] Some legacy Python environments may not have ``setuptools``
+       pre-installed, and the operators of those environments may still be
+       requiring users to install packages by running ``setup.py install``
+       commands, rather than providing an installer like ``pip`` that
+       automatically installs required build dependendencies. These
+       environments will not be able to use many published packages until the
+       environment is updated to provide an up to date Python package
+       installation client (e.g. by running ``python -m ensurepip``).
