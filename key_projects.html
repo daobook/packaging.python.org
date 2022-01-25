@@ -191,10 +191,7 @@ of packages that are incompatible with those standards.</p>
 modules to PyPI.  It focuses on <a class="reference external" href="https://flit.readthedocs.io/en/latest/rationale.html">making the easy things easy</a>
 for packaging.  Flit can generate a configuration file to quickly set up a
 simple project, build source distributions and wheels, and upload them to PyPI.</p>
-<p>Flit uses <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> to configure a project. Flit does not rely on tools
-such as <a class="reference internal" href="#setuptools"><span class="std std-ref">setuptools</span></a> to build distributions, or <a class="reference internal" href="#twine"><span class="std std-ref">twine</span></a> to upload them
-to PyPI. Flit requires Python 3, but you can use it to distribute modules for
-Python 2, so long as they can be imported on Python 3.</p>
+<p>Flit 使用 <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> 来配置一个项目。Flit 不依赖诸如 <a class="reference internal" href="#setuptools"><span class="std std-ref">setuptools</span></a> 之类的工具来构建发行版，或者 <a class="reference internal" href="#twine"><span class="std std-ref">twine</span></a> 来上传至 PyPI。Flit 需要 Python 3，但你可以用它来发布 Python 2 的模块，只要它们能在 Python 3 上被导入。</p>
 </section>
 <section id="packaging">
 <span id="id7"></span><h3>packaging<a class="headerlink" href="#packaging" title="永久链接至标题">¶</a></h3>
@@ -419,49 +416,29 @@ researchers but has been lacking in maintenance since 2016.</p>
 <section id="hatch">
 <span id="id24"></span><h3>hatch<a class="headerlink" href="#hatch" title="永久链接至标题">¶</a></h3>
 <p><a class="reference external" href="https://github.com/ofek/hatch">GitHub 和文档</a> | <a class="reference external" href="https://pypi.org/project/hatch">PyPI</a></p>
-<p>Hatch is a unified command-line tool meant to conveniently manage
-dependencies and environment isolation for Python developers. Python
-package developers use Hatch to configure, version, specify
-dependencies for, and publish packages to PyPI. Under the hood, it
-uses <a class="reference internal" href="#twine"><span class="std std-ref">twine</span></a> to upload packages to PyPI, and <a class="reference internal" href="#pip"><span class="std std-ref">pip</span></a> to download and
-install packages.</p>
+<p>Hatch 是一个统一的命令行工具，旨在为 Python 开发者方便地管理依赖性和环境隔离。Python 软件包开发者使用 Hatch 来配置、发布、指定依赖关系，并向 PyPI 发布软件包。在引擎盖下，它使用 <a class="reference internal" href="#twine"><span class="std std-ref">twine</span></a> 来上传包到 PyPI，使用 <a class="reference internal" href="#pip"><span class="std std-ref">pip</span></a> 来下载和安装包。</p>
 </section>
 <section id="multibuild">
 <span id="id25"></span><h3>multibuild<a class="headerlink" href="#multibuild" title="永久链接至标题">¶</a></h3>
 <p><a class="reference external" href="https://github.com/matthew-brett/multibuild">GitHub</a></p>
-<p>Multibuild is a set of CI scripts for building and testing Python <a class="reference internal" href="glossary.html#term-Wheel"><span class="xref std std-term">wheels</span></a> for
-Linux, macOS, and (less flexibly) Windows. Also see <a class="reference internal" href="#cibuildwheel"><span class="std std-ref">cibuildwheel</span></a>.</p>
+<p>Multibuild 是一套 CI 脚本，用于构建和测试 Linux、macOS 和（不太灵活的）Windows 的 Python <a class="reference internal" href="glossary.html#term-Wheel"><span class="xref std std-term">wheels</span></a>。也见 <a class="reference internal" href="#cibuildwheel"><span class="std std-ref">cibuildwheel</span></a>。</p>
 </section>
 <section id="pdm">
 <span id="id26"></span><h3>pdm<a class="headerlink" href="#pdm" title="永久链接至标题">¶</a></h3>
 <p><a class="reference external" href="https://pdm.fming.dev/">Docs</a> |
 <a class="reference external" href="https://github.com/pdm-project/pdm/">GitHub</a> |
 <a class="reference external" href="https://pypi.org/project/pdm">PyPI</a></p>
-<p>PDM is a modern Python package manager with <span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0582"><strong>PEP 582</strong></a> support. It installs and
-manages packages in a similar way to <code class="docutils literal notranslate"><span class="pre">npm</span></code> that doesn’t need to create a
-<a class="reference internal" href="glossary.html#term-Virtual-Environment"><span class="xref std std-term">virtual environment</span></a> at all. It also uses <a class="reference internal" href="glossary.html#term-pyproject.toml"><span class="xref std std-term">pyproject.toml</span></a> to store
-project metadata as defined in <span class="target" id="index-2"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0621"><strong>PEP 621</strong></a>.</p>
+<p>PDM 是一个现代的 Python 软件包管理器，支持 <span class="target" id="index-7"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0582"><strong>PEP 582</strong></a>。它以类似于 <code class="docutils literal notranslate"><span class="pre">npm</span></code> 的方式安装和管理软件包，完全不需要创建一个 <a class="reference internal" href="glossary.html#term-Virtual-Environment"><span class="xref std std-term">virtual environment</span></a>。它还使用 <a class="reference internal" href="glossary.html#term-pyproject.toml"><span class="xref std std-term">pyproject.toml</span></a> 来存储项目元数据，如 <span class="target" id="index-8"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0621"><strong>PEP 621</strong></a> 所定义。</p>
 </section>
 <section id="pex">
 <span id="id27"></span><h3>pex<a class="headerlink" href="#pex" title="永久链接至标题">¶</a></h3>
 <p><a class="reference external" href="https://pex.readthedocs.io/en/latest/">文档</a> | <a class="reference external" href="https://github.com/pantsbuild/pex/">GitHub</a> | <a class="reference external" href="https://pypi.org/project/pex">PyPI</a></p>
-<p>pex is both a library and tool for generating <code class="file docutils literal notranslate"><span class="pre">.pex</span></code> (Python EXecutable)
-files, standalone Python environments in the spirit of <a class="reference internal" href="#virtualenv"><span class="std std-ref">virtualenv</span></a>.
-<code class="file docutils literal notranslate"><span class="pre">.pex</span></code> files are just carefully constructed zip files with a
-<code class="docutils literal notranslate"><span class="pre">#!/usr/bin/env</span> <span class="pre">python</span></code> and special <code class="file docutils literal notranslate"><span class="pre">__main__.py</span></code>, and are designed to
-make deployment of Python applications as simple as <code class="docutils literal notranslate"><span class="pre">cp</span></code>.</p>
+<p>pex 既是一个库，也是生成 <code class="file docutils literal notranslate"><span class="pre">.pex</span></code> (Python EXecutable) 文件的工具，是符合 <a class="reference internal" href="#virtualenv"><span class="std std-ref">virtualenv</span></a> 精神的独立的 Python 环境。<code class="file docutils literal notranslate"><span class="pre">.pex</span></code> 文件只是精心构建的压缩文件，带有 <code class="xref any docutils literal notranslate"><span class="pre">#!/usr/bin/env</span> <span class="pre">python</span></code> 和特殊的 <code class="file docutils literal notranslate"><span class="pre">__main__.py</span></code>，旨在使 Python 应用程序的部署像 <code class="docutils literal notranslate"><span class="pre">cp</span></code> 一样简单。</p>
 </section>
 <section id="pip-tools">
 <span id="id28"></span><h3>pip-tools<a class="headerlink" href="#pip-tools" title="永久链接至标题">¶</a></h3>
 <p><a class="reference external" href="https://github.com/jazzband/pip-tools/">GitHub 和文档</a> | <a class="reference external" href="https://pypi.org/project/pip-tools/">PyPI</a></p>
-<p>pip-tools is a suite of tools meant for Python system administrators
-and release managers who particularly want to keep their builds
-deterministic yet stay up to date with new versions of their
-dependencies. Users can specify particular release of their
-dependencies via hash, conveniently make a properly formatted list of
-requirements from information in other parts of their program, update
-all dependencies (a feature <a class="reference internal" href="#pip"><span class="std std-ref">pip</span></a> currently does not provide), and
-create layers of constraints for the program to obey.</p>
+<p>pip-tools 是一套针对 Python 系统管理员和发布经理的工具，他们特别希望保持他们的构建是确定的，同时又能保持与新版本的依赖关系的更新。用户可以通过哈希值指定他们依赖的特定版本，方便地从他们程序的其他部分的信息中制作一个正确格式的需求列表，更新所有的依赖（这是 <a class="reference internal" href="#pip"><span class="std std-ref">pip</span></a> 目前不提供的功能），并为程序创建服从的约束层。</p>
 </section>
 <section id="piwheels">
 <span id="id29"></span><h3>piwheels<a class="headerlink" href="#piwheels" title="永久链接至标题">¶</a></h3>
@@ -518,10 +495,7 @@ on PyPI).</p>
 <section id="shiv">
 <span id="id34"></span><h3>shiv<a class="headerlink" href="#shiv" title="永久链接至标题">¶</a></h3>
 <p><a class="reference external" href="https://shiv.readthedocs.io/en/latest/">文档</a> | <a class="reference external" href="https://github.com/linkedin/shiv">GitHub</a> | <a class="reference external" href="https://pypi.org/project/shiv/">PyPI</a></p>
-<p>shiv is a command line utility for building fully self contained
-Python zipapps as outlined in <span class="target" id="index-3"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0441"><strong>PEP 441</strong></a>, but with all their
-dependencies included. Its primary goal is making distributing Python
-applications and command line tools fast &amp; easy.</p>
+<p>shiv 是一个命令行工具，用于构建完全自包含的 Python zipapps，如 <span class="target" id="index-9"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0441"><strong>PEP 441</strong></a> 中所述，但包含了所有的依赖。它的主要目标是使分发 Python 应用程序和命令行工具变得快速和简单。</p>
 </section>
 <section id="spack">
 <span id="id35"></span><h3>Spack<a class="headerlink" href="#spack" title="永久链接至标题">¶</a></h3>
@@ -578,9 +552,7 @@ supported Python versions.</p>
 <span id="id38"></span><h3>venv<a class="headerlink" href="#venv" title="永久链接至标题">¶</a></h3>
 <p><a class="reference external" href="https://docs.python.org/3/library/venv.html">Docs</a> |
 <a class="reference external" href="https://bugs.python.org/">Issues</a></p>
-<p>A package in the Python Standard Library (starting with Python 3.3) for
-creating <a class="reference internal" href="glossary.html#term-Virtual-Environment"><span class="xref std std-term">Virtual Environments</span></a>.  For more
-information, see the section on <a class="reference internal" href="tutorials/installing-packages.html#creating-and-using-virtual-environments"><span class="std std-ref">创建虚拟环境</span></a>.</p>
+<p>Python 标准库中的一个包（从 Python 3.3 开始），用于创建 <a class="reference internal" href="glossary.html#term-Virtual-Environment"><span class="xref std std-term">Virtual Environments</span></a>。 更多信息，请参见 <a class="reference internal" href="tutorials/installing-packages.html#creating-and-using-virtual-environments"><span class="std std-ref">创建虚拟环境</span></a> 一节。</p>
 <hr class="docutils" />
 </section>
 </section>
