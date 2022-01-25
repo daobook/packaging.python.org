@@ -13723,14 +13723,15 @@ msgid ""
 "Now that Requests is installed you can create a simple :file:`main.py` "
 "file to use it:"
 msgstr ""
+"现在 Requests 已经安装完毕，你可以创建一个简单的 :file:`main.py` 文件来使用它："
 
 #: ../../source/tutorials/managing-dependencies.rst:125
 msgid "Then you can run this script using ``pipenv run``:"
-msgstr ""
+msgstr "然后你可以使用 ``pipenv run`` 来运行这个脚本。"
 
 #: ../../source/tutorials/managing-dependencies.rst:131
 msgid "You should get output similar to this:"
-msgstr ""
+msgstr "你应该得到与此类似的输出："
 
 #: ../../source/tutorials/managing-dependencies.rst:137
 msgid ""
@@ -13738,17 +13739,20 @@ msgid ""
 "to your script. It's also possible to spawn a new shell that ensures all "
 "commands have access to your installed packages with ``pipenv shell``."
 msgstr ""
+"使用 ``pipenv run`` 可以确保你安装的软件包对你的脚本可用。"
+"也可以用 ``pipenv shell`` 催生一个新的 shell，确保所有命令都能访问你安装的软件包。"
 
 #: ../../source/tutorials/managing-dependencies.rst:143
 #: ../../source/tutorials/packaging-projects.rst:594
 msgid "Next steps"
-msgstr ""
+msgstr "下一步"
 
 #: ../../source/tutorials/managing-dependencies.rst:145
 msgid ""
 "Congratulations, you now know how to effectively manage dependencies and "
 "development environments on a collaborative Python project! ✨ 🍰 ✨"
 msgstr ""
+"恭喜你，你现在知道如何在一个合作的 Python 项目中有效地管理依赖性和开发环境了！。✨ 🍰 ✨"
 
 #: ../../source/tutorials/managing-dependencies.rst:148
 msgid ""
@@ -13756,6 +13760,7 @@ msgid ""
 "packages, see the :ref:`tutorial on packaging and distributing packages "
 "<distributing-packages>`."
 msgstr ""
+"如果你对创建和发布你自己的 Python 软件包感兴趣，请参阅 :ref:`关于打包和发布软件包的教程 <distributing-packages>`。"
 
 #: ../../source/tutorials/managing-dependencies.rst:151
 msgid ""
@@ -13764,10 +13769,13 @@ msgid ""
 "environment with ``pipenv install -e <relative-path-to-source-"
 "directory>`` (e.g. ``pipenv install -e .`` or ``pipenv install -e src``)."
 msgstr ""
+"注意，当你的应用程序包括 Python 源代码包的定义时，它们（和它们的依赖关系）"
+"可以通过 ``pipenv install -e <relative-path-to-source-directory>`` 添加到你的 ``pipenv`` 环境中"
+"（例如 ``pipenv install -e .`` 或 ``pipenv install -e src``）。"
 
 #: ../../source/tutorials/managing-dependencies.rst:160
 msgid "Other Tools for Application Dependency Management"
-msgstr ""
+msgstr "用于应用程序依赖性管理的其他工具"
 
 #: ../../source/tutorials/managing-dependencies.rst:162
 msgid ""
@@ -13775,6 +13783,7 @@ msgid ""
 " isn't working well for you or your use case, you may want to explore "
 "these other tools and techniques to see if one of them is a better fit:"
 msgstr ""
+"如果你发现这种管理应用程序依赖关系的特定方法对你或你的用例来说效果不好，你可能想探索这些其他的工具和技术，看看它们中是否有一个更适合："
 
 #: ../../source/tutorials/managing-dependencies.rst:166
 msgid ""
@@ -13786,6 +13795,9 @@ msgid ""
 "depending on components from PyPI will itself support distribution as a "
 "``pip``-installable Python package)."
 msgstr ""
+"`poetry <https://github.com/python-poetry/poetry>`__ 为一个与 ``pipenv`` 范围相当的工具，"
+"它更直接地关注被管理的资源库的结构是一个具有有效的 ``pyproject.toml`` 文件的 Python 项目"
+"（相比之下，``pipenv`` 明确避免假设正在工作的应用程序依赖于 PyPI 的组件，它本身支持作为一个 ``pip`` 可安装的 Python 包发布）。"
 
 #: ../../source/tutorials/managing-dependencies.rst:172
 msgid ""
@@ -13794,6 +13806,8 @@ msgid ""
 "versions, tagging releases, and creating new skeleton projects from "
 "project templates)"
 msgstr ""
+"`hatch <https://github.com/ofek/hatch>`_ 对项目管理工作流程中更多的步骤"
+"（如递增版本、标记发布和从项目模板中创建新的骨架项目）进行了有观点的报道"
 
 #: ../../source/tutorials/managing-dependencies.rst:175
 msgid ""
@@ -13801,6 +13815,7 @@ msgid ""
 "custom workflow from lower level pieces like ``pip-compile`` and ``pip-"
 "sync``"
 msgstr ""
+"`pip-tools <https://github.com/jazzband/pip-tools>`_ 从较低层次的部分（如 ``pip-compile`` 和 ``pip-sync``）建立你自己的自定义工作流程"
 
 #: ../../source/tutorials/managing-dependencies.rst:177
 msgid ""
@@ -13809,10 +13824,13 @@ msgid ""
 "Poetry lock files or converting them to pip-tools compatible output. "
 "Designed for containerized Python applications but not limited to them."
 msgstr ""
+"`micropipenv <https://github.com/thoth-station/micropipenv>`_ 是 pip 的轻量级包装器，"
+"支持 requirements.txt、Pipenv 和 Poetry 锁定文件或将其转换为 pip-tools 兼容输出。"
+"专为容器化的 Python 应用设计，但不限于此。"
 
 #: ../../source/tutorials/packaging-projects.rst:2
 msgid "Packaging Python Projects"
-msgstr ""
+msgstr "包装 Python 项目"
 
 #: ../../source/tutorials/packaging-projects.rst:4
 msgid ""
@@ -13821,6 +13839,8 @@ msgid ""
 "the package, how to build the package, and how to upload it to the Python"
 " Package Index."
 msgstr ""
+"本教程将指导你如何打包一个简单的 Python 项目。"
+"它将告诉你如何添加必要的文件和结构来创建包，如何构建包，以及如何将其上传到 Python 包索引。"
 
 #: ../../source/tutorials/packaging-projects.rst:10
 msgid ""
