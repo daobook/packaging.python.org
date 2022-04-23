@@ -44,7 +44,7 @@
              <img src="../_static/py.svg" alt="Logo"/>
          </a>
         <div class="version_switcher_placeholder"></div>
-        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+        <form role="search" class="search" action="../search.html" method="get">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
                 <path fill-rule="nonzero"
                         d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
@@ -76,12 +76,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="index.html"
-                        title="上一章">教程</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="managing-dependencies.html"
-                        title="下一章">管理应用程序的依赖性</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="index.html"
+                          title="上一章">教程</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="managing-dependencies.html"
+                          title="下一章">管理应用程序的依赖性</a></p>
+  </div>
         </nav>
     </div>
 </div>
@@ -184,7 +188,7 @@
 </div>
 <p>你应该得到一些输出，如 <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.6.3</span></code>。如果你没有 Python，请从 <a class="reference external" href="https://www.python.org">python.org</a> 安装最新的 3.x 版本，或者参考 Hitchhiker’s Guide to Python 中的章节 <a class="reference external" href="https://docs.python-guide.org/starting/installation/#installation" title="(在 pythonguide v0.0.1)"><span class="xref std std-ref">安装 Python</span></a>。</p>
 <div class="admonition note">
-<p class="admonition-title">注解</p>
+<p class="admonition-title">备注</p>
 <p>如果你是一个新人，而你遇到这样的错误：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">python</span> <span class="o">--</span><span class="n">version</span>
 <span class="gt">Traceback (most recent call last):</span>
@@ -195,7 +199,7 @@
 <p>这是因为这个命令和本教程中建议的其他命令是要在 <em>shell</em> （也叫 <em>终端</em> 或 <em>控制台</em>）。请参阅 Python for Beginners <a class="reference external" href="https://opentechschool.github.io/python-beginners/en/getting_started.html#what-is-python-exactly">getting started tutorial</a> 了解使用操作系统的 shell 和与 Python 交互的介绍。</p>
 </div>
 <div class="admonition note">
-<p class="admonition-title">注解</p>
+<p class="admonition-title">备注</p>
 <p>如果你使用的是 IPython 或 Jupyter 笔记本等增强型 shell，你可以在运行本教程中的那些系统命令时，在它们前面加上 <code class="docutils literal notranslate"><span class="pre">!</span></code> 字符来表示：</p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>In [1]: import sys
@@ -207,7 +211,7 @@ Python 3.6.3
 <p>建议编写 <code class="docutils literal notranslate"><span class="pre">{sys.executable}</span></code> 而不是普通的 <code class="docutils literal notranslate"><span class="pre">python</span></code>，以确保命令在与当前运行的笔记本相匹配的 Python 安装中运行（可能不是 <code class="docutils literal notranslate"><span class="pre">python</span></code> 命令所指的那个 Python 安装）。</p>
 </div>
 <div class="admonition note">
-<p class="admonition-title">注解</p>
+<p class="admonition-title">备注</p>
 <p>由于大多数 Linux 发行版处理 Python 3 迁移的方式，使用系统 Python 而不先创建虚拟环境的 Linux 用户应将本教程中的 <code class="docutils literal notranslate"><span class="pre">python</span></code> 命令改为 <code class="docutils literal notranslate"><span class="pre">python3</span></code>，<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span></code> 命令改为 <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">--user</span></code>。不要用 <code class="docutils literal notranslate"><span class="pre">sudo</span></code> 运行本教程中的任何命令：如果你得到一个权限错误，请回到创建虚拟环境的部分，设置一个虚拟环境，然后继续学习本教程。</p>
 </div>
 </section>
@@ -332,7 +336,7 @@ tutorial_env\Scripts\activate
 </div>
 </div>
 </div>
-<p>更多信息，请参阅 <a class="reference external" href="https://docs.python.org/3/library/venv.html" title="(在 Python v3.10)"><span class="xref std std-doc">venv</span></a> 文档或 <a class="reference external" href="https://virtualenv.pypa.io/en/stable/index.html" title="(在 virtualenv v20.12)"><span class="xref std std-doc">virtualenv</span></a> 文档。</p>
+<p>更多信息，请参阅 <a class="reference external" href="https://docs.python.org/3/library/venv.html" title="(在 Python v3.10)"><span class="xref std std-doc">venv</span></a> 文档或 <a class="reference external" href="https://virtualenv.pypa.io/en/stable/index.html" title="(在 virtualenv v20.14)"><span class="xref std std-doc">virtualenv</span></a> 文档。</p>
 <p>在 Unix 外壳下使用 <strong class="command">source</strong> 可以确保虚拟环境的变量是在当前的外壳中设置的，而不是在子进程中设置的（子进程随后消失，没有任何作用）。</p>
 <p>在上述两种情况下，Windows 用户不应该使用 <strong class="command">source</strong> 命令，而应该像这样直接从命令外壳运行 <strong class="command">activate</strong> 脚本：</p>
 <div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span>DIR<span class="p">&gt;</span>\Scripts\activate
@@ -342,11 +346,11 @@ tutorial_env\Scripts\activate
 </section>
 <section id="use-pip-for-installing">
 <h2><a class="toc-backref" href="#id17">使用 pip 进行安装</a><a class="headerlink" href="#use-pip-for-installing" title="永久链接至标题">¶</a></h2>
-<p><a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> 是推荐的安装程序。下面，我们将介绍最常见的使用场景。更多细节，请参阅 <a class="reference external" href="https://pip.pypa.io/en/latest/" title="(在 pip v22.0)"><span class="xref std std-doc">pip docs</span></a>，其中包括一个完整的 <a class="reference external" href="https://pip.pypa.io/en/latest/cli/" title="(在 pip v22.0)"><span class="xref std std-doc">参考指南</span></a>。</p>
+<p><a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> 是推荐的安装程序。下面，我们将介绍最常见的使用场景。更多细节，请参阅 <a class="reference external" href="https://pip.pypa.io/en/latest/" title="(在 pip v22.1)"><span class="xref std std-doc">pip docs</span></a>，其中包括一个完整的 <a class="reference external" href="https://pip.pypa.io/en/latest/cli/" title="(在 pip v22.1)"><span class="xref std std-doc">参考指南</span></a>。</p>
 </section>
 <section id="installing-from-pypi">
 <h2><a class="toc-backref" href="#id18">从 PyPI 进行安装</a><a class="headerlink" href="#installing-from-pypi" title="永久链接至标题">¶</a></h2>
-<p><a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> 最常见的用法是使用 <a class="reference internal" href="../glossary.html#term-Python-Package-Index-PyPI"><span class="xref std std-term">Python 包索引</span></a> 来安装，使用 <a class="reference internal" href="../glossary.html#term-Requirement-Specifier"><span class="xref std std-term">requirement specifier</span></a>。一般来说，需求说明由项目名称和可选的 <a class="reference internal" href="../glossary.html#term-Version-Specifier"><span class="xref std std-term">version specifier</span></a> 组成。<span class="target" id="index-16"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0440"><strong>PEP 440</strong></a> 包含一个 <span class="target" id="index-17"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0440#version-specifiers"><strong>full specification</strong></a> 的当前支持的说明。下面是一些例子。</p>
+<p><a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> 最常见的用法是使用 <a class="reference internal" href="../glossary.html#term-Python-Package-Index-PyPI"><span class="xref std std-term">Python 包索引</span></a> 来安装，使用 <a class="reference internal" href="../glossary.html#term-Requirement-Specifier"><span class="xref std std-term">requirement specifier</span></a>。一般来说，需求说明由项目名称和可选的 <a class="reference internal" href="../glossary.html#term-Version-Specifier"><span class="xref std std-term">version specifier</span></a> 组成。<span class="target" id="index-16"></span><a class="pep reference external" href="https://peps.python.org/pep-0440/"><strong>PEP 440</strong></a> 包含一个 <span class="target" id="index-17"></span><a class="pep reference external" href="https://peps.python.org/pep-0440/#version-specifiers"><strong>full specification</strong></a> 的当前支持的说明。下面是一些例子。</p>
 <p>要安装最新版本的 “SomeProject”：</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--7-input--1" name="tab-set--7" type="radio"><label class="tab-label" for="tab-set--7-input--1">Unix/macOS</label><div class="tab-content docutils container">
@@ -386,7 +390,7 @@ tutorial_env\Scripts\activate
 </div>
 </div>
 </div>
-<p>要安装一个与 <span class="target" id="index-18"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0440#compatible-release"><strong>“compatible”</strong></a> 兼容某一版本：<a class="footnote-reference brackets" href="#id10" id="id5">4</a></p>
+<p>要安装一个与 <span class="target" id="index-18"></span><a class="pep reference external" href="https://peps.python.org/pep-0440/#compatible-release"><strong>“compatible”</strong></a> 兼容某一版本：<a class="footnote-reference brackets" href="#id10" id="id5">4</a></p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--10-input--1" name="tab-set--10" type="radio"><label class="tab-label" for="tab-set--10-input--1">Unix/macOS</label><div class="tab-content docutils container">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install <span class="s2">&quot;SomeProject~=1.4.2&quot;</span>
@@ -403,7 +407,7 @@ tutorial_env\Scripts\activate
 </section>
 <section id="source-distributions-vs-wheels">
 <h2><a class="toc-backref" href="#id19">源分发与轮子</a><a class="headerlink" href="#source-distributions-vs-wheels" title="永久链接至标题">¶</a></h2>
-<p><a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> 可以从 <a class="reference internal" href="../glossary.html#term-Source-Distribution-or-sdist"><span class="xref std std-term">源分发（sdist）</span></a> 或 <a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">轮子</span></a> 安装，但如果两者都存在于 PyPI 上，pip 会优先选择兼容的 <a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">轮子</span></a>。你可以通过使用 <a class="reference external" href="https://pip.pypa.io/en/latest/cli/pip_install/#install-no-binary" title="(在 pip v22.0)"><span class="xref std std-ref">-no-binary</span></a> 选项来覆盖 pip 的默认行为。</p>
+<p><a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> 可以从 <a class="reference internal" href="../glossary.html#term-Source-Distribution-or-sdist"><span class="xref std std-term">源分发（sdist）</span></a> 或 <a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">轮子</span></a> 安装，但如果两者都存在于 PyPI 上，pip 会优先选择兼容的 <a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">轮子</span></a>。你可以通过使用 <a class="reference external" href="https://pip.pypa.io/en/latest/cli/pip_install/#install-no-binary" title="(在 pip v22.1)"><span class="xref std std-ref">-no-binary</span></a> 选项来覆盖 pip 的默认行为。</p>
 <p><a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">轮子</span></a> 是一种预先建立的 <a class="reference internal" href="../glossary.html#term-Distribution-Package"><span class="xref std std-term">distribution</span></a> 格式，与 <a class="reference internal" href="../glossary.html#term-Source-Distribution-or-sdist"><span class="xref std std-term">源分发（sdist）</span></a> 相比，它提供更快的安装，特别是当一个项目包含编译的扩展。</p>
 <p>如果 <a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> 没有找到要安装的轮子，它将在本地建立一个轮子，并为将来的安装进行缓存，而不是在将来重建源码分布。</p>
 </section>
@@ -448,7 +452,7 @@ tutorial_env\Scripts\activate
 </section>
 <section id="requirements-files">
 <h2><a class="toc-backref" href="#id22">需求文件</a><a class="headerlink" href="#requirements-files" title="永久链接至标题">¶</a></h2>
-<p>安装一个在  <a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#requirements-files" title="(在 pip v22.0)"><span class="xref std std-ref">需求文件</span></a> 中指定的需求列表。</p>
+<p>安装一个在  <a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#requirements-files" title="(在 pip v22.1)"><span class="xref std std-ref">需求文件</span></a> 中指定的需求列表。</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--13-input--1" name="tab-set--13" type="radio"><label class="tab-label" for="tab-set--13-input--1">Unix/macOS</label><div class="tab-content docutils container">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install -r requirements.txt
@@ -464,7 +468,7 @@ tutorial_env\Scripts\activate
 </section>
 <section id="installing-from-vcs">
 <h2><a class="toc-backref" href="#id23">从 VCS 安装</a><a class="headerlink" href="#installing-from-vcs" title="永久链接至标题">¶</a></h2>
-<p>以 “editable” 模式从 VCS 安装一个项目。关于语法的详细介绍，请参见 pip 的 <a class="reference external" href="https://pip.pypa.io/en/latest/cli/pip_install/#vcs-support" title="(在 pip v22.0)"><span class="xref std std-ref">VCS 支持</span></a> 部分。</p>
+<p>以 “editable” 模式从 VCS 安装一个项目。关于语法的详细介绍，请参见 pip 的 <a class="reference external" href="https://pip.pypa.io/en/latest/cli/pip_install/#vcs-support" title="(在 pip v22.1)"><span class="xref std std-ref">VCS 支持</span></a> 部分。</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--14-input--1" name="tab-set--14" type="radio"><label class="tab-label" for="tab-set--14-input--1">Unix/macOS</label><div class="tab-content docutils container">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install -e git+https://git.repo/some_pkg.git#egg<span class="o">=</span>SomeProject          <span class="c1"># from git</span>
@@ -515,7 +519,7 @@ py -m pip install -e git+https://git.repo/some_pkg.git@feature#egg=SomeProject  
 </section>
 <section id="installing-from-a-local-src-tree">
 <h2><a class="toc-backref" href="#id25">从本地 src 树上安装</a><a class="headerlink" href="#installing-from-a-local-src-tree" title="永久链接至标题">¶</a></h2>
-<p>在 <a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/development_mode.html" title="(在 setuptools v60.5.4)"><span class="xref std std-doc">Development Mode</span></a> 中从本地 src 安装，即以这样一种方式，项目看似已经安装，但仍可从 src 树上编辑。</p>
+<p>在 <a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/development_mode.html" title="(在 setuptools v62.1.0.post20220422)"><span class="xref std std-doc">Development Mode</span></a> 中从本地 src 安装，即以这样一种方式，项目看似已经安装，但仍可从 src 树上编辑。</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--17-input--1" name="tab-set--17" type="radio"><label class="tab-label" for="tab-set--17-input--1">Unix/macOS</label><div class="tab-content docutils container">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install -e &lt;path&gt;
@@ -577,7 +581,7 @@ py -m pip install --no-index --find-links=relative/dir/ SomeProject
 </section>
 <section id="installing-from-other-sources">
 <h2><a class="toc-backref" href="#id27">从其他来源安装</a><a class="headerlink" href="#installing-from-other-sources" title="永久链接至标题">¶</a></h2>
-<p>要从其他数据源（例如 Amazon S3 存储）安装，你可以创建一个辅助应用程序，以 <span class="target" id="index-22"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0503"><strong>PEP 503</strong></a> 兼容的索引格式展示数据，并使用 <code class="docutils literal notranslate"><span class="pre">--extra-index-url</span></code> 标志来指导 pip 使用该索引。</p>
+<p>要从其他数据源（例如 Amazon S3 存储）安装，你可以创建一个辅助应用程序，以 <span class="target" id="index-22"></span><a class="pep reference external" href="https://peps.python.org/pep-0503/"><strong>PEP 503</strong></a> 兼容的索引格式展示数据，并使用 <code class="docutils literal notranslate"><span class="pre">--extra-index-url</span></code> 标志来指导 pip 使用该索引。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./s3helper --port<span class="o">=</span><span class="m">7777</span>
 python -m pip install --extra-index-url http://localhost:7777 SomeProject
 </pre></div>
@@ -630,7 +634,7 @@ py -m pip install -e .[PDF]  # editable project in current directory
 <dd><p>从 Python 3.4 开始，<code class="docutils literal notranslate"><span class="pre">venv</span></code> （ <a class="reference internal" href="../key_projects.html#virtualenv"><span class="std std-ref">virtualenv</span></a> 的 stdlib 替代品）将创建预装了 <code class="docutils literal notranslate"><span class="pre">pip</span></code> 的 virtualenv 环境，从而使其成为 <a class="reference internal" href="../key_projects.html#virtualenv"><span class="std std-ref">virtualenv</span></a> 的同等替代品。</p>
 </dd>
 <dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id5">4</a></span></dt>
-<dd><p>在 <span class="target" id="index-23"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0440"><strong>PEP 440</strong></a> 中接受了兼容的发行规格，并在 <a class="reference internal" href="../key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a> v8.0 和 <a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> v6.0 中发布了支持</p>
+<dd><p>在 <span class="target" id="index-23"></span><a class="pep reference external" href="https://peps.python.org/pep-0440/"><strong>PEP 440</strong></a> 中接受了兼容的发行规格，并在 <a class="reference internal" href="../key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a> v8.0 和 <a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> v6.0 中发布了支持</p>
 </dd>
 </dl>
 </section>
@@ -663,12 +667,16 @@ py -m pip install -e .[PDF]  # editable project in current directory
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="index.html"
-                        title="上一章">教程</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="managing-dependencies.html"
-                        title="下一章">管理应用程序的依赖性</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="index.html"
+                          title="上一章">教程</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="managing-dependencies.html"
+                          title="下一章">管理应用程序的依赖性</a></p>
+  </div>
         </div>
       </div>
       <div class="clearer"></div>
@@ -715,25 +723,25 @@ py -m pip install -e .[PDF]  # editable project in current directory
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权所有</a> 2013–2020, PyPA.
+    &copy; 版权所有 2013–2020, PyPA.
     <br />
     This page is licensed under the Python Software Foundation License Version 2.
     <br />
     Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
     <br />
-    See <a href="">History and License</a> for more information.
-    <br /><br />
+    
+    <br />
 
     The Python Software Foundation is a non-profit corporation.
 <a href="https://www.python.org/psf/donations/">Please donate.</a>
 <br />
     <br />
 
-    最后更新于 2022 年 01 月 25 日.
+    最后更新于 2022 年 04 月 23 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
     </div>
 
   </body>

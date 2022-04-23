@@ -44,7 +44,7 @@
              <img src="../_static/py.svg" alt="Logo"/>
          </a>
         <div class="version_switcher_placeholder"></div>
-        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+        <form role="search" class="search" action="../search.html" method="get">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
                 <path fill-rule="nonzero"
                         d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
@@ -75,12 +75,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="platform-compatibility-tags.html"
-                        title="上一章">Platform compatibility tags</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="entry-points.html"
-                        title="下一章">Entry points specification</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="platform-compatibility-tags.html"
+                          title="上一章">Platform compatibility tags</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="entry-points.html"
+                          title="下一章">Entry points specification</a></p>
+  </div>
         </nav>
     </div>
 </div>
@@ -146,11 +150,11 @@ files in a format specific to Python tooling, it should still record the name
 and version of the installed project.</p>
 <section id="history-and-change-workflow">
 <h2>History and change workflow<a class="headerlink" href="#history-and-change-workflow" title="永久链接至标题">¶</a></h2>
-<p>The metadata described here was first specified in <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0376"><strong>PEP 376</strong></a>, and later
-amended in <span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0627"><strong>PEP 627</strong></a>.
+<p>The metadata described here was first specified in <span class="target" id="index-0"></span><a class="pep reference external" href="https://peps.python.org/pep-0376/"><strong>PEP 376</strong></a>, and later
+amended in <span class="target" id="index-1"></span><a class="pep reference external" href="https://peps.python.org/pep-0627/"><strong>PEP 627</strong></a>.
 It was formerly known as <em>Database of Installed Python Distributions</em>.
 Further amendments (except trivial language or typography fixes) must be made
-through the PEP process (see <span class="target" id="index-2"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0001"><strong>PEP 1</strong></a>).</p>
+through the PEP process (see <span class="target" id="index-2"></span><a class="pep reference external" href="https://peps.python.org/pep-0001/"><strong>PEP 1</strong></a>).</p>
 <p>While this document is the normative specification, these PEPs that introduce
 changes to it may include additional information such as rationales and
 backwards compatibility considerations.</p>
@@ -162,10 +166,10 @@ install a “<code class="docutils literal notranslate"><span class="pre">.dist-
 packages (commonly, the <code class="docutils literal notranslate"><span class="pre">site-packages</span></code> directory).</p>
 <p>This directory is named as <code class="docutils literal notranslate"><span class="pre">{name}-{version}.dist-info</span></code>, with <code class="docutils literal notranslate"><span class="pre">name</span></code> and
 <code class="docutils literal notranslate"><span class="pre">version</span></code> fields corresponding to <a class="reference internal" href="core-metadata.html#core-metadata"><span class="std std-ref">Core metadata specifications</span></a>. Both fields must be
-normalized (see <span class="target" id="index-3"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0503#normalized-names"><strong>PEP 503</strong></a> and
-<span class="target" id="index-4"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0440#normalization"><strong>PEP 440</strong></a> for the definition of normalization for
+normalized (see <span class="target" id="index-3"></span><a class="pep reference external" href="https://peps.python.org/pep-0503/#normalized-names"><strong>PEP 503</strong></a> and
+<span class="target" id="index-4"></span><a class="pep reference external" href="https://peps.python.org/pep-0440/#normalization"><strong>PEP 440</strong></a> for the definition of normalization for
 each field respectively), and replace dash (<code class="docutils literal notranslate"><span class="pre">-</span></code>) characters with
-underscore (<code class="docutils literal notranslate"><span class="pre">_</span></code>) chacaters, so the <code class="docutils literal notranslate"><span class="pre">.dist-info</span></code> directory always has
+underscore (<code class="docutils literal notranslate"><span class="pre">_</span></code>) characters, so the <code class="docutils literal notranslate"><span class="pre">.dist-info</span></code> directory always has
 exactly one dash (<code class="docutils literal notranslate"><span class="pre">-</span></code>) character in its stem, separating the <code class="docutils literal notranslate"><span class="pre">name</span></code> and
 <code class="docutils literal notranslate"><span class="pre">version</span></code> fields.</p>
 <p>Historically, tools have failed to replace dot characters or normalize case in
@@ -176,7 +180,7 @@ New tools that write <code class="docutils literal notranslate"><span class="pre
 and <code class="docutils literal notranslate"><span class="pre">version</span></code> fields using the rules described above, and existing tools are
 encouraged to start normalizing those fields.</p>
 <div class="admonition note">
-<p class="admonition-title">注解</p>
+<p class="admonition-title">备注</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">.dist-info</span></code> directory’s name is formatted to unambigiously represent
 a distribution as a filesystem path. Tools presenting a distribution name
 to a user should avoid using the normalized name, and instead present the
@@ -197,7 +201,7 @@ below:</p>
 All other files may be omitted at the installing tool’s discretion.
 Additional installer-specific files may be present.</p>
 <div class="admonition note">
-<p class="admonition-title">注解</p>
+<p class="admonition-title">备注</p>
 <p>The <a class="reference internal" href="binary-distribution-format.html#binary-distribution-format"><span class="std std-ref">二进制分发格式</span></a> specification describes additional
 files that may appear in the <code class="docutils literal notranslate"><span class="pre">.dist-info</span></code> directory of a <a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">Wheel</span></a>.
 Such files may be copied to the <code class="docutils literal notranslate"><span class="pre">.dist-info</span></code> directory of an
@@ -334,12 +338,16 @@ of requirement (i.e. name plus version specifier).</p>
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="platform-compatibility-tags.html"
-                        title="上一章">Platform compatibility tags</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="entry-points.html"
-                        title="下一章">Entry points specification</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="platform-compatibility-tags.html"
+                          title="上一章">Platform compatibility tags</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="entry-points.html"
+                          title="下一章">Entry points specification</a></p>
+  </div>
         </div>
       </div>
       <div class="clearer"></div>
@@ -386,25 +394,25 @@ of requirement (i.e. name plus version specifier).</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权所有</a> 2013–2020, PyPA.
+    &copy; 版权所有 2013–2020, PyPA.
     <br />
     This page is licensed under the Python Software Foundation License Version 2.
     <br />
     Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
     <br />
-    See <a href="">History and License</a> for more information.
-    <br /><br />
+    
+    <br />
 
     The Python Software Foundation is a non-profit corporation.
 <a href="https://www.python.org/psf/donations/">Please donate.</a>
 <br />
     <br />
 
-    最后更新于 2022 年 01 月 25 日.
+    最后更新于 2022 年 04 月 23 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
     </div>
 
   </body>

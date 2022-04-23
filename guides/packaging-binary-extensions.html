@@ -44,7 +44,7 @@
              <img src="../_static/py.svg" alt="Logo"/>
          </a>
         <div class="version_switcher_placeholder"></div>
-        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+        <form role="search" class="search" action="../search.html" method="get">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
                 <path fill-rule="nonzero"
                         d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
@@ -94,12 +94,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="dropping-older-python-versions.html"
-                        title="上一章">放弃对旧版 Python 的支持</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="supporting-windows-using-appveyor.html"
-                        title="下一章">Supporting Windows using Appveyor</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="dropping-older-python-versions.html"
+                          title="上一章">放弃对旧版 Python 的支持</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="supporting-windows-using-appveyor.html"
+                          title="下一章">Supporting Windows using Appveyor</a></p>
+  </div>
         </nav>
     </div>
 </div>
@@ -299,8 +303,8 @@ anything, but no references instead of one is a major problem).</p></li>
 compile most Python code to C extension modules. The initial compilation
 provides some speed increases (by bypassing the CPython interpreter layer),
 and Cython’s optional static typing features can offer additional
-opportunities for speed increases. Using Cython still has the disadvantage
-of increasing the complexity of distributing the resulting application,
+opportunities for speed increases. Using Cython still carries the
+<a class="reference internal" href="#disadvantages">disadvantages</a> associated with using binary extensions,
 but has the benefit of having a reduced barrier to entry for Python
 programmers (relative to other languages like C or C++).</p></li>
 <li><p><a class="reference external" href="http://numba.pydata.org/">Numba</a> is a newer tool, created by members
@@ -323,11 +327,16 @@ but they <em>can</em> significantly reduce the maintenance burden of keeping
 wrapper modules up to date.</p>
 <ul>
 <li><p>In addition to being useful for the creation of accelerator modules,
-<a class="reference external" href="https://cython.org/">Cython</a> is also useful for creating wrapper
-modules for C or C++. It still involves wrapping the interfaces by
-hand, however, and is very repetitive, so may not be a good choice for
-wrapping large APIs.</p></li>
-<li><p><a class="reference external" href="https://pybind11.readthedocs.io/en/stable/index.html" title="(在 pybind11 v2.9.0)"><span class="xref std std-doc">pybind11</span></a> is a pure C++11 library
+<a class="reference external" href="https://cython.org/">Cython</a> is also widely used for creating wrapper
+modules for C or C++ APIs. It involves wrapping the interfaces by
+hand, which gives a wide range of freedom in designing and optimising
+the wrapper code, but may not be a good choice for wrapping very
+large APIs quickly. See the
+<a class="reference external" href="https://github.com/cython/cython/wiki/AutoPxd">list of third-party tools</a>
+for automatic wrapping with Cython. It also supports performance-oriented
+Python implementations that provide a CPython-like C-API, such as PyPy
+and Pyston.</p></li>
+<li><p><a class="reference external" href="https://pybind11.readthedocs.io/en/stable/index.html" title="(在 pybind11 v2.9.1)"><span class="xref std std-doc">pybind11</span></a> is a pure C++11 library
 that provides a clean C++ interface to the CPython (and PyPy) C API. It
 does not require a pre-processing step; it is written entirely in
 templated C++. Helpers are included for Setuptools or CMake builds. It
@@ -532,12 +541,16 @@ a Debian system, see the following articles:</p>
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="dropping-older-python-versions.html"
-                        title="上一章">放弃对旧版 Python 的支持</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="supporting-windows-using-appveyor.html"
-                        title="下一章">Supporting Windows using Appveyor</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="dropping-older-python-versions.html"
+                          title="上一章">放弃对旧版 Python 的支持</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="supporting-windows-using-appveyor.html"
+                          title="下一章">Supporting Windows using Appveyor</a></p>
+  </div>
         </div>
       </div>
       <div class="clearer"></div>
@@ -584,25 +597,25 @@ a Debian system, see the following articles:</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权所有</a> 2013–2020, PyPA.
+    &copy; 版权所有 2013–2020, PyPA.
     <br />
     This page is licensed under the Python Software Foundation License Version 2.
     <br />
     Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
     <br />
-    See <a href="">History and License</a> for more information.
-    <br /><br />
+    
+    <br />
 
     The Python Software Foundation is a non-profit corporation.
 <a href="https://www.python.org/psf/donations/">Please donate.</a>
 <br />
     <br />
 
-    最后更新于 2022 年 01 月 25 日.
+    最后更新于 2022 年 04 月 23 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
     </div>
 
   </body>

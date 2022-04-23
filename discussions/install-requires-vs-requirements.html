@@ -44,7 +44,7 @@
              <img src="../_static/py.svg" alt="Logo"/>
          </a>
         <div class="version_switcher_placeholder"></div>
-        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+        <form role="search" class="search" action="../search.html" method="get">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
                 <path fill-rule="nonzero"
                         d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
@@ -76,12 +76,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="pip-vs-easy-install.html"
-                        title="上一章">pip 与 easy_install</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="wheel-vs-egg.html"
-                        title="下一章">Wheel 与 Egg</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="pip-vs-easy-install.html"
+                          title="上一章">pip 与 easy_install</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="wheel-vs-egg.html"
+                          title="下一章">Wheel 与 Egg</a></p>
+  </div>
         </nav>
     </div>
 </div>
@@ -172,9 +176,9 @@
 </section>
 <section id="requirements-files">
 <h2><a class="toc-backref" href="#id6">需求文件</a><a class="headerlink" href="#requirements-files" title="永久链接至标题">¶</a></h2>
-<p><a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#requirements-files" title="(在 pip v22.0)"><span class="xref std std-ref">Requirements Files</span></a> 最简单的描述，只是放在文件中的 <a class="reference external" href="https://pip.pypa.io/en/latest/cli/pip_install/#pip-install" title="(在 pip v22.0)"><span>pip install</span></a> 参数列表。</p>
-<p><code class="docutils literal notranslate"><span class="pre">install_requires</span></code> 定义了单个项目的依赖项， <a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#requirements-files" title="(在 pip v22.0)"><span class="xref std std-ref">Requirements Files</span></a> 通常用于定义完整 Python 环境的要求。</p>
-<p>尽管 <code class="docutils literal notranslate"><span class="pre">install_requires</span></code> 要求是最低限度的，但要求文件通常包含固定版本的详尽列表，目的是实现完整环境的 <a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#repeatability" title="(在 pip v22.0)"><span class="xref std std-ref">repeatable installations</span></a>。</p>
+<p><a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#requirements-files" title="(在 pip v22.1)"><span class="xref std std-ref">Requirements Files</span></a> 最简单的描述，只是放在文件中的 <a class="reference external" href="https://pip.pypa.io/en/latest/cli/pip_install/#pip-install" title="(在 pip v22.1)"><span>pip install</span></a> 参数列表。</p>
+<p><code class="docutils literal notranslate"><span class="pre">install_requires</span></code> 定义了单个项目的依赖项， <a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#requirements-files" title="(在 pip v22.1)"><span class="xref std std-ref">Requirements Files</span></a> 通常用于定义完整 Python 环境的要求。</p>
+<p>尽管 <code class="docutils literal notranslate"><span class="pre">install_requires</span></code> 要求是最低限度的，但要求文件通常包含固定版本的详尽列表，目的是实现完整环境的 <a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#repeatability" title="(在 pip v22.1)"><span class="xref std std-ref">repeatable installations</span></a>。</p>
 <p>而 <code class="docutils literal notranslate"><span class="pre">install_requires</span></code> 需求是“Abstract”的，即不与任何特定索引相关联，需求文件通常包含 pip 选项，如 <code class="docutils literal notranslate"><span class="pre">--index-url</span></code> 或 <code class="docutils literal notranslate"><span class="pre">--find-links</span></code> 使需求“Concrete”，即与包的特定索引或目录相关联。 <a class="footnote-reference brackets" href="#id4" id="id3">1</a></p>
 <p>在安装过程中，<code class="docutils literal notranslate"><span class="pre">install_requires</span></code> 元数据会被 pip 自动分析，而需求文件则不会，而它只有在用户使用 <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span></code> 专门安装时才会使用。</p>
 <hr class="docutils" />
@@ -214,12 +218,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="pip-vs-easy-install.html"
-                        title="上一章">pip 与 easy_install</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="wheel-vs-egg.html"
-                        title="下一章">Wheel 与 Egg</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="pip-vs-easy-install.html"
+                          title="上一章">pip 与 easy_install</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="wheel-vs-egg.html"
+                          title="下一章">Wheel 与 Egg</a></p>
+  </div>
         </div>
       </div>
       <div class="clearer"></div>
@@ -266,25 +274,25 @@
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权所有</a> 2013–2020, PyPA.
+    &copy; 版权所有 2013–2020, PyPA.
     <br />
     This page is licensed under the Python Software Foundation License Version 2.
     <br />
     Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
     <br />
-    See <a href="">History and License</a> for more information.
-    <br /><br />
+    
+    <br />
 
     The Python Software Foundation is a non-profit corporation.
 <a href="https://www.python.org/psf/donations/">Please donate.</a>
 <br />
     <br />
 
-    最后更新于 2022 年 01 月 25 日.
+    最后更新于 2022 年 04 月 23 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
     </div>
 
   </body>

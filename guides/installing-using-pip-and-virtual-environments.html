@@ -44,7 +44,7 @@
              <img src="../_static/py.svg" alt="Logo"/>
          </a>
         <div class="version_switcher_placeholder"></div>
-        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+        <form role="search" class="search" action="../search.html" method="get">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
                 <path fill-rule="nonzero"
                         d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
@@ -94,12 +94,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="index.html"
-                        title="上一章">指南</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="installing-stand-alone-command-line-tools.html"
-                        title="下一章">安装独立命令行工具</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="index.html"
+                          title="上一章">指南</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="installing-stand-alone-command-line-tools.html"
+                          title="下一章">安装独立命令行工具</a></p>
+  </div>
         </nav>
     </div>
 </div>
@@ -158,7 +162,7 @@ a virtual environment manager: either <a class="reference internal" href="../key
 for Python 2. These are the lowest-level tools for managing Python
 packages and are recommended if higher-level tools do not suit your needs.</p>
 <div class="admonition note">
-<p class="admonition-title">注解</p>
+<p class="admonition-title">备注</p>
 <p>This doc uses the term <strong>package</strong> to refer to a
 <a class="reference internal" href="../glossary.html#term-Distribution-Package"><span class="xref std std-term">Distribution Package</span></a>  which is different from an <a class="reference internal" href="../glossary.html#term-Import-Package"><span class="xref std std-term">Import
 Package</span></a> that which is used to import modules in your Python source code.</p>
@@ -170,7 +174,7 @@ update packages. You’ll need to make sure you have the latest version of pip
 installed.</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<p>Debian and most other distributions include a <a class="reference external" href="https://packages.debian.org/stable/python-pip">python-pip</a> package; if you
+<p>Debian and most other distributions include a <a class="reference external" href="https://packages.debian.org/stable/python/python3-pip">python-pip</a> package; if you
 want to use the Linux distribution-provided versions of pip, see
 <a class="reference internal" href="installing-using-linux-tools.html"><span class="doc">用 Linux 软件包管理器安装 pip/setuptools/wheel</span></a>.</p>
 <p>You can also install pip yourself to ensure you have the latest version. It’s
@@ -204,7 +208,7 @@ py -m pip --version
 <section id="installing-virtualenv">
 <h2>安装 virtualenv<a class="headerlink" href="#installing-virtualenv" title="永久链接至标题">¶</a></h2>
 <div class="admonition note">
-<p class="admonition-title">注解</p>
+<p class="admonition-title">备注</p>
 <p>If you are using Python 3.3 or newer, the <a class="reference external" href="https://docs.python.org/3/library/venv.html#module-venv" title="(在 Python v3.10)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> module is
 the preferred way to create and manage virtual environments.
 venv is included in the Python standard library and requires no additional installation.
@@ -253,7 +257,7 @@ applications.</p>
 <p>第二个参数是创建虚拟环境的位置。一般来说，您可以直接在您的项目中创建它，并称之为 <code class="docutils literal notranslate"><span class="pre">env</span></code> 。</p>
 <p>venv 将在 <code class="docutils literal notranslate"><span class="pre">env</span></code> 文件夹中创建一个虚拟的 Python 安装。</p>
 <div class="admonition note">
-<p class="admonition-title">注解</p>
+<p class="admonition-title">备注</p>
 <p>您应该使用 <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> 或类似的方法将您的虚拟环境目录从你的版本控制系统中排除。</p>
 </div>
 </section>
@@ -417,7 +421,7 @@ py -m pip install .
 </div>
 </div>
 <p>Additionally, pip can install packages from source in
-<a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/development_mode.html" title="(在 setuptools v60.5.4)"><span class="xref std std-doc">development mode</span></a>,
+<a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/development_mode.html" title="(在 setuptools v62.1.0.post20220422)"><span class="xref std std-doc">development mode</span></a>,
 meaning that changes to the source directory will immediately affect the
 installed package without needing to re-install:</p>
 <div class="tab-set docutils container">
@@ -439,7 +443,7 @@ installed package without needing to re-install:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git+https://github.com/GoogleCloudPlatform/google-auth-library-python.git#egg<span class="o">=</span>google-auth
 </pre></div>
 </div>
-<p>关于支持的版本控制系统和语法的更多信息，请参见 pip 的文档：<a class="reference external" href="https://pip.pypa.io/en/latest/cli/pip_install/#vcs-support" title="(在 pip v22.0)"><span class="xref std std-ref">VCS Support</span></a> 。</p>
+<p>关于支持的版本控制系统和语法的更多信息，请参见 pip 的文档：<a class="reference external" href="https://pip.pypa.io/en/latest/cli/pip_install/#vcs-support" title="(在 pip v22.1)"><span class="xref std std-ref">VCS Support</span></a> 。</p>
 </section>
 <section id="installing-from-local-archives">
 <h2>从本地档案库安装<a class="headerlink" href="#installing-from-local-archives" title="永久链接至标题">¶</a></h2>
@@ -526,7 +530,7 @@ install the latest version of <code class="docutils literal notranslate"><span c
 <section id="using-requirements-files">
 <h2>Using requirements files<a class="headerlink" href="#using-requirements-files" title="永久链接至标题">¶</a></h2>
 <p>Instead of installing packages individually, pip allows you to declare all
-dependencies in a <a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#requirements-files" title="(在 pip v22.0)"><span class="xref std std-ref">Requirements File</span></a>. For
+dependencies in a <a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#requirements-files" title="(在 pip v22.1)"><span class="xref std std-ref">Requirements File</span></a>. For
 example you could create a <code class="file docutils literal notranslate"><span class="pre">requirements.txt</span></code> file containing:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>requests==2.18.4
 google-auth==1.1.0
@@ -576,7 +580,7 @@ six==1.11.0
 urllib3==1.22
 </pre></div>
 </div>
-<p>This is useful for creating <a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#requirements-files" title="(在 pip v22.0)"><span>Requirements Files</span></a> that can re-create
+<p>This is useful for creating <a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#requirements-files" title="(在 pip v22.1)"><span>Requirements Files</span></a> that can re-create
 the exact versions of all packages installed in an environment.</p>
 </section>
 </section>
@@ -626,12 +630,16 @@ the exact versions of all packages installed in an environment.</p>
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="index.html"
-                        title="上一章">指南</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="installing-stand-alone-command-line-tools.html"
-                        title="下一章">安装独立命令行工具</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="index.html"
+                          title="上一章">指南</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="installing-stand-alone-command-line-tools.html"
+                          title="下一章">安装独立命令行工具</a></p>
+  </div>
         </div>
       </div>
       <div class="clearer"></div>
@@ -678,25 +686,25 @@ the exact versions of all packages installed in an environment.</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权所有</a> 2013–2020, PyPA.
+    &copy; 版权所有 2013–2020, PyPA.
     <br />
     This page is licensed under the Python Software Foundation License Version 2.
     <br />
     Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
     <br />
-    See <a href="">History and License</a> for more information.
-    <br /><br />
+    
+    <br />
 
     The Python Software Foundation is a non-profit corporation.
 <a href="https://www.python.org/psf/donations/">Please donate.</a>
 <br />
     <br />
 
-    最后更新于 2022 年 01 月 25 日.
+    最后更新于 2022 年 04 月 23 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
     </div>
 
   </body>

@@ -44,7 +44,7 @@
              <img src="../_static/py.svg" alt="Logo"/>
          </a>
         <div class="version_switcher_placeholder"></div>
-        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+        <form role="search" class="search" action="../search.html" method="get">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
                 <path fill-rule="nonzero"
                         d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
@@ -94,12 +94,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="supporting-windows-using-appveyor.html"
-                        title="上一章">Supporting Windows using Appveyor</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="creating-and-discovering-plugins.html"
-                        title="下一章">创建和发现插件</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="supporting-windows-using-appveyor.html"
+                          title="上一章">Supporting Windows using Appveyor</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="creating-and-discovering-plugins.html"
+                          title="下一章">创建和发现插件</a></p>
+  </div>
         </nav>
     </div>
 </div>
@@ -203,7 +207,7 @@ import object short).</p>
 <p>There are currently three different approaches to creating namespace packages:</p>
 <ol class="arabic simple">
 <li><p>Use <a class="reference internal" href="#native-namespace-packages">native namespace packages</a>. This type of namespace package is defined
-in <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0420"><strong>PEP 420</strong></a> and is available in Python 3.3 and later. This is recommended if
+in <span class="target" id="index-0"></span><a class="pep reference external" href="https://peps.python.org/pep-0420/"><strong>PEP 420</strong></a> and is available in Python 3.3 and later. This is recommended if
 packages in your namespace only ever need to support Python 3 and
 installation via <code class="docutils literal notranslate"><span class="pre">pip</span></code>.</p></li>
 <li><p>Use <a class="reference internal" href="#pkgutil-style-namespace-packages">pkgutil-style namespace packages</a>. This is recommended for new
@@ -223,7 +227,7 @@ same namespace.</p>
 </div>
 <section id="native-namespace-packages">
 <h3>Native namespace packages<a class="headerlink" href="#native-namespace-packages" title="永久链接至标题">¶</a></h3>
-<p>Python 3.3 added <strong>implicit</strong> namespace packages from <span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0420"><strong>PEP 420</strong></a>. All that is
+<p>Python 3.3 added <strong>implicit</strong> namespace packages from <span class="target" id="index-1"></span><a class="pep reference external" href="https://peps.python.org/pep-0420/"><strong>PEP 420</strong></a>. All that is
 required to create a native namespace package is that you just omit
 <code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code> from the namespace package directory. An example file
 structure:</p>
@@ -256,7 +260,7 @@ list all packages in your <code class="file docutils literal notranslate"><span 
 <p>A complete working example of two native namespace packages can be found in
 the <a class="reference external" href="https://github.com/pypa/sample-namespace-packages/tree/master/native">native namespace package example project</a>.</p>
 <div class="admonition note">
-<p class="admonition-title">注解</p>
+<p class="admonition-title">备注</p>
 <p>Because native and pkgutil-style namespace packages are largely
 compatible, you can use native namespace packages in the distributions that
 only support Python 3 and pkgutil-style namespace packages in the
@@ -293,7 +297,7 @@ in the <a class="reference external" href="https://github.com/pypa/sample-namesp
 </section>
 <section id="pkg-resources-style-namespace-packages">
 <h3>pkg_resources-style namespace packages<a class="headerlink" href="#pkg-resources-style-namespace-packages" title="永久链接至标题">¶</a></h3>
-<p><a class="reference external" href="https://setuptools.pypa.io/en/latest/index.html" title="(在 setuptools v60.5.4)"><span class="xref std std-doc">Setuptools</span></a> provides the <a class="reference external" href="https://setuptools.readthedocs.io/en/latest/pkg_resources.html#namespace-package-support">pkg_resources.declare_namespace</a> function and
+<p><a class="reference external" href="https://setuptools.pypa.io/en/latest/index.html" title="(在 setuptools v62.1.0.post20220422)"><span class="xref std std-doc">Setuptools</span></a> provides the <a class="reference external" href="https://setuptools.readthedocs.io/en/latest/pkg_resources.html#namespace-package-support">pkg_resources.declare_namespace</a> function and
 the <code class="docutils literal notranslate"><span class="pre">namespace_packages</span></code> argument to <code class="xref py py-func docutils literal notranslate"><span class="pre">setup()</span></code>. Together
 these can be used to declare namespace packages. While this approach is no
 longer recommended, it is widely present in most existing namespace packages.
@@ -321,7 +325,7 @@ identical <code class="file docutils literal notranslate"><span class="pre">__in
 namespace logic to fail and the other sub-packages will not be importable.  Any
 additional code in <code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code> will be inaccessible.</p>
 <div class="admonition note">
-<p class="admonition-title">注解</p>
+<p class="admonition-title">备注</p>
 <p>Some older recommendations advise the following in the namespace
 package <code class="file docutils literal notranslate"><span class="pre">__init__.py</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
@@ -400,12 +404,16 @@ in the <a class="reference external" href="https://github.com/pypa/sample-namesp
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="supporting-windows-using-appveyor.html"
-                        title="上一章">Supporting Windows using Appveyor</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="creating-and-discovering-plugins.html"
-                        title="下一章">创建和发现插件</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="supporting-windows-using-appveyor.html"
+                          title="上一章">Supporting Windows using Appveyor</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="creating-and-discovering-plugins.html"
+                          title="下一章">创建和发现插件</a></p>
+  </div>
         </div>
       </div>
       <div class="clearer"></div>
@@ -452,25 +460,25 @@ in the <a class="reference external" href="https://github.com/pypa/sample-namesp
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权所有</a> 2013–2020, PyPA.
+    &copy; 版权所有 2013–2020, PyPA.
     <br />
     This page is licensed under the Python Software Foundation License Version 2.
     <br />
     Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
     <br />
-    See <a href="">History and License</a> for more information.
-    <br /><br />
+    
+    <br />
 
     The Python Software Foundation is a non-profit corporation.
 <a href="https://www.python.org/psf/donations/">Please donate.</a>
 <br />
     <br />
 
-    最后更新于 2022 年 01 月 25 日.
+    最后更新于 2022 年 04 月 23 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
     </div>
 
   </body>

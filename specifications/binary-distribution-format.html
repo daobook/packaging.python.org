@@ -44,7 +44,7 @@
              <img src="../_static/py.svg" alt="Logo"/>
          </a>
         <div class="version_switcher_placeholder"></div>
-        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+        <form role="search" class="search" action="../search.html" method="get">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
                 <path fill-rule="nonzero"
                         d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
@@ -75,12 +75,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="source-distribution-format.html"
-                        title="上一章">Source distribution format</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="pypirc.html"
-                        title="下一章">The <code class="file docutils literal notranslate"><span class="pre">.pypirc</span></code> file</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="source-distribution-format.html"
+                          title="上一章">Source distribution format</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="pypirc.html"
+                          title="下一章">The <code class="file docutils literal notranslate"><span class="pre">.pypirc</span></code> file</a></p>
+  </div>
         </nav>
     </div>
 </div>
@@ -134,7 +138,7 @@
             
   <section id="binary-distribution-format">
 <span id="id1"></span><h1>二进制分发格式<a class="headerlink" href="#binary-distribution-format" title="永久链接至标题">¶</a></h1>
-<p>二进制分发格式（<a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">wheel</span></a>）最初在 <span class="target" id="index-5"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0427"><strong>PEP 427</strong></a> 中定义。当前版本的规范在这里。</p>
+<p>二进制分发格式（<a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">wheel</span></a>）最初在 <span class="target" id="index-5"></span><a class="pep reference external" href="https://peps.python.org/pep-0427/"><strong>PEP 427</strong></a> 中定义。当前版本的规范在这里。</p>
 <section id="abstract">
 <h2>摘要<a class="headerlink" href="#abstract" title="永久链接至标题">¶</a></h2>
 <p>这个 PEP 描述了一种叫做 “wheel” 的 Python 内置包格式。</p>
@@ -271,11 +275,11 @@ this character cannot appear within any component. This is handled as follows:</
 <li><p>In distribution names, any run of <code class="docutils literal notranslate"><span class="pre">-_.</span></code> characters (HYPHEN-MINUS, LOW LINE
 and FULL STOP) should be replaced with <code class="docutils literal notranslate"><span class="pre">_</span></code> (LOW LINE), and uppercase
 characters should be replaced with corresponding lowercase ones. This is
-equivalent to <span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0503"><strong>PEP 503</strong></a> normalisation followed by replacing <code class="docutils literal notranslate"><span class="pre">-</span></code> with <code class="docutils literal notranslate"><span class="pre">_</span></code>.
+equivalent to <span class="target" id="index-1"></span><a class="pep reference external" href="https://peps.python.org/pep-0503/"><strong>PEP 503</strong></a> normalisation followed by replacing <code class="docutils literal notranslate"><span class="pre">-</span></code> with <code class="docutils literal notranslate"><span class="pre">_</span></code>.
 Tools consuming wheels must be prepared to accept <code class="docutils literal notranslate"><span class="pre">.</span></code> (FULL STOP) and
 uppercase letters, however, as these were allowed by an earlier version of
 this specification.</p></li>
-<li><p>Version numbers should be normalised according to <span class="target" id="index-2"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0440"><strong>PEP 440</strong></a>. Normalised
+<li><p>Version numbers should be normalised according to <span class="target" id="index-2"></span><a class="pep reference external" href="https://peps.python.org/pep-0440/"><strong>PEP 440</strong></a>. Normalised
 version numbers cannot contain <code class="docutils literal notranslate"><span class="pre">-</span></code>.</p></li>
 <li><p>The remaining components may not contain <code class="docutils literal notranslate"><span class="pre">-</span></code> characters, so no escaping
 is necessary.</p></li>
@@ -303,7 +307,7 @@ its version, e.g. <code class="docutils literal notranslate"><span class="pre">1
 <li><p><code class="docutils literal notranslate"><span class="pre">{distribution}-{version}.data/</span></code> contains one subdirectory
 for each non-empty install scheme key not already covered, where
 the subdirectory name is an index into a dictionary of install paths
-(e.g. <code class="docutils literal notranslate"><span class="pre">data</span></code>, <code class="docutils literal notranslate"><span class="pre">scripts</span></code>, <code class="docutils literal notranslate"><span class="pre">include</span></code>, <code class="docutils literal notranslate"><span class="pre">purelib</span></code>, <code class="docutils literal notranslate"><span class="pre">platlib</span></code>).</p></li>
+(e.g. <code class="docutils literal notranslate"><span class="pre">data</span></code>, <code class="docutils literal notranslate"><span class="pre">scripts</span></code>, <code class="docutils literal notranslate"><span class="pre">headers</span></code>, <code class="docutils literal notranslate"><span class="pre">purelib</span></code>, <code class="docutils literal notranslate"><span class="pre">platlib</span></code>).</p></li>
 <li><p>Python scripts must appear in <code class="docutils literal notranslate"><span class="pre">scripts</span></code> and begin with exactly
 <code class="docutils literal notranslate"><span class="pre">b'#!python'</span></code> in order to enjoy script wrapper generation and
 <code class="docutils literal notranslate"><span class="pre">#!python</span></code> rewriting at install time.  They may have any or no
@@ -416,10 +420,10 @@ When the installer checks file hashes against RECORD, a separate signature
 checker only needs to establish that RECORD matches the signature.</p>
 <p>见</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://self-issued.info/docs/draft-ietf-jose-json-web-signature.html">https://self-issued.info/docs/draft-ietf-jose-json-web-signature.html</a></p></li>
-<li><p><a class="reference external" href="https://self-issued.info/docs/draft-jones-jose-jws-json-serialization.html">https://self-issued.info/docs/draft-jones-jose-jws-json-serialization.html</a></p></li>
-<li><p><a class="reference external" href="https://self-issued.info/docs/draft-ietf-jose-json-web-key.html">https://self-issued.info/docs/draft-ietf-jose-json-web-key.html</a></p></li>
-<li><p><a class="reference external" href="https://self-issued.info/docs/draft-jones-jose-json-private-key.html">https://self-issued.info/docs/draft-jones-jose-json-private-key.html</a></p></li>
+<li><p><a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc7515">https://datatracker.ietf.org/doc/html/rfc7515</a></p></li>
+<li><p><a class="reference external" href="https://tools.ietf.org/id/draft-jones-json-web-signature-json-serialization-01.html">https://tools.ietf.org/id/draft-jones-json-web-signature-json-serialization-01.html</a></p></li>
+<li><p><a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc7517">https://datatracker.ietf.org/doc/html/rfc7517</a></p></li>
+<li><p><a class="reference external" href="https://tools.ietf.org/id/draft-jones-jose-json-private-key-01.html">https://tools.ietf.org/id/draft-jones-jose-json-private-key-01.html</a></p></li>
 </ul>
 </section>
 <section id="comparison-to-egg">
@@ -548,7 +552,7 @@ a fully installed package before accepting it as a genuine bug.</p>
 </section>
 <section id="changes">
 <h2>Changes<a class="headerlink" href="#changes" title="永久链接至标题">¶</a></h2>
-<p>Since <span class="target" id="index-3"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0427"><strong>PEP 427</strong></a>, this specification has changed as follows:</p>
+<p>Since <span class="target" id="index-3"></span><a class="pep reference external" href="https://peps.python.org/pep-0427/"><strong>PEP 427</strong></a>, this specification has changed as follows:</p>
 <ul class="simple">
 <li><p>The rules on escaping in wheel filenames were revised, to bring them into line
 with what popular tools actually do (February 2021).</p></li>
@@ -610,12 +614,16 @@ with what popular tools actually do (February 2021).</p></li>
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="source-distribution-format.html"
-                        title="上一章">Source distribution format</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="pypirc.html"
-                        title="下一章">The <code class="file docutils literal notranslate"><span class="pre">.pypirc</span></code> file</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="source-distribution-format.html"
+                          title="上一章">Source distribution format</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="pypirc.html"
+                          title="下一章">The <code class="file docutils literal notranslate"><span class="pre">.pypirc</span></code> file</a></p>
+  </div>
         </div>
       </div>
       <div class="clearer"></div>
@@ -662,25 +670,25 @@ with what popular tools actually do (February 2021).</p></li>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权所有</a> 2013–2020, PyPA.
+    &copy; 版权所有 2013–2020, PyPA.
     <br />
     This page is licensed under the Python Software Foundation License Version 2.
     <br />
     Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
     <br />
-    See <a href="">History and License</a> for more information.
-    <br /><br />
+    
+    <br />
 
     The Python Software Foundation is a non-profit corporation.
 <a href="https://www.python.org/psf/donations/">Please donate.</a>
 <br />
     <br />
 
-    最后更新于 2022 年 01 月 25 日.
+    最后更新于 2022 年 04 月 23 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
     </div>
 
   </body>

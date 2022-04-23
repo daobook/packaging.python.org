@@ -44,7 +44,7 @@
              <img src="../_static/py.svg" alt="Logo"/>
          </a>
         <div class="version_switcher_placeholder"></div>
-        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+        <form role="search" class="search" action="../search.html" method="get">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
                 <path fill-rule="nonzero"
                         d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
@@ -94,12 +94,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="using-testpypi.html"
-                        title="上一章">使用 TestPyPI</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.html"
-                        title="下一章">Publishing package distribution releases using GitHub Actions CI/CD workflows</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="using-testpypi.html"
+                          title="上一章">使用 TestPyPI</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.html"
+                          title="下一章">Publishing package distribution releases using GitHub Actions CI/CD workflows</a></p>
+  </div>
         </nav>
     </div>
 </div>
@@ -186,7 +190,7 @@ use <code class="docutils literal notranslate"><span class="pre">setup()</span><
 Set the <code class="docutils literal notranslate"><span class="pre">long_description_content_type</span></code> to an accepted <code class="docutils literal notranslate"><span class="pre">Content-Type</span></code>-style value for your README file’s markup,
 such as <code class="docutils literal notranslate"><span class="pre">text/plain</span></code>, <code class="docutils literal notranslate"><span class="pre">text/x-rst</span></code> (for reStructuredText), or <code class="docutils literal notranslate"><span class="pre">text/markdown</span></code>.</p>
 <div class="admonition note">
-<p class="admonition-title">注解</p>
+<p class="admonition-title">备注</p>
 <p>如果您使用 GitHub 风格的 Markdown 来写项目的描述，请确保您升级了以下工具：</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Unix/macOS</label><div class="tab-content docutils container">
@@ -237,7 +241,7 @@ and identifies the markup as GitHub-flavored Markdown:</p>
 <p>If your README is written in reStructuredText, any invalid markup will prevent
 it from rendering, causing PyPI to instead just show the README’s raw source.</p>
 <p>Note that Sphinx extensions used in docstrings, such as
-<a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html" title="(在 Sphinx v5.0.0+)"><span class="xref std std-doc">directives and roles</span></a>
+<a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html" title="(在 Sphinx v6.0.0)"><span class="xref std std-doc">directives and roles</span></a>
 (e.g., “<code class="docutils literal notranslate"><span class="pre">:py:func:`getattr`</span></code>” or “<code class="docutils literal notranslate"><span class="pre">:ref:`my-reference-label`</span></code>”), are not allowed here and will result in error
 messages like “<code class="docutils literal notranslate"><span class="pre">Error:</span> <span class="pre">Unknown</span> <span class="pre">interpreted</span> <span class="pre">text</span> <span class="pre">role</span> <span class="pre">&quot;py:func&quot;.</span></code>”.</p>
 <p>You can check your README for markup errors before uploading as follows:</p>
@@ -315,12 +319,16 @@ renders fine, the command will output <code class="docutils literal notranslate"
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="using-testpypi.html"
-                        title="上一章">使用 TestPyPI</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.html"
-                        title="下一章">Publishing package distribution releases using GitHub Actions CI/CD workflows</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="using-testpypi.html"
+                          title="上一章">使用 TestPyPI</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.html"
+                          title="下一章">Publishing package distribution releases using GitHub Actions CI/CD workflows</a></p>
+  </div>
         </div>
       </div>
       <div class="clearer"></div>
@@ -367,25 +375,25 @@ renders fine, the command will output <code class="docutils literal notranslate"
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权所有</a> 2013–2020, PyPA.
+    &copy; 版权所有 2013–2020, PyPA.
     <br />
     This page is licensed under the Python Software Foundation License Version 2.
     <br />
     Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
     <br />
-    See <a href="">History and License</a> for more information.
-    <br /><br />
+    
+    <br />
 
     The Python Software Foundation is a non-profit corporation.
 <a href="https://www.python.org/psf/donations/">Please donate.</a>
 <br />
     <br />
 
-    最后更新于 2022 年 01 月 25 日.
+    最后更新于 2022 年 04 月 23 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
     </div>
 
   </body>

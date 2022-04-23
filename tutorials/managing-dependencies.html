@@ -44,7 +44,7 @@
              <img src="../_static/py.svg" alt="Logo"/>
          </a>
         <div class="version_switcher_placeholder"></div>
-        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+        <form role="search" class="search" action="../search.html" method="get">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
                 <path fill-rule="nonzero"
                         d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
@@ -76,12 +76,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="installing-packages.html"
-                        title="上一章">安装包</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="packaging-projects.html"
-                        title="下一章">包装 Python 项目</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="installing-packages.html"
+                          title="上一章">安装包</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="packaging-projects.html"
+                          title="下一章">包装 Python 项目</a></p>
+  </div>
         </nav>
     </div>
 </div>
@@ -157,7 +161,7 @@
 </div>
 </div>
 <div class="admonition note" id="pipenv-user-base">
-<p class="admonition-title">注解</p>
+<p class="admonition-title">备注</p>
 <p>这将做一个 <a class="reference external" href="https://pip.pypa.io/en/stable/user_guide/#user-installs">user installation</a>，以防止破坏任何系统范围的软件包。如果 <code class="docutils literal notranslate"><span class="pre">pipenv</span></code> 在安装后在你的 shell 中不可用，你需要将 <a class="reference external" href="https://docs.python.org/3/library/site.html#site.USER_BASE" title="(在 Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">user</span> <span class="pre">base</span></code></a> 的二进制目录加入你的 <code class="docutils literal notranslate"><span class="pre">PATH</span></code>。参见 <a class="reference internal" href="installing-packages.html#installing-to-the-user-site"><span class="std std-ref">安装到用户站点</span></a> 获取更多信息。</p>
 </div>
 </section>
@@ -235,9 +239,9 @@ wrapper around pip that supports <code class="docutils literal notranslate"><spa
 or converting them to pip-tools compatible output. Designed for containerized
 Python applications, but not limited to them.</p></li>
 <li><p><a class="reference external" href="https://github.com/pdm-project/pdm">PDM</a> for a modern Python package management
-tool supporting <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0582"><strong>PEP 582</strong></a> (replacing virtual environments with <code class="docutils literal notranslate"><span class="pre">__pypackages__</span></code>
-directory for package installation) and relying on standards such as <span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0517"><strong>PEP 517</strong></a> and
-<span class="target" id="index-2"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0621"><strong>PEP 621</strong></a>.</p></li>
+tool supporting <span class="target" id="index-0"></span><a class="pep reference external" href="https://peps.python.org/pep-0582/"><strong>PEP 582</strong></a> (replacing virtual environments with <code class="docutils literal notranslate"><span class="pre">__pypackages__</span></code>
+directory for package installation) and relying on standards such as <span class="target" id="index-1"></span><a class="pep reference external" href="https://peps.python.org/pep-0517/"><strong>PEP 517</strong></a> and
+<span class="target" id="index-2"></span><a class="pep reference external" href="https://peps.python.org/pep-0621/"><strong>PEP 621</strong></a>.</p></li>
 <li><p><a class="reference external" href="https://github.com/jazzband/pip-tools">pip-tools</a> for creating a lock file of all
 dependencies from a list of packages directly used in a project, and ensuring that
 only those dependencies are installed.</p></li>
@@ -277,12 +281,16 @@ being worked on will support distribution as a <code class="docutils literal not
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="installing-packages.html"
-                        title="上一章">安装包</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="packaging-projects.html"
-                        title="下一章">包装 Python 项目</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="installing-packages.html"
+                          title="上一章">安装包</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="packaging-projects.html"
+                          title="下一章">包装 Python 项目</a></p>
+  </div>
         </div>
       </div>
       <div class="clearer"></div>
@@ -329,25 +337,25 @@ being worked on will support distribution as a <code class="docutils literal not
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权所有</a> 2013–2020, PyPA.
+    &copy; 版权所有 2013–2020, PyPA.
     <br />
     This page is licensed under the Python Software Foundation License Version 2.
     <br />
     Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
     <br />
-    See <a href="">History and License</a> for more information.
-    <br /><br />
+    
+    <br />
 
     The Python Software Foundation is a non-profit corporation.
 <a href="https://www.python.org/psf/donations/">Please donate.</a>
 <br />
     <br />
 
-    最后更新于 2022 年 01 月 25 日.
+    最后更新于 2022 年 04 月 23 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
     </div>
 
   </body>

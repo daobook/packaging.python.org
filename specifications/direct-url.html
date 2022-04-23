@@ -44,7 +44,7 @@
              <img src="../_static/py.svg" alt="Logo"/>
          </a>
         <div class="version_switcher_placeholder"></div>
-        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+        <form role="search" class="search" action="../search.html" method="get">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
                 <path fill-rule="nonzero"
                         d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
@@ -75,12 +75,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="entry-points.html"
-                        title="上一章">Entry points specification</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="source-distribution-format.html"
-                        title="下一章">Source distribution format</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="entry-points.html"
+                          title="上一章">Entry points specification</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="source-distribution-format.html"
+                          title="下一章">Source distribution format</a></p>
+  </div>
         </nav>
     </div>
 </div>
@@ -137,7 +141,7 @@
 <p>This document specifies a <code class="file docutils literal notranslate"><span class="pre">direct_url.json</span></code> file in the
 <code class="file docutils literal notranslate"><span class="pre">*.dist-info</span></code> directory of an installed distribution, to record the
 Direct URL Origin of the distribution. The layout of this file was originally
-specified in <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0610"><strong>PEP 610</strong></a> and is formally documented here.</p>
+specified in <span class="target" id="index-0"></span><a class="pep reference external" href="https://peps.python.org/pep-0610/"><strong>PEP 610</strong></a> and is formally documented here.</p>
 <div class="contents local topic" id="contents">
 <p class="topic-title">导航</p>
 <ul class="simple">
@@ -165,7 +169,7 @@ directory by installers when installing a distribution from a requirement
 specifying a direct URL reference (including a VCS URL).</p>
 <p>This file MUST NOT be created when installing a distribution from an other
 type of requirement (i.e. name plus version specifier).</p>
-<p>This JSON file MUST be a dictionary, compliant with <span class="target" id="index-1"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc8259.html"><strong>RFC 8259</strong></a> and UTF-8 encoded.</p>
+<p>This JSON file MUST be a dictionary, compliant with <span class="target" id="index-1"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc8259.html"><strong>RFC 8259</strong></a> and UTF-8 encoded.</p>
 <p>If present, it MUST contain at least two fields. The first one is <code class="docutils literal notranslate"><span class="pre">url</span></code>, with
 type <code class="docutils literal notranslate"><span class="pre">string</span></code>. Depending on what <code class="docutils literal notranslate"><span class="pre">url</span></code> refers to, the second field MUST be
 one of <code class="docutils literal notranslate"><span class="pre">vcs_info</span></code> (if <code class="docutils literal notranslate"><span class="pre">url</span></code> is a VCS reference), <code class="docutils literal notranslate"><span class="pre">archive_info</span></code> (if
@@ -219,11 +223,11 @@ present as a dictionary with the following key:</p>
 in editable mode, <code class="docutils literal notranslate"><span class="pre">false</span></code> otherwise. If absent, default to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></li>
 </ul>
 <p>When <code class="docutils literal notranslate"><span class="pre">url</span></code> refers to a local directory, it MUST have the <code class="docutils literal notranslate"><span class="pre">file</span></code> sheme and
-be compliant with <span class="target" id="index-2"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc8089.html"><strong>RFC 8089</strong></a>. In
+be compliant with <span class="target" id="index-2"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc8089.html"><strong>RFC 8089</strong></a>. In
 particular, the path component must be absolute. Symbolic links SHOULD be
 preserved when making relative paths absolute.</p>
 <div class="admonition note">
-<p class="admonition-title">注解</p>
+<p class="admonition-title">备注</p>
 <p>When the requested URL has the <a class="reference external" href="file://">file://</a> scheme and points to a local directory that happens to contain a
 VCS checkout, installers MUST NOT attempt to infer any VCS information and
 therefore MUST NOT output any VCS related information (such as <code class="docutils literal notranslate"><span class="pre">vcs_info</span></code>)
@@ -233,7 +237,7 @@ in <code class="file docutils literal notranslate"><span class="pre">direct_url.
 relative to the root of the VCS repository, source archive or local directory,
 to specify where <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> or <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> is located.</p>
 <div class="admonition note">
-<p class="admonition-title">注解</p>
+<p class="admonition-title">备注</p>
 <p>As a general rule, installers should as much as possible preserve the
 information that was provided in the requested URL when generating
 <code class="file docutils literal notranslate"><span class="pre">direct_url.json</span></code>. For example user:password environment variables
@@ -276,7 +280,7 @@ or other commit-ish.</p>
 <div><p>A commit hash (40 hexadecimal characters sha1).</p>
 </div></blockquote>
 <div class="admonition note">
-<p class="admonition-title">注解</p>
+<p class="admonition-title">备注</p>
 <p>Installers can use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">show-ref</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">symbolic-ref</span></code> commands
 to determine if the <code class="docutils literal notranslate"><span class="pre">requested_revision</span></code> corresponds to a Git ref.
 In turn, a ref beginning with <code class="docutils literal notranslate"><span class="pre">refs/tags/</span></code> corresponds to a tag, and
@@ -448,12 +452,16 @@ cloned to, and <code class="docutils literal notranslate"><span class="pre">dir_
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="entry-points.html"
-                        title="上一章">Entry points specification</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="source-distribution-format.html"
-                        title="下一章">Source distribution format</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="entry-points.html"
+                          title="上一章">Entry points specification</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="source-distribution-format.html"
+                          title="下一章">Source distribution format</a></p>
+  </div>
         </div>
       </div>
       <div class="clearer"></div>
@@ -500,25 +508,25 @@ cloned to, and <code class="docutils literal notranslate"><span class="pre">dir_
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权所有</a> 2013–2020, PyPA.
+    &copy; 版权所有 2013–2020, PyPA.
     <br />
     This page is licensed under the Python Software Foundation License Version 2.
     <br />
     Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
     <br />
-    See <a href="">History and License</a> for more information.
-    <br /><br />
+    
+    <br />
 
     The Python Software Foundation is a non-profit corporation.
 <a href="https://www.python.org/psf/donations/">Please donate.</a>
 <br />
     <br />
 
-    最后更新于 2022 年 01 月 25 日.
+    最后更新于 2022 年 04 月 23 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
     </div>
 
   </body>

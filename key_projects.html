@@ -44,7 +44,7 @@
              <img src="_static/py.svg" alt="Logo"/>
          </a>
         <div class="version_switcher_placeholder"></div>
-        <form id="searchbox" role="search" class="search" action="search.html" method="get">
+        <form role="search" class="search" action="search.html" method="get">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
                 <path fill-rule="nonzero"
                         d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
@@ -75,12 +75,16 @@
 <li class="toctree-l1"><a class="reference internal" href="news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="specifications/simple-repository-api.html"
-                        title="上一章">Simple repository API</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="glossary.html"
-                        title="下一章">术语表</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="specifications/simple-repository-api.html"
+                          title="上一章">Simple repository API</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="glossary.html"
+                          title="下一章">术语表</a></p>
+  </div>
         </nav>
     </div>
 </div>
@@ -149,13 +153,12 @@ context of automated tests) and to prevent heavily loading PyPI’s
 Content Delivery Network (CDN).</p>
 </section>
 <section id="build">
-<span id="id3"></span><h3>建造<a class="headerlink" href="#build" title="永久链接至标题">¶</a></h3>
+<span id="id3"></span><h3>build<a class="headerlink" href="#build" title="永久链接至标题">¶</a></h3>
 <p><a class="reference external" href="https://pypa-build.readthedocs.io/en/stable/index.html" title="(在 build v0.7.0)"><code class="xref any docutils literal notranslate"><span class="pre">Docs</span></code></a> |
 <a class="reference external" href="https://github.com/pypa/build/issues">Issues</a> |
 <a class="reference external" href="https://github.com/pypa/build">GitHub</a> |
 <a class="reference external" href="https://pypi.org/project/build">PyPI</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">build</span></code> is a <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0517"><strong>PEP 517</strong></a> compatible Python package builder. It provides a CLI to
-build packages, as well as a Python API.</p>
+<p><code class="docutils literal notranslate"><span class="pre">build</span></code> 是 <span class="target" id="index-8"></span><a class="pep reference external" href="https://peps.python.org/pep-0517/"><strong>PEP 517</strong></a> 兼容的 Python 包构建器。它提供了 CLI 来构建包，以及 Python API。</p>
 </section>
 <section id="cibuildwheel">
 <span id="id4"></span><h3>cibuildwheel<a class="headerlink" href="#cibuildwheel" title="永久链接至标题">¶</a></h3>
@@ -165,8 +168,7 @@ build packages, as well as a Python API.</p>
 <a class="reference external" href="https://pypi.org/project/cibuildwheel">PyPI</a> |
 <a class="reference external" href="https://github.com/pypa/cibuildwheel/discussions">Discussions</a> |
 <a class="reference external" href="https://discord.com/invite/pypa">Discord #cibuildwheel</a></p>
-<p><code class="docutils literal notranslate"><span class="pre">cibuildwheel</span></code> is a Python package that builds <a class="reference internal" href="glossary.html#term-Wheel"><span class="xref std std-term">wheels</span></a> for all common
-platforms and Python versions on most CI systems. Also see <a class="reference internal" href="#multibuild"><span class="std std-ref">multibuild</span></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cibuildwheel</span></code> 是 Python 包，用于为大多数 CI 系统上的所有通用平台和 Python 版本构建 <a class="reference internal" href="glossary.html#term-Wheel"><span class="xref std std-term">wheels</span></a>。也可以查看 <a class="reference internal" href="#multibuild"><span class="std std-ref">multibuild</span></a>。</p>
 </section>
 <section id="distlib">
 <span id="id5"></span><h3>distlib<a class="headerlink" href="#distlib" title="永久链接至标题">¶</a></h3>
@@ -175,12 +177,7 @@ platforms and Python versions on most CI systems. Also see <a class="reference i
 <a class="reference external" href="https://bitbucket.org/pypa/distlib">Bitbucket</a> |
 <a class="reference external" href="https://pypi.org/project/distlib">PyPI</a></p>
 <p><code class="docutils literal notranslate"><span class="pre">distlib</span></code> 是一个库，它实现了与 Python 软件的打包和分发有关的低级函数。<code class="docutils literal notranslate"><span class="pre">distlib</span></code> 实现了几个相关的 PEPs (Python 增强建议标准)，对于第三方打包工具的开发者来说非常有用，可以制作和上传二进制和源码 <a class="reference internal" href="glossary.html#term-Distribution-Package"><span class="xref std std-term">套件</span></a>，实现互操作性，解决依赖性，管理包资源，以及做其他类似的功能。</p>
-<p>Unlike the stricter <a class="reference internal" href="#packaging"><span class="std std-ref">packaging</span></a> project (below), which
-specifically implements modern Python packaging interoperability
-standards, <code class="docutils literal notranslate"><span class="pre">distlib</span></code> also attempts to provide reasonable fallback
-behaviours when asked to handle legacy packages and metadata that
-predate the modern interoperability standards and fall into the subset
-of packages that are incompatible with those standards.</p>
+<p>与更严格 <a class="reference internal" href="#packaging"><span class="std std-ref">packaging</span></a>  项目(下面)不同，后者专门实现了现代 Python 打包互操作性标准，当被要求处理现代互操作性标准之前的遗留包和元数据时，<code class="docutils literal notranslate"><span class="pre">distlib</span></code> 还试图提供合理的回退行为，这些包和元数据属于与这些标准不兼容的包子集。</p>
 </section>
 <section id="flit">
 <span id="id6"></span><h3>flit<a class="headerlink" href="#flit" title="永久链接至标题">¶</a></h3>
@@ -191,7 +188,7 @@ of packages that are incompatible with those standards.</p>
 modules to PyPI.  It focuses on <a class="reference external" href="https://flit.readthedocs.io/en/latest/rationale.html">making the easy things easy</a>
 for packaging.  Flit can generate a configuration file to quickly set up a
 simple project, build source distributions and wheels, and upload them to PyPI.</p>
-<p>Flit 使用 <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> 来配置一个项目。Flit 不依赖诸如 <a class="reference internal" href="#setuptools"><span class="std std-ref">setuptools</span></a> 之类的工具来构建发行版，或者 <a class="reference internal" href="#twine"><span class="std std-ref">twine</span></a> 来上传至 PyPI。Flit 需要 Python 3，但你可以用它来发布 Python 2 的模块，只要它们能在 Python 3 上被导入。</p>
+<p>Flit 使用 <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> 来配置项目。Flit 不依赖诸如 <a class="reference internal" href="#setuptools"><span class="std std-ref">setuptools</span></a> 之类的工具来构建发行版，或者 <a class="reference internal" href="#twine"><span class="std std-ref">twine</span></a> 来上传至 PyPI。Flit 需要 Python 3，但你可以用它来发布 Python 2 的模块，只要它们能在 Python 3 上被导入。</p>
 </section>
 <section id="packaging">
 <span id="id7"></span><h3>packaging<a class="headerlink" href="#packaging" title="永久链接至标题">¶</a></h3>
@@ -199,7 +196,7 @@ simple project, build source distributions and wheels, and upload them to PyPI.<
 <a class="reference external" href="https://github.com/pypa/packaging/issues">Issues</a> |
 <a class="reference external" href="https://github.com/pypa/packaging">GitHub</a> |
 <a class="reference external" href="https://pypi.org/project/packaging">PyPI</a></p>
-<p>Core utilities for Python packaging used by <a class="reference internal" href="#pip"><span class="std std-ref">pip</span></a> and <a class="reference internal" href="#setuptools"><span class="std std-ref">setuptools</span></a>.</p>
+<p>使用 <a class="reference internal" href="#pip"><span class="std std-ref">pip</span></a> 和 <a class="reference internal" href="#setuptools"><span class="std std-ref">setuptools</span></a>，用于 Python 打包的核心实用程序。</p>
 <p>The core utilities in the packaging library handle version handling,
 specifiers, markers, requirements, tags, and similar attributes and
 tasks for Python packages. Most Python users rely on this library
@@ -227,7 +224,7 @@ on error.</p>
 </section>
 <section id="pipenv">
 <span id="id9"></span><h3>Pipenv<a class="headerlink" href="#pipenv" title="永久链接至标题">¶</a></h3>
-<p><a class="reference external" href="https://pipenv.pypa.io/en/latest/" title="(在 pipenv v2022.1.9.dev0)"><span class="xref std std-doc">Docs</span></a> |
+<p><a class="reference external" href="https://pipenv.pypa.io/en/latest/" title="(在 pipenv v2022.4.22.dev0)"><span class="xref std std-doc">Docs</span></a> |
 <a class="reference external" href="https://github.com/pypa/pipenv">Source</a> |
 <a class="reference external" href="https://github.com/pypa/pipenv/issues">Issues</a> |
 <a class="reference external" href="https://pypi.org/project/pipenv">PyPI</a></p>
@@ -314,7 +311,7 @@ it’s fast and secure, it’s maintained, and it reliably works.</p>
 </section>
 <section id="virtualenv">
 <span id="id16"></span><h3>virtualenv<a class="headerlink" href="#virtualenv" title="永久链接至标题">¶</a></h3>
-<p><a class="reference external" href="https://virtualenv.pypa.io/en/stable/index.html" title="(在 virtualenv v20.12)"><span class="xref std std-doc">Docs</span></a> |
+<p><a class="reference external" href="https://virtualenv.pypa.io/en/stable/index.html" title="(在 virtualenv v20.14)"><span class="xref std std-doc">Docs</span></a> |
 <a class="reference external" href="https://github.com/pypa/virtualenv/issues">Issues</a> |
 <a class="reference external" href="https://github.com/pypa/virtualenv">GitHub</a> |
 <a class="reference external" href="https://pypi.org/project/virtualenv/">PyPI</a></p>
@@ -428,7 +425,7 @@ researchers but has been lacking in maintenance since 2016.</p>
 <p><a class="reference external" href="https://pdm.fming.dev/">Docs</a> |
 <a class="reference external" href="https://github.com/pdm-project/pdm/">GitHub</a> |
 <a class="reference external" href="https://pypi.org/project/pdm">PyPI</a></p>
-<p>PDM 是一个现代的 Python 软件包管理器，支持 <span class="target" id="index-7"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0582"><strong>PEP 582</strong></a>。它以类似于 <code class="docutils literal notranslate"><span class="pre">npm</span></code> 的方式安装和管理软件包，完全不需要创建一个 <a class="reference internal" href="glossary.html#term-Virtual-Environment"><span class="xref std std-term">virtual environment</span></a>。它还使用 <a class="reference internal" href="glossary.html#term-pyproject.toml"><span class="xref std std-term">pyproject.toml</span></a> 来存储项目元数据，如 <span class="target" id="index-8"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0621"><strong>PEP 621</strong></a> 所定义。</p>
+<p>PDM 是一个现代的 Python 软件包管理器，支持 <span class="target" id="index-9"></span><a class="pep reference external" href="https://peps.python.org/pep-0582/"><strong>PEP 582</strong></a>。它以类似于 <code class="docutils literal notranslate"><span class="pre">npm</span></code> 的方式安装和管理软件包，完全不需要创建一个 <a class="reference internal" href="glossary.html#term-Virtual-Environment"><span class="xref std std-term">virtual environment</span></a>。它还使用 <a class="reference internal" href="glossary.html#term-pyproject.toml"><span class="xref std std-term">pyproject.toml</span></a> 来存储项目元数据，如 <span class="target" id="index-10"></span><a class="pep reference external" href="https://peps.python.org/pep-0621/"><strong>PEP 621</strong></a> 所定义。</p>
 </section>
 <section id="pex">
 <span id="id27"></span><h3>pex<a class="headerlink" href="#pex" title="永久链接至标题">¶</a></h3>
@@ -443,7 +440,7 @@ researchers but has been lacking in maintenance since 2016.</p>
 <section id="piwheels">
 <span id="id29"></span><h3>piwheels<a class="headerlink" href="#piwheels" title="永久链接至标题">¶</a></h3>
 <p><a class="reference external" href="https://www.piwheels.org/">Website</a> |
-<a class="reference external" href="https://piwheels.readthedocs.io/en/latest/index.html" title="(在 Piwheels v0.19)"><span class="xref std std-doc">Docs</span></a> |
+<a class="reference external" href="https://piwheels.readthedocs.io/en/latest/index.html" title="(在 Piwheels v0.20)"><span class="xref std std-doc">Docs</span></a> |
 <a class="reference external" href="https://github.com/piwheels/piwheels/">GitHub</a></p>
 <p>piwheels is a website, and software underpinning it, that fetches
 source code distribution packages from PyPI and compiles them into
@@ -495,11 +492,11 @@ on PyPI).</p>
 <section id="shiv">
 <span id="id34"></span><h3>shiv<a class="headerlink" href="#shiv" title="永久链接至标题">¶</a></h3>
 <p><a class="reference external" href="https://shiv.readthedocs.io/en/latest/">文档</a> | <a class="reference external" href="https://github.com/linkedin/shiv">GitHub</a> | <a class="reference external" href="https://pypi.org/project/shiv/">PyPI</a></p>
-<p>shiv 是一个命令行工具，用于构建完全自包含的 Python zipapps，如 <span class="target" id="index-9"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0441"><strong>PEP 441</strong></a> 中所述，但包含了所有的依赖。它的主要目标是使分发 Python 应用程序和命令行工具变得快速和简单。</p>
+<p>shiv 是一个命令行工具，用于构建完全自包含的 Python zipapps，如 <span class="target" id="index-11"></span><a class="pep reference external" href="https://peps.python.org/pep-0441/"><strong>PEP 441</strong></a> 中所述，但包含了所有的依赖。它的主要目标是使分发 Python 应用程序和命令行工具变得快速和简单。</p>
 </section>
 <section id="spack">
 <span id="id35"></span><h3>Spack<a class="headerlink" href="#spack" title="永久链接至标题">¶</a></h3>
-<p><a class="reference external" href="https://spack.readthedocs.io/en/latest/index.html" title="(在 Spack v0.17)"><span class="xref std std-doc">Docs</span></a> |
+<p><a class="reference external" href="https://spack.readthedocs.io/en/latest/index.html" title="(在 Spack v0.18)"><span class="xref std std-doc">Docs</span></a> |
 <a class="reference external" href="https://github.com/spack/spack">GitHub</a> |
 <a class="reference external" href="https://www.computer.org/csdl/proceedings-article/sc/2015/2807623/12OmNBf94Xq">Paper</a> |
 <a class="reference external" href="https://tgamblin.github.io/files/Gamblin-Spack-SC15-Talk.pdf">Slides</a></p>
@@ -584,12 +581,16 @@ supported Python versions.</p>
 <li class="toctree-l1"><a class="reference internal" href="news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="specifications/simple-repository-api.html"
-                        title="上一章">Simple repository API</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="glossary.html"
-                        title="下一章">术语表</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="specifications/simple-repository-api.html"
+                          title="上一章">Simple repository API</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="glossary.html"
+                          title="下一章">术语表</a></p>
+  </div>
         </div>
       </div>
       <div class="clearer"></div>
@@ -635,25 +636,25 @@ supported Python versions.</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="copyright.html">版权所有</a> 2013–2020, PyPA.
+    &copy; 版权所有 2013–2020, PyPA.
     <br />
     This page is licensed under the Python Software Foundation License Version 2.
     <br />
     Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
     <br />
-    See <a href="">History and License</a> for more information.
-    <br /><br />
+    
+    <br />
 
     The Python Software Foundation is a non-profit corporation.
 <a href="https://www.python.org/psf/donations/">Please donate.</a>
 <br />
     <br />
 
-    最后更新于 2022 年 01 月 25 日.
+    最后更新于 2022 年 04 月 23 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
     </div>
 
   </body>

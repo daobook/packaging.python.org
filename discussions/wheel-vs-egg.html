@@ -44,7 +44,7 @@
              <img src="../_static/py.svg" alt="Logo"/>
          </a>
         <div class="version_switcher_placeholder"></div>
-        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+        <form role="search" class="search" action="../search.html" method="get">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
                 <path fill-rule="nonzero"
                         d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
@@ -76,12 +76,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="install-requires-vs-requirements.html"
-                        title="上一章">install_requires 与 requirements files</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="../specifications/index.html"
-                        title="下一章">PyPA specifications</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="install-requires-vs-requirements.html"
+                          title="上一章">install_requires 与 requirements files</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="../specifications/index.html"
+                          title="下一章">PyPA specifications</a></p>
+  </div>
         </nav>
     </div>
 </div>
@@ -136,15 +140,15 @@
   <section id="wheel-vs-egg">
 <span id="id1"></span><h1>Wheel 与 Egg<a class="headerlink" href="#wheel-vs-egg" title="永久链接至标题">¶</a></h1>
 <p><a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">Wheel</span></a> 和 <a class="reference internal" href="../glossary.html#term-Egg"><span class="xref std std-term">Egg</span></a> 都是打包格式，旨在支持不需要构建或编译的安装工件的使用情况，这在测试和生产工作流程中可能是昂贵的。</p>
-<p><a class="reference internal" href="../glossary.html#term-Egg"><span class="xref std std-term">Egg</span></a> 格式是由 <a class="reference internal" href="../key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a> 在2004年引入的，而 <a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">Wheel</span></a> 格式是由 <span class="target" id="index-10"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0427"><strong>PEP 427</strong></a> 在 2012 年引入。</p>
+<p><a class="reference internal" href="../glossary.html#term-Egg"><span class="xref std std-term">Egg</span></a> 格式是由 <a class="reference internal" href="../key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a> 在2004年引入的，而 <a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">Wheel</span></a> 格式是由 <span class="target" id="index-10"></span><a class="pep reference external" href="https://peps.python.org/pep-0427/"><strong>PEP 427</strong></a> 在 2012 年引入。</p>
 <p><a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">Wheel</span></a> 目前被认为是 <a class="reference internal" href="../glossary.html#term-Built-Distribution"><span class="xref std std-term">构建</span></a> 和 <a class="reference internal" href="../glossary.html#term-Binary-Distribution"><span class="xref std std-term">二进制</span></a> 打包 Python 的标准。</p>
 <p>下面是关于 <a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">Wheel</span></a> 和 <a class="reference internal" href="../glossary.html#term-Egg"><span class="xref std std-term">Egg</span></a> 之间的重要区别。</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">Wheel</span></a> 有一个 <span class="target" id="index-11"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0427"><strong>official PEP</strong></a> 。 <a class="reference internal" href="../glossary.html#term-Egg"><span class="xref std std-term">Egg</span></a> 没有。</p></li>
+<li><p><a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">Wheel</span></a> 有一个 <span class="target" id="index-11"></span><a class="pep reference external" href="https://peps.python.org/pep-0427/"><strong>official PEP</strong></a> 。 <a class="reference internal" href="../glossary.html#term-Egg"><span class="xref std std-term">Egg</span></a> 没有。</p></li>
 <li><p><a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">Wheel</span></a> 是一种 <a class="reference internal" href="../glossary.html#term-Distribution-Package"><span class="xref std std-term">分发</span></a> 格式，也就是一种打包格式。<a class="footnote-reference brackets" href="#id3" id="id2">1</a>  <a class="reference internal" href="../glossary.html#term-Egg"><span class="xref std std-term">Egg</span></a> 既是一种发行格式，也是一种运行时的安装格式（如果留下压缩包），并被设计为可导入。</p></li>
 <li><p><a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">Wheel</span></a> 档案不包括 .pyc 文件。因此，当发行版只包含 Python 文件（即没有编译的扩展），并且与 Python 2 和 3 兼容时，wheel 有可能是 “通用” 的，类似于 <a class="reference internal" href="../glossary.html#term-Source-Distribution-or-sdist"><span class="xref std std-term">sdist</span></a>。</p></li>
-<li><p><a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">Wheel</span></a> 使用 <span class="target" id="index-12"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0376"><strong>PEP376-compliant</strong></a> <code class="docutils literal notranslate"><span class="pre">.dist-info</span></code> 目录。Egg 使用 <code class="docutils literal notranslate"><span class="pre">.egg-info</span></code> 。</p></li>
-<li><p><a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">Wheel</span></a> 有一个 <span class="target" id="index-13"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0425"><strong>更丰富的文件命名约定</strong></a>。一个单一的 wheel 档案可以表明它与许多 Python 语言版本和工具、ABI 以及系统架构的兼容性。</p></li>
+<li><p><a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">Wheel</span></a> 使用 <span class="target" id="index-12"></span><a class="pep reference external" href="https://peps.python.org/pep-0376/"><strong>PEP376-compliant</strong></a> <code class="docutils literal notranslate"><span class="pre">.dist-info</span></code> 目录。Egg 使用 <code class="docutils literal notranslate"><span class="pre">.egg-info</span></code> 。</p></li>
+<li><p><a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">Wheel</span></a> 有一个 <span class="target" id="index-13"></span><a class="pep reference external" href="https://peps.python.org/pep-0425/"><strong>更丰富的文件命名约定</strong></a>。一个单一的 wheel 档案可以表明它与许多 Python 语言版本和工具、ABI 以及系统架构的兼容性。</p></li>
 <li><p><a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">Wheel</span></a> 是有版本的。每个 wheel 文件都包含 wheel 规范的版本和包装它的工具。</p></li>
 <li><p><a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">Wheel</span></a> is internally organized by <a class="reference external" href="https://docs.python.org/2/library/sysconfig.html#installation-paths">sysconfig path type</a>,
 therefore making it easier to convert to other formats.</p></li>
@@ -152,7 +156,7 @@ therefore making it easier to convert to other formats.</p></li>
 <hr class="docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
-<dd><p>在某些情况下，控制盘可以用作可导入的运行时格式，尽管 <span class="target" id="index-14"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0427#is-it-mable-to-import-python-code-directly-from-a-wheel-file"><strong>目前还没有正式支持这一格式</strong></a>。</p>
+<dd><p>在某些情况下，控制盘可以用作可导入的运行时格式，尽管 <span class="target" id="index-14"></span><a class="pep reference external" href="https://peps.python.org/pep-0427/#is-it-mable-to-import-python-code-directly-from-a-wheel-file"><strong>目前还没有正式支持这一格式</strong></a>。</p>
 </dd>
 </dl>
 </section>
@@ -184,12 +188,16 @@ therefore making it easier to convert to other formats.</p></li>
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="install-requires-vs-requirements.html"
-                        title="上一章">install_requires 与 requirements files</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="../specifications/index.html"
-                        title="下一章">PyPA specifications</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="install-requires-vs-requirements.html"
+                          title="上一章">install_requires 与 requirements files</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="../specifications/index.html"
+                          title="下一章">PyPA specifications</a></p>
+  </div>
         </div>
       </div>
       <div class="clearer"></div>
@@ -236,25 +244,25 @@ therefore making it easier to convert to other formats.</p></li>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权所有</a> 2013–2020, PyPA.
+    &copy; 版权所有 2013–2020, PyPA.
     <br />
     This page is licensed under the Python Software Foundation License Version 2.
     <br />
     Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
     <br />
-    See <a href="">History and License</a> for more information.
-    <br /><br />
+    
+    <br />
 
     The Python Software Foundation is a non-profit corporation.
 <a href="https://www.python.org/psf/donations/">Please donate.</a>
 <br />
     <br />
 
-    最后更新于 2022 年 01 月 25 日.
+    最后更新于 2022 年 04 月 23 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
     </div>
 
   </body>

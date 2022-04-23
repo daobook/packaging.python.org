@@ -44,7 +44,7 @@
              <img src="../_static/py.svg" alt="Logo"/>
          </a>
         <div class="version_switcher_placeholder"></div>
-        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+        <form role="search" class="search" action="../search.html" method="get">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
                 <path fill-rule="nonzero"
                         d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
@@ -76,12 +76,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="managing-dependencies.html"
-                        title="上一章">管理应用程序的依赖性</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="creating-documentation.html"
-                        title="下一章">创建文档</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="managing-dependencies.html"
+                          title="上一章">管理应用程序的依赖性</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="creating-documentation.html"
+                          title="下一章">创建文档</a></p>
+  </div>
         </nav>
     </div>
 </div>
@@ -195,18 +199,15 @@
 </section>
 <section id="creating-pyproject-toml">
 <h2>创建 pyproject.toml<a class="headerlink" href="#creating-pyproject-toml" title="永久链接至标题">¶</a></h2>
-<p><code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> 告诉构建工具（如 <a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> 和 <a class="reference internal" href="../key_projects.html#build"><span class="std std-ref">建造</span></a>）构建你的项目需要什么。本教程使用 <a class="reference internal" href="../key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a>，所以打开 <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> 并输入以下内容：</p>
+<p><code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> 告诉构建工具（如 <a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> 和 <a class="reference internal" href="../key_projects.html#build"><span class="std std-ref">build</span></a>）构建你的项目需要什么。本教程使用 <a class="reference internal" href="../key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a>，所以打开 <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> 并输入以下内容：</p>
 <div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[build-system]</span><span class="w"></span>
-<span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">    </span><span class="s">&quot;setuptools&gt;=42&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s">&quot;wheel&quot;</span><span class="w"></span>
-<span class="p">]</span><span class="w"></span>
+<span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;setuptools&gt;=42&quot;</span><span class="p">]</span><span class="w"></span>
 <span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;setuptools.build_meta&quot;</span><span class="w"></span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">build-system.requires</span></code> 给出了一个构建你的软件包所需的软件包列表。在这里列出的东西只在构建过程中可用，而不是在安装之后。</p>
 <p><code class="docutils literal notranslate"><span class="pre">build-system.build-backend</span></code> 是 Python 对象的名字，将用于执行构建。如果你要使用一个不同的构建系统，比如 <a class="reference internal" href="../key_projects.html#flit"><span class="std std-ref">flit</span></a> 或 <a class="reference internal" href="../key_projects.html#poetry"><span class="std std-ref">poetry</span></a>，这些将放在这里，而且配置细节将与下面描述的 <a class="reference internal" href="../key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a> 配置完全不同。</p>
-<p>请参阅 <span class="target" id="index-7"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0517"><strong>PEP 517</strong></a> 和 <span class="target" id="index-8"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0518"><strong>PEP 518</strong></a> 了解背景和细节。</p>
+<p>请参阅 <span class="target" id="index-7"></span><a class="pep reference external" href="https://peps.python.org/pep-0517/"><strong>PEP 517</strong></a> 和 <span class="target" id="index-8"></span><a class="pep reference external" href="https://peps.python.org/pep-0518/"><strong>PEP 518</strong></a> 了解背景和细节。</p>
 </section>
 <section id="configuring-metadata">
 <h2>配置元数据<a class="headerlink" href="#configuring-metadata" title="永久链接至标题">¶</a></h2>
@@ -253,7 +254,7 @@ long as it only contains letters, numbers, <code class="docutils literal notrans
 already be taken on pypi.org. <strong>Be sure to update this with your username,</strong>
 as this ensures you won’t try to upload a package with the same name as one
 which already exists.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">version</span></code> is the package version. See <span class="target" id="index-2"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0440"><strong>PEP 440</strong></a> for more details on
+<li><p><code class="docutils literal notranslate"><span class="pre">version</span></code> is the package version. See <span class="target" id="index-2"></span><a class="pep reference external" href="https://peps.python.org/pep-0440/"><strong>PEP 440</strong></a> for more details on
 versions. You can use <code class="docutils literal notranslate"><span class="pre">file:</span></code> or <code class="docutils literal notranslate"><span class="pre">attr:</span></code> directives to read from a file or
 package attribute.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">author</span></code> and <code class="docutils literal notranslate"><span class="pre">author_email</span></code> are used to identify the author of the
@@ -339,7 +340,7 @@ long as it only contains letters, numbers, <code class="docutils literal notrans
 already be taken on pypi.org. <strong>Be sure to update this with your username,</strong>
 as this ensures you won’t try to upload a package with the same name as one
 which already exists.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">version</span></code> is the package version. See <span class="target" id="index-3"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0440"><strong>PEP 440</strong></a> for more details on
+<li><p><code class="docutils literal notranslate"><span class="pre">version</span></code> is the package version. See <span class="target" id="index-3"></span><a class="pep reference external" href="https://peps.python.org/pep-0440/"><strong>PEP 440</strong></a> for more details on
 versions.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">author</span></code> and <code class="docutils literal notranslate"><span class="pre">author_email</span></code> are used to identify the author of the
 package.</p></li>
@@ -383,7 +384,7 @@ import their <code class="docutils literal notranslate"><span class="pre">setup<
 <code class="docutils literal notranslate"><span class="pre">setuptools</span></code>. This is a legacy approach that installers support
 for backwards compatibility purposes <a class="footnote-reference brackets" href="#id2" id="id1">1</a>, but using the legacy <code class="docutils literal notranslate"><span class="pre">distutils</span></code> API
 directly in new projects is strongly discouraged, since <code class="docutils literal notranslate"><span class="pre">distutils</span></code> is
-deprecated as per <span class="target" id="index-4"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0632"><strong>PEP 632</strong></a> and will be removed from the standard library
+deprecated as per <span class="target" id="index-4"></span><a class="pep reference external" href="https://peps.python.org/pep-0632/"><strong>PEP 632</strong></a> and will be removed from the standard library
 in Python 3.12.</p>
 </div>
 </div>
@@ -434,12 +435,12 @@ SOFTWARE.
 <section id="including-other-files">
 <h2>包括其他文件<a class="headerlink" href="#including-other-files" title="永久链接至标题">¶</a></h2>
 <p>上面列出的文件将被自动包含在你的 <a class="reference internal" href="../glossary.html#term-Source-Distribution-or-sdist"><span class="xref std std-term">source distribution</span></a> 中。如果你想明确地控制其中的内容，请参阅 <a class="reference internal" href="../guides/using-manifest-in.html#using-manifest-in"><span class="std std-ref">Including files in source distributions with MANIFEST.in</span></a>。</p>
-<p>最终的 <a class="reference internal" href="../glossary.html#term-Built-Distribution"><span class="xref std std-term">built distribution</span></a> 将有被发现或列出的 Python 包中的 Python 文件。如果你想控制这里的内容，比如添加数据文件，请看 <a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/datafiles.html" title="(在 setuptools v60.5.4)"><span class="xref std std-doc">Including Data Files</span></a>，来自 <a class="reference external" href="https://setuptools.pypa.io/en/latest/index.html" title="(在 setuptools v60.5.4)"><span class="xref std std-doc">setuptools docs</span></a>。</p>
+<p>最终的 <a class="reference internal" href="../glossary.html#term-Built-Distribution"><span class="xref std std-term">built distribution</span></a> 将有被发现或列出的 Python 包中的 Python 文件。如果你想控制这里的内容，比如添加数据文件，请看 <a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/datafiles.html" title="(在 setuptools v62.1.0.post20220422)"><span class="xref std std-doc">Including Data Files</span></a>，来自 <a class="reference external" href="https://setuptools.pypa.io/en/latest/index.html" title="(在 setuptools v62.1.0.post20220422)"><span class="xref std std-doc">setuptools docs</span></a>。</p>
 </section>
 <section id="generating-distribution-archives">
 <span id="generating-archives"></span><h2>生成分发档案<a class="headerlink" href="#generating-distribution-archives" title="永久链接至标题">¶</a></h2>
 <p>下一步是为该软件包生成 <a class="reference internal" href="../glossary.html#term-Distribution-Package"><span class="xref std std-term">distribution packages</span></a>。这些是上传到 Python 包索引的档案，可以通过 <a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> 来安装。</p>
-<p>确保您安装了最新版本的 PyPA 的 <a class="reference internal" href="../key_projects.html#build"><span class="std std-ref">建造</span></a>：</p>
+<p>确保您安装了最新版本的 PyPA 的 <a class="reference internal" href="../key_projects.html#build"><span class="std std-ref">build</span></a>：</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--2-input--1" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--1">Unix/macOS</label><div class="tab-content docutils container">
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --upgrade build
@@ -559,7 +560,7 @@ Successfully installed example-package-YOUR-USERNAME-HERE-0.0.1
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="admonition-title">注解</p>
+<p class="admonition-title">备注</p>
 <p>This example uses <code class="docutils literal notranslate"><span class="pre">--index-url</span></code> flag to specify TestPyPI instead of
 live PyPI. Additionally, it specifies <code class="docutils literal notranslate"><span class="pre">--no-deps</span></code>. Since TestPyPI doesn’t
 have the same packages as the live PyPI, it’s possible that attempting to
@@ -665,12 +666,16 @@ installation client (e.g. by running <code class="docutils literal notranslate">
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="managing-dependencies.html"
-                        title="上一章">管理应用程序的依赖性</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="creating-documentation.html"
-                        title="下一章">创建文档</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="managing-dependencies.html"
+                          title="上一章">管理应用程序的依赖性</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="creating-documentation.html"
+                          title="下一章">创建文档</a></p>
+  </div>
         </div>
       </div>
       <div class="clearer"></div>
@@ -717,25 +722,25 @@ installation client (e.g. by running <code class="docutils literal notranslate">
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权所有</a> 2013–2020, PyPA.
+    &copy; 版权所有 2013–2020, PyPA.
     <br />
     This page is licensed under the Python Software Foundation License Version 2.
     <br />
     Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
     <br />
-    See <a href="">History and License</a> for more information.
-    <br /><br />
+    
+    <br />
 
     The Python Software Foundation is a non-profit corporation.
 <a href="https://www.python.org/psf/donations/">Please donate.</a>
 <br />
     <br />
 
-    最后更新于 2022 年 01 月 25 日.
+    最后更新于 2022 年 04 月 23 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
     </div>
 
   </body>

@@ -44,7 +44,7 @@
              <img src="../_static/py.svg" alt="Logo"/>
          </a>
         <div class="version_switcher_placeholder"></div>
-        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+        <form role="search" class="search" action="../search.html" method="get">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
                 <path fill-rule="nonzero"
                         d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
@@ -75,12 +75,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="recording-installed-packages.html"
-                        title="上一章">Recording installed projects</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="direct-url.html"
-                        title="下一章">Recording the Direct URL Origin of installed distributions</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="recording-installed-packages.html"
+                          title="上一章">Recording installed projects</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="direct-url.html"
+                          title="下一章">Recording the Direct URL Origin of installed distributions</a></p>
+  </div>
         </nav>
     </div>
 </div>
@@ -189,7 +193,7 @@ It is intended to be looked up like this:</p>
 </li>
 </ul>
 <div class="admonition note">
-<p class="admonition-title">注解</p>
+<p class="admonition-title">备注</p>
 <p>Some tools call this kind of object reference by itself an ‘entry point’, for
 want of a better term, especially where it points to a function to launch a
 program.</p>
@@ -208,7 +212,7 @@ newer tools such as pip and virtualenv use a different model.</p>
 <h2>File format<a class="headerlink" href="#file-format" title="永久链接至标题">¶</a></h2>
 <p>Entry points are defined in a file called <code class="file docutils literal notranslate"><span class="pre">entry_points.txt</span></code> in the
 <code class="file docutils literal notranslate"><span class="pre">*.dist-info</span></code> directory of the distribution. This is the directory
-described in <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0376"><strong>PEP 376</strong></a> for installed distributions, and in <span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0427"><strong>PEP 427</strong></a> for
+described in <span class="target" id="index-0"></span><a class="pep reference external" href="https://peps.python.org/pep-0376/"><strong>PEP 376</strong></a> for installed distributions, and in <span class="target" id="index-1"></span><a class="pep reference external" href="https://peps.python.org/pep-0427/"><strong>PEP 427</strong></a> for
 wheels.  The file uses the UTF-8 character encoding.</p>
 <p>The file contents are in INI format, as read by Python’s <a class="reference external" href="https://docs.python.org/3/library/configparser.html#module-configparser" title="(在 Python v3.10)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">configparser</span></code></a>
 module. However, configparser treats names as case-insensitive by default,
@@ -229,7 +233,8 @@ If extras are used, they are a comma-separated list inside square brackets.</p>
 consecutive spaces) before or after the colon, between the object reference and
 the left square bracket, between the extra names and the square brackets and
 colons delimiting them, and after the right square bracket. The syntax for
-extras is formally specified as part of <span class="target" id="index-2"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0508"><strong>PEP 508</strong></a> (as <code class="docutils literal notranslate"><span class="pre">extras</span></code>).
+extras is formally specified as part of <span class="target" id="index-2"></span><a class="pep reference external" href="https://peps.python.org/pep-0508/"><strong>PEP 508</strong></a> (as <code class="docutils literal notranslate"><span class="pre">extras</span></code>) and
+restrictions on values specified in <span class="target" id="index-3"></span><a class="pep reference external" href="https://peps.python.org/pep-0685/"><strong>PEP 685</strong></a>.
 For tools writing the file, it is recommended only to insert a space between the
 object reference and the left square bracket.</p>
 <p>For example:</p>
@@ -303,12 +308,16 @@ The behaviour of install tools when names differ only in case is undefined.</p>
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="recording-installed-packages.html"
-                        title="上一章">Recording installed projects</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="direct-url.html"
-                        title="下一章">Recording the Direct URL Origin of installed distributions</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="recording-installed-packages.html"
+                          title="上一章">Recording installed projects</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="direct-url.html"
+                          title="下一章">Recording the Direct URL Origin of installed distributions</a></p>
+  </div>
         </div>
       </div>
       <div class="clearer"></div>
@@ -355,25 +364,25 @@ The behaviour of install tools when names differ only in case is undefined.</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权所有</a> 2013–2020, PyPA.
+    &copy; 版权所有 2013–2020, PyPA.
     <br />
     This page is licensed under the Python Software Foundation License Version 2.
     <br />
     Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
     <br />
-    See <a href="">History and License</a> for more information.
-    <br /><br />
+    
+    <br />
 
     The Python Software Foundation is a non-profit corporation.
 <a href="https://www.python.org/psf/donations/">Please donate.</a>
 <br />
     <br />
 
-    最后更新于 2022 年 01 月 25 日.
+    最后更新于 2022 年 04 月 23 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
     </div>
 
   </body>

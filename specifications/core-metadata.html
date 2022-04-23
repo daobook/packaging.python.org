@@ -44,7 +44,7 @@
              <img src="../_static/py.svg" alt="Logo"/>
          </a>
         <div class="version_switcher_placeholder"></div>
-        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+        <form role="search" class="search" action="../search.html" method="get">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
                 <path fill-rule="nonzero"
                         d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
@@ -75,12 +75,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="index.html"
-                        title="上一章">PyPA specifications</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="version-specifiers.html"
-                        title="下一章">版本说明符</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="index.html"
+                          title="上一章">PyPA specifications</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="version-specifiers.html"
+                          title="下一章">版本说明符</a></p>
+  </div>
         </nav>
     </div>
 </div>
@@ -148,13 +152,15 @@ RFC applies to packaging metadata is not specified. In the absence of a precise
 definition, the practical standard is set by what the standard library
 <a class="reference external" href="https://docs.python.org/3/library/email.parser.html#module-email.parser" title="(在 Python v3.10)"><code class="docutils literal notranslate"><span class="pre">email.parser</span></code></a> module can parse using the
 <a class="reference external" href="https://docs.python.org/3/library/email.policy.html#email.policy.compat32" title="(在 Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">compat32</span></code></a> policy.</p>
-<p>Although <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0566"><strong>PEP 566</strong></a> defined a way to transform metadata into a JSON-compatible
+<p>Whenever metadata is serialised to a byte stream (for example, to save
+to a file), strings must be serialised using the UTF-8 encoding.</p>
+<p>Although <span class="target" id="index-0"></span><a class="pep reference external" href="https://peps.python.org/pep-0566/"><strong>PEP 566</strong></a> defined a way to transform metadata into a JSON-compatible
 dictionary, this is not yet used as a standard interchange format. The need for
 tools to work with years worth of existing packages makes it difficult to shift
 to a new format.</p>
 <div class="admonition note">
-<p class="admonition-title">注解</p>
-<p><em>Interpreting old metadata:</em> In <span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0566"><strong>PEP 566</strong></a>, the version specifier
+<p class="admonition-title">备注</p>
+<p><em>Interpreting old metadata:</em> In <span class="target" id="index-1"></span><a class="pep reference external" href="https://peps.python.org/pep-0566/"><strong>PEP 566</strong></a>, the version specifier
 field format specification was relaxed to accept the syntax used by popular
 publishing tools (namely to remove the requirement that version specifiers
 must be surrounded by parentheses). Metadata consumers may want to use the
@@ -200,18 +206,18 @@ less than version 2.1.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">1.0 新版功能.</span></p>
 </div>
-<p>Version of the file format; legal values are “1.0”, “1.1”, “1.2”, “2.1”
-and “2.2”.</p>
+<p>Version of the file format; legal values are “1.0”, “1.1”, “1.2”, “2.1”,
+“2.2”, and “2.3”.</p>
 <p>Automated tools consuming metadata SHOULD warn if <code class="docutils literal notranslate"><span class="pre">metadata_version</span></code> is
 greater than the highest version they support, and MUST fail if
 <code class="docutils literal notranslate"><span class="pre">metadata_version</span></code> has a greater major version than the highest
-version they support (as described in <span class="target" id="index-2"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0440"><strong>PEP 440</strong></a>, the major version is the
+version they support (as described in <span class="target" id="index-2"></span><a class="pep reference external" href="https://peps.python.org/pep-0440/"><strong>PEP 440</strong></a>, the major version is the
 value before the first dot).</p>
 <p>For broader compatibility, build tools MAY choose to produce
 distribution metadata using the lowest metadata version that includes
 all of the needed fields.</p>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Metadata</span><span class="o">-</span><span class="n">Version</span><span class="p">:</span> <span class="mf">2.2</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Metadata</span><span class="o">-</span><span class="n">Version</span><span class="p">:</span> <span class="mf">2.3</span>
 </pre></div>
 </div>
 </section>
@@ -221,7 +227,7 @@ all of the needed fields.</p>
 <p><span class="versionmodified added">1.0 新版功能.</span></p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified changed">在 2.1 版更改: </span>Added additional restrictions on format from <span class="target" id="index-3"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0508"><strong>PEP 508</strong></a></p>
+<p><span class="versionmodified changed">在 2.1 版更改: </span>Added additional restrictions on format from <span class="target" id="index-3"></span><a class="pep reference external" href="https://peps.python.org/pep-0508/"><strong>PEP 508</strong></a></p>
 </div>
 <p>The name of the distribution. The name field is the primary identifier for a
 distribution. A valid name consists only of ASCII letters and numbers, period,
@@ -235,6 +241,13 @@ regex (run with <code class="docutils literal notranslate"><span class="pre">re.
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span><span class="p">:</span> <span class="n">BeagleVote</span>
 </pre></div>
 </div>
+<p>To normalize a distribution name for comparison purposes, it should be
+lowercased with all runs of the characters <code class="docutils literal notranslate"><span class="pre">.</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, or <code class="docutils literal notranslate"><span class="pre">_</span></code> replaced with
+a single <code class="docutils literal notranslate"><span class="pre">-</span></code> character. This can be done using the following snippet of code
+(as specified in <span class="target" id="index-4"></span><a class="pep reference external" href="https://peps.python.org/pep-0503/"><strong>PEP 503</strong></a>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[-_.]+&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</pre></div>
+</div>
 </section>
 <section id="version">
 <span id="core-metadata-version"></span><h2><a class="toc-backref" href="#id7">版本</a><a class="headerlink" href="#version" title="永久链接至标题">¶</a></h2>
@@ -242,7 +255,7 @@ regex (run with <code class="docutils literal notranslate"><span class="pre">re.
 <p><span class="versionmodified added">1.0 新版功能.</span></p>
 </div>
 <p>A string containing the distribution’s version number.  This
-field  must be in the format specified in <span class="target" id="index-4"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0440"><strong>PEP 440</strong></a>.</p>
+field  must be in the format specified in <span class="target" id="index-5"></span><a class="pep reference external" href="https://peps.python.org/pep-0440/"><strong>PEP 440</strong></a>.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Version</span><span class="p">:</span> <span class="mf">1.0</span><span class="n">a2</span>
 </pre></div>
@@ -254,7 +267,8 @@ field  must be in the format specified in <span class="target" id="index-4"></sp
 <p><span class="versionmodified added">2.2 新版功能.</span></p>
 </div>
 <p>A string containing the name of another core metadata field. The field
-names <code class="docutils literal notranslate"><span class="pre">Name</span></code> and <code class="docutils literal notranslate"><span class="pre">Version</span></code> may not be specified in this field.</p>
+names <code class="docutils literal notranslate"><span class="pre">Name</span></code>, <code class="docutils literal notranslate"><span class="pre">Version</span></code>, and <code class="docutils literal notranslate"><span class="pre">Metadata-Version</span></code> may not be specified
+in this field.</p>
 <p>When found in the metadata of a source distribution, the following
 rules apply:</p>
 <ol class="arabic simple">
@@ -272,7 +286,7 @@ restrictions on the metadata of wheels built from the sdist).</p>
 only, and indicates that the field value was calculated at wheel build time,
 and may not be the same as the value in the sdist or in other wheels for the
 project.</p>
-<p>Full details of the semantics of <code class="docutils literal notranslate"><span class="pre">Dynamic</span></code> are described in <span class="target" id="index-5"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0643"><strong>PEP 643</strong></a>.</p>
+<p>Full details of the semantics of <code class="docutils literal notranslate"><span class="pre">Dynamic</span></code> are described in <span class="target" id="index-6"></span><a class="pep reference external" href="https://peps.python.org/pep-0643/"><strong>PEP 643</strong></a>.</p>
 </section>
 <section id="platform-multiple-use">
 <h2><a class="toc-backref" href="#id9">Platform (multiple use)</a><a class="headerlink" href="#platform-multiple-use" title="永久链接至标题">¶</a></h2>
@@ -364,7 +378,7 @@ description, so that tools can intelligently render the description.</p>
 <p>Historically, PyPI supported descriptions in plain text and <a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html">reStructuredText
 (reST)</a>,
 and could render reST into HTML. However, it is common for distribution
-authors to write the description in <a class="reference external" href="https://daringfireball.net/projects/markdown/">Markdown</a> (<span class="target" id="index-6"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc7763.html"><strong>RFC 7763</strong></a>) as many code hosting sites render
+authors to write the description in <a class="reference external" href="https://daringfireball.net/projects/markdown/">Markdown</a> (<span class="target" id="index-7"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc7763.html"><strong>RFC 7763</strong></a>) as many code hosting sites render
 Markdown READMEs, and authors would reuse the file for the description. PyPI
 didn’t recognize the format and so could not render the description correctly.
 This resulted in many packages on PyPI with poorly-rendered descriptions when
@@ -395,8 +409,8 @@ be <code class="docutils literal notranslate"><span class="pre">UTF-8</span></co
 specifying the variant of Markdown in use (defaults to <code class="docutils literal notranslate"><span class="pre">GFM</span></code> if not
 specified). Currently, two variants are recognized:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">GFM</span></code> for <span class="target" id="index-7"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc7764.html#section-3.2"><strong>Github-flavored Markdown</strong></a></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CommonMark</span></code> for <span class="target" id="index-8"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc7764.html#section-3.5"><strong>CommonMark</strong></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GFM</span></code> for <span class="target" id="index-8"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc7764.html#section-3.2"><strong>Github-flavored Markdown</strong></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CommonMark</span></code> for <span class="target" id="index-9"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc7764.html#section-3.5"><strong>CommonMark</strong></a></p></li>
 </ul>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Description</span><span class="o">-</span><span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">plain</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="n">UTF</span><span class="o">-</span><span class="mi">8</span>
@@ -439,7 +453,7 @@ searching for the distribution in a larger catalog.</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="admonition-title">注解</p>
+<p class="admonition-title">备注</p>
 <p>The specification previously showed keywords separated by spaces,
 but distutils and setuptools implemented it with commas.
 These tools have been very widely used for many years, so it was
@@ -560,7 +574,7 @@ field, or to indicate a variation or exception to such a license.</p>
 <p><span class="versionmodified added">1.1 新版功能.</span></p>
 </div>
 <p>Each entry is a string giving a single classification value
-for the distribution.  Classifiers are described in <span class="target" id="index-9"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0301"><strong>PEP 301</strong></a>,
+for the distribution.  Classifiers are described in <span class="target" id="index-10"></span><a class="pep reference external" href="https://peps.python.org/pep-0301/"><strong>PEP 301</strong></a>,
 and the Python Package Index publishes a dynamic list of
 <a class="reference external" href="https://pypi.org/classifiers/">currently defined classifiers</a>.</p>
 <p>This field may be followed by an environment marker after a semicolon.</p>
@@ -587,14 +601,15 @@ project required by this distribution.</p>
 The only mandatory part.</p></li>
 <li><p>A comma-separated list of ‘extra’ names. These are defined by
 the required project, referring to specific features which may
-need extra dependencies.</p></li>
+need extra dependencies. The names MUST conform to the restrictions
+specified by the <code class="docutils literal notranslate"><span class="pre">Provides-Extra:</span></code> field.</p></li>
 <li><p>A version specifier. Tools parsing the format should accept optional
 parentheses around this, but tools generating it should not use
 parentheses.</p></li>
 <li><p>An environment marker after a semicolon. This means that the
 requirement is only needed in the specified conditions.</p></li>
 </ul>
-<p>See <span class="target" id="index-10"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0508"><strong>PEP 508</strong></a> for full details of the allowed format.</p>
+<p>See <span class="target" id="index-11"></span><a class="pep reference external" href="https://peps.python.org/pep-0508/"><strong>PEP 508</strong></a> for full details of the allowed format.</p>
 <p>The project names should correspond to names as found
 on the <a class="reference external" href="https://pypi.org/">Python Package Index</a>.</p>
 <p>Version specifiers must follow the rules described in
@@ -643,7 +658,7 @@ parentheses.</p>
 <p>This field may be followed by an environment marker after a semicolon.</p>
 <p>Because they refer to non-Python software releases, version numbers
 for this field are <strong>not</strong> required to conform to the format
-specified in <span class="target" id="index-11"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0440"><strong>PEP 440</strong></a>:  they should correspond to the
+specified in <span class="target" id="index-12"></span><a class="pep reference external" href="https://peps.python.org/pep-0440/"><strong>PEP 440</strong></a>:  they should correspond to the
 version scheme used by the external dependency.</p>
 <p>Notice that there is no particular rule on the strings to be used.</p>
 <p>例子:</p>
@@ -671,8 +686,19 @@ separated by a comma.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">2.1 新版功能.</span></p>
 </div>
-<p>A string containing the name of an optional feature. Must be a valid Python
-identifier. May be used to make a dependency conditional on whether the
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 2.3 版更改: </span><span class="target" id="index-13"></span><a class="pep reference external" href="https://peps.python.org/pep-0685/"><strong>PEP 685</strong></a> restricted valid values to be unambiguous (i.e. no normalization
+required). For older metadata versions, value restrictions were brought into
+line with <code class="docutils literal notranslate"><span class="pre">Name:</span></code> and normalization rules were introduced.</p>
+</div>
+<p>A string containing the name of an optional feature. A valid name consists only
+of lowercase ASCII letters, ASCII numbers, and hyphen. It must start and end
+with a letter or number. Hyphens cannot be followed by another hyphen. Names are
+limited to those which match the following regex (which guarantees unambiguity):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>^([a-z0-9]|[a-z0-9]([a-z0-9-](?!-))*[a-z0-9])$
+</pre></div>
+</div>
+<p>The specified name may be used to make a dependency conditional on whether the
 optional feature has been requested.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Provides</span><span class="o">-</span><span class="n">Extra</span><span class="p">:</span> <span class="n">pdf</span>
@@ -693,6 +719,15 @@ are needed for running automated tests and generating documentation,
 respectively.</p>
 <p>It is legal to specify <code class="docutils literal notranslate"><span class="pre">Provides-Extra:</span></code> without referencing it in any
 <code class="docutils literal notranslate"><span class="pre">Requires-Dist:</span></code>.</p>
+<p>When writing data for older metadata versions, names MUST be normalized
+following the same rules used for the <code class="docutils literal notranslate"><span class="pre">Name:</span></code> field when performing
+comparisons. Tools writing metadata MUST raise an error if two
+<code class="docutils literal notranslate"><span class="pre">Provides-Extra:</span></code> entries would clash after being normalized.</p>
+<p>When reading data for older metadata versions, tools SHOULD warn when values
+for this field would be invalid under newer metadata versions. If a value would
+be invalid following the rules for <code class="docutils literal notranslate"><span class="pre">Name:</span></code> in any core metadata version, the
+user SHOULD be warned and the value ignored to avoid ambiguity. Tools MAY choose
+to raise an error when reading an invalid name for older metadata versions.</p>
 </section>
 <section id="rarely-used-fields">
 <h2><a class="toc-backref" href="#id28">Rarely Used Fields</a><a class="headerlink" href="#rarely-used-fields" title="永久链接至标题">¶</a></h2>
@@ -778,7 +813,7 @@ removed.</p>
 <dl class="footnote brackets">
 <dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
 <dd><p>RFC 822 Long Header Fields:
-<span class="target" id="index-12"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc822.html#section-3.1.1"><strong>RFC 822#section-3.1.1</strong></a></p>
+<span class="target" id="index-14"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc822.html#section-3.1.1"><strong>RFC 822#section-3.1.1</strong></a></p>
 </dd>
 </dl>
 </section>
@@ -811,12 +846,16 @@ removed.</p>
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="index.html"
-                        title="上一章">PyPA specifications</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="version-specifiers.html"
-                        title="下一章">版本说明符</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="index.html"
+                          title="上一章">PyPA specifications</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="version-specifiers.html"
+                          title="下一章">版本说明符</a></p>
+  </div>
         </div>
       </div>
       <div class="clearer"></div>
@@ -863,25 +902,25 @@ removed.</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权所有</a> 2013–2020, PyPA.
+    &copy; 版权所有 2013–2020, PyPA.
     <br />
     This page is licensed under the Python Software Foundation License Version 2.
     <br />
     Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
     <br />
-    See <a href="">History and License</a> for more information.
-    <br /><br />
+    
+    <br />
 
     The Python Software Foundation is a non-profit corporation.
 <a href="https://www.python.org/psf/donations/">Please donate.</a>
 <br />
     <br />
 
-    最后更新于 2022 年 01 月 25 日.
+    最后更新于 2022 年 04 月 23 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
     </div>
 
   </body>

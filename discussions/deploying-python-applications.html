@@ -44,7 +44,7 @@
              <img src="../_static/py.svg" alt="Logo"/>
          </a>
         <div class="version_switcher_placeholder"></div>
-        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+        <form role="search" class="search" action="../search.html" method="get">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
                 <path fill-rule="nonzero"
                         d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
@@ -76,12 +76,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="index.html"
-                        title="上一章">讨论</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="pip-vs-easy-install.html"
-                        title="下一章">pip 与 easy_install</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="index.html"
+                          title="上一章">讨论</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="pip-vs-easy-install.html"
+                          title="下一章">pip 与 easy_install</a></p>
+  </div>
         </nav>
     </div>
 </div>
@@ -227,7 +231,7 @@ significant usage.
 <p>安装的程序可以从安装程序添加到开始菜单的快捷方式启动。它使用一个安装在其应用程序目录中的Python解释器，与计算机上的任何其他 Python 安装无关。</p>
 <p>A big advantage of Pynsist is that the Windows packages can be built on Linux.
 There are several examples for different kinds of programs (console, GUI) in
-the <a class="reference external" href="https://pynsist.readthedocs.io/en/latest/index.html" title="(在 pynsist v2.7)"><code class="xref any docutils literal notranslate"><span class="pre">documentation</span></code></a>. The tool is released
+the <a class="reference external" href="https://pynsist.readthedocs.io/en/latest/index.html" title="(在 pynsist v2.8)"><code class="xref any docutils literal notranslate"><span class="pre">documentation</span></code></a>. The tool is released
 under the MIT-licence.</p>
 </section>
 </section>
@@ -270,7 +274,7 @@ platforms. py2app is released under the MIT-license.</p>
 <h4><a class="toc-backref" href="#id14">pex</a><a class="headerlink" href="#pex" title="永久链接至标题">¶</a></h4>
 <p><a class="reference external" href="https://pypi.org/project/pex/">pex</a> is  a library for generating .pex
 (Python EXecutable) files which are executable Python environments in the
-spirit of virtualenvs. pex is an expansion upon the ideas outlined in <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0441"><strong>PEP 441</strong></a>
+spirit of virtualenvs. pex is an expansion upon the ideas outlined in <span class="target" id="index-0"></span><a class="pep reference external" href="https://peps.python.org/pep-0441/"><strong>PEP 441</strong></a>
 and makes the deployment of Python applications as simple as cp. pex files may
 even include multiple platform-specific Python distributions, meaning that a
 single pex file can be portable across Linux and macOS. pex is released under the
@@ -319,12 +323,16 @@ Apache License 2.0.</p>
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="index.html"
-                        title="上一章">讨论</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="pip-vs-easy-install.html"
-                        title="下一章">pip 与 easy_install</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="index.html"
+                          title="上一章">讨论</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="pip-vs-easy-install.html"
+                          title="下一章">pip 与 easy_install</a></p>
+  </div>
         </div>
       </div>
       <div class="clearer"></div>
@@ -371,25 +379,25 @@ Apache License 2.0.</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权所有</a> 2013–2020, PyPA.
+    &copy; 版权所有 2013–2020, PyPA.
     <br />
     This page is licensed under the Python Software Foundation License Version 2.
     <br />
     Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
     <br />
-    See <a href="">History and License</a> for more information.
-    <br /><br />
+    
+    <br />
 
     The Python Software Foundation is a non-profit corporation.
 <a href="https://www.python.org/psf/donations/">Please donate.</a>
 <br />
     <br />
 
-    最后更新于 2022 年 01 月 25 日.
+    最后更新于 2022 年 04 月 23 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
     </div>
 
   </body>

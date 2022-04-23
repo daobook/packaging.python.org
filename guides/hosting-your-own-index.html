@@ -44,7 +44,7 @@
              <img src="../_static/py.svg" alt="Logo"/>
          </a>
         <div class="version_switcher_placeholder"></div>
-        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+        <form role="search" class="search" action="../search.html" method="get">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
                 <path fill-rule="nonzero"
                         d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
@@ -94,12 +94,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="index-mirrors-and-caches.html"
-                        title="上一章">Package index mirrors and caches</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="distributing-packages-using-setuptools.html"
-                        title="下一章">Packaging and distributing projects</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="index-mirrors-and-caches.html"
+                          title="上一章">Package index mirrors and caches</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="distributing-packages-using-setuptools.html"
+                          title="下一章">Packaging and distributing projects</a></p>
+  </div>
         </nav>
     </div>
 </div>
@@ -179,7 +183,7 @@ all repositories using a valid HTTPS setup.</p>
 <h2>“Manual” repository<a class="headerlink" href="#manual-repository" title="永久链接至标题">¶</a></h2>
 <p>The directory layout is fairly simple, within a root directory you need to
 create a directory for each project. This directory should be the normalized
-name (as defined by <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0503"><strong>PEP 503</strong></a>) of the project. Within each of these directories
+name (as defined by <span class="target" id="index-0"></span><a class="pep reference external" href="https://peps.python.org/pep-0503/"><strong>PEP 503</strong></a>) of the project. Within each of these directories
 simply place each of the downloadable files. If you have the projects “Foo”
 (with the versions 1.0 and 2.0) and “bar” (with the version 0.1) You should
 end up with a structure that looks like:</p>
@@ -199,7 +203,7 @@ instruct users to add the URL to their installer’s configuration.</p>
 <dl class="footnote brackets">
 <dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
 <dd><p>For complete documentation of the simple repository protocol, see
-<span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0503"><strong>PEP 503</strong></a>.</p>
+<span class="target" id="index-1"></span><a class="pep reference external" href="https://peps.python.org/pep-0503/"><strong>PEP 503</strong></a>.</p>
 </dd>
 </dl>
 </section>
@@ -250,12 +254,16 @@ instruct users to add the URL to their installer’s configuration.</p>
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <h4>上一个主题</h4>
-  <p class="topless"><a href="index-mirrors-and-caches.html"
-                        title="上一章">Package index mirrors and caches</a></p>
-  <h4>下一个主题</h4>
-  <p class="topless"><a href="distributing-packages-using-setuptools.html"
-                        title="下一章">Packaging and distributing projects</a></p>
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="index-mirrors-and-caches.html"
+                          title="上一章">Package index mirrors and caches</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="distributing-packages-using-setuptools.html"
+                          title="下一章">Packaging and distributing projects</a></p>
+  </div>
         </div>
       </div>
       <div class="clearer"></div>
@@ -302,25 +310,25 @@ instruct users to add the URL to their installer’s configuration.</p>
       </ul>
     </div>  
     <div class="footer">
-    &copy; <a href="../copyright.html">版权所有</a> 2013–2020, PyPA.
+    &copy; 版权所有 2013–2020, PyPA.
     <br />
     This page is licensed under the Python Software Foundation License Version 2.
     <br />
     Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
     <br />
-    See <a href="">History and License</a> for more information.
-    <br /><br />
+    
+    <br />
 
     The Python Software Foundation is a non-profit corporation.
 <a href="https://www.python.org/psf/donations/">Please donate.</a>
 <br />
     <br />
 
-    最后更新于 2022 年 01 月 25 日.
+    最后更新于 2022 年 04 月 23 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.1.
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
     </div>
 
   </body>
