@@ -390,7 +390,7 @@ extlinks = {
 linkcheck_ignore = [
     "http://localhost:\d+",
     # This is an example that showing to the reader
-    "https://test.pypi.org/project/example-pkg-YOUR-USERNAME-HERE",
+    "https://test.pypi.org/project/example-package-YOUR-USERNAME-HERE",
     # Ignoring it as it will redirect to login page if reader hasn't logged in.
     "https://pypi.org/manage/*",
     "https://test.pypi.org/manage/*",
@@ -411,7 +411,7 @@ intersphinx_mapping = {
     'packaging': ('https://packaging.pypa.io/en/latest/', None),
     'packaging.python.org': ('https://packaging.python.org/', None),
     'pip': ('https://pip.pypa.io/en/latest/', None),
-    # 'pipenv': ('https://pipenv.pypa.io/en/latest/', None),
+    'pipenv': ('https://pipenv.pypa.io/en/latest/', None),
     'piwheels': ('https://piwheels.readthedocs.io/en/latest/', None),
     'pybind11': ('https://pybind11.readthedocs.io/en/stable/', None),
     'pynsist': ('https://pynsist.readthedocs.io/en/latest/', None),
@@ -419,7 +419,6 @@ intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None),
     'python-guide': ('https://docs.python-guide.org', None),
     'python2': ('https://docs.python.org/2', None),
-    'scipy': ('https://www.scipy.org', None),
     'setuptools': ('https://setuptools.readthedocs.io/en/latest/', None),
     'spack': ('https://spack.readthedocs.io/en/latest/', None),
     'sphinx': ('https://www.sphinx-doc.org/en/master', None),
