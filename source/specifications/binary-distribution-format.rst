@@ -196,7 +196,7 @@ its version, e.g. ``1.0.0``, consist of:
 #. ``{distribution}-{version}.data/`` contains one subdirectory
    for each non-empty install scheme key not already covered, where
    the subdirectory name is an index into a dictionary of install paths
-   (e.g. ``data``, ``scripts``, ``include``, ``purelib``, ``platlib``).
+   (e.g. ``data``, ``scripts``, ``headers``, ``purelib``, ``platlib``).
 #. Python scripts must appear in ``scripts`` and begin with exactly
    ``b'#!python'`` in order to enjoy script wrapper generation and
    ``#!python`` rewriting at install time.  They may have any or no
@@ -315,10 +315,10 @@ checker only needs to establish that RECORD matches the signature.
 
 See
 
-- https://self-issued.info/docs/draft-ietf-jose-json-web-signature.html
-- https://self-issued.info/docs/draft-jones-jose-jws-json-serialization.html
-- https://self-issued.info/docs/draft-ietf-jose-json-web-key.html
-- https://self-issued.info/docs/draft-jones-jose-json-private-key.html
+- https://datatracker.ietf.org/doc/html/rfc7515
+- https://tools.ietf.org/id/draft-jones-json-web-signature-json-serialization-01.html
+- https://datatracker.ietf.org/doc/html/rfc7517
+- https://tools.ietf.org/id/draft-jones-jose-json-private-key-01.html
 
 
 Comparison to .egg
