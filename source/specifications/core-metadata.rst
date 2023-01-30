@@ -84,12 +84,7 @@ Example::
 
     Name: BeagleVote
 
-To normalize a distribution name for comparison purposes, it should be
-lowercased with all runs of the characters ``.``, ``-``, or ``_`` replaced with
-a single ``-`` character. This can be done using the following snippet of code
-(as specified in :pep:`503`)::
-
-    re.sub(r"[-_.]+", "-", name).lower()
+For comparison purposes, the names should be :ref:`normalized <name-normalization>` before comparing.
 
 .. _core-metadata-version:
 
@@ -105,6 +100,8 @@ Example::
 
     Version: 1.0a2
 
+
+.. _core-metadata-dynamic:
 
 Dynamic (multiple use)
 ======================
@@ -630,7 +627,7 @@ of lowercase ASCII letters, ASCII numbers, and hyphen. It must start and end
 with a letter or number. Hyphens cannot be followed by another hyphen. Names are
 limited to those which match the following regex (which guarantees unambiguity)::
 
-    ^([a-z0-9]|[a-z0-9]([a-z0-9-](?!-))*[a-z0-9])$
+    ^([a-z0-9]|[a-z0-9]([a-z0-9-](?!--))*[a-z0-9])$
 
 
 The specified name may be used to make a dependency conditional on whether the

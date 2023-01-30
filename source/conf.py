@@ -187,9 +187,7 @@ html_title = 'Python Packaging User Guide'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
-
-html_css_files = ['overrides.css']
+# html_static_path = ['_static']
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
@@ -418,7 +416,6 @@ intersphinx_mapping = {
     'pypa': ('https://www.pypa.io/en/latest/', None),
     'python': ('https://docs.python.org/3', None),
     'python-guide': ('https://docs.python-guide.org', None),
-    'python2': ('https://docs.python.org/2', None),
     'setuptools': ('https://setuptools.readthedocs.io/en/latest/', None),
     'spack': ('https://spack.readthedocs.io/en/latest/', None),
     'sphinx': ('https://www.sphinx-doc.org/en/master', None),
