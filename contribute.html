@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="_static/pypa.css" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/overrides.css" />
     
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -59,6 +58,7 @@
 <h3><a href="index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">教程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guides/index.html">指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="discussions/index.html">讨论</a></li>
@@ -206,8 +206,8 @@
 <h2>在本地构建指南<a class="headerlink" href="#building-the-guide-locally" title="永久链接至标题">¶</a></h2>
 <p>虽然这不需要做出贡献，但为了测试您的改动，在本地建立本指南可能是有用的。为了在本地构建本指南，你需要：</p>
 <ol class="arabic">
-<li><p><a class="reference external" href="https://nox.thea.codes/en/latest/index.html" title="(在 Nox v2022.1.7)"><span class="xref std std-doc">Nox</span></a> 。你可以用 <code class="docutils literal notranslate"><span class="pre">pip</span></code> 来安装或升级 nox</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m pip install --user nox
+<li><p><a class="reference external" href="https://nox.thea.codes/en/latest/index.html" title="(在 Nox v2022.11.21)"><span class="xref std std-doc">Nox</span></a> 。你可以用 <code class="docutils literal notranslate"><span class="pre">pip</span></code> 来安装或升级 nox</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>nox
 </pre></div>
 </div>
 </li>
@@ -215,13 +215,13 @@
 See the <a class="reference external" href="https://docs.python-guide.org/starting/installation/" title="(在 pythonguide v0.0.1)"><span class="xref std std-doc">Hitchhiker’s Guide to Python installation instructions</span></a>
 to install Python 3.8 on your operating system.</p></li>
 </ol>
-<p>要构建指南，在 source 文件夹中运行以下 bash 命令</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nox -s build
+<p>To build the guide, run the following shell command in the project’s root folder:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nox<span class="w"> </span>-s<span class="w"> </span>build
 </pre></div>
 </div>
 <p>在该过程完成后，您可以在 <code class="docutils literal notranslate"><span class="pre">./build/html</span></code> 目录中找到 HTML 输出。您可以打开 <code class="docutils literal notranslate"><span class="pre">index.html</span></code> 文件，并在浏览器中查看指南，但我们建议使用 HTTP 服务器为指南服务。</p>
 <p>您可以使用以下命令建立指南并通过 HTTP 服务器为其提供服务</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nox -s preview
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nox<span class="w"> </span>-s<span class="w"> </span>preview
 </pre></div>
 </div>
 <p>该指南将可通过 <a class="reference external" href="http://localhost:8000">http://localhost:8000</a> 进行浏览。</p>
@@ -309,6 +309,7 @@ to install Python 3.8 on your operating system.</p></li>
 <h3><a href="index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">教程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guides/index.html">指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="discussions/index.html">讨论</a></li>
@@ -396,7 +397,7 @@ to install Python 3.8 on your operating system.</p></li>
 <br />
     <br />
 
-    最后更新于 2022 年 04 月 23 日.
+    最后更新于 2023 年 01 月 31 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 

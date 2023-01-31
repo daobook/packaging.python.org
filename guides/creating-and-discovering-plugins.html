@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/pypa.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/overrides.css" />
     
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -27,7 +26,7 @@
     
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="迁移到 PyPI.org" href="migrating-to-pypi-org.html" />
+    <link rel="next" title="使用 TestPyPI" href="using-testpypi.html" />
     <link rel="prev" title="Packaging namespace packages" href="packaging-namespace-packages.html" /><link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
             <script type="text/javascript" src="../_static/copybutton.js"></script>
             <script type="text/javascript" src="../_static/menu.js"></script> 
@@ -59,25 +58,22 @@
 <h3><a href="../index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">指南</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installing-using-pip-and-virtual-environments.html">Installing packages using pip and virtual environments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-stand-alone-command-line-tools.html">安装独立命令行工具</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-using-linux-tools.html">用 Linux 软件包管理器安装 pip/setuptools/wheel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-scientific-packages.html">Installing scientific packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multi-version-installs.html">多版本安装</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index-mirrors-and-caches.html">Package index mirrors and caches</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hosting-your-own-index.html">Hosting your own simple repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributing-packages-using-setuptools.html">Packaging and distributing projects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using-manifest-in.html">Including files in source distributions with <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="single-sourcing-package-version.html">Single-sourcing the package version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supporting-multiple-python-versions.html">支持多个 Python 版本</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dropping-older-python-versions.html">放弃对旧版 Python 的支持</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging-binary-extensions.html">Packaging binary extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supporting-windows-using-appveyor.html">Supporting Windows using Appveyor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging-namespace-packages.html">Packaging namespace packages</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">创建和发现插件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating-to-pypi-org.html">迁移到 PyPI.org</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using-testpypi.html">使用 TestPyPI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="making-a-pypi-friendly-readme.html">Making a PyPI-friendly README</a></li>
 <li class="toctree-l2"><a class="reference internal" href="publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.html">Publishing package distribution releases using GitHub Actions CI/CD workflows</a></li>
@@ -101,8 +97,8 @@
   </div>
   <div>
     <h4>下一个主题</h4>
-    <p class="topless"><a href="migrating-to-pypi-org.html"
-                          title="下一章">迁移到 PyPI.org</a></p>
+    <p class="topless"><a href="using-testpypi.html"
+                          title="下一章">使用 TestPyPI</a></p>
   </div>
         </nav>
     </div>
@@ -115,7 +111,7 @@
           <a href="../genindex.html" title="总目录"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="migrating-to-pypi-org.html" title="迁移到 PyPI.org"
+          <a href="using-testpypi.html" title="使用 TestPyPI"
              accesskey="N">下一页</a> |</li>
         <li class="right" >
           <a href="packaging-namespace-packages.html" title="Packaging namespace packages"
@@ -170,7 +166,7 @@ automatically <strong>discover</strong> all of the plugins available.</p>
 <section id="using-naming-convention">
 <h2>Using naming convention<a class="headerlink" href="#using-naming-convention" title="永久链接至标题">¶</a></h2>
 <p>If all of the plugins for your application follow the same naming convention,
-you can use <a class="reference external" href="https://docs.python.org/2/library/pkgutil.html#pkgutil.iter_modules" title="(在 Python v2.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pkgutil.iter_modules()</span></code></a> to discover all of the top-level
+you can use <a class="reference external" href="https://docs.python.org/3/library/pkgutil.html#pkgutil.iter_modules" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pkgutil.iter_modules()</span></code></a> to discover all of the top-level
 modules that match the naming convention. For example, <a class="reference external" href="https://pypi.org/project/Flask/">Flask</a> uses the
 naming convention <code class="docutils literal notranslate"><span class="pre">flask_{plugin_name}</span></code>. If you wanted to automatically
 discover all of the Flask plugins installed:</p>
@@ -204,7 +200,7 @@ a convention for where to place plugins and also provides a way to perform
 discovery. For example, if you make the sub-package <code class="docutils literal notranslate"><span class="pre">myapp.plugins</span></code> a
 namespace package then other <a class="reference internal" href="../glossary.html#term-Distribution-Package"><span class="xref std std-term">distributions</span></a> can
 provide modules and packages to that namespace. Once installed, you can use
-<a class="reference external" href="https://docs.python.org/2/library/pkgutil.html#pkgutil.iter_modules" title="(在 Python v2.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pkgutil.iter_modules()</span></code></a> to discover all modules and packages installed
+<a class="reference external" href="https://docs.python.org/3/library/pkgutil.html#pkgutil.iter_modules" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">pkgutil.iter_modules()</span></code></a> to discover all modules and packages installed
 under that namespace:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">importlib</span>
 <span class="kn">import</span> <span class="nn">pkgutil</span>
@@ -225,7 +221,7 @@ under that namespace:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Specifying <code class="docutils literal notranslate"><span class="pre">myapp.plugins.__path__</span></code> to <a class="reference external" href="https://docs.python.org/2/library/pkgutil.html#pkgutil.iter_modules" title="(在 Python v2.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">iter_modules()</span></code></a> causes
+<p>Specifying <code class="docutils literal notranslate"><span class="pre">myapp.plugins.__path__</span></code> to <a class="reference external" href="https://docs.python.org/3/library/pkgutil.html#pkgutil.iter_modules" title="(在 Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">iter_modules()</span></code></a> causes
 it to only look for the modules directly under that namespace. For example,
 if you have installed distributions that provide the modules <code class="docutils literal notranslate"><span class="pre">myapp.plugins.a</span></code>
 and <code class="docutils literal notranslate"><span class="pre">myapp.plugins.b</span></code> then <code class="docutils literal notranslate"><span class="pre">discovered_plugins</span></code> in this case would be:</p>
@@ -258,16 +254,13 @@ which approach is preferred for plugins to your project.</p>
 </section>
 <section id="using-package-metadata">
 <h2>Using package metadata<a class="headerlink" href="#using-package-metadata" title="永久链接至标题">¶</a></h2>
-<p><a class="reference external" href="https://setuptools.pypa.io/en/latest/index.html" title="(在 setuptools v62.1.0.post20220422)"><span class="xref std std-doc">Setuptools</span></a> provides <a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/entry_point.html" title="(在 setuptools v62.1.0.post20220422)"><span class="xref std std-doc">special support</span></a> for plugins. By providing the
-<code class="docutils literal notranslate"><span class="pre">entry_points</span></code> argument to <code class="xref py py-func docutils literal notranslate"><span class="pre">setup()</span></code> in <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> plugins can
-register themselves for discovery.</p>
+<p>Packages can have metadata for plugins described in the <a class="reference internal" href="../specifications/entry-points.html#entry-points"><span class="std std-ref">Entry points specification</span></a>.
+By specifying them, a package announces that it contains a specific kind of plugin.
+Another package supporting this kind of plugin can use the metadata to discover that plugin.</p>
 <p>For example if you have a package named <code class="docutils literal notranslate"><span class="pre">myapp-plugin-a</span></code> and it includes
-in its <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">setup</span><span class="p">(</span>
-    <span class="o">...</span>
-    <span class="n">entry_points</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;myapp.plugins&#39;</span><span class="p">:</span> <span class="s1">&#39;a = myapp_plugin_a&#39;</span><span class="p">},</span>
-    <span class="o">...</span>
-<span class="p">)</span>
+the following in its <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project.entry-points.&#39;myapp.plugins&#39;]</span>
+<span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;myapp_plugin_a&#39;</span>
 </pre></div>
 </div>
 <p>Then you can discover and load all of the registered entry points by using
@@ -295,11 +288,11 @@ in its <code class="file docutils literal notranslate"><span class="pre">setup.p
 <p class="admonition-title">备注</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">entry_point</span></code> specification in <code class="file docutils literal notranslate"><span class="pre">setup.py</span></code> is fairly
 flexible and has a lot of options. It’s recommended to read over the entire
-section on <a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/entry_point.html" title="(在 setuptools v62.1.0.post20220422)"><span class="xref std std-doc">entry points</span></a> .</p>
+section on <a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/entry_point.html" title="(在 setuptools v67.0.0.post20230128)"><span class="xref std std-doc">entry points</span></a> .</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
-<p>Since this specification is part of the <a class="reference external" href="https://docs.python.org/3/library/importlib.metadata.html" title="(在 Python v3.10)"><span class="xref std std-doc">standard library</span></a>, most packaging tools other than setuptools
+<p>Since this specification is part of the <a class="reference external" href="https://docs.python.org/3/library/importlib.metadata.html" title="(在 Python v3.11)"><span class="xref std std-doc">standard library</span></a>, most packaging tools other than setuptools
 provide support for defining entry points.</p>
 </div>
 </section>
@@ -315,25 +308,22 @@ provide support for defining entry points.</p>
 <h3><a href="../index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">指南</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installing-using-pip-and-virtual-environments.html">Installing packages using pip and virtual environments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-stand-alone-command-line-tools.html">安装独立命令行工具</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-using-linux-tools.html">用 Linux 软件包管理器安装 pip/setuptools/wheel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-scientific-packages.html">Installing scientific packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multi-version-installs.html">多版本安装</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index-mirrors-and-caches.html">Package index mirrors and caches</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hosting-your-own-index.html">Hosting your own simple repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributing-packages-using-setuptools.html">Packaging and distributing projects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using-manifest-in.html">Including files in source distributions with <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="single-sourcing-package-version.html">Single-sourcing the package version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supporting-multiple-python-versions.html">支持多个 Python 版本</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dropping-older-python-versions.html">放弃对旧版 Python 的支持</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging-binary-extensions.html">Packaging binary extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supporting-windows-using-appveyor.html">Supporting Windows using Appveyor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging-namespace-packages.html">Packaging namespace packages</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">创建和发现插件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating-to-pypi-org.html">迁移到 PyPI.org</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using-testpypi.html">使用 TestPyPI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="making-a-pypi-friendly-readme.html">Making a PyPI-friendly README</a></li>
 <li class="toctree-l2"><a class="reference internal" href="publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.html">Publishing package distribution releases using GitHub Actions CI/CD workflows</a></li>
@@ -357,8 +347,8 @@ provide support for defining entry points.</p>
   </div>
   <div>
     <h4>下一个主题</h4>
-    <p class="topless"><a href="migrating-to-pypi-org.html"
-                          title="下一章">迁移到 PyPI.org</a></p>
+    <p class="topless"><a href="using-testpypi.html"
+                          title="下一章">使用 TestPyPI</a></p>
   </div>
         </div>
       </div>
@@ -371,7 +361,7 @@ provide support for defining entry points.</p>
           <a href="../genindex.html" title="总目录"
              >索引</a></li>
         <li class="right" >
-          <a href="migrating-to-pypi-org.html" title="迁移到 PyPI.org"
+          <a href="using-testpypi.html" title="使用 TestPyPI"
              >下一页</a> |</li>
         <li class="right" >
           <a href="packaging-namespace-packages.html" title="Packaging namespace packages"
@@ -420,7 +410,7 @@ provide support for defining entry points.</p>
 <br />
     <br />
 
-    最后更新于 2022 年 04 月 23 日.
+    最后更新于 2023 年 01 月 31 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 

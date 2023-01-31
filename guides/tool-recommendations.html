@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/pypa.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/overrides.css" />
     
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -59,25 +58,22 @@
 <h3><a href="../index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">指南</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installing-using-pip-and-virtual-environments.html">Installing packages using pip and virtual environments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-stand-alone-command-line-tools.html">安装独立命令行工具</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-using-linux-tools.html">用 Linux 软件包管理器安装 pip/setuptools/wheel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-scientific-packages.html">Installing scientific packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multi-version-installs.html">多版本安装</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index-mirrors-and-caches.html">Package index mirrors and caches</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hosting-your-own-index.html">Hosting your own simple repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributing-packages-using-setuptools.html">Packaging and distributing projects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using-manifest-in.html">Including files in source distributions with <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="single-sourcing-package-version.html">Single-sourcing the package version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supporting-multiple-python-versions.html">支持多个 Python 版本</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dropping-older-python-versions.html">放弃对旧版 Python 的支持</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging-binary-extensions.html">Packaging binary extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supporting-windows-using-appveyor.html">Supporting Windows using Appveyor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging-namespace-packages.html">Packaging namespace packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="creating-and-discovering-plugins.html">创建和发现插件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating-to-pypi-org.html">迁移到 PyPI.org</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using-testpypi.html">使用 TestPyPI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="making-a-pypi-friendly-readme.html">Making a PyPI-friendly README</a></li>
 <li class="toctree-l2"><a class="reference internal" href="publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.html">Publishing package distribution releases using GitHub Actions CI/CD workflows</a></li>
@@ -164,7 +160,7 @@ what tools are currently recommended, then here it is.</p>
 <ul class="simple">
 <li><p>Use <a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> in a <a class="reference external" href="https://pip.pypa.io/en/latest/topics/secure-installs/">secure manner</a> to install a Python application and its
 dependencies during deployment.</p></li>
-<li><p>Use <a class="reference internal" href="../key_projects.html#virtualenv"><span class="std std-ref">virtualenv</span></a> or <a class="reference external" href="https://docs.python.org/3/library/venv.html" title="(在 Python v3.10)"><span class="xref std std-doc">venv</span></a> to isolate
+<li><p>Use <a class="reference internal" href="../key_projects.html#virtualenv"><span class="std std-ref">virtualenv</span></a> or <a class="reference external" href="https://docs.python.org/3/library/venv.html" title="(在 Python v3.11)"><span class="xref std std-doc">venv</span></a> to isolate
 application-specific dependencies from a shared Python installation. <a class="footnote-reference brackets" href="#id12" id="id2">4</a></p></li>
 <li><p>Use <a class="reference external" href="https://github.com/jazzband/pip-tools">pip-tools</a>, <a class="reference internal" href="../key_projects.html#pipenv"><span class="std std-ref">Pipenv</span></a>, or <a class="reference external" href="https://python-poetry.org/">poetry</a> to generate the fully-specified
 application-specific dependencies, when developing Python applications.</p></li>
@@ -177,7 +173,7 @@ application-specific dependencies, when developing Python applications.</p></li>
 <a class="reference internal" href="../glossary.html#term-Python-Package-Index-PyPI"><span class="xref std std-term">PyPI</span></a>. <a class="footnote-reference brackets" href="#id9" id="id3">1</a> <a class="footnote-reference brackets" href="#id10" id="id4">2</a> Depending on how <a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a>
 is installed, you may need to also install <a class="reference internal" href="../key_projects.html#wheel"><span class="std std-ref">wheel</span></a> to get the benefit
 of wheel caching. <a class="footnote-reference brackets" href="#id11" id="id5">3</a></p></li>
-<li><p>Use <a class="reference internal" href="../key_projects.html#virtualenv"><span class="std std-ref">virtualenv</span></a> or <a class="reference external" href="https://docs.python.org/3/library/venv.html" title="(在 Python v3.10)"><span class="xref std std-doc">venv</span></a> to isolate
+<li><p>Use <a class="reference internal" href="../key_projects.html#virtualenv"><span class="std std-ref">virtualenv</span></a> or <a class="reference external" href="https://docs.python.org/3/library/venv.html" title="(在 Python v3.11)"><span class="xref std std-doc">venv</span></a> to isolate
 project-specific dependencies from a shared Python installation. <a class="footnote-reference brackets" href="#id12" id="id6">4</a></p></li>
 <li><p>If you’re looking for management of fully integrated cross-platform software
 stacks, consider:</p>
@@ -269,25 +265,22 @@ choice for packaging.</p>
 <h3><a href="../index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">指南</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installing-using-pip-and-virtual-environments.html">Installing packages using pip and virtual environments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-stand-alone-command-line-tools.html">安装独立命令行工具</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-using-linux-tools.html">用 Linux 软件包管理器安装 pip/setuptools/wheel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-scientific-packages.html">Installing scientific packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multi-version-installs.html">多版本安装</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index-mirrors-and-caches.html">Package index mirrors and caches</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hosting-your-own-index.html">Hosting your own simple repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributing-packages-using-setuptools.html">Packaging and distributing projects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using-manifest-in.html">Including files in source distributions with <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="single-sourcing-package-version.html">Single-sourcing the package version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supporting-multiple-python-versions.html">支持多个 Python 版本</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dropping-older-python-versions.html">放弃对旧版 Python 的支持</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging-binary-extensions.html">Packaging binary extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supporting-windows-using-appveyor.html">Supporting Windows using Appveyor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging-namespace-packages.html">Packaging namespace packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="creating-and-discovering-plugins.html">创建和发现插件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating-to-pypi-org.html">迁移到 PyPI.org</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using-testpypi.html">使用 TestPyPI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="making-a-pypi-friendly-readme.html">Making a PyPI-friendly README</a></li>
 <li class="toctree-l2"><a class="reference internal" href="publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.html">Publishing package distribution releases using GitHub Actions CI/CD workflows</a></li>
@@ -374,7 +367,7 @@ choice for packaging.</p>
 <br />
     <br />
 
-    最后更新于 2022 年 04 月 23 日.
+    最后更新于 2023 年 01 月 31 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 

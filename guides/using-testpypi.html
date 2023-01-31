@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/pypa.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/overrides.css" />
     
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -28,7 +27,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="Making a PyPI-friendly README" href="making-a-pypi-friendly-readme.html" />
-    <link rel="prev" title="迁移到 PyPI.org" href="migrating-to-pypi-org.html" /><link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+    <link rel="prev" title="创建和发现插件" href="creating-and-discovering-plugins.html" /><link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
             <script type="text/javascript" src="../_static/copybutton.js"></script>
             <script type="text/javascript" src="../_static/menu.js"></script> 
   </head>
@@ -59,25 +58,22 @@
 <h3><a href="../index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">指南</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installing-using-pip-and-virtual-environments.html">Installing packages using pip and virtual environments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-stand-alone-command-line-tools.html">安装独立命令行工具</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-using-linux-tools.html">用 Linux 软件包管理器安装 pip/setuptools/wheel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-scientific-packages.html">Installing scientific packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multi-version-installs.html">多版本安装</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index-mirrors-and-caches.html">Package index mirrors and caches</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hosting-your-own-index.html">Hosting your own simple repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributing-packages-using-setuptools.html">Packaging and distributing projects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using-manifest-in.html">Including files in source distributions with <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="single-sourcing-package-version.html">Single-sourcing the package version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supporting-multiple-python-versions.html">支持多个 Python 版本</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dropping-older-python-versions.html">放弃对旧版 Python 的支持</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging-binary-extensions.html">Packaging binary extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supporting-windows-using-appveyor.html">Supporting Windows using Appveyor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging-namespace-packages.html">Packaging namespace packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="creating-and-discovering-plugins.html">创建和发现插件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating-to-pypi-org.html">迁移到 PyPI.org</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">使用 TestPyPI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="making-a-pypi-friendly-readme.html">Making a PyPI-friendly README</a></li>
 <li class="toctree-l2"><a class="reference internal" href="publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.html">Publishing package distribution releases using GitHub Actions CI/CD workflows</a></li>
@@ -96,8 +92,8 @@
 
   <div>
     <h4>上一个主题</h4>
-    <p class="topless"><a href="migrating-to-pypi-org.html"
-                          title="上一章">迁移到 PyPI.org</a></p>
+    <p class="topless"><a href="creating-and-discovering-plugins.html"
+                          title="上一章">创建和发现插件</a></p>
   </div>
   <div>
     <h4>下一个主题</h4>
@@ -118,7 +114,7 @@
           <a href="making-a-pypi-friendly-readme.html" title="Making a PyPI-friendly README"
              accesskey="N">下一页</a> |</li>
         <li class="right" >
-          <a href="migrating-to-pypi-org.html" title="迁移到 PyPI.org"
+          <a href="creating-and-discovering-plugins.html" title="创建和发现插件"
              accesskey="P">上一页</a> |</li>
           <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
           <li><a href="https://pypa.io">PyPA</a> &#187;</li>
@@ -176,7 +172,7 @@ unusual for user accounts to be deleted.</p>
 <h2>Using TestPyPI with Twine<a class="headerlink" href="#using-testpypi-with-twine" title="永久链接至标题">¶</a></h2>
 <p>You can upload your distributions to TestPyPI using <a class="reference internal" href="../key_projects.html#twine"><span class="std std-ref">twine</span></a> by specifying
 the <code class="docutils literal notranslate"><span class="pre">--repository</span></code> flag:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>twine upload --repository testpypi dist/*
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>twine<span class="w"> </span>upload<span class="w"> </span>--repository<span class="w"> </span>testpypi<span class="w"> </span>dist/*
 </pre></div>
 </div>
 <p>You can see if your package has successfully uploaded by navigating to the URL
@@ -190,7 +186,7 @@ your project to appear on the site.</p>
 specifying the <code class="docutils literal notranslate"><span class="pre">--index-url</span></code> flag:</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --index-url https://test.pypi.org/simple/ your-package
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--index-url<span class="w"> </span>https://test.pypi.org/simple/<span class="w"> </span>your-package
 </pre></div>
 </div>
 </div>
@@ -205,7 +201,7 @@ specify <code class="docutils literal notranslate"><span class="pre">--extra-ind
 you’re testing has dependencies:</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ your-package
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--index-url<span class="w"> </span>https://test.pypi.org/simple/<span class="w"> </span>--extra-index-url<span class="w"> </span>https://pypi.org/simple/<span class="w"> </span>your-package
 </pre></div>
 </div>
 </div>
@@ -238,25 +234,22 @@ your <code class="file docutils literal notranslate"><span class="pre">$HOME/.py
 <h3><a href="../index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">指南</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installing-using-pip-and-virtual-environments.html">Installing packages using pip and virtual environments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-stand-alone-command-line-tools.html">安装独立命令行工具</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-using-linux-tools.html">用 Linux 软件包管理器安装 pip/setuptools/wheel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-scientific-packages.html">Installing scientific packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multi-version-installs.html">多版本安装</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index-mirrors-and-caches.html">Package index mirrors and caches</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hosting-your-own-index.html">Hosting your own simple repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributing-packages-using-setuptools.html">Packaging and distributing projects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using-manifest-in.html">Including files in source distributions with <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="single-sourcing-package-version.html">Single-sourcing the package version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supporting-multiple-python-versions.html">支持多个 Python 版本</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dropping-older-python-versions.html">放弃对旧版 Python 的支持</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging-binary-extensions.html">Packaging binary extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supporting-windows-using-appveyor.html">Supporting Windows using Appveyor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging-namespace-packages.html">Packaging namespace packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="creating-and-discovering-plugins.html">创建和发现插件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating-to-pypi-org.html">迁移到 PyPI.org</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">使用 TestPyPI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="making-a-pypi-friendly-readme.html">Making a PyPI-friendly README</a></li>
 <li class="toctree-l2"><a class="reference internal" href="publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.html">Publishing package distribution releases using GitHub Actions CI/CD workflows</a></li>
@@ -275,8 +268,8 @@ your <code class="file docutils literal notranslate"><span class="pre">$HOME/.py
 
   <div>
     <h4>上一个主题</h4>
-    <p class="topless"><a href="migrating-to-pypi-org.html"
-                          title="上一章">迁移到 PyPI.org</a></p>
+    <p class="topless"><a href="creating-and-discovering-plugins.html"
+                          title="上一章">创建和发现插件</a></p>
   </div>
   <div>
     <h4>下一个主题</h4>
@@ -297,7 +290,7 @@ your <code class="file docutils literal notranslate"><span class="pre">$HOME/.py
           <a href="making-a-pypi-friendly-readme.html" title="Making a PyPI-friendly README"
              >下一页</a> |</li>
         <li class="right" >
-          <a href="migrating-to-pypi-org.html" title="迁移到 PyPI.org"
+          <a href="creating-and-discovering-plugins.html" title="创建和发现插件"
              >上一页</a> |</li>
           <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
           <li><a href="https://pypa.io">PyPA</a> &#187;</li>
@@ -343,7 +336,7 @@ your <code class="file docutils literal notranslate"><span class="pre">$HOME/.py
 <br />
     <br />
 
-    最后更新于 2022 年 04 月 23 日.
+    最后更新于 2023 年 01 月 31 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 

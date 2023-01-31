@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/pypa.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/overrides.css" />
     
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -27,8 +26,8 @@
     
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="Core metadata specifications" href="core-metadata.html" />
-    <link rel="prev" title="Wheel 与 Egg" href="../discussions/wheel-vs-egg.html" /><link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+    <link rel="next" title="Package name normalization" href="name-normalization.html" />
+    <link rel="prev" title="src layout vs flat layout" href="../discussions/src-layout-vs-flat-layout.html" /><link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
             <script type="text/javascript" src="../_static/copybutton.js"></script>
             <script type="text/javascript" src="../_static/menu.js"></script> 
   </head>
@@ -59,6 +58,7 @@
 <h3><a href="../index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../discussions/index.html">讨论</a></li>
@@ -77,13 +77,13 @@
 
   <div>
     <h4>上一个主题</h4>
-    <p class="topless"><a href="../discussions/wheel-vs-egg.html"
-                          title="上一章">Wheel 与 Egg</a></p>
+    <p class="topless"><a href="../discussions/src-layout-vs-flat-layout.html"
+                          title="上一章">src layout vs flat layout</a></p>
   </div>
   <div>
     <h4>下一个主题</h4>
-    <p class="topless"><a href="core-metadata.html"
-                          title="下一章">Core metadata specifications</a></p>
+    <p class="topless"><a href="name-normalization.html"
+                          title="下一章">Package name normalization</a></p>
   </div>
         </nav>
     </div>
@@ -96,10 +96,10 @@
           <a href="../genindex.html" title="总目录"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="core-metadata.html" title="Core metadata specifications"
+          <a href="name-normalization.html" title="Package name normalization"
              accesskey="N">下一页</a> |</li>
         <li class="right" >
-          <a href="../discussions/wheel-vs-egg.html" title="Wheel 与 Egg"
+          <a href="../discussions/src-layout-vs-flat-layout.html" title="src layout vs flat layout"
              accesskey="P">上一页</a> |</li>
           <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
           <li><a href="https://pypa.io">PyPA</a> &#187;</li>
@@ -145,6 +145,7 @@ and for proposing new ones, is documented on
 <h2>Package Distribution Metadata<a class="headerlink" href="#package-distribution-metadata" title="永久链接至标题">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="name-normalization.html">Package name normalization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="core-metadata.html">Core metadata specifications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="version-specifiers.html">版本说明符</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dependency-specifiers.html">Dependency specifiers</a></li>
@@ -187,6 +188,7 @@ and for proposing new ones, is documented on
 <h3><a href="../index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../discussions/index.html">讨论</a></li>
@@ -205,13 +207,13 @@ and for proposing new ones, is documented on
 
   <div>
     <h4>上一个主题</h4>
-    <p class="topless"><a href="../discussions/wheel-vs-egg.html"
-                          title="上一章">Wheel 与 Egg</a></p>
+    <p class="topless"><a href="../discussions/src-layout-vs-flat-layout.html"
+                          title="上一章">src layout vs flat layout</a></p>
   </div>
   <div>
     <h4>下一个主题</h4>
-    <p class="topless"><a href="core-metadata.html"
-                          title="下一章">Core metadata specifications</a></p>
+    <p class="topless"><a href="name-normalization.html"
+                          title="下一章">Package name normalization</a></p>
   </div>
         </div>
       </div>
@@ -224,10 +226,10 @@ and for proposing new ones, is documented on
           <a href="../genindex.html" title="总目录"
              >索引</a></li>
         <li class="right" >
-          <a href="core-metadata.html" title="Core metadata specifications"
+          <a href="name-normalization.html" title="Package name normalization"
              >下一页</a> |</li>
         <li class="right" >
-          <a href="../discussions/wheel-vs-egg.html" title="Wheel 与 Egg"
+          <a href="../discussions/src-layout-vs-flat-layout.html" title="src layout vs flat layout"
              >上一页</a> |</li>
           <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
           <li><a href="https://pypa.io">PyPA</a> &#187;</li>
@@ -272,7 +274,7 @@ and for proposing new ones, is documented on
 <br />
     <br />
 
-    最后更新于 2022 年 04 月 23 日.
+    最后更新于 2023 年 01 月 31 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 

@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/pypa.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/overrides.css" />
     
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -59,6 +58,7 @@
 <h3><a href="../index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">教程</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installing-packages.html">安装包</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">管理应用程序的依赖性</a></li>
@@ -150,7 +150,7 @@
 <p>使用 <code class="docutils literal notranslate"><span class="pre">pip</span></code> 来安装Pipenv：</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --user pipenv
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>pipenv
 </pre></div>
 </div>
 </div>
@@ -162,14 +162,14 @@
 </div>
 <div class="admonition note" id="pipenv-user-base">
 <p class="admonition-title">备注</p>
-<p>这将做一个 <a class="reference external" href="https://pip.pypa.io/en/stable/user_guide/#user-installs">user installation</a>，以防止破坏任何系统范围的软件包。如果 <code class="docutils literal notranslate"><span class="pre">pipenv</span></code> 在安装后在你的 shell 中不可用，你需要将 <a class="reference external" href="https://docs.python.org/3/library/site.html#site.USER_BASE" title="(在 Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">user</span> <span class="pre">base</span></code></a> 的二进制目录加入你的 <code class="docutils literal notranslate"><span class="pre">PATH</span></code>。参见 <a class="reference internal" href="installing-packages.html#installing-to-the-user-site"><span class="std std-ref">安装到用户站点</span></a> 获取更多信息。</p>
+<p>这将做一个 <a class="reference external" href="https://pip.pypa.io/en/stable/user_guide/#user-installs">user installation</a>，以防止破坏任何系统范围的软件包。如果 <code class="docutils literal notranslate"><span class="pre">pipenv</span></code> 在安装后在你的 shell 中不可用，你需要将 <a class="reference external" href="https://docs.python.org/3/library/site.html#site.USER_BASE" title="(在 Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">user</span> <span class="pre">base</span></code></a> 的二进制目录加入你的 <code class="docutils literal notranslate"><span class="pre">PATH</span></code>。参见 <a class="reference internal" href="installing-packages.html#installing-to-the-user-site"><span class="std std-ref">安装到用户站点</span></a> 获取更多信息。</p>
 </div>
 </section>
 <section id="installing-packages-for-your-project">
 <h2>为你的项目安装软件包<a class="headerlink" href="#installing-packages-for-your-project" title="永久链接至标题">¶</a></h2>
 <p>Pipenv 在每个项目的基础上管理依赖性。要安装软件包，请进入你的项目目录（或者在本教程中只是一个空目录）并运行：</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> myproject
-pipenv install requests
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>myproject
+pipenv<span class="w"> </span>install<span class="w"> </span>requests
 </pre></div>
 </div>
 <p>Pipenv 将安装 <a class="reference external" href="https://pypi.org/project/requests/">Requests</a> 库并在你的项目目录中为你创建一个 <code class="docutils literal notranslate"><span class="pre">Pipfile</span></code>。<a class="reference internal" href="../key_projects.html#pipfile"><span class="std std-ref">Pipfile</span></a> 用于跟踪你的项目需要哪些依赖，以备你需要重新安装它们，例如当你与他人分享你的项目时。你应该得到类似这样的输出（尽管显示的确切路径会有所不同）：</p>
@@ -210,7 +210,7 @@ Adding requests to Pipfile&#39;s [packages]...
 </pre></div>
 </div>
 <p>然后你可以使用 <code class="docutils literal notranslate"><span class="pre">pipenv</span> <span class="pre">run</span></code> 来运行这个脚本。</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pipenv run python main.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pipenv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>main.py
 </pre></div>
 </div>
 <p>你应该得到与此类似的输出：</p>
@@ -231,9 +231,9 @@ Adding requests to Pipfile&#39;s [packages]...
 working well for you or your use case, you may want to explore these other tools
 and techniques, listed in alphabetical order, to see if one of them is a better fit:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/ofek/hatch">hatch</a> for opinionated coverage of even
-more steps in the project management workflow, such as incrementing versions,
-tagging releases, and creating new skeleton projects from project templates.</p></li>
+<li><p><a class="reference external" href="https://github.com/pypa/hatch">hatch</a> for opinionated coverage of even
+more steps in the project management workflow, such as incrementing versions
+and creating new skeleton projects from project templates.</p></li>
 <li><p><a class="reference external" href="https://github.com/thoth-station/micropipenv">micropipenv</a> for a lightweight
 wrapper around pip that supports <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>, Pipenv and Poetry lock files,
 or converting them to pip-tools compatible output. Designed for containerized
@@ -264,6 +264,7 @@ being worked on will support distribution as a <code class="docutils literal not
 <h3><a href="../index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">教程</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installing-packages.html">安装包</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">管理应用程序的依赖性</a></li>
@@ -351,7 +352,7 @@ being worked on will support distribution as a <code class="docutils literal not
 <br />
     <br />
 
-    最后更新于 2022 年 04 月 23 日.
+    最后更新于 2023 年 01 月 31 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 

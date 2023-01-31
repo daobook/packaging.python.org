@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/pypa.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/overrides.css" />
     
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -27,7 +26,7 @@
     
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="支持多个 Python 版本" href="supporting-multiple-python-versions.html" />
+    <link rel="next" title="放弃对旧版 Python 的支持" href="dropping-older-python-versions.html" />
     <link rel="prev" title="Including files in source distributions with MANIFEST.in" href="using-manifest-in.html" /><link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
             <script type="text/javascript" src="../_static/copybutton.js"></script>
             <script type="text/javascript" src="../_static/menu.js"></script> 
@@ -59,25 +58,22 @@
 <h3><a href="../index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">指南</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installing-using-pip-and-virtual-environments.html">Installing packages using pip and virtual environments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-stand-alone-command-line-tools.html">安装独立命令行工具</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-using-linux-tools.html">用 Linux 软件包管理器安装 pip/setuptools/wheel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-scientific-packages.html">Installing scientific packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multi-version-installs.html">多版本安装</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index-mirrors-and-caches.html">Package index mirrors and caches</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hosting-your-own-index.html">Hosting your own simple repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributing-packages-using-setuptools.html">Packaging and distributing projects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using-manifest-in.html">Including files in source distributions with <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code></a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Single-sourcing the package version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supporting-multiple-python-versions.html">支持多个 Python 版本</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dropping-older-python-versions.html">放弃对旧版 Python 的支持</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging-binary-extensions.html">Packaging binary extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supporting-windows-using-appveyor.html">Supporting Windows using Appveyor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging-namespace-packages.html">Packaging namespace packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="creating-and-discovering-plugins.html">创建和发现插件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating-to-pypi-org.html">迁移到 PyPI.org</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using-testpypi.html">使用 TestPyPI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="making-a-pypi-friendly-readme.html">Making a PyPI-friendly README</a></li>
 <li class="toctree-l2"><a class="reference internal" href="publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.html">Publishing package distribution releases using GitHub Actions CI/CD workflows</a></li>
@@ -101,8 +97,8 @@
   </div>
   <div>
     <h4>下一个主题</h4>
-    <p class="topless"><a href="supporting-multiple-python-versions.html"
-                          title="下一章">支持多个 Python 版本</a></p>
+    <p class="topless"><a href="dropping-older-python-versions.html"
+                          title="下一章">放弃对旧版 Python 的支持</a></p>
   </div>
         </nav>
     </div>
@@ -115,7 +111,7 @@
           <a href="../genindex.html" title="总目录"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="supporting-multiple-python-versions.html" title="支持多个 Python 版本"
+          <a href="dropping-older-python-versions.html" title="放弃对旧版 Python 的支持"
              accesskey="N">下一页</a> |</li>
         <li class="right" >
           <a href="using-manifest-in.html" title="Including files in source distributions with MANIFEST.in"
@@ -187,18 +183,26 @@ number of your project:</p>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
 <p>As of the release of setuptools 46.4.0, one can accomplish the same
-thing by instead placing the following in the project’s <code class="docutils literal notranslate"><span class="pre">setup.cfg</span></code>
-file (replacing “package” with the import name of the package):</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[metadata]</span><span class="w"></span>
-<span class="na">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">attr: package.__version__</span><span class="w"></span>
+thing by instead placing the following in the project’s
+<code class="file docutils literal notranslate"><span class="pre">setup.cfg</span></code> file (replacing “package” with the import name of the
+package):</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[metadata]</span>
+<span class="na">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">attr: package.__version__</span>
 </pre></div>
 </div>
-<p>Earlier versions of setuptools implemented the <code class="docutils literal notranslate"><span class="pre">attr:</span></code> directive by
-importing the module, but setuptools 46.4.0 added rudimentary AST
-analysis so that <code class="docutils literal notranslate"><span class="pre">attr:</span></code> can function without having to import any of
-the package’s dependencies.</p>
-<p>Also, please be aware that declarative config indicators, including the
-<code class="docutils literal notranslate"><span class="pre">attr:</span></code> directive, are not supported in parameters to <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>.</p>
+<p>As of the release of setuptools 61.0.0, one can specify the
+version dynamically in the project’s <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file.</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;package&quot;</span>
+<span class="n">dynamic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;version&quot;</span><span class="p">]</span>
+
+<span class="k">[tool.setuptools.dynamic]</span>
+<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">attr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;package.__version__&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Please be aware that declarative config indicators, including the
+<code class="docutils literal notranslate"><span class="pre">attr:</span></code> directive, are not supported in parameters to
+<code class="file docutils literal notranslate"><span class="pre">setup.py</span></code>.</p>
 </div>
 </li>
 <li><p>Use an external build tool that either manages updating both locations, or
@@ -312,25 +316,22 @@ instead of in the code, and automatically extract it from there using
 <h3><a href="../index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">指南</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installing-using-pip-and-virtual-environments.html">Installing packages using pip and virtual environments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-stand-alone-command-line-tools.html">安装独立命令行工具</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-using-linux-tools.html">用 Linux 软件包管理器安装 pip/setuptools/wheel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-scientific-packages.html">Installing scientific packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multi-version-installs.html">多版本安装</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index-mirrors-and-caches.html">Package index mirrors and caches</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hosting-your-own-index.html">Hosting your own simple repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributing-packages-using-setuptools.html">Packaging and distributing projects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using-manifest-in.html">Including files in source distributions with <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code></a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Single-sourcing the package version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supporting-multiple-python-versions.html">支持多个 Python 版本</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dropping-older-python-versions.html">放弃对旧版 Python 的支持</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging-binary-extensions.html">Packaging binary extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supporting-windows-using-appveyor.html">Supporting Windows using Appveyor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging-namespace-packages.html">Packaging namespace packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="creating-and-discovering-plugins.html">创建和发现插件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating-to-pypi-org.html">迁移到 PyPI.org</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using-testpypi.html">使用 TestPyPI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="making-a-pypi-friendly-readme.html">Making a PyPI-friendly README</a></li>
 <li class="toctree-l2"><a class="reference internal" href="publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.html">Publishing package distribution releases using GitHub Actions CI/CD workflows</a></li>
@@ -354,8 +355,8 @@ instead of in the code, and automatically extract it from there using
   </div>
   <div>
     <h4>下一个主题</h4>
-    <p class="topless"><a href="supporting-multiple-python-versions.html"
-                          title="下一章">支持多个 Python 版本</a></p>
+    <p class="topless"><a href="dropping-older-python-versions.html"
+                          title="下一章">放弃对旧版 Python 的支持</a></p>
   </div>
         </div>
       </div>
@@ -368,7 +369,7 @@ instead of in the code, and automatically extract it from there using
           <a href="../genindex.html" title="总目录"
              >索引</a></li>
         <li class="right" >
-          <a href="supporting-multiple-python-versions.html" title="支持多个 Python 版本"
+          <a href="dropping-older-python-versions.html" title="放弃对旧版 Python 的支持"
              >下一页</a> |</li>
         <li class="right" >
           <a href="using-manifest-in.html" title="Including files in source distributions with MANIFEST.in"
@@ -417,7 +418,7 @@ instead of in the code, and automatically extract it from there using
 <br />
     <br />
 
-    最后更新于 2022 年 04 月 23 日.
+    最后更新于 2023 年 01 月 31 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 

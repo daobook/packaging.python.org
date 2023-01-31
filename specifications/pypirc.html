@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/pypa.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/overrides.css" />
     
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -59,6 +58,7 @@
 <h3><a href="../index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../discussions/index.html">讨论</a></li>
@@ -143,20 +143,20 @@ indexes</span></a> (referred to here as “repositories”), so that you don’t
 have to enter the URL, username, or password whenever you upload a package with
 <a class="reference internal" href="../key_projects.html#twine"><span class="std std-ref">twine</span></a> or <a class="reference internal" href="../key_projects.html#flit"><span class="std std-ref">flit</span></a>.</p>
 <p>The format (originally defined by the <a class="reference internal" href="../key_projects.html#distutils"><span class="std std-ref">distutils</span></a> package) is:</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[distutils]</span><span class="w"></span>
-<span class="na">index-servers</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
-<span class="w">    </span><span class="na">first-repository</span><span class="w"></span>
-<span class="w">    </span><span class="na">second-repository</span><span class="w"></span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[distutils]</span>
+<span class="na">index-servers</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="na">first-repository</span>
+<span class="w">    </span><span class="na">second-repository</span>
 
-<span class="k">[first-repository]</span><span class="w"></span>
-<span class="na">repository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;first-repository URL&gt;</span><span class="w"></span>
-<span class="na">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;first-repository username&gt;</span><span class="w"></span>
-<span class="na">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;first-repository password&gt;</span><span class="w"></span>
+<span class="k">[first-repository]</span>
+<span class="na">repository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;first-repository URL&gt;</span>
+<span class="na">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;first-repository username&gt;</span>
+<span class="na">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;first-repository password&gt;</span>
 
-<span class="k">[second-repository]</span><span class="w"></span>
-<span class="na">repository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;second-repository URL&gt;</span><span class="w"></span>
-<span class="na">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;second-repository username&gt;</span><span class="w"></span>
-<span class="na">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;second-repository password&gt;</span><span class="w"></span>
+<span class="k">[second-repository]</span>
+<span class="na">repository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;second-repository URL&gt;</span>
+<span class="na">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;second-repository username&gt;</span>
+<span class="na">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;second-repository password&gt;</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">distutils</span></code> section defines an <code class="docutils literal notranslate"><span class="pre">index-servers</span></code> field that lists the
@@ -174,7 +174,7 @@ consider an alternative like <a class="reference external" href="https://pypi.or
 providing the password on the command line.</p>
 <p>Otherwise, set the permissions on <code class="file docutils literal notranslate"><span class="pre">.pypirc</span></code> so that only you can view
 or modify it. For example, on Linux or macOS, run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod <span class="m">600</span> ~/.pypirc
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>~/.pypirc
 </pre></div>
 </div>
 </div>
@@ -182,23 +182,22 @@ or modify it. For example, on Linux or macOS, run:</p>
 <h2>Common configurations<a class="headerlink" href="#common-configurations" title="永久链接至标题">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
-<p>These examples apply to <a class="reference internal" href="../key_projects.html#twine"><span class="std std-ref">twine</span></a>, and projects like <a class="reference internal" href="../key_projects.html#hatch"><span class="std std-ref">hatch</span></a> that
-use it under the hood. Other projects (e.g. <a class="reference internal" href="../key_projects.html#flit"><span class="std std-ref">flit</span></a>) also use
+<p>These examples apply to <a class="reference internal" href="../key_projects.html#twine"><span class="std std-ref">twine</span></a>. Other projects (e.g. <a class="reference internal" href="../key_projects.html#flit"><span class="std std-ref">flit</span></a>) also use
 <code class="file docutils literal notranslate"><span class="pre">.pypirc</span></code>, but with different defaults. Please refer to each project’s
 documentation for more details and usage instructions.</p>
 </div>
 <p>Twine’s default configuration mimics a <code class="file docutils literal notranslate"><span class="pre">.pypirc</span></code> with repository sections
 for PyPI and TestPyPI:</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[distutils]</span><span class="w"></span>
-<span class="na">index-servers</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
-<span class="w">    </span><span class="na">pypi</span><span class="w"></span>
-<span class="w">    </span><span class="na">testpypi</span><span class="w"></span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[distutils]</span>
+<span class="na">index-servers</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="na">pypi</span>
+<span class="w">    </span><span class="na">testpypi</span>
 
-<span class="k">[pypi]</span><span class="w"></span>
-<span class="na">repository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://upload.pypi.org/legacy/</span><span class="w"></span>
+<span class="k">[pypi]</span>
+<span class="na">repository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://upload.pypi.org/legacy/</span>
 
-<span class="k">[testpypi]</span><span class="w"></span>
-<span class="na">repository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://test.pypi.org/legacy/</span><span class="w"></span>
+<span class="k">[testpypi]</span>
+<span class="na">repository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://test.pypi.org/legacy/</span>
 </pre></div>
 </div>
 <p>Twine will add additional configuration from <code class="file docutils literal notranslate"><span class="pre">$HOME/.pypirc</span></code>, the command
@@ -207,9 +206,9 @@ line, and environment variables to this default configuration.</p>
 <h3>Using a PyPI token<a class="headerlink" href="#using-a-pypi-token" title="永久链接至标题">¶</a></h3>
 <p>To set your <a class="reference external" href="https://pypi.org/help/#apitoken">API token</a> for PyPI, you can create a <code class="file docutils literal notranslate"><span class="pre">$HOME/.pypirc</span></code>
 similar to:</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[pypi]</span><span class="w"></span>
-<span class="na">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">__token__</span><span class="w"></span>
-<span class="na">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;PyPI token&gt;</span><span class="w"></span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[pypi]</span>
+<span class="na">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">__token__</span>
+<span class="na">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;PyPI token&gt;</span>
 </pre></div>
 </div>
 <p>For <a class="reference internal" href="../guides/using-testpypi.html#using-test-pypi"><span class="std std-ref">TestPyPI</span></a>, add a <code class="docutils literal notranslate"><span class="pre">[testpypi]</span></code> section, using the
@@ -220,33 +219,33 @@ API token from your TestPyPI account.</p>
 <p>To configure an additional repository, you’ll need to redefine the
 <code class="docutils literal notranslate"><span class="pre">index-servers</span></code> field to include the repository name. Here is a complete
 example of a <code class="file docutils literal notranslate"><span class="pre">$HOME/.pypirc</span></code> for PyPI, TestPyPI, and a private repository:</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[distutils]</span><span class="w"></span>
-<span class="na">index-servers</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
-<span class="w">    </span><span class="na">pypi</span><span class="w"></span>
-<span class="w">    </span><span class="na">testpypi</span><span class="w"></span>
-<span class="w">    </span><span class="na">private-repository</span><span class="w"></span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[distutils]</span>
+<span class="na">index-servers</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="na">pypi</span>
+<span class="w">    </span><span class="na">testpypi</span>
+<span class="w">    </span><span class="na">private-repository</span>
 
-<span class="k">[pypi]</span><span class="w"></span>
-<span class="na">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">__token__</span><span class="w"></span>
-<span class="na">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;PyPI token&gt;</span><span class="w"></span>
+<span class="k">[pypi]</span>
+<span class="na">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">__token__</span>
+<span class="na">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;PyPI token&gt;</span>
 
-<span class="k">[testpypi]</span><span class="w"></span>
-<span class="na">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">__token__</span><span class="w"></span>
-<span class="na">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;TestPyPI token&gt;</span><span class="w"></span>
+<span class="k">[testpypi]</span>
+<span class="na">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">__token__</span>
+<span class="na">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;TestPyPI token&gt;</span>
 
-<span class="k">[private-repository]</span><span class="w"></span>
-<span class="na">repository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;private-repository URL&gt;</span><span class="w"></span>
-<span class="na">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;private-repository username&gt;</span><span class="w"></span>
-<span class="na">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;private-repository password&gt;</span><span class="w"></span>
+<span class="k">[private-repository]</span>
+<span class="na">repository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;private-repository URL&gt;</span>
+<span class="na">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;private-repository username&gt;</span>
+<span class="na">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;private-repository password&gt;</span>
 </pre></div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
 <p>Instead of using the <code class="docutils literal notranslate"><span class="pre">password</span></code> field, consider saving your API tokens
 and passwords securely using <a class="reference external" href="https://pypi.org/project/keyring/">keyring</a> (which is installed by Twine):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>keyring <span class="nb">set</span> https://upload.pypi.org/legacy/ __token__
-keyring <span class="nb">set</span> https://test.pypi.org/legacy/ __token__
-keyring <span class="nb">set</span> &lt;private-repository URL&gt; &lt;private-repository username&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>keyring<span class="w"> </span><span class="nb">set</span><span class="w"> </span>https://upload.pypi.org/legacy/<span class="w"> </span>__token__
+keyring<span class="w"> </span><span class="nb">set</span><span class="w"> </span>https://test.pypi.org/legacy/<span class="w"> </span>__token__
+keyring<span class="w"> </span><span class="nb">set</span><span class="w"> </span>&lt;private-repository<span class="w"> </span>URL&gt;<span class="w"> </span>&lt;private-repository<span class="w"> </span>username&gt;
 </pre></div>
 </div>
 </div>
@@ -264,6 +263,7 @@ keyring <span class="nb">set</span> &lt;private-repository URL&gt; &lt;private-r
 <h3><a href="../index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../discussions/index.html">讨论</a></li>
@@ -350,7 +350,7 @@ keyring <span class="nb">set</span> &lt;private-repository URL&gt; &lt;private-r
 <br />
     <br />
 
-    最后更新于 2022 年 04 月 23 日.
+    最后更新于 2023 年 01 月 31 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 

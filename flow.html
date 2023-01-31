@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>The Packaging Flow &#8212; Python Packaging User Guide</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pypa.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/tabs.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/translations.js"></script>
+    
+    <script src="_static/sidebar.js"></script>
+    
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="教程" href="tutorials/index.html" />
+    <link rel="prev" title="Python 包装的概述" href="overview.html" /><link rel="shortcut icon" type="image/png" href="_static/py.svg" />
+            <script type="text/javascript" src="_static/copybutton.js"></script>
+            <script type="text/javascript" src="_static/menu.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://pypa.io" class="nav-logo">
+             <img src="_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="快速搜索"/>
+            <input type="submit" value="转向"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+<h3><a href="index.html">目录</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The Packaging Flow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-source-tree">The source tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-configuration-file">The configuration file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#build-artifacts">Build artifacts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#upload-to-the-package-distribution-service">Upload to the package distribution service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-and-install">Download and install</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/index.html">指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="discussions/index.html">讨论</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications/index.html">PyPA specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key_projects.html">项目摘要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">术语表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">如何获得支持</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">为本指南做出贡献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">新闻</a></li>
+</ul>
+
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="overview.html"
+                          title="上一章">Python 包装的概述</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="tutorials/index.html"
+                          title="下一章">教程</a></p>
+  </div>
+        </nav>
+    </div>
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="tutorials/index.html" title="教程"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="overview.html" title="Python 包装的概述"
+             accesskey="P">上一页</a> |</li>
+          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">Python Packaging User Guide</a> &#187;
+              
+          </li>
+        <li class="nav-item nav-item-this"><a href="">The Packaging Flow</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="快速搜索" aria-label="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="the-packaging-flow">
+<h1>The Packaging Flow<a class="headerlink" href="#the-packaging-flow" title="永久链接至标题">¶</a></h1>
+<p>The document aims to outline the flow involved in publishing/distributing a
+<a class="reference internal" href="glossary.html#term-Distribution-Package"><span class="xref std std-term">distribution package</span></a>, usually to the <a class="reference external" href="https://pypi.org/">Python
+Package Index (PyPI)</a>. It is written for package publishers, who are assumed
+to be the package author.</p>
+<p>While the <a class="reference internal" href="tutorials/packaging-projects.html"><span class="doc">tutorial</span></a> walks through the
+process of preparing a simple package for release, it does not fully enumerate
+what steps and files are required, and for what purpose.</p>
+<p>Publishing a package requires a flow from the author’s source code to an end
+user’s Python environment. The steps to achieve this are:</p>
+<ul class="simple">
+<li><p>Have a source tree containing the package. This is typically a checkout from
+a version control system (VCS).</p></li>
+<li><p>Prepare a configuration file describing the package metadata (name, version
+and so forth) and how to create the build artifacts. For most packages, this
+will be a <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file, maintained manually in the source
+tree.</p></li>
+<li><p>Create build artifacts to be sent to the package distribution service
+(usually PyPI); these will normally be a
+<a class="reference internal" href="glossary.html#term-Source-Distribution-or-sdist"><span class="xref std std-term">source distribution (“sdist”)</span></a>
+and one or more <a class="reference internal" href="glossary.html#term-Built-Distribution"><span class="xref std std-term">built distributions (“wheels”)</span></a>.
+These are made by a build tool using the configuration file from the
+previous step. Often there is just one generic wheel for a pure Python
+package.</p></li>
+<li><p>Upload the build artifacts to the package distribution service.</p></li>
+</ul>
+<p>At that point, the package is present on the package distribution service.
+To use the package, end users must:</p>
+<ul class="simple">
+<li><p>Download one of the package’s build artifacts from the package distribution
+service.</p></li>
+<li><p>Install it in their Python environment, usually in its <code class="docutils literal notranslate"><span class="pre">site-packages</span></code>
+directory. This step may involve a build/compile step which, if needed, must
+be described by the package metadata.</p></li>
+</ul>
+<p>These last 2 steps are typically performed by <a class="reference internal" href="key_projects.html#pip"><span class="std std-ref">pip</span></a> when an end user runs
+<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code>.</p>
+<p>The steps above are described in more detail below.</p>
+<section id="the-source-tree">
+<h2>The source tree<a class="headerlink" href="#the-source-tree" title="永久链接至标题">¶</a></h2>
+<p>The source tree contains the package source code, usually a checkout from a
+VCS. The particular version of the code used to create the build artifacts
+will typically be a checkout based on a tag associated with the version.</p>
+</section>
+<section id="the-configuration-file">
+<h2>The configuration file<a class="headerlink" href="#the-configuration-file" title="永久链接至标题">¶</a></h2>
+<p>The configuration file depends on the tool used to create the build artifacts.
+The standard practice is to use a <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file in the <a class="reference external" href="https://github.com/toml-lang/toml">TOML
+format</a>.</p>
+<p>At a minimum, the <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file needs a <code class="docutils literal notranslate"><span class="pre">[build-system]</span></code> table
+specifying your build tool. There are many build tools available, including
+but not limited to <a class="reference internal" href="key_projects.html#flit"><span class="std std-ref">flit</span></a>, <a class="reference internal" href="key_projects.html#hatch"><span class="std std-ref">hatch</span></a>, <a class="reference internal" href="key_projects.html#pdm"><span class="std std-ref">pdm</span></a>, <a class="reference internal" href="key_projects.html#poetry"><span class="std std-ref">poetry</span></a>,
+<a class="reference internal" href="key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a>, <a class="reference external" href="https://pypi.org/project/trampolim/">trampolim</a>, and <a class="reference external" href="https://pypi.org/project/whey/">whey</a>. Each tool’s documentation will
+show what to put in the <code class="docutils literal notranslate"><span class="pre">[build-system]</span></code> table.</p>
+<p>For example, here is a table for using <a class="reference internal" href="key_projects.html#hatch"><span class="std std-ref">hatch</span></a>:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[build-system]</span>
+<span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;hatchling&quot;</span><span class="p">]</span>
+<span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;hatchling.build&quot;</span>
+</pre></div>
+</div>
+<p>With such a table in the <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file, a “frontend” tool like
+<a class="reference internal" href="key_projects.html#build"><span class="std std-ref">build</span></a> can run your chosen build tool’s “backend” to create the build
+artifacts. Your build tool may also provide its own frontend. An install tool
+like <a class="reference internal" href="key_projects.html#pip"><span class="std std-ref">pip</span></a> also acts as a frontend when it runs your build tool’s backend
+to install from a source distribution.</p>
+<p>The particular build tool you choose dictates what additional information is
+required in the <code class="file docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file. For example, you might specify:</p>
+<ul class="simple">
+<li><p>a <code class="docutils literal notranslate"><span class="pre">[project]</span></code> table containing project
+<a class="reference internal" href="specifications/core-metadata.html"><span class="doc">Core Metadata</span></a>
+(name, version, author and so forth); see
+<a class="reference internal" href="specifications/declaring-project-metadata.html"><span class="doc">Declaring project metadata</span></a>
+for more detail</p></li>
+<li><p>a <code class="docutils literal notranslate"><span class="pre">[tool]</span></code> table containing tool-specific configuration options</p></li>
+</ul>
+</section>
+<section id="build-artifacts">
+<h2>Build artifacts<a class="headerlink" href="#build-artifacts" title="永久链接至标题">¶</a></h2>
+<section id="the-source-distribution-sdist">
+<h3>The source distribution (sdist)<a class="headerlink" href="#the-source-distribution-sdist" title="永久链接至标题">¶</a></h3>
+<p>A source distribution contains enough to install the package from source in an
+end user’s Python environment. As such, it needs the package source, and may
+also include tests and documentation. These are useful for end users wanting
+to develop your sources, and for end user systems where some local compilation
+step is required (such as a C extension).</p>
+<p>The <a class="reference internal" href="key_projects.html#build"><span class="std std-ref">build</span></a> package knows how to invoke your build tool to create one of
+these:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>build<span class="w"> </span>--sdist<span class="w"> </span>source-tree-directory
+</pre></div>
+</div>
+<p>Or, your build tool may provide its own interface for creating an sdist.</p>
+</section>
+<section id="the-built-distributions-wheels">
+<h3>The built distributions (wheels)<a class="headerlink" href="#the-built-distributions-wheels" title="永久链接至标题">¶</a></h3>
+<p>A built distribution contains only the files needed for an end user’s Python
+environment. No compilation steps are required during the install, and the
+wheel file can simply be unpacked into the <code class="docutils literal notranslate"><span class="pre">site-packages</span></code> directory. This
+makes the install faster and more convenient for end users.</p>
+<p>A pure Python package typically needs only one “generic” wheel. A package with
+compiled binary extensions needs a wheel for each supported combination of
+Python interpreter, operating system, and CPU architecture that it supports.
+If a suitable wheel file is not available, tools like <a class="reference internal" href="key_projects.html#pip"><span class="std std-ref">pip</span></a> will fall
+back to installing the source distribution.</p>
+<p>The <a class="reference internal" href="key_projects.html#build"><span class="std std-ref">build</span></a> package knows how to invoke your build tool to create one of
+these:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>build<span class="w"> </span>--wheel<span class="w"> </span>source-tree-directory
+</pre></div>
+</div>
+<p>Or, your build tool may provide its own interface for creating a wheel.</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>The default behaviour of <a class="reference internal" href="key_projects.html#build"><span class="std std-ref">build</span></a> is to make both an sdist and a wheel
+from the source in the current directory; the above examples are
+deliberately specific.</p>
+</div>
+</section>
+</section>
+<section id="upload-to-the-package-distribution-service">
+<h2>Upload to the package distribution service<a class="headerlink" href="#upload-to-the-package-distribution-service" title="永久链接至标题">¶</a></h2>
+<p>The <a class="reference internal" href="key_projects.html#twine"><span class="std std-ref">twine</span></a> tool can upload build artifacts to PyPI for distribution,
+using a command like:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>twine<span class="w"> </span>upload<span class="w"> </span>dist/package-name-version.tar.gz<span class="w"> </span>dist/package-name-version-py3-none-any.whl
+</pre></div>
+</div>
+<p>Or, your build tool may provide its own interface for uploading.</p>
+</section>
+<section id="download-and-install">
+<h2>Download and install<a class="headerlink" href="#download-and-install" title="永久链接至标题">¶</a></h2>
+<p>Now that the package is published, end users can download and install the
+package into their Python environment. Typically this is done with <a class="reference internal" href="key_projects.html#pip"><span class="std std-ref">pip</span></a>,
+using a command like:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>package-name
+</pre></div>
+</div>
+<p>End users may also use other tools like <a class="reference internal" href="key_projects.html#pipenv"><span class="std std-ref">Pipenv</span></a>, <a class="reference internal" href="key_projects.html#poetry"><span class="std std-ref">poetry</span></a>, or
+<a class="reference internal" href="key_projects.html#pdm"><span class="std std-ref">pdm</span></a>.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">目录</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The Packaging Flow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-source-tree">The source tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-configuration-file">The configuration file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#build-artifacts">Build artifacts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#upload-to-the-package-distribution-service">Upload to the package distribution service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-and-install">Download and install</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/index.html">指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="discussions/index.html">讨论</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specifications/index.html">PyPA specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="key_projects.html">项目摘要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">术语表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">如何获得支持</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">为本指南做出贡献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">新闻</a></li>
+</ul>
+
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="overview.html"
+                          title="上一章">Python 包装的概述</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="tutorials/index.html"
+                          title="下一章">教程</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="tutorials/index.html" title="教程"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="overview.html" title="Python 包装的概述"
+             >上一页</a> |</li>
+          <li><img src="_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="index.html">Python Packaging User Guide</a> &#187;
+              
+          </li>
+        <li class="nav-item nav-item-this"><a href="">The Packaging Flow</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="快速搜索" aria-label="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; 版权所有 2013–2020, PyPA.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最后更新于 2023 年 01 月 31 日.
+    <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
+    <br />
+
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+
+  </body>
+</html>

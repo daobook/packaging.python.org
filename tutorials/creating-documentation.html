@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/pypa.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/overrides.css" />
     
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -59,6 +58,7 @@
 <h3><a href="../index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">教程</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installing-packages.html">安装包</a></li>
 <li class="toctree-l2"><a class="reference internal" href="managing-dependencies.html">管理应用程序的依赖性</a></li>
@@ -146,7 +146,7 @@ host the documentation for free in <a class="reference external" href="https://r
 <p>Use <code class="docutils literal notranslate"><span class="pre">pip</span></code> to install Sphinx:</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install -U sphinx
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>sphinx
 </pre></div>
 </div>
 </div>
@@ -156,23 +156,23 @@ host the documentation for free in <a class="reference external" href="https://r
 </div>
 </div>
 </div>
-<p>For other installation methods, see this <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/installation.html" title="(在 Sphinx v6.0.0)"><span class="xref std std-doc">installation guide</span></a> by Sphinx.</p>
+<p>For other installation methods, see this <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/installation.html" title="(在 Sphinx v6.2.0)"><span class="xref std std-doc">installation guide</span></a> by Sphinx.</p>
 </section>
 <section id="getting-started-with-sphinx">
 <h2>Getting Started With Sphinx<a class="headerlink" href="#getting-started-with-sphinx" title="永久链接至标题">¶</a></h2>
 <p>Create a <code class="docutils literal notranslate"><span class="pre">docs</span></code> directory inside your project to hold your documentation:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /path/to/project
-mkdir docs
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/project
+mkdir<span class="w"> </span>docs
 </pre></div>
 </div>
 <p>Run <code class="docutils literal notranslate"><span class="pre">sphinx-quickstart</span></code> inside the <code class="docutils literal notranslate"><span class="pre">docs</span></code> directory:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> docs
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>docs
 sphinx-quickstart
 </pre></div>
 </div>
 <p>This sets up a source directory, walks you through some basic configurations, and creates an <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> file as well as a <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> file.</p>
 <p>You can add some information about your project in <code class="docutils literal notranslate"><span class="pre">index.rst</span></code>, then build them:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make html
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>html
 </pre></div>
 </div>
 <p>For more details on the build process, see this <a class="reference external" href="https://docs.readthedocs.io/en/latest/intro/import-guide.html">guide</a> by Read The Docs.</p>
@@ -193,6 +193,7 @@ sphinx-quickstart
 <h3><a href="../index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">教程</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installing-packages.html">安装包</a></li>
 <li class="toctree-l2"><a class="reference internal" href="managing-dependencies.html">管理应用程序的依赖性</a></li>
@@ -280,7 +281,7 @@ sphinx-quickstart
 <br />
     <br />
 
-    最后更新于 2022 年 04 月 23 日.
+    最后更新于 2023 年 01 月 31 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 

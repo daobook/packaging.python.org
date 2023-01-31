@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/pypa.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/overrides.css" />
     
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -59,6 +58,7 @@
 <h3><a href="../index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">讨论</a><ul class="current">
@@ -66,6 +66,7 @@
 <li class="toctree-l2"><a class="reference internal" href="pip-vs-easy-install.html">pip 与 easy_install</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">install_requires 与 requirements files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="wheel-vs-egg.html">Wheel 与 Egg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src-layout-vs-flat-layout.html">src layout vs flat layout</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../specifications/index.html">PyPA specifications</a></li>
@@ -176,9 +177,9 @@
 </section>
 <section id="requirements-files">
 <h2><a class="toc-backref" href="#id6">需求文件</a><a class="headerlink" href="#requirements-files" title="永久链接至标题">¶</a></h2>
-<p><a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#requirements-files" title="(在 pip v22.1)"><span class="xref std std-ref">Requirements Files</span></a> 最简单的描述，只是放在文件中的 <a class="reference external" href="https://pip.pypa.io/en/latest/cli/pip_install/#pip-install" title="(在 pip v22.1)"><span>pip install</span></a> 参数列表。</p>
-<p><code class="docutils literal notranslate"><span class="pre">install_requires</span></code> 定义了单个项目的依赖项， <a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#requirements-files" title="(在 pip v22.1)"><span class="xref std std-ref">Requirements Files</span></a> 通常用于定义完整 Python 环境的要求。</p>
-<p>尽管 <code class="docutils literal notranslate"><span class="pre">install_requires</span></code> 要求是最低限度的，但要求文件通常包含固定版本的详尽列表，目的是实现完整环境的 <a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#repeatability" title="(在 pip v22.1)"><span class="xref std std-ref">repeatable installations</span></a>。</p>
+<p><a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#requirements-files" title="(在 pip v23.1)"><span class="xref std std-ref">Requirements Files</span></a> 最简单的描述，只是放在文件中的 <a class="reference external" href="https://pip.pypa.io/en/latest/cli/pip_install/#pip-install" title="(在 pip v23.1)"><span>pip install</span></a> 参数列表。</p>
+<p><code class="docutils literal notranslate"><span class="pre">install_requires</span></code> 定义了单个项目的依赖项， <a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#requirements-files" title="(在 pip v23.1)"><span class="xref std std-ref">Requirements Files</span></a> 通常用于定义完整 Python 环境的要求。</p>
+<p>尽管 <code class="docutils literal notranslate"><span class="pre">install_requires</span></code> 要求是最低限度的，但要求文件通常包含固定版本的详尽列表，目的是实现完整环境的 <a class="reference external" href="https://pip.pypa.io/en/latest/topics/repeatable-installs/#repeatability" title="(在 pip v23.1)"><span class="xref std std-ref">repeatable installations</span></a>。</p>
 <p>而 <code class="docutils literal notranslate"><span class="pre">install_requires</span></code> 需求是“Abstract”的，即不与任何特定索引相关联，需求文件通常包含 pip 选项，如 <code class="docutils literal notranslate"><span class="pre">--index-url</span></code> 或 <code class="docutils literal notranslate"><span class="pre">--find-links</span></code> 使需求“Concrete”，即与包的特定索引或目录相关联。 <a class="footnote-reference brackets" href="#id4" id="id3">1</a></p>
 <p>在安装过程中，<code class="docutils literal notranslate"><span class="pre">install_requires</span></code> 元数据会被 pip 自动分析，而需求文件则不会，而它只有在用户使用 <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span></code> 专门安装时才会使用。</p>
 <hr class="docutils" />
@@ -201,6 +202,7 @@
 <h3><a href="../index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">讨论</a><ul class="current">
@@ -208,6 +210,7 @@
 <li class="toctree-l2"><a class="reference internal" href="pip-vs-easy-install.html">pip 与 easy_install</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">install_requires 与 requirements files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="wheel-vs-egg.html">Wheel 与 Egg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src-layout-vs-flat-layout.html">src layout vs flat layout</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../specifications/index.html">PyPA specifications</a></li>
@@ -288,7 +291,7 @@
 <br />
     <br />
 
-    最后更新于 2022 年 04 月 23 日.
+    最后更新于 2023 年 01 月 31 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 

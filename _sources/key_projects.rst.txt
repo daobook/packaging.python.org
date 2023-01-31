@@ -64,8 +64,8 @@ distlib
 =======
 
 :doc:`Docs <distlib:index>` |
-`Issues <https://bitbucket.org/pypa/distlib/issues?status=new&status=open>`__ |
-`Bitbucket <https://bitbucket.org/pypa/distlib>`__ |
+`Issues <https://github.com/pypa/distlib/issues>`__ |
+`GitHub <https://github.com/pypa/distlib>`__ |
 `PyPI <https://pypi.org/project/distlib>`__
 
 ``distlib`` is a library which implements low-level functions that
@@ -104,6 +104,21 @@ to PyPI. Flit requires Python 3, but you can use it to distribute modules for
 Python 2, so long as they can be imported on Python 3.
 
 .. _flit-rationale: https://flit.readthedocs.io/en/latest/rationale.html
+
+.. _hatch:
+
+hatch
+=====
+
+`Docs <https://hatch.pypa.io/latest/>`__ |
+`GitHub <https://github.com/pypa/hatch>`__ |
+`PyPI <https://pypi.org/project/hatch>`__
+
+Hatch is a unified command-line tool meant to conveniently manage
+dependencies and environment isolation for Python developers. Python
+package developers use Hatch and its build backend Hatchling to
+configure, version, specify dependencies for, and publish packages
+to PyPI. Its plugin system allows for easily extending functionality.
 
 .. _packaging:
 
@@ -164,15 +179,14 @@ Pipenv
 
 Pipenv is a project that aims to bring the best of all packaging worlds to the
 Python world. It harnesses :ref:`Pipfile`, :ref:`pip`, and :ref:`virtualenv`
-into one single toolchain. It features very pretty terminal colors.
+into one single toolchain. It can autoimport ``requirements.txt`` and also
+check for CVEs in `Pipfile` using `safety <https://pyup.io/safety>`_.
 
 Pipenv aims to help users manage environments, dependencies, and
 imported packages on the command line. It also works well on Windows
 (which other tools often underserve), makes and checkes file hashes,
 to ensure compliance with hash-locked dependency specifiers, and eases
-uninstallation of packages and dependencies. It is used by Python
-users and system administrators, but has been less maintained since
-late 2018.
+uninstallation of packages and dependencies.
 
 .. _Pipfile:
 
@@ -438,20 +452,20 @@ problem of installing scientific software, and making package
 distribution stateless, cached, and branchable. It is used by some
 researchers but has been lacking in maintenance since 2016.
 
-.. _hatch:
+.. _meson-python:
 
-hatch
-=====
+meson-python
+============
 
-`GitHub and Docs <https://github.com/ofek/hatch>`__ |
-`PyPI <https://pypi.org/project/hatch>`__
+`Docs <https://meson-python.readthedocs.io/en/latest/>`__ |
+`GitHub <https://github.com/mesonbuild/meson-python>`__
 
-Hatch is a unified command-line tool meant to conveniently manage
-dependencies and environment isolation for Python developers. Python
-package developers use Hatch to configure, version, specify
-dependencies for, and publish packages to PyPI. Under the hood, it
-uses :ref:`twine` to upload packages to PyPI, and :ref:`pip` to download and
-install packages.
+``meson-python`` is a build backend that uses the Meson_ build system. It enables
+Python package authors to use Meson_ as the build system for their package. It
+supports a wide variety of languages, including C, and is able to fill the needs
+of most complex build configurations.
+
+.. _Meson: https://github.com/mesonbuild/meson
 
 .. _multibuild:
 
@@ -497,7 +511,8 @@ make deployment of Python applications as simple as ``cp``.
 pip-tools
 =========
 
-`GitHub and Docs <https://github.com/jazzband/pip-tools/>`__ |
+`Docs <https://pip-tools.readthedocs.io/en/latest/>`__ |
+`GitHub <https://github.com/jazzband/pip-tools/>`__ |
 `PyPI <https://pypi.org/project/pip-tools/>`__
 
 pip-tools is a suite of tools meant for Python system administrators
@@ -686,7 +701,7 @@ venv
 ====
 
 `Docs <https://docs.python.org/3/library/venv.html>`__ |
-`Issues <https://bugs.python.org/>`__
+`Issues <https://github.com/python/cpython/issues>`__
 
 A package in the Python Standard Library (starting with Python 3.3) for
 creating :term:`Virtual Environments <Virtual Environment>`.  For more

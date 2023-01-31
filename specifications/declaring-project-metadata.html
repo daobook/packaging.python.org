@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/pypa.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/overrides.css" />
     
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -59,6 +58,7 @@
 <h3><a href="../index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../discussions/index.html">讨论</a></li>
@@ -142,62 +142,96 @@
 <a class="reference internal" href="core-metadata.html#core-metadata"><span class="std std-ref">core metadata</span></a> in a <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file for
 packaging-related tools to consume. It defines the following
 specification as the canonical source for the format used.</p>
+<section id="specification">
+<h2>Specification<a class="headerlink" href="#specification" title="永久链接至标题">¶</a></h2>
 <p>There are two kinds of metadata: <em>static</em> and <em>dynamic</em>. Static
 metadata is specified in the <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file directly and
 cannot be specified or changed by a tool. Dynamic metadata is listed
-via the <code class="docutils literal notranslate"><span class="pre">dynamic</span></code> field (defined later in this specification) and
+via the <code class="docutils literal notranslate"><span class="pre">dynamic</span></code> key (defined later in this specification) and
 represents metadata that a tool will later provide.</p>
-<p>The fields defined in this specification MUST be in a table named
-<code class="docutils literal notranslate"><span class="pre">[project]</span></code> in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>. No tools may add fields to this
+<p>The keys defined in this specification MUST be in a table named
+<code class="docutils literal notranslate"><span class="pre">[project]</span></code> in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>. No tools may add keys to this
 table which are not defined by this specification. For tools wishing
 to store their own settings in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>, they may use the
 <code class="docutils literal notranslate"><span class="pre">[tool]</span></code> table as defined in the
 <a class="reference internal" href="declaring-build-dependencies.html#declaring-build-dependencies"><span class="std std-ref">build dependency declaration specification</span></a>.
 The lack of a <code class="docutils literal notranslate"><span class="pre">[project]</span></code> table implicitly means the build back-end
-will dynamically provide all fields.</p>
-<p>The only fields required to be statically defined are:</p>
+will dynamically provide all keys.</p>
+<p>The only keys required to be statically defined are:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></li>
 </ul>
-<p>The fields which are required but may be specified <em>either</em> statically
+<p>The keys which are required but may be specified <em>either</em> statically
 or listed as dynamic are:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">version</span></code></p></li>
 </ul>
-<p>All other fields are considered optional and my be specified
+<p>All other keys are considered optional and may be specified
 statically, listed as dynamic, or left unspecified.</p>
+<p>The complete list of keys allowed in the <code class="docutils literal notranslate"><span class="pre">[project]</span></code> table are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">authors</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">classifiers</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dependencies</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">description</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dynamic</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">entry-points</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gui-scripts</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">keywords</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">license</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maintainers</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">optional-dependencies</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">readme</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">requires-python</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scripts</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">urls</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">version</span></code></p></li>
+</ul>
 <section id="name">
-<h2><code class="docutils literal notranslate"><span class="pre">name</span></code><a class="headerlink" href="#name" title="永久链接至标题">¶</a></h2>
+<h3><code class="docutils literal notranslate"><span class="pre">name</span></code><a class="headerlink" href="#name" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://toml.io">TOML</a> type: string</p></li>
 <li><p>Corresponding <a class="reference internal" href="core-metadata.html#core-metadata"><span class="std std-ref">core metadata</span></a> field:
 <a class="reference internal" href="core-metadata.html#core-metadata-name"><span class="std std-ref">Name</span></a></p></li>
 </ul>
 <p>The name of the project.</p>
-<p>Tools SHOULD normalize this name, as specified by <span class="target" id="index-1"></span><a class="pep reference external" href="https://peps.python.org/pep-0503/"><strong>PEP 503</strong></a>, as soon
+<p>Tools SHOULD <a class="reference internal" href="name-normalization.html#name-normalization"><span class="std std-ref">normalize</span></a> this name, as soon
 as it is read for internal consistency.</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;spam&quot;</span>
+</pre></div>
+</div>
 </section>
 <section id="version">
-<h2><code class="docutils literal notranslate"><span class="pre">version</span></code><a class="headerlink" href="#version" title="永久链接至标题">¶</a></h2>
+<h3><code class="docutils literal notranslate"><span class="pre">version</span></code><a class="headerlink" href="#version" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://toml.io">TOML</a> type: string</p></li>
 <li><p>Corresponding <a class="reference internal" href="core-metadata.html#core-metadata"><span class="std std-ref">core metadata</span></a> field:
 <a class="reference internal" href="core-metadata.html#core-metadata-version"><span class="std std-ref">Version</span></a></p></li>
 </ul>
-<p>The version of the project as supported by <span class="target" id="index-2"></span><a class="pep reference external" href="https://peps.python.org/pep-0440/"><strong>PEP 440</strong></a>.</p>
+<p>The version of the project as supported by <span class="target" id="index-1"></span><a class="pep reference external" href="https://peps.python.org/pep-0440/"><strong>PEP 440</strong></a>.</p>
 <p>Users SHOULD prefer to specify already-normalized versions.</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project]</span>
+<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;2020.0.0&quot;</span>
+</pre></div>
+</div>
 </section>
 <section id="description">
-<h2><code class="docutils literal notranslate"><span class="pre">description</span></code><a class="headerlink" href="#description" title="永久链接至标题">¶</a></h2>
+<h3><code class="docutils literal notranslate"><span class="pre">description</span></code><a class="headerlink" href="#description" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://toml.io">TOML</a> type: string</p></li>
 <li><p>Corresponding <a class="reference internal" href="core-metadata.html#core-metadata"><span class="std std-ref">core metadata</span></a> field:
 <a class="reference internal" href="core-metadata.html#core-metadata-summary"><span class="std std-ref">Summary</span></a></p></li>
 </ul>
 <p>The summary description of the project.</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project]</span>
+<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Lovely Spam! Wonderful Spam!&quot;</span>
+</pre></div>
+</div>
 </section>
 <section id="readme">
-<h2><code class="docutils literal notranslate"><span class="pre">readme</span></code><a class="headerlink" href="#readme" title="永久链接至标题">¶</a></h2>
+<h3><code class="docutils literal notranslate"><span class="pre">readme</span></code><a class="headerlink" href="#readme" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://toml.io">TOML</a> type: string or table</p></li>
 <li><p>Corresponding <a class="reference internal" href="core-metadata.html#core-metadata"><span class="std std-ref">core metadata</span></a> field:
@@ -205,7 +239,7 @@ as it is read for internal consistency.</p>
 <a class="reference internal" href="core-metadata.html#core-metadata-description-content-type"><span class="std std-ref">Description-Content-Type</span></a></p></li>
 </ul>
 <p>The full description of the project (i.e. the README).</p>
-<p>The field accepts either a string or a table. If it is a string then
+<p>The key accepts either a string or a table. If it is a string then
 it is a path relative to <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> to a text file containing
 the full description. Tools MUST assume the file’s encoding is UTF-8.
 If the file path ends in a case-insensitive <code class="docutils literal notranslate"><span class="pre">.md</span></code> suffix, then tools
@@ -213,35 +247,46 @@ MUST assume the content-type is <code class="docutils literal notranslate"><span
 ends in a case-insensitive <code class="docutils literal notranslate"><span class="pre">.rst</span></code>, then tools MUST assume the
 content-type is <code class="docutils literal notranslate"><span class="pre">text/x-rst</span></code>. If a tool recognizes more extensions
 than this PEP, they MAY infer the content-type for the user without
-specifying this field as <code class="docutils literal notranslate"><span class="pre">dynamic</span></code>. For all unrecognized suffixes
+specifying this key as <code class="docutils literal notranslate"><span class="pre">dynamic</span></code>. For all unrecognized suffixes
 when a content-type is not provided, tools MUST raise an error.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">readme</span></code> field may also take a table. The <code class="docutils literal notranslate"><span class="pre">file</span></code> key has a
+<p>The <code class="docutils literal notranslate"><span class="pre">readme</span></code> key may also take a table. The <code class="docutils literal notranslate"><span class="pre">file</span></code> key has a
 string value representing a path relative to <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> to a
 file containing the full description. The <code class="docutils literal notranslate"><span class="pre">text</span></code> key has a string
 value which is the full description. These keys are
 mutually-exclusive, thus tools MUST raise an error if the metadata
 specifies both keys.</p>
-<p>A table specified in the <code class="docutils literal notranslate"><span class="pre">readme</span></code> field also has a <code class="docutils literal notranslate"><span class="pre">content-type</span></code>
-field which takes a string specifying the content-type of the full
+<p>A table specified in the <code class="docutils literal notranslate"><span class="pre">readme</span></code> key also has a <code class="docutils literal notranslate"><span class="pre">content-type</span></code>
+key which takes a string specifying the content-type of the full
 description. A tool MUST raise an error if the metadata does not
-specify this field in the table. If the metadata does not specify the
+specify this key in the table. If the metadata does not specify the
 <code class="docutils literal notranslate"><span class="pre">charset</span></code> parameter, then it is assumed to be UTF-8. Tools MAY
 support other encodings if they choose to. Tools MAY support
 alternative content-types which they can transform to a content-type
 as supported by the <a class="reference internal" href="core-metadata.html#core-metadata"><span class="std std-ref">core metadata</span></a>. Otherwise
 tools MUST raise an error for unsupported content-types.</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project]</span>
+<span class="c1"># A single pyproject.toml file can only have one of the following.</span>
+<span class="n">readme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;README.md&quot;</span>
+<span class="n">readme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;README.rst&quot;</span>
+<span class="n">readme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;README.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">content-type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;text/markdown&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
 </section>
 <section id="requires-python">
-<h2><code class="docutils literal notranslate"><span class="pre">requires-python</span></code><a class="headerlink" href="#requires-python" title="永久链接至标题">¶</a></h2>
+<h3><code class="docutils literal notranslate"><span class="pre">requires-python</span></code><a class="headerlink" href="#requires-python" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://toml.io">TOML</a> type: string</p></li>
 <li><p>Corresponding <a class="reference internal" href="core-metadata.html#core-metadata"><span class="std std-ref">core metadata</span></a> field:
 <a class="reference internal" href="core-metadata.html#core-metadata-requires-python"><span class="std std-ref">Requires-Python</span></a></p></li>
 </ul>
 <p>The Python version requirements of the project.</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project]</span>
+<span class="n">requires-python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&gt;=3.8&quot;</span>
+</pre></div>
+</div>
 </section>
 <section id="license">
-<h2><code class="docutils literal notranslate"><span class="pre">license</span></code><a class="headerlink" href="#license" title="永久链接至标题">¶</a></h2>
+<h3><code class="docutils literal notranslate"><span class="pre">license</span></code><a class="headerlink" href="#license" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://toml.io">TOML</a> type: table</p></li>
 <li><p>Corresponding <a class="reference internal" href="core-metadata.html#core-metadata"><span class="std std-ref">core metadata</span></a> field:
@@ -253,9 +298,15 @@ which contains the license for the project. Tools MUST assume the
 file’s encoding is UTF-8. The <code class="docutils literal notranslate"><span class="pre">text</span></code> key has a string value which is
 the license of the project.  These keys are mutually exclusive, so a
 tool MUST raise an error if the metadata specifies both keys.</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project]</span>
+<span class="c1"># A single pyproject.toml file can only have one of the following.</span>
+<span class="n">license</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;LICENSE&quot;</span><span class="p">}</span>
+<span class="n">license</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;MIT License&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
 </section>
 <section id="authors-maintainers">
-<h2><code class="docutils literal notranslate"><span class="pre">authors</span></code>/<code class="docutils literal notranslate"><span class="pre">maintainers</span></code><a class="headerlink" href="#authors-maintainers" title="永久链接至标题">¶</a></h2>
+<h3><code class="docutils literal notranslate"><span class="pre">authors</span></code>/<code class="docutils literal notranslate"><span class="pre">maintainers</span></code><a class="headerlink" href="#authors-maintainers" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://toml.io">TOML</a> type: Array of inline tables with string keys and values</p></li>
 <li><p>Corresponding <a class="reference internal" href="core-metadata.html#core-metadata"><span class="std std-ref">core metadata</span></a> field:
@@ -268,13 +319,14 @@ tool MUST raise an error if the metadata specifies both keys.</p>
 project. The exact meaning is open to interpretation — it may list the
 original or primary authors, current maintainers, or owners of the
 package.</p>
-<p>The “maintainers” field is similar to “authors” in that its exact
+<p>The “maintainers” key is similar to “authors” in that its exact
 meaning is open to interpretation.</p>
-<p>These fields accept an array of tables with 2 keys: <code class="docutils literal notranslate"><span class="pre">name</span></code> and
+<p>These keys accept an array of tables with 2 keys: <code class="docutils literal notranslate"><span class="pre">name</span></code> and
 <code class="docutils literal notranslate"><span class="pre">email</span></code>. Both values must be strings. The <code class="docutils literal notranslate"><span class="pre">name</span></code> value MUST be a
 valid email name (i.e. whatever can be put as a name, before an email,
-in <span class="target" id="index-3"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc822.html"><strong>RFC 822</strong></a>) and not contain commas. The <code class="docutils literal notranslate"><span class="pre">email</span></code> value MUST be a
-valid email address. Both keys are optional.</p>
+in <span class="target" id="index-2"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc822.html"><strong>RFC 822</strong></a>) and not contain commas. The <code class="docutils literal notranslate"><span class="pre">email</span></code> value MUST be a
+valid email address. Both keys are optional, but at least one of the
+keys must be specified in the table.</p>
 <p>Using the data to fill in <a class="reference internal" href="core-metadata.html#core-metadata"><span class="std std-ref">core metadata</span></a> is as
 follows:</p>
 <ol class="arabic simple">
@@ -291,27 +343,49 @@ as appropriate.</p></li>
 as appropriate, with the format <code class="docutils literal notranslate"><span class="pre">{name}</span> <span class="pre">&lt;{email}&gt;</span></code>.</p></li>
 <li><p>Multiple values should be separated by commas.</p></li>
 </ol>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project]</span>
+<span class="n">authors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Pradyun Gedam&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pradyun@example.com&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Tzu-Ping Chung&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;tzu-ping@example.com&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Another person&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;different.person@example.com&quot;</span><span class="p">},</span>
+<span class="p">]</span>
+<span class="n">maintainers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Brett Cannon&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;brett@python.org&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
 </section>
 <section id="keywords">
-<h2><code class="docutils literal notranslate"><span class="pre">keywords</span></code><a class="headerlink" href="#keywords" title="永久链接至标题">¶</a></h2>
+<h3><code class="docutils literal notranslate"><span class="pre">keywords</span></code><a class="headerlink" href="#keywords" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://toml.io">TOML</a> type: array of strings</p></li>
 <li><p>Corresponding <a class="reference internal" href="core-metadata.html#core-metadata"><span class="std std-ref">core metadata</span></a> field:
 <a class="reference internal" href="core-metadata.html#core-metadata-keywords"><span class="std std-ref">Keywords</span></a></p></li>
 </ul>
 <p>The keywords for the project.</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project]</span>
+<span class="n">keywords</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;egg&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bacon&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;sausage&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;tomatoes&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Lobster Thermidor&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
 </section>
 <section id="classifiers">
-<h2><code class="docutils literal notranslate"><span class="pre">classifiers</span></code><a class="headerlink" href="#classifiers" title="永久链接至标题">¶</a></h2>
+<h3><code class="docutils literal notranslate"><span class="pre">classifiers</span></code><a class="headerlink" href="#classifiers" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://toml.io">TOML</a> type: array of strings</p></li>
 <li><p>Corresponding <a class="reference internal" href="core-metadata.html#core-metadata"><span class="std std-ref">core metadata</span></a> field:
 <a class="reference internal" href="core-metadata.html#core-metadata-classifier"><span class="std std-ref">Classifier</span></a></p></li>
 </ul>
 <p>Trove classifiers which apply to the project.</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="n">classifiers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="s">&quot;Development Status :: 4 - Beta&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;Programming Language :: Python&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
 </section>
 <section id="urls">
-<h2><code class="docutils literal notranslate"><span class="pre">urls</span></code><a class="headerlink" href="#urls" title="永久链接至标题">¶</a></h2>
+<h3><code class="docutils literal notranslate"><span class="pre">urls</span></code><a class="headerlink" href="#urls" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://toml.io">TOML</a> type: table with keys and values of strings</p></li>
 <li><p>Corresponding <a class="reference internal" href="core-metadata.html#core-metadata"><span class="std std-ref">core metadata</span></a> field:
@@ -319,9 +393,16 @@ as appropriate, with the format <code class="docutils literal notranslate"><span
 </ul>
 <p>A table of URLs where the key is the URL label and the value is the
 URL itself.</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project.urls]</span>
+<span class="n">homepage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://example.com&quot;</span>
+<span class="n">documentation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://readthedocs.org&quot;</span>
+<span class="n">repository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://github.com/me/spam.git&quot;</span>
+<span class="n">changelog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://github.com/me/spam/blob/master/CHANGELOG.md&quot;</span>
+</pre></div>
+</div>
 </section>
 <section id="entry-points">
-<h2>Entry points<a class="headerlink" href="#entry-points" title="永久链接至标题">¶</a></h2>
+<h3>Entry points<a class="headerlink" href="#entry-points" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://toml.io">TOML</a> type: table (<code class="docutils literal notranslate"><span class="pre">[project.scripts]</span></code>, <code class="docutils literal notranslate"><span class="pre">[project.gui-scripts]</span></code>,
 and <code class="docutils literal notranslate"><span class="pre">[project.entry-points]</span></code>)</p></li>
@@ -345,12 +426,22 @@ level deep.</p>
 <code class="docutils literal notranslate"><span class="pre">[project.entry-points.gui_scripts]</span></code> table, as they would
 be ambiguous in the face of <code class="docutils literal notranslate"><span class="pre">[project.scripts]</span></code> and
 <code class="docutils literal notranslate"><span class="pre">[project.gui-scripts]</span></code>, respectively.</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project.scripts]</span>
+<span class="n">spam-cli</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;spam:main_cli&quot;</span>
+
+<span class="k">[project.gui-scripts]</span>
+<span class="n">spam-gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;spam:main_gui&quot;</span>
+
+<span class="k">[project.entry-points.&quot;spam.magical&quot;]</span>
+<span class="n">tomatoes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;spam:main_tomatoes&quot;</span>
+</pre></div>
+</div>
 </section>
 <section id="dependencies-optional-dependencies">
-<h2><code class="docutils literal notranslate"><span class="pre">dependencies</span></code>/<code class="docutils literal notranslate"><span class="pre">optional-dependencies</span></code><a class="headerlink" href="#dependencies-optional-dependencies" title="永久链接至标题">¶</a></h2>
+<h3><code class="docutils literal notranslate"><span class="pre">dependencies</span></code>/<code class="docutils literal notranslate"><span class="pre">optional-dependencies</span></code><a class="headerlink" href="#dependencies-optional-dependencies" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
-<li><p><a class="reference external" href="https://toml.io">TOML</a> type: Array of <span class="target" id="index-4"></span><a class="pep reference external" href="https://peps.python.org/pep-0508/"><strong>PEP 508</strong></a> strings (<code class="docutils literal notranslate"><span class="pre">dependencies</span></code>), and a
-table with values of arrays of <span class="target" id="index-5"></span><a class="pep reference external" href="https://peps.python.org/pep-0508/"><strong>PEP 508</strong></a> strings
+<li><p><a class="reference external" href="https://toml.io">TOML</a> type: Array of <span class="target" id="index-3"></span><a class="pep reference external" href="https://peps.python.org/pep-0508/"><strong>PEP 508</strong></a> strings (<code class="docutils literal notranslate"><span class="pre">dependencies</span></code>), and a
+table with values of arrays of <span class="target" id="index-4"></span><a class="pep reference external" href="https://peps.python.org/pep-0508/"><strong>PEP 508</strong></a> strings
 (<code class="docutils literal notranslate"><span class="pre">optional-dependencies</span></code>)</p></li>
 <li><p>Corresponding <a class="reference internal" href="core-metadata.html#core-metadata"><span class="std std-ref">core metadata</span></a> field:
 <a class="reference internal" href="core-metadata.html#core-metadata-requires-dist"><span class="std std-ref">Requires-Dist</span></a> and
@@ -359,54 +450,131 @@ table with values of arrays of <span class="target" id="index-5"></span><a class
 <p>The (optional) dependencies of the project.</p>
 <p>For <code class="docutils literal notranslate"><span class="pre">dependencies</span></code>, it is a key whose value is an array of strings.
 Each string represents a dependency of the project and MUST be
-formatted as a valid <span class="target" id="index-6"></span><a class="pep reference external" href="https://peps.python.org/pep-0508/"><strong>PEP 508</strong></a> string. Each string maps directly to
+formatted as a valid <span class="target" id="index-5"></span><a class="pep reference external" href="https://peps.python.org/pep-0508/"><strong>PEP 508</strong></a> string. Each string maps directly to
 a <a class="reference internal" href="core-metadata.html#core-metadata-requires-dist"><span class="std std-ref">Requires-Dist</span></a> entry.</p>
 <p>For <code class="docutils literal notranslate"><span class="pre">optional-dependencies</span></code>, it is a table where each key specifies
 an extra and whose value is an array of strings. The strings of the
-arrays must be valid <span class="target" id="index-7"></span><a class="pep reference external" href="https://peps.python.org/pep-0508/"><strong>PEP 508</strong></a> strings. The keys MUST be valid values
+arrays must be valid <span class="target" id="index-6"></span><a class="pep reference external" href="https://peps.python.org/pep-0508/"><strong>PEP 508</strong></a> strings. The keys MUST be valid values
 for <a class="reference internal" href="core-metadata.html#core-metadata-provides-extra"><span class="std std-ref">Provides-Extra</span></a>. Each value
 in the array thus becomes a corresponding
 <a class="reference internal" href="core-metadata.html#core-metadata-requires-dist"><span class="std std-ref">Requires-Dist</span></a> entry for the
 matching <a class="reference internal" href="core-metadata.html#core-metadata-provides-extra"><span class="std std-ref">Provides-Extra</span></a>
 metadata.</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project]</span>
+<span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="s">&quot;httpx&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;gidgethub[httpx]&gt;4.0.0&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;django&gt;2.1; os_name != &#39;nt&#39;&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;django&gt;2.0; os_name == &#39;nt&#39;&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="k">[project.optional-dependencies]</span>
+<span class="n">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;PyQt5&quot;</span><span class="p">]</span>
+<span class="n">cli</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="s">&quot;rich&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;click&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
 </section>
 <section id="dynamic">
-<h2><code class="docutils literal notranslate"><span class="pre">dynamic</span></code><a class="headerlink" href="#dynamic" title="永久链接至标题">¶</a></h2>
+<h3><code class="docutils literal notranslate"><span class="pre">dynamic</span></code><a class="headerlink" href="#dynamic" title="永久链接至标题">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://toml.io">TOML</a> type: array of string</p></li>
-<li><p>A corresponding <a class="reference internal" href="core-metadata.html#core-metadata"><span class="std std-ref">core metadata</span></a> field does not
-exist</p></li>
+<li><p>Corresponding <a class="reference internal" href="core-metadata.html#core-metadata"><span class="std std-ref">core metadata</span></a> field:
+<a class="reference internal" href="core-metadata.html#core-metadata-dynamic"><span class="std std-ref">Dynamic</span></a></p></li>
 </ul>
-<p>Specifies which fields listed by this PEP were intentionally
+<p>Specifies which keys listed by this PEP were intentionally
 unspecified so another tool can/will provide such metadata
 dynamically. This clearly delineates which metadata is purposefully
 unspecified and expected to stay unspecified compared to being
 provided via tooling later on.</p>
 <ul class="simple">
 <li><p>A build back-end MUST honour statically-specified metadata (which
-means the metadata did not list the field in <code class="docutils literal notranslate"><span class="pre">dynamic</span></code>).</p></li>
+means the metadata did not list the key in <code class="docutils literal notranslate"><span class="pre">dynamic</span></code>).</p></li>
 <li><p>A build back-end MUST raise an error if the metadata specifies
 <code class="docutils literal notranslate"><span class="pre">name</span></code> in <code class="docutils literal notranslate"><span class="pre">dynamic</span></code>.</p></li>
 <li><p>If the <a class="reference internal" href="core-metadata.html#core-metadata"><span class="std std-ref">core metadata</span></a> specification lists a
-field as “Required”, then the metadata MUST specify the field
+field as “Required”, then the metadata MUST specify the key
 statically or list it in <code class="docutils literal notranslate"><span class="pre">dynamic</span></code> (build back-ends MUST raise an
-error otherwise, i.e. it should not be possible for a required field
+error otherwise, i.e. it should not be possible for a required key
 to not be listed somehow in the <code class="docutils literal notranslate"><span class="pre">[project]</span></code> table).</p></li>
 <li><p>If the <a class="reference internal" href="core-metadata.html#core-metadata"><span class="std std-ref">core metadata</span></a> specification lists a
 field as “Optional”, the metadata MAY list it in <code class="docutils literal notranslate"><span class="pre">dynamic</span></code> if the
-expectation is a build back-end will provide the data for the field
+expectation is a build back-end will provide the data for the key
 later.</p></li>
 <li><p>Build back-ends MUST raise an error if the metadata specifies a
-field statically as well as being listed in <code class="docutils literal notranslate"><span class="pre">dynamic</span></code>.</p></li>
-<li><p>If the metadata does not list a field in <code class="docutils literal notranslate"><span class="pre">dynamic</span></code>, then a build
+key statically as well as being listed in <code class="docutils literal notranslate"><span class="pre">dynamic</span></code>.</p></li>
+<li><p>If the metadata does not list a key in <code class="docutils literal notranslate"><span class="pre">dynamic</span></code>, then a build
 back-end CANNOT fill in the requisite metadata on behalf of the user
 (i.e. <code class="docutils literal notranslate"><span class="pre">dynamic</span></code> is the only way to allow a tool to fill in
 metadata and the user must opt into the filling in).</p></li>
 <li><p>Build back-ends MUST raise an error if the metadata specifies a
-field in <code class="docutils literal notranslate"><span class="pre">dynamic</span></code> but the build back-end was unable to determine
+key in <code class="docutils literal notranslate"><span class="pre">dynamic</span></code> but the build back-end was unable to determine
 the data for it (omitting the data, if determined to be the accurate
 value, is acceptable).</p></li>
 </ul>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="n">dynamic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;version&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;description&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;optional-dependencies&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="永久链接至标题">¶</a></h2>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project]</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;spam&quot;</span>
+<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;2020.0.0&quot;</span>
+<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Lovely Spam! Wonderful Spam!&quot;</span>
+<span class="n">readme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;README.rst&quot;</span>
+<span class="n">requires-python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&gt;=3.8&quot;</span>
+<span class="n">license</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;LICENSE.txt&quot;</span><span class="p">}</span>
+<span class="n">keywords</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;egg&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bacon&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;sausage&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;tomatoes&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Lobster Thermidor&quot;</span><span class="p">]</span>
+<span class="n">authors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Pradyun Gedam&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pradyun@example.com&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Tzu-Ping Chung&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;tzu-ping@example.com&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Another person&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;different.person@example.com&quot;</span><span class="p">},</span>
+<span class="p">]</span>
+<span class="n">maintainers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Brett Cannon&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;brett@python.org&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+<span class="n">classifiers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="s">&quot;Development Status :: 4 - Beta&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;Programming Language :: Python&quot;</span>
+<span class="p">]</span>
+
+<span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="s">&quot;httpx&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;gidgethub[httpx]&gt;4.0.0&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;django&gt;2.1; os_name != &#39;nt&#39;&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;django&gt;2.0; os_name == &#39;nt&#39;&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="c1"># dynamic = [&quot;version&quot;, &quot;description&quot;]</span>
+
+<span class="k">[project.optional-dependencies]</span>
+<span class="n">gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;PyQt5&quot;</span><span class="p">]</span>
+<span class="n">cli</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="s">&quot;rich&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;click&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="k">[project.urls]</span>
+<span class="n">homepage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://example.com&quot;</span>
+<span class="n">documentation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://readthedocs.org&quot;</span>
+<span class="n">repository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://github.com/me/spam.git&quot;</span>
+<span class="n">changelog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://github.com/me/spam/blob/master/CHANGELOG.md&quot;</span>
+
+<span class="k">[project.scripts]</span>
+<span class="n">spam-cli</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;spam:main_cli&quot;</span>
+
+<span class="k">[project.gui-scripts]</span>
+<span class="n">spam-gui</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;spam:main_gui&quot;</span>
+
+<span class="k">[project.entry-points.&quot;spam.magical&quot;]</span>
+<span class="n">tomatoes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;spam:main_tomatoes&quot;</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -420,6 +588,7 @@ value, is acceptable).</p></li>
 <h3><a href="../index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../discussions/index.html">讨论</a></li>
@@ -506,7 +675,7 @@ value, is acceptable).</p></li>
 <br />
     <br />
 
-    最后更新于 2022 年 04 月 23 日.
+    最后更新于 2023 年 01 月 31 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 

@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/pypa.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/overrides.css" />
     
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -59,6 +58,7 @@
 <h3><a href="../index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">教程</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">安装包</a></li>
 <li class="toctree-l2"><a class="reference internal" href="managing-dependencies.html">管理应用程序的依赖性</a></li>
@@ -165,7 +165,7 @@
 <li><p><a class="reference internal" href="#installing-from-local-archives" id="id26">从本地档案库安装</a></p></li>
 <li><p><a class="reference internal" href="#installing-from-other-sources" id="id27">从其他来源安装</a></p></li>
 <li><p><a class="reference internal" href="#installing-prereleases" id="id28">安装预发行版</a></p></li>
-<li><p><a class="reference internal" href="#installing-setuptools-extras" id="id29">安装 Setuptools （”附加功能”）</a></p></li>
+<li><p><a class="reference internal" href="#installing-extras" id="id29">Installing “Extras”</a></p></li>
 </ul>
 </div>
 <section id="requirements-for-installing-packages">
@@ -176,7 +176,7 @@
 <p>在你进一步行动之前，确保你有 Python，并且预期的版本在你的命令行中可用。你可以通过运行以下命令来检查：</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--0-input--1" name="tab-set--0" type="radio"><label class="tab-label" for="tab-set--0-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 --version
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>--version
 </pre></div>
 </div>
 </div>
@@ -220,7 +220,7 @@ Python 3.6.3
 <p>此外，你需要确保你有 <a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> 可用。你可以通过运行以下程序来检查：</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip --version
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>--version
 </pre></div>
 </div>
 </div>
@@ -234,7 +234,7 @@ Python 3.6.3
 <p>如果 <code class="docutils literal notranslate"><span class="pre">pip</span></code> 还没有安装，那么首先尝试从标准库启动它：</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--2-input--1" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m ensurepip --default-pip
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>ensurepip<span class="w"> </span>--default-pip
 </pre></div>
 </div>
 </div>
@@ -262,7 +262,7 @@ Python 3.6.3
 <p>虽然单靠 <code class="docutils literal notranslate"><span class="pre">pip</span></code> 就足以从预先建立的二进制档案中进行安装，但 <code class="docutils literal notranslate"><span class="pre">setuptools</span></code> 和 <code class="docutils literal notranslate"><span class="pre">wheel</span></code> 项目的最新副本对于确保你也能从源代码档案中进行安装非常有用：</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--3-input--1" name="tab-set--3" type="radio"><label class="tab-label" for="tab-set--3-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --upgrade pip setuptools wheel
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip<span class="w"> </span>setuptools<span class="w"> </span>wheel
 </pre></div>
 </div>
 </div>
@@ -275,11 +275,11 @@ Python 3.6.3
 </section>
 <section id="optionally-create-a-virtual-environment">
 <h3><a class="toc-backref" href="#id15">可选地，创建一个虚拟环境</a><a class="headerlink" href="#optionally-create-a-virtual-environment" title="永久链接至标题">¶</a></h3>
-<p>详见 <a class="reference internal" href="#creating-and-using-virtual-environments"><span class="std std-ref">下面的</span></a> 部分，但以下是在典型的 Linux 系统上使用的基本 <a class="reference external" href="https://docs.python.org/3/library/venv.html" title="(在 Python v3.10)"><span class="xref std std-doc">venv</span></a> <a class="footnote-reference brackets" href="#id9" id="id4">3</a> 命令：</p>
+<p>详见 <a class="reference internal" href="#creating-and-using-virtual-environments"><span class="std std-ref">下面的</span></a> 部分，但以下是在典型的 Linux 系统上使用的基本 <a class="reference external" href="https://docs.python.org/3/library/venv.html" title="(在 Python v3.11)"><span class="xref std std-doc">venv</span></a> <a class="footnote-reference brackets" href="#id9" id="id4">3</a> 命令：</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--4-input--1" name="tab-set--4" type="radio"><label class="tab-label" for="tab-set--4-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m venv tutorial_env
-<span class="nb">source</span> tutorial_env/bin/activate
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>tutorial_env
+<span class="nb">source</span><span class="w"> </span>tutorial_env/bin/activate
 </pre></div>
 </div>
 </div>
@@ -302,15 +302,15 @@ tutorial_env\Scripts\activate
 <p>在所有这些情况下，虚拟环境可以帮助你。它们有自己的安装目录，而且它们不与其他虚拟环境共享库”</p>
 <p>目前，有两种创建 Python 虚拟环境的常用工具：</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://docs.python.org/3/library/venv.html" title="(在 Python v3.10)"><span class="xref std std-doc">venv</span></a> 在 Python 3.3 及以后的版本中默认可用，并在 Python 3.4 及以后的版本中把 <a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> 和 <a class="reference internal" href="../key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a> 安装到创建的虚拟环境中。</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/venv.html" title="(在 Python v3.11)"><span class="xref std std-doc">venv</span></a> 在 Python 3.3 及以后的版本中默认可用，并在 Python 3.4 及以后的版本中把 <a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> 和 <a class="reference internal" href="../key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a> 安装到创建的虚拟环境中。</p></li>
 <li><p><a class="reference internal" href="../key_projects.html#virtualenv"><span class="std std-ref">virtualenv</span></a> 需要单独安装，但支持 Python 2.7+ 和 Python 3.3+，并且 <a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a>、<a class="reference internal" href="../key_projects.html#setuptools"><span class="std std-ref">setuptools</span></a> 和 <a class="reference internal" href="../key_projects.html#wheel"><span class="std std-ref">wheel</span></a> 总是默认安装到创建的虚拟环境中（无论 Python 版本如何）。</p></li>
 </ul>
 <p>基本的用法是这样的：</p>
-<p>使用 <a class="reference external" href="https://docs.python.org/3/library/venv.html" title="(在 Python v3.10)"><span class="xref std std-doc">venv</span></a>：</p>
+<p>使用 <a class="reference external" href="https://docs.python.org/3/library/venv.html" title="(在 Python v3.11)"><span class="xref std std-doc">venv</span></a>：</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--5-input--1" name="tab-set--5" type="radio"><label class="tab-label" for="tab-set--5-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m venv &lt;DIR&gt;
-<span class="nb">source</span> &lt;DIR&gt;/bin/activate
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>&lt;DIR&gt;
+<span class="nb">source</span><span class="w"> </span>&lt;DIR&gt;/bin/activate
 </pre></div>
 </div>
 </div>
@@ -324,8 +324,8 @@ tutorial_env\Scripts\activate
 <p>使用 <a class="reference internal" href="../key_projects.html#virtualenv"><span class="std std-ref">virtualenv</span></a>：</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--6-input--1" name="tab-set--6" type="radio"><label class="tab-label" for="tab-set--6-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m virtualenv &lt;DIR&gt;
-<span class="nb">source</span> &lt;DIR&gt;/bin/activate
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>virtualenv<span class="w"> </span>&lt;DIR&gt;
+<span class="nb">source</span><span class="w"> </span>&lt;DIR&gt;/bin/activate
 </pre></div>
 </div>
 </div>
@@ -336,7 +336,7 @@ tutorial_env\Scripts\activate
 </div>
 </div>
 </div>
-<p>更多信息，请参阅 <a class="reference external" href="https://docs.python.org/3/library/venv.html" title="(在 Python v3.10)"><span class="xref std std-doc">venv</span></a> 文档或 <a class="reference external" href="https://virtualenv.pypa.io/en/stable/index.html" title="(在 virtualenv v20.14)"><span class="xref std std-doc">virtualenv</span></a> 文档。</p>
+<p>更多信息，请参阅 <a class="reference external" href="https://docs.python.org/3/library/venv.html" title="(在 Python v3.11)"><span class="xref std std-doc">venv</span></a> 文档或 <a class="reference external" href="https://virtualenv.pypa.io/en/stable/index.html" title="(在 virtualenv v20.17)"><span class="xref std std-doc">virtualenv</span></a> 文档。</p>
 <p>在 Unix 外壳下使用 <strong class="command">source</strong> 可以确保虚拟环境的变量是在当前的外壳中设置的，而不是在子进程中设置的（子进程随后消失，没有任何作用）。</p>
 <p>在上述两种情况下，Windows 用户不应该使用 <strong class="command">source</strong> 命令，而应该像这样直接从命令外壳运行 <strong class="command">activate</strong> 脚本：</p>
 <div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span>DIR<span class="p">&gt;</span>\Scripts\activate
@@ -346,7 +346,7 @@ tutorial_env\Scripts\activate
 </section>
 <section id="use-pip-for-installing">
 <h2><a class="toc-backref" href="#id17">使用 pip 进行安装</a><a class="headerlink" href="#use-pip-for-installing" title="永久链接至标题">¶</a></h2>
-<p><a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> 是推荐的安装程序。下面，我们将介绍最常见的使用场景。更多细节，请参阅 <a class="reference external" href="https://pip.pypa.io/en/latest/" title="(在 pip v22.1)"><span class="xref std std-doc">pip docs</span></a>，其中包括一个完整的 <a class="reference external" href="https://pip.pypa.io/en/latest/cli/" title="(在 pip v22.1)"><span class="xref std std-doc">参考指南</span></a>。</p>
+<p><a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> 是推荐的安装程序。下面，我们将介绍最常见的使用场景。更多细节，请参阅 <a class="reference external" href="https://pip.pypa.io/en/latest/" title="(在 pip v23.1)"><span class="xref std std-doc">pip docs</span></a>，其中包括一个完整的 <a class="reference external" href="https://pip.pypa.io/en/latest/cli/" title="(在 pip v23.1)"><span class="xref std std-doc">参考指南</span></a>。</p>
 </section>
 <section id="installing-from-pypi">
 <h2><a class="toc-backref" href="#id18">从 PyPI 进行安装</a><a class="headerlink" href="#installing-from-pypi" title="永久链接至标题">¶</a></h2>
@@ -354,7 +354,7 @@ tutorial_env\Scripts\activate
 <p>要安装最新版本的 “SomeProject”：</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--7-input--1" name="tab-set--7" type="radio"><label class="tab-label" for="tab-set--7-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install <span class="s2">&quot;SomeProject&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;SomeProject&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -367,7 +367,7 @@ tutorial_env\Scripts\activate
 <p>要安装一个特定的版本：</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--8-input--1" name="tab-set--8" type="radio"><label class="tab-label" for="tab-set--8-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install <span class="s2">&quot;SomeProject==1.4&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;SomeProject==1.4&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -380,7 +380,7 @@ tutorial_env\Scripts\activate
 <p>要安装大于或等于一个版本而小于另一个版本的产品：</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--9-input--1" name="tab-set--9" type="radio"><label class="tab-label" for="tab-set--9-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install <span class="s2">&quot;SomeProject&gt;=1,&lt;2&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;SomeProject&gt;=1,&lt;2&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -393,7 +393,7 @@ tutorial_env\Scripts\activate
 <p>要安装一个与 <span class="target" id="index-18"></span><a class="pep reference external" href="https://peps.python.org/pep-0440/#compatible-release"><strong>“compatible”</strong></a> 兼容某一版本：<a class="footnote-reference brackets" href="#id10" id="id5">4</a></p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--10-input--1" name="tab-set--10" type="radio"><label class="tab-label" for="tab-set--10-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install <span class="s2">&quot;SomeProject~=1.4.2&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;SomeProject~=1.4.2&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -407,7 +407,7 @@ tutorial_env\Scripts\activate
 </section>
 <section id="source-distributions-vs-wheels">
 <h2><a class="toc-backref" href="#id19">源分发与轮子</a><a class="headerlink" href="#source-distributions-vs-wheels" title="永久链接至标题">¶</a></h2>
-<p><a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> 可以从 <a class="reference internal" href="../glossary.html#term-Source-Distribution-or-sdist"><span class="xref std std-term">源分发（sdist）</span></a> 或 <a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">轮子</span></a> 安装，但如果两者都存在于 PyPI 上，pip 会优先选择兼容的 <a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">轮子</span></a>。你可以通过使用 <a class="reference external" href="https://pip.pypa.io/en/latest/cli/pip_install/#install-no-binary" title="(在 pip v22.1)"><span class="xref std std-ref">-no-binary</span></a> 选项来覆盖 pip 的默认行为。</p>
+<p><a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> 可以从 <a class="reference internal" href="../glossary.html#term-Source-Distribution-or-sdist"><span class="xref std std-term">源分发（sdist）</span></a> 或 <a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">轮子</span></a> 安装，但如果两者都存在于 PyPI 上，pip 会优先选择兼容的 <a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">轮子</span></a>。你可以通过使用 <a class="reference external" href="https://pip.pypa.io/en/latest/cli/pip_install/#install-no-binary" title="(在 pip v23.1)"><span class="xref std std-ref">-no-binary</span></a> 选项来覆盖 pip 的默认行为。</p>
 <p><a class="reference internal" href="../glossary.html#term-Wheel"><span class="xref std std-term">轮子</span></a> 是一种预先建立的 <a class="reference internal" href="../glossary.html#term-Distribution-Package"><span class="xref std std-term">distribution</span></a> 格式，与 <a class="reference internal" href="../glossary.html#term-Source-Distribution-or-sdist"><span class="xref std std-term">源分发（sdist）</span></a> 相比，它提供更快的安装，特别是当一个项目包含编译的扩展。</p>
 <p>如果 <a class="reference internal" href="../key_projects.html#pip"><span class="std std-ref">pip</span></a> 没有找到要安装的轮子，它将在本地建立一个轮子，并为将来的安装进行缓存，而不是在将来重建源码分布。</p>
 </section>
@@ -416,7 +416,7 @@ tutorial_env\Scripts\activate
 <p>将已经安装的 <code class="docutils literal notranslate"><span class="pre">SomeProject</span></code> 升级到 PyPI 的最新版本。</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--11-input--1" name="tab-set--11" type="radio"><label class="tab-label" for="tab-set--11-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --upgrade SomeProject
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>SomeProject
 </pre></div>
 </div>
 </div>
@@ -432,7 +432,7 @@ tutorial_env\Scripts\activate
 <p>要安装 <a class="reference internal" href="../glossary.html#term-Distribution-Package"><span class="xref std std-term">包</span></a> 隔离于当前用户，请使用 <code class="docutils literal notranslate"><span class="pre">--user</span></code> 标志：</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--12-input--1" name="tab-set--12" type="radio"><label class="tab-label" for="tab-set--12-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --user SomeProject
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>SomeProject
 </pre></div>
 </div>
 </div>
@@ -452,10 +452,10 @@ tutorial_env\Scripts\activate
 </section>
 <section id="requirements-files">
 <h2><a class="toc-backref" href="#id22">需求文件</a><a class="headerlink" href="#requirements-files" title="永久链接至标题">¶</a></h2>
-<p>安装一个在  <a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#requirements-files" title="(在 pip v22.1)"><span class="xref std std-ref">需求文件</span></a> 中指定的需求列表。</p>
+<p>安装一个在  <a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#requirements-files" title="(在 pip v23.1)"><span class="xref std std-ref">需求文件</span></a> 中指定的需求列表。</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--13-input--1" name="tab-set--13" type="radio"><label class="tab-label" for="tab-set--13-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install -r requirements.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </pre></div>
 </div>
 </div>
@@ -468,13 +468,13 @@ tutorial_env\Scripts\activate
 </section>
 <section id="installing-from-vcs">
 <h2><a class="toc-backref" href="#id23">从 VCS 安装</a><a class="headerlink" href="#installing-from-vcs" title="永久链接至标题">¶</a></h2>
-<p>以 “editable” 模式从 VCS 安装一个项目。关于语法的详细介绍，请参见 pip 的 <a class="reference external" href="https://pip.pypa.io/en/latest/cli/pip_install/#vcs-support" title="(在 pip v22.1)"><span class="xref std std-ref">VCS 支持</span></a> 部分。</p>
+<p>以 “editable” 模式从 VCS 安装一个项目。关于语法的详细介绍，请参见 pip 的 <a class="reference external" href="https://pip.pypa.io/en/latest/topics/vcs-support/#vcs-support" title="(在 pip v23.1)"><span class="xref std std-ref">VCS 支持</span></a> 部分。</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--14-input--1" name="tab-set--14" type="radio"><label class="tab-label" for="tab-set--14-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install -e git+https://git.repo/some_pkg.git#egg<span class="o">=</span>SomeProject          <span class="c1"># from git</span>
-python3 -m pip install -e hg+https://hg.repo/some_pkg#egg<span class="o">=</span>SomeProject                <span class="c1"># from mercurial</span>
-python3 -m pip install -e svn+svn://svn.repo/some_pkg/trunk/#egg<span class="o">=</span>SomeProject         <span class="c1"># from svn</span>
-python3 -m pip install -e git+https://git.repo/some_pkg.git@feature#egg<span class="o">=</span>SomeProject  <span class="c1"># from a branch</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>git+https://git.repo/some_pkg.git#egg<span class="o">=</span>SomeProject<span class="w">          </span><span class="c1"># from git</span>
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>hg+https://hg.repo/some_pkg#egg<span class="o">=</span>SomeProject<span class="w">                </span><span class="c1"># from mercurial</span>
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>svn+svn://svn.repo/some_pkg/trunk/#egg<span class="o">=</span>SomeProject<span class="w">         </span><span class="c1"># from svn</span>
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>git+https://git.repo/some_pkg.git@feature#egg<span class="o">=</span>SomeProject<span class="w">  </span><span class="c1"># from a branch</span>
 </pre></div>
 </div>
 </div>
@@ -493,7 +493,7 @@ py -m pip install -e git+https://git.repo/some_pkg.git@feature#egg=SomeProject  
 <p>从另一个索引安装</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--15-input--1" name="tab-set--15" type="radio"><label class="tab-label" for="tab-set--15-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --index-url http://my.package.repo/simple/ SomeProject
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--index-url<span class="w"> </span>http://my.package.repo/simple/<span class="w"> </span>SomeProject
 </pre></div>
 </div>
 </div>
@@ -506,7 +506,7 @@ py -m pip install -e git+https://git.repo/some_pkg.git@feature#egg=SomeProject  
 <p>在安装过程中，除了 <a class="reference internal" href="../glossary.html#term-Python-Package-Index-PyPI"><span class="xref std std-term">PyPI</span></a> 之外，还要搜索一个额外的索引</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--16-input--1" name="tab-set--16" type="radio"><label class="tab-label" for="tab-set--16-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --extra-index-url http://my.package.repo/simple SomeProject
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--extra-index-url<span class="w"> </span>http://my.package.repo/simple<span class="w"> </span>SomeProject
 </pre></div>
 </div>
 </div>
@@ -519,10 +519,10 @@ py -m pip install -e git+https://git.repo/some_pkg.git@feature#egg=SomeProject  
 </section>
 <section id="installing-from-a-local-src-tree">
 <h2><a class="toc-backref" href="#id25">从本地 src 树上安装</a><a class="headerlink" href="#installing-from-a-local-src-tree" title="永久链接至标题">¶</a></h2>
-<p>在 <a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/development_mode.html" title="(在 setuptools v62.1.0.post20220422)"><span class="xref std std-doc">Development Mode</span></a> 中从本地 src 安装，即以这样一种方式，项目看似已经安装，但仍可从 src 树上编辑。</p>
+<p>在 <a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/development_mode.html" title="(在 setuptools v67.0.0.post20230128)"><span class="xref std std-doc">Development Mode</span></a> 中从本地 src 安装，即以这样一种方式，项目看似已经安装，但仍可从 src 树上编辑。</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--17-input--1" name="tab-set--17" type="radio"><label class="tab-label" for="tab-set--17-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install -e &lt;path&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>&lt;path&gt;
 </pre></div>
 </div>
 </div>
@@ -535,7 +535,7 @@ py -m pip install -e git+https://git.repo/some_pkg.git@feature#egg=SomeProject  
 <p>你也可以从 src 中正常安装</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--18-input--1" name="tab-set--18" type="radio"><label class="tab-label" for="tab-set--18-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install &lt;path&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>&lt;path&gt;
 </pre></div>
 </div>
 </div>
@@ -551,7 +551,7 @@ py -m pip install -e git+https://git.repo/some_pkg.git@feature#egg=SomeProject  
 <p>安装一个特定的源存档文件。</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--19-input--1" name="tab-set--19" type="radio"><label class="tab-label" for="tab-set--19-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install ./downloads/SomeProject-1.0.4.tar.gz
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>./downloads/SomeProject-1.0.4.tar.gz
 </pre></div>
 </div>
 </div>
@@ -564,9 +564,9 @@ py -m pip install -e git+https://git.repo/some_pkg.git@feature#egg=SomeProject  
 <p>从包含档案的本地目录中安装（并且不要检查 <a class="reference internal" href="../glossary.html#term-Python-Package-Index-PyPI"><span class="xref std std-term">PyPI</span></a> ）</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--20-input--1" name="tab-set--20" type="radio"><label class="tab-label" for="tab-set--20-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --no-index --find-links<span class="o">=</span>file:///local/dir/ SomeProject
-python3 -m pip install --no-index --find-links<span class="o">=</span>/local/dir/ SomeProject
-python3 -m pip install --no-index --find-links<span class="o">=</span>relative/dir/ SomeProject
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-index<span class="w"> </span>--find-links<span class="o">=</span>file:///local/dir/<span class="w"> </span>SomeProject
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-index<span class="w"> </span>--find-links<span class="o">=</span>/local/dir/<span class="w"> </span>SomeProject
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-index<span class="w"> </span>--find-links<span class="o">=</span>relative/dir/<span class="w"> </span>SomeProject
 </pre></div>
 </div>
 </div>
@@ -582,8 +582,8 @@ py -m pip install --no-index --find-links=relative/dir/ SomeProject
 <section id="installing-from-other-sources">
 <h2><a class="toc-backref" href="#id27">从其他来源安装</a><a class="headerlink" href="#installing-from-other-sources" title="永久链接至标题">¶</a></h2>
 <p>要从其他数据源（例如 Amazon S3 存储）安装，你可以创建一个辅助应用程序，以 <span class="target" id="index-22"></span><a class="pep reference external" href="https://peps.python.org/pep-0503/"><strong>PEP 503</strong></a> 兼容的索引格式展示数据，并使用 <code class="docutils literal notranslate"><span class="pre">--extra-index-url</span></code> 标志来指导 pip 使用该索引。</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./s3helper --port<span class="o">=</span><span class="m">7777</span>
-python -m pip install --extra-index-url http://localhost:7777 SomeProject
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./s3helper<span class="w"> </span>--port<span class="o">=</span><span class="m">7777</span>
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--extra-index-url<span class="w"> </span>http://localhost:7777<span class="w"> </span>SomeProject
 </pre></div>
 </div>
 </section>
@@ -592,7 +592,7 @@ python -m pip install --extra-index-url http://localhost:7777 SomeProject
 <p>除了稳定版本之外，还可以找到预发布版本和开发版本。默认情况下，pip 只查找稳定版本。</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--21-input--1" name="tab-set--21" type="radio"><label class="tab-label" for="tab-set--21-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --pre SomeProject
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--pre<span class="w"> </span>SomeProject
 </pre></div>
 </div>
 </div>
@@ -603,14 +603,17 @@ python -m pip install --extra-index-url http://localhost:7777 SomeProject
 </div>
 </div>
 </section>
-<section id="installing-setuptools-extras">
-<h2><a class="toc-backref" href="#id29">安装 Setuptools （”附加功能”）</a><a class="headerlink" href="#installing-setuptools-extras" title="永久链接至标题">¶</a></h2>
-<p>安装 <a class="reference external" href="https://setuptools.readthedocs.io/en/latest/userguide/dependency_management.html#optional-dependencies">setuptools 附加功能</a></p>
+<section id="installing-extras">
+<h2><a class="toc-backref" href="#id29">Installing “Extras”</a><a class="headerlink" href="#installing-extras" title="永久链接至标题">¶</a></h2>
+<p>Extras are optional “variants” of a package, which may include
+additional dependencies, and thereby enable additional functionality
+from the package.  If you wish to install an extra for a package which
+you know publishes one, you can include it in the pip installation command:</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--22-input--1" name="tab-set--22" type="radio"><label class="tab-label" for="tab-set--22-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install SomePackage<span class="o">[</span>PDF<span class="o">]</span>
-python3 -m pip install SomePackage<span class="o">[</span>PDF<span class="o">]==</span><span class="m">3</span>.0
-python3 -m pip install -e .<span class="o">[</span>PDF<span class="o">]</span>  <span class="c1"># editable project in current directory</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>SomePackage<span class="o">[</span>PDF<span class="o">]</span>
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>SomePackage<span class="o">[</span>PDF<span class="o">]==</span><span class="m">3</span>.0
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>PDF<span class="o">]</span><span class="w">  </span><span class="c1"># editable project in current directory</span>
 </pre></div>
 </div>
 </div>
@@ -650,6 +653,7 @@ py -m pip install -e .[PDF]  # editable project in current directory
 <h3><a href="../index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">教程</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">安装包</a></li>
 <li class="toctree-l2"><a class="reference internal" href="managing-dependencies.html">管理应用程序的依赖性</a></li>
@@ -737,7 +741,7 @@ py -m pip install -e .[PDF]  # editable project in current directory
 <br />
     <br />
 
-    最后更新于 2022 年 04 月 23 日.
+    最后更新于 2023 年 01 月 31 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 

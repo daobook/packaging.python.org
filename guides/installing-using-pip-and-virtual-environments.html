@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/pypa.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/overrides.css" />
     
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -59,25 +58,22 @@
 <h3><a href="../index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">指南</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Installing packages using pip and virtual environments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-stand-alone-command-line-tools.html">安装独立命令行工具</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-using-linux-tools.html">用 Linux 软件包管理器安装 pip/setuptools/wheel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-scientific-packages.html">Installing scientific packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multi-version-installs.html">多版本安装</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index-mirrors-and-caches.html">Package index mirrors and caches</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hosting-your-own-index.html">Hosting your own simple repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributing-packages-using-setuptools.html">Packaging and distributing projects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using-manifest-in.html">Including files in source distributions with <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="single-sourcing-package-version.html">Single-sourcing the package version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supporting-multiple-python-versions.html">支持多个 Python 版本</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dropping-older-python-versions.html">放弃对旧版 Python 的支持</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging-binary-extensions.html">Packaging binary extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supporting-windows-using-appveyor.html">Supporting Windows using Appveyor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging-namespace-packages.html">Packaging namespace packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="creating-and-discovering-plugins.html">创建和发现插件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating-to-pypi-org.html">迁移到 PyPI.org</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using-testpypi.html">使用 TestPyPI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="making-a-pypi-friendly-readme.html">Making a PyPI-friendly README</a></li>
 <li class="toctree-l2"><a class="reference internal" href="publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.html">Publishing package distribution releases using GitHub Actions CI/CD workflows</a></li>
@@ -179,9 +175,9 @@ want to use the Linux distribution-provided versions of pip, see
 <a class="reference internal" href="installing-using-linux-tools.html"><span class="doc">用 Linux 软件包管理器安装 pip/setuptools/wheel</span></a>.</p>
 <p>You can also install pip yourself to ensure you have the latest version. It’s
 recommended to use the system pip to bootstrap a user installation of pip:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --user --upgrade pip
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>--upgrade<span class="w"> </span>pip
 
-python3 -m pip --version
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>--version
 </pre></div>
 </div>
 <p>Afterwards, you should have the latest version of pip installed in your
@@ -209,7 +205,7 @@ py -m pip --version
 <h2>安装 virtualenv<a class="headerlink" href="#installing-virtualenv" title="永久链接至标题">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
-<p>If you are using Python 3.3 or newer, the <a class="reference external" href="https://docs.python.org/3/library/venv.html#module-venv" title="(在 Python v3.10)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> module is
+<p>If you are using Python 3.3 or newer, the <a class="reference external" href="https://docs.python.org/3/library/venv.html#module-venv" title="(在 Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">venv</span></code></a> module is
 the preferred way to create and manage virtual environments.
 venv is included in the Python standard library and requires no additional installation.
 If you are using venv, you may skip this section.</p>
@@ -220,7 +216,7 @@ which could break system tools or other projects. You can install virtualenv
 using pip.</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--1-input--1" name="tab-set--1" type="radio"><label class="tab-label" for="tab-set--1-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --user virtualenv
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>virtualenv
 </pre></div>
 </div>
 </div>
@@ -244,7 +240,7 @@ applications.</p>
 <p>要创建一个虚拟环境，进入您的项目目录并运行 venv 。如果您正在使用 Python2，在下面的命令中把 <code class="docutils literal notranslate"><span class="pre">venv</span></code> 改为 <code class="docutils literal notranslate"><span class="pre">virtualenv</span></code> 。</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--2-input--1" name="tab-set--2" type="radio"><label class="tab-label" for="tab-set--2-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m venv env
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>env
 </pre></div>
 </div>
 </div>
@@ -266,7 +262,7 @@ applications.</p>
 <p>在您开始安装或使用虚拟环境中的软件包之前，你需要 <em>激活</em> 它。激活虚拟环境将把虚拟环境专用的 <code class="docutils literal notranslate"><span class="pre">python</span></code> 和 <code class="docutils literal notranslate"><span class="pre">pip</span></code> 可执行文件放入你的 shell 的 <code class="docutils literal notranslate"><span class="pre">PATH</span></code> 。</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--3-input--1" name="tab-set--3" type="radio"><label class="tab-label" for="tab-set--3-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> env/bin/activate
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>env/bin/activate
 </pre></div>
 </div>
 </div>
@@ -280,7 +276,7 @@ applications.</p>
 Python interpreter:</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--4-input--1" name="tab-set--4" type="radio"><label class="tab-label" for="tab-set--4-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>which python
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>which<span class="w"> </span>python
 </pre></div>
 </div>
 </div>
@@ -319,7 +315,7 @@ about activating a virtual environment. There’s no need to re-create the virtu
 <p>现在您在您的虚拟环境中，您可以安装软件包。让我们从 <a class="reference internal" href="../glossary.html#term-Python-Package-Index-PyPI"><span class="xref std std-term">Python Package Index (PyPI)</span></a> 中安装 <a class="reference external" href="https://pypi.org/project/requests/">Requests</a> 库：</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--6-input--1" name="tab-set--6" type="radio"><label class="tab-label" for="tab-set--6-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install requests
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>requests
 </pre></div>
 </div>
 </div>
@@ -350,7 +346,7 @@ Successfully installed certifi-2017.7.27.1 chardet-3.0.4 idna-2.6 requests-2.18.
 <p>pip 允许您使用 <a class="reference internal" href="../glossary.html#term-Version-Specifier"><span class="xref std std-term">版本说明符</span></a> 来指定安装哪个版本的软件包。例如，要安装一个特定版本的 <code class="docutils literal notranslate"><span class="pre">requests</span></code>：</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--7-input--1" name="tab-set--7" type="radio"><label class="tab-label" for="tab-set--7-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install <span class="nv">requests</span><span class="o">==</span><span class="m">2</span>.18.4
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">requests</span><span class="o">==</span><span class="m">2</span>.18.4
 </pre></div>
 </div>
 </div>
@@ -363,7 +359,7 @@ Successfully installed certifi-2017.7.27.1 chardet-3.0.4 idna-2.6 requests-2.18.
 <p>要安装最新的 <code class="docutils literal notranslate"><span class="pre">2.x</span></code> 版本的 requests：</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--8-input--1" name="tab-set--8" type="radio"><label class="tab-label" for="tab-set--8-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install requests&gt;<span class="o">=</span><span class="m">2</span>.0.0,&lt;<span class="m">3</span>.0.0
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>requests&gt;<span class="o">=</span><span class="m">2</span>.0.0,&lt;<span class="m">3</span>.0.0
 </pre></div>
 </div>
 </div>
@@ -376,7 +372,7 @@ Successfully installed certifi-2017.7.27.1 chardet-3.0.4 idna-2.6 requests-2.18.
 <p>要安装预发布（pre-release）版本的软件包，请使用 <code class="docutils literal notranslate"><span class="pre">--pre</span></code> 标志：</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--9-input--1" name="tab-set--9" type="radio"><label class="tab-label" for="tab-set--9-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --pre requests
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--pre<span class="w"> </span>requests
 </pre></div>
 </div>
 </div>
@@ -392,7 +388,7 @@ Successfully installed certifi-2017.7.27.1 chardet-3.0.4 idna-2.6 requests-2.18.
 <p>有些软件包有可选的 <a class="reference external" href="https://setuptools.readthedocs.io/en/latest/userguide/dependency_management.html#optional-dependencies">额外功能</a> 。你可以通过在括号中指定额外的东西来告诉 pip 安装这些东西：</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--10-input--1" name="tab-set--10" type="radio"><label class="tab-label" for="tab-set--10-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install requests<span class="o">[</span>security<span class="o">]</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>requests<span class="o">[</span>security<span class="o">]</span>
 </pre></div>
 </div>
 </div>
@@ -408,8 +404,8 @@ Successfully installed certifi-2017.7.27.1 chardet-3.0.4 idna-2.6 requests-2.18.
 <p>pip 可以直接从源代码安装一个软件包，例如：</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--11-input--1" name="tab-set--11" type="radio"><label class="tab-label" for="tab-set--11-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> google-auth
-python3 -m pip install .
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>google-auth
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>.
 </pre></div>
 </div>
 </div>
@@ -421,12 +417,12 @@ py -m pip install .
 </div>
 </div>
 <p>Additionally, pip can install packages from source in
-<a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/development_mode.html" title="(在 setuptools v62.1.0.post20220422)"><span class="xref std std-doc">development mode</span></a>,
+<a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/development_mode.html" title="(在 setuptools v67.0.0.post20230128)"><span class="xref std std-doc">development mode</span></a>,
 meaning that changes to the source directory will immediately affect the
 installed package without needing to re-install:</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--12-input--1" name="tab-set--12" type="radio"><label class="tab-label" for="tab-set--12-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --editable .
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--editable<span class="w"> </span>.
 </pre></div>
 </div>
 </div>
@@ -443,7 +439,7 @@ installed package without needing to re-install:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git+https://github.com/GoogleCloudPlatform/google-auth-library-python.git#egg<span class="o">=</span>google-auth
 </pre></div>
 </div>
-<p>关于支持的版本控制系统和语法的更多信息，请参见 pip 的文档：<a class="reference external" href="https://pip.pypa.io/en/latest/cli/pip_install/#vcs-support" title="(在 pip v22.1)"><span class="xref std std-ref">VCS Support</span></a> 。</p>
+<p>关于支持的版本控制系统和语法的更多信息，请参见 pip 的文档：<a class="reference external" href="https://pip.pypa.io/en/latest/topics/vcs-support/#vcs-support" title="(在 pip v23.1)"><span class="xref std std-ref">VCS Support</span></a> 。</p>
 </section>
 <section id="installing-from-local-archives">
 <h2>从本地档案库安装<a class="headerlink" href="#installing-from-local-archives" title="永久链接至标题">¶</a></h2>
@@ -451,7 +447,7 @@ installed package without needing to re-install:</p>
 wheel, or tar file) you can install it directly with pip:</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--13-input--1" name="tab-set--13" type="radio"><label class="tab-label" for="tab-set--13-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install requests-2.18.4.tar.gz
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>requests-2.18.4.tar.gz
 </pre></div>
 </div>
 </div>
@@ -466,7 +462,7 @@ pip to look for packages there and not to use the
 <a class="reference internal" href="../glossary.html#term-Python-Package-Index-PyPI"><span class="xref std std-term">Python Package Index (PyPI)</span></a> at all:</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--14-input--1" name="tab-set--14" type="radio"><label class="tab-label" for="tab-set--14-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --no-index --find-links<span class="o">=</span>/local/dir/ requests
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-index<span class="w"> </span>--find-links<span class="o">=</span>/local/dir/<span class="w"> </span>requests
 </pre></div>
 </div>
 </div>
@@ -485,7 +481,7 @@ packages.</p>
 <p>如果您想从不同的索引下载软件包，而不是 <a class="reference internal" href="../glossary.html#term-Python-Package-Index-PyPI"><span class="xref std std-term">Python 包索引（PyPI）</span></a> ，您可以使用 <code class="docutils literal notranslate"><span class="pre">--index-url</span></code> 标志：</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--15-input--1" name="tab-set--15" type="radio"><label class="tab-label" for="tab-set--15-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --index-url http://index.example.com/simple/ SomeProject
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--index-url<span class="w"> </span>http://index.example.com/simple/<span class="w"> </span>SomeProject
 </pre></div>
 </div>
 </div>
@@ -499,7 +495,7 @@ packages.</p>
 and a separate index, you can use the <code class="docutils literal notranslate"><span class="pre">--extra-index-url</span></code> flag instead:</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--16-input--1" name="tab-set--16" type="radio"><label class="tab-label" for="tab-set--16-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --extra-index-url http://index.example.com/simple/ SomeProject
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--extra-index-url<span class="w"> </span>http://index.example.com/simple/<span class="w"> </span>SomeProject
 </pre></div>
 </div>
 </div>
@@ -516,7 +512,7 @@ and a separate index, you can use the <code class="docutils literal notranslate"
 install the latest version of <code class="docutils literal notranslate"><span class="pre">requests</span></code> and all of its dependencies:</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--17-input--1" name="tab-set--17" type="radio"><label class="tab-label" for="tab-set--17-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --upgrade requests
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>requests
 </pre></div>
 </div>
 </div>
@@ -530,7 +526,7 @@ install the latest version of <code class="docutils literal notranslate"><span c
 <section id="using-requirements-files">
 <h2>Using requirements files<a class="headerlink" href="#using-requirements-files" title="永久链接至标题">¶</a></h2>
 <p>Instead of installing packages individually, pip allows you to declare all
-dependencies in a <a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#requirements-files" title="(在 pip v22.1)"><span class="xref std std-ref">Requirements File</span></a>. For
+dependencies in a <a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#requirements-files" title="(在 pip v23.1)"><span class="xref std std-ref">Requirements File</span></a>. For
 example you could create a <code class="file docutils literal notranslate"><span class="pre">requirements.txt</span></code> file containing:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>requests==2.18.4
 google-auth==1.1.0
@@ -539,7 +535,7 @@ google-auth==1.1.0
 <p>And tell pip to install all of the packages in this file using the <code class="docutils literal notranslate"><span class="pre">-r</span></code> flag:</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--18-input--1" name="tab-set--18" type="radio"><label class="tab-label" for="tab-set--18-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install -r requirements.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </pre></div>
 </div>
 </div>
@@ -556,7 +552,7 @@ google-auth==1.1.0
 <code class="docutils literal notranslate"><span class="pre">freeze</span></code> command:</p>
 <div class="tab-set docutils container">
 <input checked="True" class="tab-input" id="tab-set--19-input--1" name="tab-set--19" type="radio"><label class="tab-label" for="tab-set--19-input--1">Unix/macOS</label><div class="tab-content docutils container">
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip freeze
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>freeze
 </pre></div>
 </div>
 </div>
@@ -580,7 +576,7 @@ six==1.11.0
 urllib3==1.22
 </pre></div>
 </div>
-<p>This is useful for creating <a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#requirements-files" title="(在 pip v22.1)"><span>Requirements Files</span></a> that can re-create
+<p>This is useful for creating <a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#requirements-files" title="(在 pip v23.1)"><span>Requirements Files</span></a> that can re-create
 the exact versions of all packages installed in an environment.</p>
 </section>
 </section>
@@ -595,25 +591,22 @@ the exact versions of all packages installed in an environment.</p>
 <h3><a href="../index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">指南</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Installing packages using pip and virtual environments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-stand-alone-command-line-tools.html">安装独立命令行工具</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-using-linux-tools.html">用 Linux 软件包管理器安装 pip/setuptools/wheel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing-scientific-packages.html">Installing scientific packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multi-version-installs.html">多版本安装</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index-mirrors-and-caches.html">Package index mirrors and caches</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hosting-your-own-index.html">Hosting your own simple repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="distributing-packages-using-setuptools.html">Packaging and distributing projects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using-manifest-in.html">Including files in source distributions with <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="single-sourcing-package-version.html">Single-sourcing the package version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supporting-multiple-python-versions.html">支持多个 Python 版本</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dropping-older-python-versions.html">放弃对旧版 Python 的支持</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging-binary-extensions.html">Packaging binary extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supporting-windows-using-appveyor.html">Supporting Windows using Appveyor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging-namespace-packages.html">Packaging namespace packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="creating-and-discovering-plugins.html">创建和发现插件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating-to-pypi-org.html">迁移到 PyPI.org</a></li>
 <li class="toctree-l2"><a class="reference internal" href="using-testpypi.html">使用 TestPyPI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="making-a-pypi-friendly-readme.html">Making a PyPI-friendly README</a></li>
 <li class="toctree-l2"><a class="reference internal" href="publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.html">Publishing package distribution releases using GitHub Actions CI/CD workflows</a></li>
@@ -700,7 +693,7 @@ the exact versions of all packages installed in an environment.</p>
 <br />
     <br />
 
-    最后更新于 2022 年 04 月 23 日.
+    最后更新于 2023 年 01 月 31 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 

@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/pypa.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/overrides.css" />
     
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -28,7 +27,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
     <link rel="next" title="版本说明符" href="version-specifiers.html" />
-    <link rel="prev" title="PyPA specifications" href="index.html" /><link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+    <link rel="prev" title="Package name normalization" href="name-normalization.html" /><link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
             <script type="text/javascript" src="../_static/copybutton.js"></script>
             <script type="text/javascript" src="../_static/menu.js"></script> 
   </head>
@@ -59,6 +58,7 @@
 <h3><a href="../index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../discussions/index.html">讨论</a></li>
@@ -77,8 +77,8 @@
 
   <div>
     <h4>上一个主题</h4>
-    <p class="topless"><a href="index.html"
-                          title="上一章">PyPA specifications</a></p>
+    <p class="topless"><a href="name-normalization.html"
+                          title="上一章">Package name normalization</a></p>
   </div>
   <div>
     <h4>下一个主题</h4>
@@ -99,7 +99,7 @@
           <a href="version-specifiers.html" title="版本说明符"
              accesskey="N">下一页</a> |</li>
         <li class="right" >
-          <a href="index.html" title="PyPA specifications"
+          <a href="name-normalization.html" title="Package name normalization"
              accesskey="P">上一页</a> |</li>
           <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
           <li><a href="https://pypa.io">PyPA</a> &#187;</li>
@@ -150,8 +150,8 @@ complete and not subject to change. The required fields are:</p>
 However, email formats have been revised several times, and exactly which email
 RFC applies to packaging metadata is not specified. In the absence of a precise
 definition, the practical standard is set by what the standard library
-<a class="reference external" href="https://docs.python.org/3/library/email.parser.html#module-email.parser" title="(在 Python v3.10)"><code class="docutils literal notranslate"><span class="pre">email.parser</span></code></a> module can parse using the
-<a class="reference external" href="https://docs.python.org/3/library/email.policy.html#email.policy.compat32" title="(在 Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">compat32</span></code></a> policy.</p>
+<a class="reference external" href="https://docs.python.org/3/library/email.parser.html#module-email.parser" title="(在 Python v3.11)"><code class="docutils literal notranslate"><span class="pre">email.parser</span></code></a> module can parse using the
+<a class="reference external" href="https://docs.python.org/3/library/email.policy.html#email.policy.compat32" title="(在 Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">compat32</span></code></a> policy.</p>
 <p>Whenever metadata is serialised to a byte stream (for example, to save
 to a file), strings must be serialised using the UTF-8 encoding.</p>
 <p>Although <span class="target" id="index-0"></span><a class="pep reference external" href="https://peps.python.org/pep-0566/"><strong>PEP 566</strong></a> defined a way to transform metadata into a JSON-compatible
@@ -241,13 +241,7 @@ regex (run with <code class="docutils literal notranslate"><span class="pre">re.
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span><span class="p">:</span> <span class="n">BeagleVote</span>
 </pre></div>
 </div>
-<p>To normalize a distribution name for comparison purposes, it should be
-lowercased with all runs of the characters <code class="docutils literal notranslate"><span class="pre">.</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, or <code class="docutils literal notranslate"><span class="pre">_</span></code> replaced with
-a single <code class="docutils literal notranslate"><span class="pre">-</span></code> character. This can be done using the following snippet of code
-(as specified in <span class="target" id="index-4"></span><a class="pep reference external" href="https://peps.python.org/pep-0503/"><strong>PEP 503</strong></a>):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[-_.]+&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-</pre></div>
-</div>
+<p>For comparison purposes, the names should be <a class="reference internal" href="name-normalization.html#name-normalization"><span class="std std-ref">normalized</span></a> before comparing.</p>
 </section>
 <section id="version">
 <span id="core-metadata-version"></span><h2><a class="toc-backref" href="#id7">版本</a><a class="headerlink" href="#version" title="永久链接至标题">¶</a></h2>
@@ -255,14 +249,14 @@ a single <code class="docutils literal notranslate"><span class="pre">-</span></
 <p><span class="versionmodified added">1.0 新版功能.</span></p>
 </div>
 <p>A string containing the distribution’s version number.  This
-field  must be in the format specified in <span class="target" id="index-5"></span><a class="pep reference external" href="https://peps.python.org/pep-0440/"><strong>PEP 440</strong></a>.</p>
+field  must be in the format specified in <span class="target" id="index-4"></span><a class="pep reference external" href="https://peps.python.org/pep-0440/"><strong>PEP 440</strong></a>.</p>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Version</span><span class="p">:</span> <span class="mf">1.0</span><span class="n">a2</span>
 </pre></div>
 </div>
 </section>
 <section id="dynamic-multiple-use">
-<h2><a class="toc-backref" href="#id8">Dynamic (multiple use)</a><a class="headerlink" href="#dynamic-multiple-use" title="永久链接至标题">¶</a></h2>
+<span id="core-metadata-dynamic"></span><h2><a class="toc-backref" href="#id8">Dynamic (multiple use)</a><a class="headerlink" href="#dynamic-multiple-use" title="永久链接至标题">¶</a></h2>
 <div class="versionadded">
 <p><span class="versionmodified added">2.2 新版功能.</span></p>
 </div>
@@ -286,7 +280,7 @@ restrictions on the metadata of wheels built from the sdist).</p>
 only, and indicates that the field value was calculated at wheel build time,
 and may not be the same as the value in the sdist or in other wheels for the
 project.</p>
-<p>Full details of the semantics of <code class="docutils literal notranslate"><span class="pre">Dynamic</span></code> are described in <span class="target" id="index-6"></span><a class="pep reference external" href="https://peps.python.org/pep-0643/"><strong>PEP 643</strong></a>.</p>
+<p>Full details of the semantics of <code class="docutils literal notranslate"><span class="pre">Dynamic</span></code> are described in <span class="target" id="index-5"></span><a class="pep reference external" href="https://peps.python.org/pep-0643/"><strong>PEP 643</strong></a>.</p>
 </section>
 <section id="platform-multiple-use">
 <h2><a class="toc-backref" href="#id9">Platform (multiple use)</a><a class="headerlink" href="#platform-multiple-use" title="永久链接至标题">¶</a></h2>
@@ -378,7 +372,7 @@ description, so that tools can intelligently render the description.</p>
 <p>Historically, PyPI supported descriptions in plain text and <a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html">reStructuredText
 (reST)</a>,
 and could render reST into HTML. However, it is common for distribution
-authors to write the description in <a class="reference external" href="https://daringfireball.net/projects/markdown/">Markdown</a> (<span class="target" id="index-7"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc7763.html"><strong>RFC 7763</strong></a>) as many code hosting sites render
+authors to write the description in <a class="reference external" href="https://daringfireball.net/projects/markdown/">Markdown</a> (<span class="target" id="index-6"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc7763.html"><strong>RFC 7763</strong></a>) as many code hosting sites render
 Markdown READMEs, and authors would reuse the file for the description. PyPI
 didn’t recognize the format and so could not render the description correctly.
 This resulted in many packages on PyPI with poorly-rendered descriptions when
@@ -409,8 +403,8 @@ be <code class="docutils literal notranslate"><span class="pre">UTF-8</span></co
 specifying the variant of Markdown in use (defaults to <code class="docutils literal notranslate"><span class="pre">GFM</span></code> if not
 specified). Currently, two variants are recognized:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">GFM</span></code> for <span class="target" id="index-8"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc7764.html#section-3.2"><strong>Github-flavored Markdown</strong></a></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">CommonMark</span></code> for <span class="target" id="index-9"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc7764.html#section-3.5"><strong>CommonMark</strong></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GFM</span></code> for <span class="target" id="index-7"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc7764.html#section-3.2"><strong>Github-flavored Markdown</strong></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CommonMark</span></code> for <span class="target" id="index-8"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc7764.html#section-3.5"><strong>CommonMark</strong></a></p></li>
 </ul>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Description</span><span class="o">-</span><span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">plain</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="n">UTF</span><span class="o">-</span><span class="mi">8</span>
@@ -574,7 +568,7 @@ field, or to indicate a variation or exception to such a license.</p>
 <p><span class="versionmodified added">1.1 新版功能.</span></p>
 </div>
 <p>Each entry is a string giving a single classification value
-for the distribution.  Classifiers are described in <span class="target" id="index-10"></span><a class="pep reference external" href="https://peps.python.org/pep-0301/"><strong>PEP 301</strong></a>,
+for the distribution.  Classifiers are described in <span class="target" id="index-9"></span><a class="pep reference external" href="https://peps.python.org/pep-0301/"><strong>PEP 301</strong></a>,
 and the Python Package Index publishes a dynamic list of
 <a class="reference external" href="https://pypi.org/classifiers/">currently defined classifiers</a>.</p>
 <p>This field may be followed by an environment marker after a semicolon.</p>
@@ -609,7 +603,7 @@ parentheses.</p></li>
 <li><p>An environment marker after a semicolon. This means that the
 requirement is only needed in the specified conditions.</p></li>
 </ul>
-<p>See <span class="target" id="index-11"></span><a class="pep reference external" href="https://peps.python.org/pep-0508/"><strong>PEP 508</strong></a> for full details of the allowed format.</p>
+<p>See <span class="target" id="index-10"></span><a class="pep reference external" href="https://peps.python.org/pep-0508/"><strong>PEP 508</strong></a> for full details of the allowed format.</p>
 <p>The project names should correspond to names as found
 on the <a class="reference external" href="https://pypi.org/">Python Package Index</a>.</p>
 <p>Version specifiers must follow the rules described in
@@ -658,7 +652,7 @@ parentheses.</p>
 <p>This field may be followed by an environment marker after a semicolon.</p>
 <p>Because they refer to non-Python software releases, version numbers
 for this field are <strong>not</strong> required to conform to the format
-specified in <span class="target" id="index-12"></span><a class="pep reference external" href="https://peps.python.org/pep-0440/"><strong>PEP 440</strong></a>:  they should correspond to the
+specified in <span class="target" id="index-11"></span><a class="pep reference external" href="https://peps.python.org/pep-0440/"><strong>PEP 440</strong></a>:  they should correspond to the
 version scheme used by the external dependency.</p>
 <p>Notice that there is no particular rule on the strings to be used.</p>
 <p>例子:</p>
@@ -687,7 +681,7 @@ separated by a comma.</p>
 <p><span class="versionmodified added">2.1 新版功能.</span></p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified changed">在 2.3 版更改: </span><span class="target" id="index-13"></span><a class="pep reference external" href="https://peps.python.org/pep-0685/"><strong>PEP 685</strong></a> restricted valid values to be unambiguous (i.e. no normalization
+<p><span class="versionmodified changed">在 2.3 版更改: </span><span class="target" id="index-12"></span><a class="pep reference external" href="https://peps.python.org/pep-0685/"><strong>PEP 685</strong></a> restricted valid values to be unambiguous (i.e. no normalization
 required). For older metadata versions, value restrictions were brought into
 line with <code class="docutils literal notranslate"><span class="pre">Name:</span></code> and normalization rules were introduced.</p>
 </div>
@@ -695,7 +689,7 @@ line with <code class="docutils literal notranslate"><span class="pre">Name:</sp
 of lowercase ASCII letters, ASCII numbers, and hyphen. It must start and end
 with a letter or number. Hyphens cannot be followed by another hyphen. Names are
 limited to those which match the following regex (which guarantees unambiguity):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>^([a-z0-9]|[a-z0-9]([a-z0-9-](?!-))*[a-z0-9])$
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>^([a-z0-9]|[a-z0-9]([a-z0-9-](?!--))*[a-z0-9])$
 </pre></div>
 </div>
 <p>The specified name may be used to make a dependency conditional on whether the
@@ -813,7 +807,7 @@ removed.</p>
 <dl class="footnote brackets">
 <dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
 <dd><p>RFC 822 Long Header Fields:
-<span class="target" id="index-14"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc822.html#section-3.1.1"><strong>RFC 822#section-3.1.1</strong></a></p>
+<span class="target" id="index-13"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc822.html#section-3.1.1"><strong>RFC 822#section-3.1.1</strong></a></p>
 </dd>
 </dl>
 </section>
@@ -830,6 +824,7 @@ removed.</p>
 <h3><a href="../index.html">目录</a></h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../discussions/index.html">讨论</a></li>
@@ -848,8 +843,8 @@ removed.</p>
 
   <div>
     <h4>上一个主题</h4>
-    <p class="topless"><a href="index.html"
-                          title="上一章">PyPA specifications</a></p>
+    <p class="topless"><a href="name-normalization.html"
+                          title="上一章">Package name normalization</a></p>
   </div>
   <div>
     <h4>下一个主题</h4>
@@ -870,7 +865,7 @@ removed.</p>
           <a href="version-specifiers.html" title="版本说明符"
              >下一页</a> |</li>
         <li class="right" >
-          <a href="index.html" title="PyPA specifications"
+          <a href="name-normalization.html" title="Package name normalization"
              >上一页</a> |</li>
           <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
           <li><a href="https://pypa.io">PyPA</a> &#187;</li>
@@ -916,7 +911,7 @@ removed.</p>
 <br />
     <br />
 
-    最后更新于 2022 年 04 月 23 日.
+    最后更新于 2023 年 01 月 31 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 

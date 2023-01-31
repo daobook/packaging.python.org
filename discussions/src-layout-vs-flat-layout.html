@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>src layout vs flat layout &#8212; Python Packaging User Guide</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pypa.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/tabs.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    
+    <script src="../_static/sidebar.js"></script>
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="PyPA specifications" href="../specifications/index.html" />
+    <link rel="prev" title="Wheel 与 Egg" href="wheel-vs-egg.html" /><link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://pypa.io" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="快速搜索"/>
+            <input type="submit" value="转向"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+<h3><a href="../index.html">目录</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">讨论</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="deploying-python-applications.html">部署 Python 应用程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pip-vs-easy-install.html">pip 与 easy_install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-requires-vs-requirements.html">install_requires 与 requirements files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wheel-vs-egg.html">Wheel 与 Egg</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">src layout vs flat layout</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../specifications/index.html">PyPA specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../key_projects.html">项目摘要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">术语表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">如何获得支持</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">为本指南做出贡献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
+</ul>
+
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="wheel-vs-egg.html"
+                          title="上一章">Wheel 与 Egg</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="../specifications/index.html"
+                          title="下一章">PyPA specifications</a></p>
+  </div>
+        </nav>
+    </div>
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../specifications/index.html" title="PyPA specifications"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="wheel-vs-egg.html" title="Wheel 与 Egg"
+             accesskey="P">上一页</a> |</li>
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="../index.html">Python Packaging User Guide</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">讨论</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">src layout vs flat layout</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" aria-label="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="src-layout-vs-flat-layout">
+<h1>src layout vs flat layout<a class="headerlink" href="#src-layout-vs-flat-layout" title="永久链接至标题">¶</a></h1>
+<p>The “flat layout” refers to organising a project’s files in a folder or
+repository, such that the various configuration files and
+<a class="reference internal" href="../glossary.html#term-Import-Package"><span class="xref std std-term">import packages</span></a> are all in the top-level directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.
+├── README.md
+├── noxfile.py
+├── pyproject.toml
+├── setup.py
+├── awesome_package/
+│   ├── __init__.py
+│   └── module.py
+└── tools/
+    ├── generate_awesomeness.py
+    └── decrease_world_suck.py
+</pre></div>
+</div>
+<p>The “src layout” deviates from the flat layout by moving the code that is
+intended to be importable (i.e. <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">awesome_package</span></code>, also known as
+<a class="reference internal" href="../glossary.html#term-Import-Package"><span class="xref std std-term">import packages</span></a>) into a subdirectory. This
+subdirectory is typically named <code class="docutils literal notranslate"><span class="pre">src/</span></code>, hence “src layout”.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.
+├── README.md
+├── noxfile.py
+├── pyproject.toml
+├── setup.py
+├── src/
+│    └── awesome_package/
+│       ├── __init__.py
+│       └── module.py
+└── tools/
+    ├── generate_awesomeness.py
+    └── decrease_world_suck.py
+</pre></div>
+</div>
+<p>Here’s a breakdown of the important behaviour differences between the src
+layout and the flat layout:</p>
+<ul>
+<li><p>The src layout requires installation of the project to be able to run its
+code, and the flat layout does not.</p>
+<p>This means that the src layout involves an additional step in the
+development workflow of a project (typically, an
+<a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/development_mode.html" title="(在 setuptools v67.0.0.post20230128)"><span class="xref std std-doc">editable installation</span></a>
+is used for development and a regular installation is used for testing).</p>
+</li>
+<li><p>The src layout helps prevent accidental usage of the in-development copy of
+the code.</p>
+<p>This is relevant since the Python interpreter includes the current working
+directory as the first item on the import path. This means that if an import
+package exists in the current working directory with the same name as an
+installed import package, the variant from the current working directory will
+be used. This can lead to subtle  misconfiguration of the project’s packaging
+tooling, which could result in files not being included in a distribution.</p>
+<p>The src layout helps avoid this by keeping import packages in a directory
+separate from the root directory of the project, ensuring that the installed
+copy is used.</p>
+</li>
+<li><p>The src layout helps enforce that an
+<a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/development_mode.html" title="(在 setuptools v67.0.0.post20230128)"><span class="xref std std-doc">editable installation</span></a> is only
+able to import files that were meant to be importable.</p>
+<p>This is especially relevant when the editable installation is implemented
+using a <a class="reference external" href="https://docs.python.org/3/library/site.html#index-2">path configuration file</a>
+that adds the directory to the import path.</p>
+<p>The flat layout would add the other project files (eg: <code class="docutils literal notranslate"><span class="pre">README.md</span></code>,
+<code class="docutils literal notranslate"><span class="pre">tox.ini</span></code>) and packaging/tooling configuration files (eg: <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>,
+<code class="docutils literal notranslate"><span class="pre">noxfile.py</span></code>) on the import path. This would make certain imports work
+in editable installations but not regular installations.</p>
+</li>
+</ul>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">目录</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">指南</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">讨论</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="deploying-python-applications.html">部署 Python 应用程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pip-vs-easy-install.html">pip 与 easy_install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install-requires-vs-requirements.html">install_requires 与 requirements files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wheel-vs-egg.html">Wheel 与 Egg</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">src layout vs flat layout</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../specifications/index.html">PyPA specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../key_projects.html">项目摘要</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">术语表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">如何获得支持</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">为本指南做出贡献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
+</ul>
+
+  <div>
+    <h4>上一个主题</h4>
+    <p class="topless"><a href="wheel-vs-egg.html"
+                          title="上一章">Wheel 与 Egg</a></p>
+  </div>
+  <div>
+    <h4>下一个主题</h4>
+    <p class="topless"><a href="../specifications/index.html"
+                          title="下一章">PyPA specifications</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../specifications/index.html" title="PyPA specifications"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="wheel-vs-egg.html" title="Wheel 与 Egg"
+             >上一页</a> |</li>
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://pypa.io">PyPA</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+              <a href="../index.html">Python Packaging User Guide</a> &#187;
+              
+          </li>
+          <li class="nav-item nav-item-1"><a href="index.html" >讨论</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">src layout vs flat layout</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" aria-label="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; 版权所有 2013–2020, PyPA.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最后更新于 2023 年 01 月 31 日.
+    <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
+    <br />
+
+    由 <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0创建。
+    </div>
+
+  </body>
+</html>

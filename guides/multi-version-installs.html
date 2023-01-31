@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/pypa.css" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/overrides.css" />
     
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -26,9 +25,7 @@
     <script src="../_static/sidebar.js"></script>
     
     <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="Package index mirrors and caches" href="index-mirrors-and-caches.html" />
-    <link rel="prev" title="Installing scientific packages" href="installing-scientific-packages.html" /><link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+    <link rel="search" title="搜索" href="../search.html" /><link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
             <script type="text/javascript" src="../_static/copybutton.js"></script>
             <script type="text/javascript" src="../_static/menu.js"></script> 
   </head>
@@ -57,34 +54,11 @@
         <nav class="menu" role="navigation" aria-label="main navigation">
             <div class="language_switcher_placeholder"></div>
 <h3><a href="../index.html">目录</a></h3>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">指南</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="installing-using-pip-and-virtual-environments.html">Installing packages using pip and virtual environments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installing-stand-alone-command-line-tools.html">安装独立命令行工具</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installing-using-linux-tools.html">用 Linux 软件包管理器安装 pip/setuptools/wheel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installing-scientific-packages.html">Installing scientific packages</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">多版本安装</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index-mirrors-and-caches.html">Package index mirrors and caches</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hosting-your-own-index.html">Hosting your own simple repository</a></li>
-<li class="toctree-l2"><a class="reference internal" href="distributing-packages-using-setuptools.html">Packaging and distributing projects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="using-manifest-in.html">Including files in source distributions with <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="single-sourcing-package-version.html">Single-sourcing the package version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supporting-multiple-python-versions.html">支持多个 Python 版本</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dropping-older-python-versions.html">放弃对旧版 Python 的支持</a></li>
-<li class="toctree-l2"><a class="reference internal" href="packaging-binary-extensions.html">Packaging binary extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supporting-windows-using-appveyor.html">Supporting Windows using Appveyor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="packaging-namespace-packages.html">Packaging namespace packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="creating-and-discovering-plugins.html">创建和发现插件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating-to-pypi-org.html">迁移到 PyPI.org</a></li>
-<li class="toctree-l2"><a class="reference internal" href="using-testpypi.html">使用 TestPyPI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="making-a-pypi-friendly-readme.html">Making a PyPI-friendly README</a></li>
-<li class="toctree-l2"><a class="reference internal" href="publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.html">Publishing package distribution releases using GitHub Actions CI/CD workflows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tool-recommendations.html">Tool recommendations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="analyzing-pypi-package-downloads.html">分析 PyPI 软件包的下载情况</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../discussions/index.html">讨论</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../specifications/index.html">PyPA specifications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../key_projects.html">项目摘要</a></li>
@@ -94,16 +68,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <div>
-    <h4>上一个主题</h4>
-    <p class="topless"><a href="installing-scientific-packages.html"
-                          title="上一章">Installing scientific packages</a></p>
-  </div>
-  <div>
-    <h4>下一个主题</h4>
-    <p class="topless"><a href="index-mirrors-and-caches.html"
-                          title="下一章">Package index mirrors and caches</a></p>
-  </div>
         </nav>
     </div>
 </div>
@@ -114,12 +78,6 @@
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="总目录"
              accesskey="I">索引</a></li>
-        <li class="right" >
-          <a href="index-mirrors-and-caches.html" title="Package index mirrors and caches"
-             accesskey="N">下一页</a> |</li>
-        <li class="right" >
-          <a href="installing-scientific-packages.html" title="Installing scientific packages"
-             accesskey="P">上一页</a> |</li>
           <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
           <li><a href="https://pypa.io">PyPA</a> &#187;</li>
           <li class="switchers">
@@ -131,7 +89,6 @@
               <a href="../index.html">Python Packaging User Guide</a> &#187;
               
           </li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">指南</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">多版本安装</a></li>
                 <li class="right">
                     
@@ -157,6 +114,11 @@
             
   <section id="multi-version-installs">
 <span id="id1"></span><h1>多版本安装<a class="headerlink" href="#multi-version-installs" title="永久链接至标题">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">页面状态</dt>
+<dd class="field-odd"><p>Obsolete</p>
+</dd>
+</dl>
 <p>easy_install allows simultaneous installation of different versions of the same
 project into a single environment shared by multiple programs which must
 <code class="docutils literal notranslate"><span class="pre">require</span></code> the appropriate version of the project at run time (using
@@ -194,34 +156,11 @@ main entry point directly.</p>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
 <h3><a href="../index.html">目录</a></h3>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Python 包装的概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../flow.html">The Packaging Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">教程</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">指南</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="installing-using-pip-and-virtual-environments.html">Installing packages using pip and virtual environments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installing-stand-alone-command-line-tools.html">安装独立命令行工具</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installing-using-linux-tools.html">用 Linux 软件包管理器安装 pip/setuptools/wheel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installing-scientific-packages.html">Installing scientific packages</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">多版本安装</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index-mirrors-and-caches.html">Package index mirrors and caches</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hosting-your-own-index.html">Hosting your own simple repository</a></li>
-<li class="toctree-l2"><a class="reference internal" href="distributing-packages-using-setuptools.html">Packaging and distributing projects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="using-manifest-in.html">Including files in source distributions with <code class="docutils literal notranslate"><span class="pre">MANIFEST.in</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="single-sourcing-package-version.html">Single-sourcing the package version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supporting-multiple-python-versions.html">支持多个 Python 版本</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dropping-older-python-versions.html">放弃对旧版 Python 的支持</a></li>
-<li class="toctree-l2"><a class="reference internal" href="packaging-binary-extensions.html">Packaging binary extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="supporting-windows-using-appveyor.html">Supporting Windows using Appveyor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="packaging-namespace-packages.html">Packaging namespace packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="creating-and-discovering-plugins.html">创建和发现插件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrating-to-pypi-org.html">迁移到 PyPI.org</a></li>
-<li class="toctree-l2"><a class="reference internal" href="using-testpypi.html">使用 TestPyPI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="making-a-pypi-friendly-readme.html">Making a PyPI-friendly README</a></li>
-<li class="toctree-l2"><a class="reference internal" href="publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.html">Publishing package distribution releases using GitHub Actions CI/CD workflows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tool-recommendations.html">Tool recommendations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="analyzing-pypi-package-downloads.html">分析 PyPI 软件包的下载情况</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">指南</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../discussions/index.html">讨论</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../specifications/index.html">PyPA specifications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../key_projects.html">项目摘要</a></li>
@@ -231,16 +170,6 @@ main entry point directly.</p>
 <li class="toctree-l1"><a class="reference internal" href="../news.html">新闻</a></li>
 </ul>
 
-  <div>
-    <h4>上一个主题</h4>
-    <p class="topless"><a href="installing-scientific-packages.html"
-                          title="上一章">Installing scientific packages</a></p>
-  </div>
-  <div>
-    <h4>下一个主题</h4>
-    <p class="topless"><a href="index-mirrors-and-caches.html"
-                          title="下一章">Package index mirrors and caches</a></p>
-  </div>
         </div>
       </div>
       <div class="clearer"></div>
@@ -251,12 +180,6 @@ main entry point directly.</p>
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="总目录"
              >索引</a></li>
-        <li class="right" >
-          <a href="index-mirrors-and-caches.html" title="Package index mirrors and caches"
-             >下一页</a> |</li>
-        <li class="right" >
-          <a href="installing-scientific-packages.html" title="Installing scientific packages"
-             >上一页</a> |</li>
           <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
           <li><a href="https://pypa.io">PyPA</a> &#187;</li>
           <li class="switchers">
@@ -268,7 +191,6 @@ main entry point directly.</p>
               <a href="../index.html">Python Packaging User Guide</a> &#187;
               
           </li>
-          <li class="nav-item nav-item-1"><a href="index.html" >指南</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">多版本安装</a></li>
                 <li class="right">
                     
@@ -301,7 +223,7 @@ main entry point directly.</p>
 <br />
     <br />
 
-    最后更新于 2022 年 04 月 23 日.
+    最后更新于 2023 年 01 月 31 日.
     <a href="https://github.com/pypa/packaging.python.org/issues">Found a bug</a>?
     <br />
 
