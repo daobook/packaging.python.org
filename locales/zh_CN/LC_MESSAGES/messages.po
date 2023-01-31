@@ -13255,7 +13255,7 @@ msgstr ""
 
 #: ../../source/specifications/index.rst:4
 msgid "PyPA specifications"
-msgstr ""
+msgstr "PyPA 规范"
 
 #: ../../source/specifications/index.rst:6
 msgid ""
@@ -13264,22 +13264,25 @@ msgid ""
 "these standards, and for proposing new ones, is documented on `pypa.io "
 "<https://www.pypa.io/en/latest/specifications/>`__."
 msgstr ""
+"这是由 Python 打包管理局维护的当前活跃的互操作性规范列表。"
+"更新这些标准和提出新标准的过程都记录在 `pypa.io "
+"<https://www.pypa.io/en/latest/specifications/>`__ 上。"
 
 #: ../../source/specifications/index.rst:13
 msgid "Package Distribution Metadata"
-msgstr ""
+msgstr "包分发元数据"
 
 #: ../../source/specifications/index.rst:31
 msgid "Package Distribution File Formats"
-msgstr ""
+msgstr "包分发文件格式"
 
 #: ../../source/specifications/index.rst:41
 msgid "Package Index Interfaces"
-msgstr ""
+msgstr "包索引接口"
 
 #: ../../source/specifications/name-normalization.rst:5
 msgid "Package name normalization"
-msgstr ""
+msgstr "包名称规范化"
 
 #: ../../source/specifications/name-normalization.rst:7
 msgid ""
